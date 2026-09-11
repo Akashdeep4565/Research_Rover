@@ -3082,3 +3082,183 @@ Please retry in 21.294078376s. [links {
 2026-06-04 02:03:39,923 - research_rover - INFO - DataFrame shape: (100, 19)
 2026-06-04 02:03:39,933 - research_rover - INFO - CSV saved to ../data\screen_time.csv
 2026-06-04 02:03:39,935 - research_rover - INFO - Paper processing: 100 -> 100 papers
+2026-09-11 17:03:25,317 - research_rover - INFO - Starting Research Rover API...
+2026-09-11 17:03:25,351 - research_rover - INFO - Research Rover API started successfully
+2026-09-11 17:06:02,462 - research_rover - INFO - Starting Research Rover API...
+2026-09-11 17:06:02,506 - research_rover - INFO - Research Rover API started successfully
+2026-09-11 17:06:30,162 - research_rover - INFO - Starting search: ai,  cancer
+2026-09-11 17:06:30,172 - research_rover - INFO - Starting background search: ai,  cancer
+2026-09-11 17:06:31,012 - research_rover - INFO - PubMed search - Email: user@example.com
+2026-09-11 17:06:31,013 - research_rover - INFO - PubMed search - API key present: False
+2026-09-11 17:06:31,013 - research_rover - INFO - PubMed search - Original query: ai,  cancer
+2026-09-11 17:06:31,013 - research_rover - INFO - PubMed search - Improved query: artificial intelligence,  cancer
+2026-09-11 17:06:31,014 - research_rover - INFO - PubMed search - Max results: 100
+2026-09-11 17:06:31,014 - research_rover - INFO - PubMed search - Date range: 2026-01-01-None
+2026-09-11 17:06:31,015 - research_rover - INFO - PubMed search - Raw query mode: False
+2026-09-11 17:06:31,015 - research_rover - ERROR - PubMed API key not found in settings
+2026-09-11 17:06:34,507 - research_rover - INFO - Starting search: ai,  cancer
+2026-09-11 17:06:34,508 - research_rover - INFO - Starting background search: ai,  cancer
+2026-09-11 17:06:35,372 - research_rover - INFO - PubMed search - Email: user@example.com
+2026-09-11 17:06:35,373 - research_rover - INFO - PubMed search - API key present: False
+2026-09-11 17:06:35,374 - research_rover - INFO - PubMed search - Original query: ai,  cancer
+2026-09-11 17:06:35,375 - research_rover - INFO - PubMed search - Improved query: artificial intelligence,  cancer
+2026-09-11 17:06:35,375 - research_rover - INFO - PubMed search - Max results: 100
+2026-09-11 17:06:35,376 - research_rover - INFO - PubMed search - Date range: 2026-01-01-None
+2026-09-11 17:06:35,376 - research_rover - INFO - PubMed search - Raw query mode: False
+2026-09-11 17:06:35,376 - research_rover - ERROR - PubMed API key not found in settings
+2026-09-11 17:16:48,962 - research_rover - INFO - Shutting down Research Rover API...
+2026-09-11 17:17:53,418 - research_rover - INFO - Starting Research Rover API...
+2026-09-11 17:17:53,422 - research_rover - INFO - Research Rover API started successfully
+2026-09-11 17:18:07,822 - research_rover - INFO - Starting search: AI, cANCER
+2026-09-11 17:18:07,822 - research_rover - INFO - Starting background search: AI, cANCER
+2026-09-11 17:18:08,627 - research_rover - INFO - PubMed search - Email: your_email
+2026-09-11 17:18:08,627 - research_rover - INFO - PubMed search - API key present: True
+2026-09-11 17:18:08,627 - research_rover - INFO - PubMed search - Original query: AI, cANCER
+2026-09-11 17:18:08,627 - research_rover - INFO - PubMed search - Improved query: artificial intelligence, cANCER
+2026-09-11 17:18:08,627 - research_rover - INFO - PubMed search - Max results: 100
+2026-09-11 17:18:08,627 - research_rover - INFO - PubMed search - Date range: 2026-01-01-None
+2026-09-11 17:18:08,627 - research_rover - INFO - PubMed search - Raw query mode: False
+2026-09-11 17:18:08,627 - research_rover - INFO - Starting PubMed search for: artificial intelligence, cANCER
+2026-09-11 17:18:08,627 - research_rover - INFO - Parameters: max_results=100, start_date=2026-01-01, end_date=None, use_raw_query=False
+2026-09-11 17:18:08,627 - research_rover - INFO - Expanded query for 'artificial intelligence': 1 clause(s) -> ("artificial intelligence"[MeSH Terms] OR "artificial intelligence")
+2026-09-11 17:18:08,627 - research_rover - INFO - Expanded query for 'cANCER': 1 clause(s) -> cANCER
+2026-09-11 17:18:08,627 - research_rover - INFO - Final PubMed query: (("artificial intelligence"[MeSH Terms] OR "artificial intelligence") AND cANCER) AND 2026/01/01:3000/12/31[pdat]
+2026-09-11 17:18:08,695 - research_rover - INFO - Attempt 1: fetching up to 200 PMIDs at offset 0
+2026-09-11 17:18:08,695 - research_rover - INFO - esearch POST — retmax=200, retstart=0
+2026-09-11 17:18:10,093 - research_rover - INFO - esearch found 200 PMIDs
+2026-09-11 17:18:10,096 - research_rover - INFO - Found 200 PMIDs, retrieving details...
+2026-09-11 17:18:13,799 - research_rover - INFO - Batch 1: 50 papers (total 50)
+2026-09-11 17:18:18,000 - research_rover - INFO - Batch 2: 50 papers (total 100)
+2026-09-11 17:18:22,389 - research_rover - INFO - Batch 3: 50 papers (total 150)
+2026-09-11 17:18:26,966 - research_rover - INFO - Batch 4: 50 papers (total 200)
+2026-09-11 17:18:27,047 - research_rover - INFO - Total raw papers so far: 200
+2026-09-11 17:18:27,135 - research_rover - INFO - Date filter: 200 -> 200 papers within 2026-?
+2026-09-11 17:18:27,137 - research_rover - INFO - Final result count: 100 (target: 100)
+2026-09-11 17:18:27,737 - research_rover - INFO - Initializing MedCPT re-ranker (weights load on first use)
+2026-09-11 17:18:27,738 - research_rover - INFO - Loading MedCPT query encoder: ncbi/MedCPT-Query-Encoder
+2026-09-11 17:19:00,215 - research_rover - INFO - Loading MedCPT article encoder: ncbi/MedCPT-Article-Encoder
+2026-09-11 17:19:02,002 - research_rover - INFO - MedCPT re-ranker ready (CPU).
+2026-09-11 17:21:57,561 - research_rover - INFO - Search cancelled by user request
+2026-09-11 17:21:57,626 - research_rover - INFO - Background search task cancelled
+2026-09-11 17:22:07,278 - research_rover - INFO - Starting search: AI, cANCER
+2026-09-11 17:22:07,318 - research_rover - INFO - Starting background search: AI, cANCER
+2026-09-11 17:22:08,176 - research_rover - INFO - PubMed search - Email: your_email
+2026-09-11 17:22:08,178 - research_rover - INFO - PubMed search - API key present: True
+2026-09-11 17:22:08,180 - research_rover - INFO - PubMed search - Original query: AI, cANCER
+2026-09-11 17:22:08,182 - research_rover - INFO - PubMed search - Improved query: artificial intelligence, cANCER
+2026-09-11 17:22:08,184 - research_rover - INFO - PubMed search - Max results: 10
+2026-09-11 17:22:08,189 - research_rover - INFO - PubMed search - Date range: 2026-01-01-None
+2026-09-11 17:22:08,191 - research_rover - INFO - PubMed search - Raw query mode: False
+2026-09-11 17:22:08,228 - research_rover - INFO - Starting PubMed search for: artificial intelligence, cANCER
+2026-09-11 17:22:08,236 - research_rover - INFO - Parameters: max_results=10, start_date=2026-01-01, end_date=None, use_raw_query=False
+2026-09-11 17:22:08,242 - research_rover - INFO - Expanded query for 'artificial intelligence': 1 clause(s) -> ("artificial intelligence"[MeSH Terms] OR "artificial intelligence")
+2026-09-11 17:22:08,244 - research_rover - INFO - Expanded query for 'cANCER': 1 clause(s) -> cANCER
+2026-09-11 17:22:08,247 - research_rover - INFO - Final PubMed query: (("artificial intelligence"[MeSH Terms] OR "artificial intelligence") AND cANCER) AND 2026/01/01:3000/12/31[pdat]
+2026-09-11 17:22:08,568 - research_rover - INFO - Attempt 1: fetching up to 20 PMIDs at offset 0
+2026-09-11 17:22:08,574 - research_rover - INFO - esearch POST — retmax=20, retstart=0
+2026-09-11 17:22:10,403 - research_rover - INFO - esearch found 20 PMIDs
+2026-09-11 17:22:10,408 - research_rover - INFO - Found 20 PMIDs, retrieving details...
+2026-09-11 17:22:14,558 - research_rover - INFO - Batch 1: 20 papers (total 20)
+2026-09-11 17:22:14,725 - research_rover - INFO - Total raw papers so far: 20
+2026-09-11 17:22:14,857 - research_rover - INFO - Date filter: 20 -> 20 papers within 2026-?
+2026-09-11 17:22:14,869 - research_rover - INFO - Final result count: 10 (target: 10)
+2026-09-11 17:22:51,821 - research_rover - INFO - MedCPT re-ranked 100 candidates for query 'AI, cANCER' (top score raw=63.30)
+2026-09-11 17:22:55,728 - research_rover - INFO - MedCPT re-ranked 10 candidates for query 'AI, cANCER' (top score raw=60.60)
+2026-09-11 17:22:56,791 - research_rover - INFO - Converting 10 results to DataFrame
+2026-09-11 17:22:56,830 - research_rover - INFO - DataFrame shape: (10, 19)
+2026-09-11 17:22:57,295 - research_rover - INFO - CSV saved to ../data\AI__cANCER.csv
+2026-09-11 17:22:57,299 - research_rover - INFO - Paper processing: 10 -> 10 papers
+2026-09-11 17:23:25,921 - research_rover - INFO - Loading sentence model: all-mpnet-base-v2
+2026-09-11 17:23:25,998 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-09-11 17:23:25,998 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2026-09-11 17:23:32,872 - research_rover - INFO - Sentence model loaded successfully
+2026-09-11 17:23:33,732 - research_rover - INFO - Scraping full text for 10 URLs (concurrency=10, timeout=10s)...
+2026-09-11 17:23:34,745 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42722553/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42722553/
+2026-09-11 17:23:35,229 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42722534/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42722534/
+2026-09-11 17:23:35,713 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42723498/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42723498/
+2026-09-11 17:23:36,298 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42723375/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42723375/
+2026-09-11 17:23:36,943 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42722781/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42722781/
+2026-09-11 17:23:37,580 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42722659/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42722659/
+2026-09-11 17:23:38,218 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42722710/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42722710/
+2026-09-11 17:23:38,854 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42723042/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42723042/
+2026-09-11 17:23:39,340 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42722747/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42722747/
+2026-09-11 17:23:39,835 - research_rover - ERROR - Error extracting from https://pubmed.ncbi.nlm.nih.gov/42722477/: 403 Client Error: Forbidden for url: https://pubmed.ncbi.nlm.nih.gov/42722477/
+2026-09-11 17:24:15,695 - research_rover - INFO - Loading CSV data from ../data\AI__cANCER.csv...
+2026-09-11 17:24:15,962 - research_rover - INFO - Processing data with JSON mapping and generating embeddings...
+2026-09-11 17:24:26,028 - research_rover - WARNING - No text content available for 10.1038/s41598-026-70814-w, skipping
+2026-09-11 17:24:27,439 - research_rover - WARNING - No text content available for 10.1038/s41598-026-71098-w, skipping
+2026-09-11 17:24:28,750 - research_rover - INFO - Built FAISS index with 21 vectors (dim=768).
+2026-09-11 17:24:28,783 - research_rover - INFO - Saved 21 chunk metadata entries to ../data\AI__cANCER_paper_chunk_metadata_hdbscan.json
+2026-09-11 17:24:28,787 - research_rover - INFO - Saved DOI-mapped metadata for 8 papers to ../data\AI__cANCER_paper_data_doi_mapped_hdbscan.json
+2026-09-11 17:24:28,791 - research_rover - INFO - Embeddings created successfully for ../data\AI__cANCER.csv in 55.92 seconds
+2026-09-11 17:25:13,187 - research_rover - INFO - Analysis artifacts generated for AI__cANCER.csv: 10 papers, 38 unique keywords, 38 matrix columns
+2026-09-11 17:25:29,187 - research_rover - INFO - LLM instance created successfully
+2026-09-11 17:25:29,315 - research_rover - INFO - Decomposing query: hello
+2026-09-11 17:25:30,671 - research_rover - ERROR - Error during query decomposition: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]. Falling back to original query.
+2026-09-11 17:25:34,369 - research_rover - INFO - Retrieved 5 results for sub-query: 'hello'
+2026-09-11 17:25:34,369 - research_rover - INFO - Total unique results after deduplication: 5
+2026-09-11 17:25:34,369 - research_rover - INFO - Search results found: 5
+2026-09-11 17:25:34,374 - research_rover - INFO - Sending prompt to LLM.
+2026-09-11 17:25:34,791 - research_rover - ERROR - Error calling LLM: 400 API key not valid. Please pass a valid API key. [reason: "API_KEY_INVALID"
+domain: "googleapis.com"
+metadata {
+  key: "service"
+  value: "generativelanguage.googleapis.com"
+}
+, locale: "en-US"
+message: "API key not valid. Please pass a valid API key."
+]
+2026-09-11 17:28:58,687 - research_rover - INFO - Shutting down Research Rover API...
+2026-09-11 17:30:36,125 - research_rover - INFO - Starting Research Rover API...
+2026-09-11 17:30:36,133 - research_rover - INFO - Research Rover API started successfully
+2026-09-11 17:31:09,107 - research_rover - INFO - Loading sentence model: all-mpnet-base-v2
+2026-09-11 17:31:09,113 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-09-11 17:31:09,114 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2026-09-11 17:31:17,913 - research_rover - INFO - Sentence model loaded successfully
+2026-09-11 17:31:17,914 - research_rover - INFO - LLM instance created successfully
+2026-09-11 17:31:17,971 - research_rover - INFO - Decomposing query: hello
+2026-09-11 17:31:19,256 - research_rover - ERROR - Error during query decomposition: 404 This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.. Falling back to original query.
+2026-09-11 17:31:19,769 - research_rover - INFO - Retrieved 5 results for sub-query: 'hello'
+2026-09-11 17:31:19,770 - research_rover - INFO - Total unique results after deduplication: 5
+2026-09-11 17:31:19,770 - research_rover - INFO - Search results found: 5
+2026-09-11 17:31:19,805 - research_rover - INFO - Sending prompt to LLM.
+2026-09-11 17:31:20,369 - research_rover - ERROR - Error calling LLM: 404 This model models/gemini-2.5-flash is no longer available to new users. Please update your code to use models/gemini-3.6-flash for the latest features and improvements. We recommend you to use the Interactions API.
+2026-09-11 17:32:27,323 - research_rover - INFO - Shutting down Research Rover API...
+2026-09-11 17:32:57,327 - research_rover - INFO - Starting Research Rover API...
+2026-09-11 17:32:57,335 - research_rover - INFO - Research Rover API started successfully
+2026-09-11 17:33:37,269 - research_rover - INFO - Loading sentence model: all-mpnet-base-v2
+2026-09-11 17:33:37,274 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-09-11 17:33:37,275 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2026-09-11 17:33:44,248 - research_rover - INFO - Sentence model loaded successfully
+2026-09-11 17:33:44,249 - research_rover - INFO - LLM instance created successfully
+2026-09-11 17:33:44,253 - research_rover - INFO - Decomposing query: hello
+2026-09-11 17:33:45,352 - research_rover - ERROR - Error during query decomposition: 403 Your project has been denied access. Please contact support.. Falling back to original query.
+2026-09-11 17:33:45,640 - research_rover - INFO - Retrieved 5 results for sub-query: 'hello'
+2026-09-11 17:33:45,641 - research_rover - INFO - Total unique results after deduplication: 5
+2026-09-11 17:33:45,641 - research_rover - INFO - Search results found: 5
+2026-09-11 17:33:45,651 - research_rover - INFO - Sending prompt to LLM.
+2026-09-11 17:33:46,291 - research_rover - ERROR - Error calling LLM: 403 Your project has been denied access. Please contact support.
+2026-09-11 17:36:28,553 - research_rover - INFO - Shutting down Research Rover API...
+2026-09-11 17:36:51,008 - research_rover - INFO - Starting Research Rover API...
+2026-09-11 17:36:51,013 - research_rover - INFO - Research Rover API started successfully
+2026-09-11 17:37:06,580 - research_rover - INFO - Loading sentence model: all-mpnet-base-v2
+2026-09-11 17:37:06,585 - sentence_transformers.SentenceTransformer - INFO - Use pytorch device_name: cpu
+2026-09-11 17:37:06,586 - sentence_transformers.SentenceTransformer - INFO - Load pretrained SentenceTransformer: all-mpnet-base-v2
+2026-09-11 17:37:13,249 - research_rover - INFO - Sentence model loaded successfully
+2026-09-11 17:37:13,249 - research_rover - INFO - LLM instance created successfully
+2026-09-11 17:37:13,253 - research_rover - INFO - Decomposing query: hello
+2026-09-11 17:37:14,011 - research_rover - ERROR - Error during query decomposition: 403 Your project has been denied access. Please contact support.. Falling back to original query.
+2026-09-11 17:37:14,297 - research_rover - INFO - Retrieved 5 results for sub-query: 'hello'
+2026-09-11 17:37:14,297 - research_rover - INFO - Total unique results after deduplication: 5
+2026-09-11 17:37:14,297 - research_rover - INFO - Search results found: 5
+2026-09-11 17:37:14,309 - research_rover - INFO - Sending prompt to LLM.
+2026-09-11 17:37:14,742 - research_rover - ERROR - Error calling LLM: 403 Your project has been denied access. Please contact support.
+2026-09-11 17:47:55,565 - research_rover - INFO - Shutting down Research Rover API...

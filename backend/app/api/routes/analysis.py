@@ -18,6 +18,7 @@ from app.models.schemas import (
     SuccessResponse,
 )
 from app.services.analysis_service import AnalysisService
+from app.utils.csv_loader import CSVLoadError
 
 router = APIRouter()
 logger = logging.getLogger("research_rover")
@@ -52,6 +53,9 @@ async def generate_analysis(
         return AnalysisSummary(**result)
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
+    except (CSVLoadError, UnicodeDecodeError, ValueError) as e:
+        logger.error("Invalid CSV file for analysis %s: %s", request.filename, e)
+        raise HTTPException(status_code=400, detail=f"Invalid or unreadable CSV file: {e}")
     except Exception as e:
         logger.error("Error generating analysis for %s: %s", request.filename, e)
         raise HTTPException(status_code=500, detail="Failed to generate analysis")
@@ -76,6 +80,9 @@ async def get_analysis_summary(
         return AnalysisSummary(**result)
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
+    except (CSVLoadError, UnicodeDecodeError, ValueError) as e:
+        logger.error("Invalid CSV file for analysis %s: %s", filename, e)
+        raise HTTPException(status_code=400, detail=f"Invalid or unreadable CSV file: {e}")
     except Exception as e:
         logger.error("Error loading analysis summary for %s: %s", filename, e)
         raise HTTPException(status_code=500, detail="Failed to load analysis summary")
@@ -94,6 +101,9 @@ async def get_keyword_matrix(
         return KeywordMatrixResponse(**result)
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
+    except (CSVLoadError, UnicodeDecodeError, ValueError) as e:
+        logger.error("Invalid CSV file for keyword matrix %s: %s", filename, e)
+        raise HTTPException(status_code=400, detail=f"Invalid or unreadable CSV file: {e}")
     except Exception as e:
         logger.error("Error loading keyword matrix for %s: %s", filename, e)
         raise HTTPException(status_code=500, detail="Failed to load keyword matrix")
@@ -124,6 +134,9 @@ async def regenerate_analysis(
         )
     except FileNotFoundError as e:
         raise HTTPException(status_code=404, detail=str(e))
+    except (CSVLoadError, UnicodeDecodeError, ValueError) as e:
+        logger.error("Invalid CSV file for analysis %s: %s", filename, e)
+        raise HTTPException(status_code=400, detail=f"Invalid or unreadable CSV file: {e}")
     except Exception as e:
         logger.error("Error regenerating analysis for %s: %s", filename, e)
         raise HTTPException(status_code=500, detail="Failed to regenerate analysis")

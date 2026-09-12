@@ -16,6 +16,7 @@ import pandas as pd
 
 from app.models.schemas import Paper, SearchSource
 from app.core.config import Settings
+from app.utils.csv_loader import read_csv_to_records, CSVLoadError
 
 from app.services.pubmed_service import PubMedService
 from app.core.dependencies import get_reranker
@@ -311,24 +312,23 @@ class SearchService:
         """Load papers from CSV file"""
         papers = []
         try:
-            with open(csv_path, 'r', encoding='utf-8-sig') as file:
-                reader = csv.DictReader(file)
-                for row in reader:
-                    try:
-                        paper = Paper(
-                            source=str(row.get('Source', '')).strip() or 'Unknown',
-                            title=str(row.get('Title', '')).strip() or 'Unknown',
-                            download_url=str(row.get('Download_URL', '')).strip() or '',
-                            year=str(row.get('Publication Year', row.get('Year_Published', ''))).strip() or 'Unknown',
-                            keywords=self._process_keywords(row.get('Keywords', '')),
-                            doi=str(row.get('DOI', '') or row.get('Doi', '')).strip() or '',
-                            authors=self._process_authors(row.get('Authors', '')),
-                            abstract=str(row.get('Abstract', '')).strip() or ''
-                        )
-                        papers.append(paper)
-                    except Exception as e:
-                        logger.warning(f"Error processing CSV row: {e}")
-                        continue
+            records = read_csv_to_records(csv_path)
+            for row in records:
+                try:
+                    paper = Paper(
+                        source=str(row.get('Source', '')).strip() or 'Unknown',
+                        title=str(row.get('Title', '')).strip() or 'Unknown',
+                        download_url=str(row.get('Download_URL', '')).strip() or '',
+                        year=str(row.get('Publication Year', row.get('Year_Published', ''))).strip() or 'Unknown',
+                        keywords=self._process_keywords(row.get('Keywords', '')),
+                        doi=str(row.get('DOI', '') or row.get('Doi', '')).strip() or '',
+                        authors=self._process_authors(row.get('Authors', '')),
+                        abstract=str(row.get('Abstract', '')).strip() or ''
+                    )
+                    papers.append(paper)
+                except Exception as e:
+                    logger.warning(f"Error processing CSV row: {e}")
+                    continue
         except Exception as e:
             logger.error(f"Error reading CSV file {csv_path}: {e}")
             raise

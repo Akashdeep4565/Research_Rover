@@ -14,6 +14,8 @@ import faiss
 import numpy as np
 import pandas as pd
 
+from utils.csv_loader import read_csv_to_dataframe
+
 logger = logging.getLogger("research_rover")
 
 _DATA_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "data"))
@@ -21,7 +23,7 @@ _DATA_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..
 
 def load_data(csv_path):
     """Load a papers CSV into a DataFrame, guaranteeing the columns we read later."""
-    df = pd.read_csv(csv_path)
+    df = read_csv_to_dataframe(csv_path)
     for col in ("Download_URL", "Abstract", "Title"):
         if col not in df.columns:
             df[col] = ""

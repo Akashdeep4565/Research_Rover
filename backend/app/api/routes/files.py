@@ -13,6 +13,7 @@ from app.models.schemas import (
 )
 from app.core.config import get_settings
 from app.services.search_service import SearchService
+from app.utils.csv_loader import detect_csv_encoding, CSVLoadError
 
 router = APIRouter()
 logger = logging.getLogger("research_rover")
@@ -35,8 +36,13 @@ async def upload_file(
         with open(file_path, 'wb') as f:
             f.write(content)
 
-        logger.info(f"Uploaded file: {safe_name} ({len(content)} bytes)")
-        return {"message": f"File {safe_name} uploaded successfully", "filename": safe_name}
+        detected_enc = detect_csv_encoding(file_path)
+        logger.info(f"Uploaded file: {safe_name} ({len(content)} bytes), encoding: {detected_enc}")
+        return {
+            "message": f"File {safe_name} uploaded successfully",
+            "filename": safe_name,
+            "encoding": detected_enc,
+        }
 
     except HTTPException:
         raise
@@ -91,6 +97,9 @@ async def get_csv_data(
         
     except HTTPException:
         raise
+    except (CSVLoadError, UnicodeDecodeError, ValueError) as e:
+        logger.error(f"Error reading CSV {filename}: {e}")
+        raise HTTPException(status_code=400, detail=f"Invalid or unreadable CSV file: {e}")
     except Exception as e:
         logger.error(f"Error reading CSV {filename}: {e}")
         raise HTTPException(status_code=500, detail="Error processing CSV file")
@@ -135,6 +144,9 @@ async def get_paginated_csv_data(
         
     except HTTPException:
         raise
+    except (CSVLoadError, UnicodeDecodeError, ValueError) as e:
+        logger.error(f"Error getting paginated CSV data for {filename}: {e}")
+        raise HTTPException(status_code=400, detail=f"Invalid or unreadable CSV file: {e}")
     except Exception as e:
         logger.error(f"Error getting paginated CSV data: {e}")
         raise HTTPException(status_code=500, detail="Error processing CSV file")

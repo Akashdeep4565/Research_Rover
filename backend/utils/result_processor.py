@@ -10,6 +10,8 @@ import logging
 
 import pandas as pd
 
+from utils.csv_loader import read_csv_to_dataframe
+
 logger = logging.getLogger("research_rover")
 
 _DATA_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "data"))
@@ -23,7 +25,7 @@ def _build_doi_url_map(filename):
         if not os.path.exists(csv_path):
             return doi_to_url
 
-        df = pd.read_csv(csv_path)
+        df = read_csv_to_dataframe(csv_path)
         doi_col = "Doi" if "Doi" in df.columns else ("DOI" if "DOI" in df.columns else None)
         if doi_col is None:
             return doi_to_url

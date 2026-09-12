@@ -25,6 +25,7 @@ import pandas as pd
 import networkx as nx
 
 from app.core.config import Settings
+from app.utils.csv_loader import read_csv_to_dataframe, CSVLoadError
 
 logger = logging.getLogger("research_rover")
 
@@ -146,7 +147,7 @@ class AnalysisService:
         return f"paper_{index + 1}"
 
     def _load_dataframe(self, csv_path: str) -> pd.DataFrame:
-        df = pd.read_csv(csv_path)
+        df = read_csv_to_dataframe(csv_path)
         for column in ("Title", "Abstract", "Source", "Journal/Book", "Year_Published", "Publication Year", "Authors", "Keywords", "DOI", "Doi", "PMID", "Download_URL"):
             if column not in df.columns:
                 df[column] = ""
@@ -350,7 +351,7 @@ class AnalysisService:
         if not os.path.exists(paths["keyword_presence_matrix_file"]):
             raise FileNotFoundError(f"Keyword matrix not found for {filename}")
 
-        df = pd.read_csv(paths["keyword_presence_matrix_file"])
+        df = read_csv_to_dataframe(paths["keyword_presence_matrix_file"])
         matrix_keywords = [
             column
             for column in df.columns
@@ -392,8 +393,8 @@ class AnalysisService:
 
             file_path = os.path.join(self.settings.DATA_FOLDER, filename)
             try:
-                header_df = pd.read_csv(file_path, nrows=0)
-                paper_count = len(pd.read_csv(file_path, usecols=[0]))
+                header_df = read_csv_to_dataframe(file_path, nrows=0)
+                paper_count = len(read_csv_to_dataframe(file_path, usecols=[0]))
                 keyword_columns = [col for col in header_df.columns if col.lower() == "keywords"]
                 sources.append(
                     {

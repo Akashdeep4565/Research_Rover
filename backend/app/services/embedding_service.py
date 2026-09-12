@@ -24,6 +24,7 @@ from features.embedding_and_indexing import (
     save_doi_mapped_json,
     load_data,
 )
+from app.utils.csv_loader import read_csv_to_dataframe, CSVLoadError
 
 logger = logging.getLogger("research_rover")
 
@@ -182,7 +183,7 @@ class EmbeddingService:
         """
         logger.info(f"Loading CSV data from {csv_path}...")
         try:
-            df = pd.read_csv(csv_path)
+            df = read_csv_to_dataframe(csv_path)
             
             # Ensure required columns exist with proper defaults (NO Full_Text column)
             required_columns = {'Title', 'Abstract'}

@@ -1,0 +1,90 @@
+\section{API Reference and Route Specifications}
+\label{sec:api_reference}
+
+\subsection{REST API Design Principles}
+Research Rover's backend exposes a standardized RESTful API rooted at \texttt{/api/v1}. All responses return JSON payloads with standard HTTP status codes ($200$ OK, $400$ Bad Request, $404$ Not Found, $500$ Internal Server Error).
+
+\subsection{Complete Route Inventory}
+Table~\ref{tab:api_route_inventory} provides an exhaustive inventory of the verified FastAPI endpoints implemented across the platform.
+
+\begin{longtable}{l p{5.5cm} p{2.2cm} X}
+\caption{Comprehensive FastAPI REST Route Specifications} \label{tab:api_route_inventory} \\
+\toprule
+\textbf{HTTP Method} & \textbf{Endpoint Path} & \textbf{Router} & \textbf{Functional Purpose} \\
+\midrule
+\endfirsthead
+\toprule
+\textbf{HTTP Method} & \textbf{Endpoint Path} & \textbf{Router} & \textbf{Functional Purpose} \\
+\midrule
+\endhead
+\bottomrule
+\endfoot
+\texttt{GET} & \texttt{/} & Core & Lightweight API health ping \\
+\texttt{GET} & \texttt{/health} & Core & Detailed runtime status and model health \\
+\texttt{GET} & \texttt{/api/v1/system/status} & System & Reports runtime memory and loaded AI models \\
+\midrule
+\texttt{POST} & \texttt{/api/v1/search/} & Search & Initiates PubMed/OpenAlex literature search \\
+\texttt{GET} & \texttt{/api/v1/search/progress} & Search & Streams search execution progress via SSE \\
+\texttt{POST} & \texttt{/api/v1/search/cancel} & Search & Cancels an active background search job \\
+\texttt{GET} & \texttt{/api/v1/search/results} & Search & Retrieves paginated search results \\
+\midrule
+\texttt{POST} & \texttt{/api/v1/files/upload} & Files & Ingests, normalizes, and scores uploaded CSV \\
+\texttt{GET} & \texttt{/api/v1/files/\{filename\}/quality} & Files & Returns quality score and readiness telemetry \\
+\texttt{GET} & \texttt{/api/v1/files/list} & Files & Lists all available research CSV datasets \\
+\texttt{GET} & \texttt{/api/v1/files/download/\{filename\}} & Files & Downloads raw or analyzed CSV file \\
+\texttt{GET} & \texttt{/api/v1/files/csv/\{filename\}/data} & Files & Returns complete raw CSV tabular data \\
+\texttt{GET} & \texttt{/api/v1/files/csv/\{filename\}/paginated} & Files & Returns paginated dataset rows with sorting \\
+\texttt{DELETE} & \texttt{/api/v1/files/\{filename\}} & Files & Deletes dataset, sidecars, and vector indexes \\
+\texttt{GET} & \texttt{/api/v1/files/download-pdf} & Files & Downloads paper full-text PDF if accessible \\
+\midrule
+\texttt{POST} & \texttt{/api/v1/analysis/generate} & Analysis & Triggers bibliometric frequency analysis \\
+\texttt{GET} & \texttt{/api/v1/analysis/\{filename\}/summary} & Analysis & Returns keyword counts and summary metrics \\
+\texttt{GET} & \texttt{/api/v1/analysis/\{filename\}/matrix} & Analysis & Returns keyword co-occurrence matrix \\
+\texttt{GET} & \texttt{/api/v1/analysis/\{filename\}/countries} & Analysis & Returns sovereign country collaboration counts \\
+\texttt{GET} & \texttt{/api/v1/analysis/\{filename\}/country-collaboration} & Analysis & Returns 2D/3D collaboration graph topology \\
+\texttt{POST} & \texttt{/api/v1/analysis/\{filename\}/regenerate} & Analysis & Forces recalculation of bibliometric data \\
+\midrule
+\texttt{POST} & \texttt{/api/v1/embeddings/\{filename\}} & Embeddings & Generates dense embeddings and FAISS index \\
+\texttt{GET} & \texttt{/api/v1/embeddings/progress} & Embeddings & Returns real-time embedding progress \\
+\texttt{POST} & \texttt{/api/v1/embeddings/cancel} & Embeddings & Cancels active vector embedding generation \\
+\texttt{GET} & \texttt{/api/v1/embeddings/\{filename\}/status} & Embeddings & Checks whether FAISS index exists on disk \\
+\texttt{DELETE} & \texttt{/api/v1/embeddings/\{filename\}} & Embeddings & Deletes FAISS index and chunk mappings \\
+\midrule
+\texttt{POST} & \texttt{/api/v1/chat/} & Chat & Dispatches RAG conversational query across papers \\
+\texttt{POST} & \texttt{/api/v1/chat/\{filename\}} & Chat & Dispatches RAG query scoped to a single dataset \\
+\end{longtable}
+
+\subsection{Key Endpoint Payloads and Responses}
+
+\subsubsection{Dataset Upload Endpoint: POST /api/v1/files/upload}
+\textbf{Request:} \texttt{multipart/form-data} containing \texttt{file: UploadFile}.\\
+\textbf{Response Schema (\texttt{ExtendedFileUploadResponse}):}
+\begin{lstlisting}[language=json]
+{
+  "filename": "machine_learning_cancer.csv",
+  "message": "File uploaded and processed successfully",
+  "total_records": 150,
+  "valid_records": 148,
+  "duplicate_records": 2,
+  "quality_score": 87.5,
+  "quality_grade": "Excellent",
+  "field_mappings": {
+    "Title": "title",
+    "Abstract Text": "abstract",
+    "Author Names": "authors",
+    "PubYear": "year"
+  },
+  "unmapped_columns": ["Scopus_Internal_ID"],
+  "feature_readiness": {
+    "keyword_analysis": {"status": "ready", "warnings": []},
+    "semantic_search": {
+      "status": "partially_ready",
+      "warnings": ["FAISS vector index missing. Generate embeddings to enable."]
+    }
+  }
+}
+\end{lstlisting}
+
+\subsubsection{Quality Telemetry Endpoint: GET /api/v1/files/\{filename\}/quality}
+\textbf{Path Parameter:} \texttt{filename} (string, name of CSV dataset).\\
+\textbf{Response Schema (\texttt{DatasetQualityReport}):} Returns the cached or computed quality score, field completeness percentages, penalty deductions, and feature readiness telemetry.

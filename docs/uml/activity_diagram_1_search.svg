@@ -1,0 +1,162 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1200" width="1600" height="1200" style="background:#ffffff; font-family:'Segoe UI', Inter, -apple-system, sans-serif;">
+  <defs>
+    <filter id="shadow1" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-opacity="0.1"/>
+    </filter>
+    <marker id="arr1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#3b82f6"/>
+    </marker>
+    <linearGradient id="headerGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1e293b"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="30" y="20" width="1540" height="70" rx="12" fill="url(#headerGrad1)" filter="url(#shadow1)"/>
+  <text x="50" y="50" fill="#38bdf8" font-size="12" font-weight="700" letter-spacing="2">UML 2.5 ACTIVITY DIAGRAM</text>
+  <text x="50" y="74" fill="#ffffff" font-size="20" font-weight="bold">Activity Diagram 1: Research Paper Search &amp; Retrieval Workflow</text>
+  <text x="1350" y="60" fill="#94a3b8" font-size="13">Verified Source: search.py &amp; services/</text>
+
+  <!-- Swimlane Headers -->
+  <rect x="30" y="105" width="370" height="1040" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="30" y="105" width="370" height="40" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="215" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">Researcher / Student (User)</text>
+
+  <rect x="400" y="105" width="410" height="1040" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="400" y="105" width="410" height="40" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="605" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#166534">Frontend UI (SearchPage.tsx &amp; Context)</text>
+
+  <rect x="810" y="105" width="440" height="1040" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="810" y="105" width="440" height="40" fill="#faf5ff" stroke="#d8b4fe" stroke-width="1.5"/>
+  <text x="1030" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b21a8">Backend Services (FastAPI &amp; MedCPT)</text>
+
+  <rect x="1250" y="105" width="320" height="1040" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="1250" y="105" width="320" height="40" fill="#fff1f2" stroke="#fecdd3" stroke-width="1.5"/>
+  <text x="1410" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#9f1239">External Academic APIs &amp; Hosts</text>
+
+  <!-- Nodes -->
+  <circle cx="215" cy="180" r="14" fill="#0f172a" stroke="#64748b" stroke-width="3"/>
+  <path d="M 215 194 L 215 220" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <rect x="105" y="220" width="220" height="50" rx="10" fill="#ffffff" stroke="#3b82f6" stroke-width="1.8" filter="url(#shadow1)"/>
+  <text x="215" y="242" text-anchor="middle" font-size="12" font-weight="600" fill="#1e293b">Open Research Rover</text>
+  <text x="215" y="258" text-anchor="middle" font-size="11" fill="#64748b">&amp; Enter Research Query</text>
+
+  <path d="M 215 270 L 215 300" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <!-- Decision: Filters? -->
+  <polygon points="215,300 295,330 215,360 135,330" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="215" y="334" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">Configure Filters?</text>
+
+  <path d="M 295 330 L 340 330 L 340 400 L 295 400" fill="none" stroke="#d97706" stroke-width="1.8" marker-end="url(#arr1)"/>
+  <text x="345" y="360" font-size="10" font-weight="bold" fill="#b45309">[Yes]</text>
+  <rect x="105" y="380" width="190" height="44" rx="8" fill="#ffffff" stroke="#d97706" stroke-width="1.5" filter="url(#shadow1)"/>
+  <text x="200" y="399" text-anchor="middle" font-size="11" font-weight="600" fill="#1e293b">Set Slider Year Bounds,</text>
+  <text x="200" y="413" text-anchor="middle" font-size="10" fill="#64748b">Max Results &amp; Sort Mode</text>
+
+  <path d="M 215 360 L 215 440" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+  <text x="220" y="375" font-size="10" font-weight="bold" fill="#64748b">[No]</text>
+  <path d="M 200 424 L 200 440" fill="none" stroke="#3b82f6" stroke-width="1.5"/>
+
+  <rect x="105" y="440" width="220" height="46" rx="10" fill="#ffffff" stroke="#3b82f6" stroke-width="1.8" filter="url(#shadow1)"/>
+  <text x="215" y="462" text-anchor="middle" font-size="12" font-weight="bold" fill="#1e293b">Submit Search Request</text>
+  <text x="215" y="476" text-anchor="middle" font-size="10" fill="#64748b">(Click Search Button)</text>
+
+  <path d="M 325 463 L 470 463" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <polygon points="560,440 640,465 560,490 480,465" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="560" y="469" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">Is Query Valid?</text>
+
+  <path d="M 560 440 L 560 250 L 325 250" fill="none" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arr1)"/>
+  <text x="568" y="350" font-size="10" font-weight="bold" fill="#dc2626">[Invalid: Display Alert &amp; Re-prompt]</text>
+
+  <path d="M 640 465 L 700 465 L 700 520 L 500 520 L 500 540" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+  <text x="645" y="460" font-size="10" font-weight="bold" fill="#16a34a">[Valid]</text>
+
+  <rect x="440" y="540" width="240" height="46" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.5" filter="url(#shadow1)"/>
+  <text x="560" y="560" text-anchor="middle" font-size="11" font-weight="600" fill="#14532d">Dispatch POST /api/v1/search/</text>
+  <text x="560" y="574" text-anchor="middle" font-size="10" fill="#15803d">&amp; Initialize Stepper Progress Panel</text>
+
+  <path d="M 680 563 L 880 563" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <rect x="880" y="540" width="250" height="48" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6" filter="url(#shadow1)"/>
+  <text x="1005" y="560" text-anchor="middle" font-size="11" font-weight="bold" fill="#4c1d95">Spawn Background Worker Task</text>
+  <text x="1005" y="574" text-anchor="middle" font-size="10" fill="#6d28d9">(Return immediate response &amp; poll flag)</text>
+
+  <path d="M 1005 588 L 1005 615" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <rect x="880" y="615" width="250" height="46" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5" filter="url(#shadow1)"/>
+  <text x="1005" y="634" text-anchor="middle" font-size="11" font-weight="600" fill="#1e293b">Normalize Query &amp; Synonyms</text>
+  <text x="1005" y="648" text-anchor="middle" font-size="10" fill="#64748b">(Expand abbreviations + ESpell check)</text>
+
+  <path d="M 1005 661 L 1005 690" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <polygon points="1005,690 1090,720 1005,750 920,720" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="1005" y="724" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">Select Source</text>
+
+  <path d="M 1090 720 L 1320 720 L 1320 660" fill="none" stroke="#2563eb" stroke-width="1.8" marker-end="url(#arr1)"/>
+  <text x="1150" y="712" font-size="10" font-weight="bold" fill="#1e40af">[Unified / PubMed / OpenAlex]</text>
+
+  <rect x="1270" y="590" width="270" height="70" rx="10" fill="#ffffff" stroke="#e11d48" stroke-width="1.8" filter="url(#shadow1)"/>
+  <text x="1405" y="615" text-anchor="middle" font-size="12" font-weight="bold" fill="#9f1239">NCBI Entrez / OpenAlex</text>
+  <text x="1405" y="632" text-anchor="middle" font-size="10" fill="#64748b">Concurrent API Queries +</text>
+  <text x="1405" y="648" text-anchor="middle" font-size="10" fill="#64748b">Affiliation Extraction &amp; Fallback</text>
+
+  <path d="M 1405 660 L 1405 780 L 1150 780" fill="none" stroke="#2563eb" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <rect x="880" y="760" width="270" height="46" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.5" filter="url(#shadow1)"/>
+  <text x="1015" y="779" text-anchor="middle" font-size="11" font-weight="600" fill="#1e293b">Deduplicate Paper Candidates</text>
+  <text x="1015" y="793" text-anchor="middle" font-size="10" fill="#64748b">(Match on PMID, DOI &amp; Normalized Title)</text>
+
+  <path d="M 1015 806 L 1015 830" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <polygon points="1015,830 1090,855 1015,880 940,855" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="1015" y="859" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">Results &gt; 0?</text>
+
+  <path d="M 940 855 L 750 855 L 750 880" fill="none" stroke="#ef4444" stroke-width="1.8" marker-end="url(#arr1)"/>
+  <text x="830" y="848" font-size="10" font-weight="bold" fill="#dc2626">[No: Zero Results]</text>
+
+  <rect x="650" y="880" width="200" height="44" rx="8" fill="#fff1f2" stroke="#e11d48" stroke-width="1.5" filter="url(#shadow1)"/>
+  <text x="750" y="900" text-anchor="middle" font-size="11" font-weight="bold" fill="#9f1239">Show 'No Results Found'</text>
+  <text x="750" y="914" text-anchor="middle" font-size="10" fill="#be123c">Provide Query Tips</text>
+
+  <path d="M 1015 880 L 1015 910" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+  <text x="1025" y="895" font-size="10" font-weight="bold" fill="#16a34a">[Yes]</text>
+
+  <polygon points="1015,910 1090,935 1015,960 940,935" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="1015" y="939" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">Re-Rank Mode?</text>
+
+  <path d="M 1090 935 L 1290 935" fill="none" stroke="#a855f7" stroke-width="1.8" marker-end="url(#arr1)"/>
+  <text x="1130" y="928" font-size="10" font-weight="bold" fill="#7e22ce">[Relevance]</text>
+
+  <rect x="1290" y="915" width="240" height="44" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="1.5" filter="url(#shadow1)"/>
+  <text x="1410" y="933" text-anchor="middle" font-size="11" font-weight="bold" fill="#581c87">MedCPT Semantic Bi-Encoder</text>
+  <text x="1410" y="947" text-anchor="middle" font-size="10" fill="#7e22ce">Cross-attention Cosine Scores</text>
+
+  <path d="M 1410 959 L 1410 990 L 1150 990" fill="none" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arr1)"/>
+
+  <path d="M 1015 960 L 1015 990" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr1)"/>
+  <text x="1025" y="975" font-size="10" font-weight="bold" fill="#64748b">[Recency]</text>
+
+  <rect x="880" y="990" width="270" height="48" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.8" filter="url(#shadow1)"/>
+  <text x="1015" y="1010" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Write Clean CSV &amp; Update State</text>
+  <text x="1015" y="1024" text-anchor="middle" font-size="10" fill="#15803d">(Save to data/{query}.csv; Progress 100%)</text>
+
+  <path d="M 880 1014 L 690 1014" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <rect x="460" y="990" width="230" height="48" rx="8" fill="#ffffff" stroke="#16a34a" stroke-width="1.8" filter="url(#shadow1)"/>
+  <text x="575" y="1010" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">Fetch GET /search/results</text>
+  <text x="575" y="1024" text-anchor="middle" font-size="10" fill="#15803d">&amp; Render Paginated Cards</text>
+
+  <path d="M 460 1014 L 325 1014" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <rect x="105" y="990" width="220" height="50" rx="10" fill="#ffffff" stroke="#2563eb" stroke-width="1.8" filter="url(#shadow1)"/>
+  <text x="215" y="1010" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Browse Ranked Papers</text>
+  <text x="215" y="1024" text-anchor="middle" font-size="10" fill="#64748b">Download PDF or View Online</text>
+
+  <path d="M 215 1040 L 215 1070" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arr1)"/>
+
+  <circle cx="215" cy="1090" r="14" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+  <circle cx="215" cy="1090" r="8" fill="#0f172a"/>
+  <text x="215" y="1120" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">End: Exploration Complete</text>
+</svg>

@@ -47,11 +47,16 @@ class ChatService:
             
             # Check if embedding files exist
             if not os.path.exists(faiss_index_path) or not os.path.exists(metadata_path):
-                logger.info("Embeddings not found. Providing general response without paper context.")
+                logger.info(f"Embeddings not found for {filename}. Providing general response with explicit notice.")
                 # Generate response without paper context
                 response_text = await self._generate_general_response(query)
+                disclaimer = (
+                    "[Notice: Semantic search index has not been generated for this dataset yet. "
+                    "The following response is based on general AI knowledge and does not cite your uploaded papers. "
+                    "Please generate embeddings to enable document-grounded answers.]\n\n"
+                )
                 return ChatResponse(
-                    response=response_text,
+                    response=disclaimer + response_text,
                     sources=[],
                     query=query
                 )

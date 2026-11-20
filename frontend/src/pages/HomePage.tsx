@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -10,9 +10,14 @@ import {
   CpuChipIcon,
   SparklesIcon,
   RocketLaunchIcon,
+  ChartBarIcon,
+  GlobeAltIcon,
+  ArrowUpTrayIcon,
+  FunnelIcon,
 } from '@heroicons/react/24/outline'
-import { useState, useEffect } from 'react'
-import { healthApi } from '@/services/api'
+import { useSystemStatus } from '@/context/SystemStatusContext'
+import { filesApi } from '@/services/api'
+import { toast } from 'sonner'
 
 const features = [
   {
@@ -31,43 +36,99 @@ const features = [
   },
 ]
 
-const quickActions = [
-  {
-    name: 'Recent Papers',
-    description: 'View your recently accessed papers',
-    icon: DocumentTextIcon,
-    action: () => console.log('Recent papers'),
-  },
-  {
-    name: 'Download Manager',
-    description: 'Manage your paper downloads',
-    icon: CloudArrowDownIcon,
-    action: () => console.log('Downloads'),
-  },
-  {
-    name: 'Vector Embeddings',
-    description: 'Create embeddings for semantic search',
-    icon: CpuChipIcon,
-    action: () => window.location.href = '/search',
-  },
-]
-
-// Removed fake stats - will be replaced with real data when available
-
 export function HomePage() {
-  const [apiStatus, setApiStatus] = useState<'checking' | 'online' | 'offline'>('checking')
+  const navigate = useNavigate()
+  const { apiStatus } = useSystemStatus()
 
-  useEffect(() => {
-    const checkApiHealth = async () => {
-      try {
-        await healthApi.check()
-        setApiStatus('online')
-      } catch (error) {
-        setApiStatus('offline')
+  const handleDownloadLatest = async () => {
+    try {
+      toast.info('Checking available datasets for download...')
+      const files = await filesApi.list()
+      const csvFiles = files.filter((f) => f.filename.endsWith('.csv'))
+      if (csvFiles.length > 0) {
+        const latest = csvFiles[0]
+        const blob = await filesApi.download(latest.filename)
+        const url = window.URL.createObjectURL(blob)
+        const a = document.createElement('a')
+        a.href = url
+        a.download = latest.filename
+        document.body.appendChild(a)
+        a.click()
+        window.URL.revokeObjectURL(url)
+        document.body.removeChild(a)
+        toast.success(`Downloaded ${latest.filename}`)
+      } else {
+        toast.info('No dataset files available to download. Search papers or upload a CSV first.')
+        navigate('/search')
       }
+    } catch {
+      toast.error('Failed to download dataset. Navigating to search...')
+      navigate('/search')
     }
-    checkApiHealth()
-  }, [])
+  }
+
+  const quickActions = [
+    {
+      name: 'New Search',
+      description: 'Start a fresh search across PubMed & OpenAlex',
+      icon: MagnifyingGlassIcon,
+      action: () => navigate('/search', { state: { focusSearch: true } }),
+    },
+    {
+      name: 'Advanced Search',
+      description: 'Filter by date range, research sources, and sorting',
+      icon: FunnelIcon,
+      action: () => navigate('/search', { state: { openAdvancedFilters: true, focusSearch: true } }),
+    },
+    {
+      name: 'Research Analytics',
+      description: 'Analyze keyword co-occurrences and frequency trends',
+      icon: ChartBarIcon,
+      action: () => navigate('/analytics', { state: { tab: 'keywords' } }),
+    },
+    {
+      name: 'Country Analysis',
+      description: 'Explore global research collaborations and rankings',
+      icon: GlobeAltIcon,
+      action: () => navigate('/analytics', { state: { tab: 'country' } }),
+    },
+    {
+      name: 'Upload Dataset',
+      description: 'Upload a custom CSV dataset for instant analysis',
+      icon: ArrowUpTrayIcon,
+      action: () => navigate('/analytics', { state: { triggerUpload: true } }),
+    },
+    {
+      name: 'AI Research Chat',
+      description: 'Ask questions and get intelligent answers about papers',
+      icon: ChatBubbleLeftRightIcon,
+      action: () => navigate('/chat'),
+    },
+    {
+      name: 'Recent Papers',
+      description: 'View and select your recently accessed paper datasets',
+      icon: DocumentTextIcon,
+      action: () => {
+        toast.info('Viewing recent datasets & papers...')
+        navigate('/analytics', { state: { focusFiles: true } })
+      },
+    },
+    {
+      name: 'Download Manager',
+      description: 'Export and download research results as CSV',
+      icon: CloudArrowDownIcon,
+      action: handleDownloadLatest,
+    },
+    {
+      name: 'Vector Embeddings',
+      description: 'Create semantic vector embeddings for AI Chat',
+      icon: CpuChipIcon,
+      action: () => {
+        toast.info('Opening Vector Embeddings...')
+        navigate('/search', { state: { showEmbeddings: true } })
+      },
+    },
+  ]
 
   return (
     <div className="space-y-12">
@@ -87,7 +148,7 @@ export function HomePage() {
             <div className="flex flex-col items-center space-y-3 mb-6">
               <div className="inline-flex items-center px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full text-blue-700 dark:text-blue-300 text-sm font-medium">
                 <SparklesIcon className="w-4 h-4 mr-2" />
-                Powered by Advanced AI
+                Powered by Advanced AI &amp; MedCPT
               </div>
               <div className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium ${apiStatus === 'online'
                 ? 'bg-green-100 dark:bg-green-900/30 text-green-700 dark:text-green-300'
@@ -100,7 +161,14 @@ export function HomePage() {
                 API {apiStatus === 'checking' ? 'Checking...' : apiStatus === 'online' ? 'Online' : 'Offline'}
               </div>
             </div>
-            <h1 className="text-5xl md:text-6xl font-bold gradient-text mb-6">
+            <div className="flex justify-center mb-4">
+              <img
+                src="/assets/research-rover-logo.png"
+                alt="Research ROVER Logo"
+                className="h-24 md:h-32 w-auto object-contain drop-shadow-md"
+              />
+            </div>
+            <h1 className="text-4xl md:text-5xl font-bold gradient-text mb-6">
               Research Rover
             </h1>
             <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
@@ -131,68 +199,19 @@ export function HomePage() {
         </div>
       </motion.section>
 
-      {/* Quick Start Section */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.6 }}
-      >
-        <div className="text-center mb-8">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-            Get Started
-          </h2>
-          <p className="text-gray-600 dark:text-gray-300">
-            Choose how you want to explore research papers
-          </p>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <Link to="/search">
-            <Card className="hover-lift cursor-pointer group h-full">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-cyan-500 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                  <MagnifyingGlassIcon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">Search Papers</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Find research papers using PubMed search with advanced filtering
-                </p>
-              </CardContent>
-            </Card>
-          </Link>
-          
-          <Link to="/chat">
-            <Card className="hover-lift cursor-pointer group h-full">
-              <CardContent className="p-8 text-center">
-                <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-500 to-pink-500 flex items-center justify-center mb-4 mx-auto group-hover:scale-110 transition-transform">
-                  <ChatBubbleLeftRightIcon className="w-8 h-8 text-white" />
-                </div>
-                <h3 className="text-xl font-semibold mb-2">AI Chat</h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  Ask questions about your research papers and get intelligent answers
-                </p>
-              </CardContent>
-            </Card>
-          </Link>
-        </div>
-      </motion.section>
-
-      {/* Features Section */}
+      {/* Features Grid */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.0 }}
       >
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-            Powerful Features
+        <div className="text-center mb-8">
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+            Platform Capabilities
           </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            Everything you need to streamline your research workflow and discover insights faster.
-          </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {features.map((feature, index) => (
             <motion.div
               key={feature.name}
@@ -230,16 +249,16 @@ export function HomePage() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {quickActions.map((action, index) => (
             <motion.div
               key={action.name}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 2.0 + index * 0.1 }}
+              transition={{ delay: 1.8 + index * 0.05 }}
             >
               <Card
-                className="cursor-pointer hover-lift group"
+                className="cursor-pointer hover-lift group h-full transition-all duration-200"
                 onClick={action.action}
               >
                 <CardContent className="p-6 flex items-center space-x-4">

@@ -12,6 +12,8 @@ class SearchSource(str, Enum):
     """Available search sources"""
     CORE = "core"
     PUBMED = "pubmed"
+    OPENALEX = "openalex"
+    UNIFIED = "unified"
 
 class SearchRequest(BaseModel):
     """Search request model"""
@@ -21,7 +23,7 @@ class SearchRequest(BaseModel):
     max_results: int = Field(10, ge=1, description="Maximum results to fetch")
     start_date: Optional[date] = Field(None, description="Start date filter")
     end_date: Optional[date] = Field(None, description="End date filter")
-    search_source: SearchSource = Field(SearchSource.CORE, description="Search source")
+    search_source: SearchSource = Field(SearchSource.UNIFIED, description="Search source: unified (default), pubmed, openalex")
     use_raw_query: bool = Field(True, description="Pass query directly to PubMed without synonym/MeSH expansion")
     sort_mode: str = Field(
         "relevance",
@@ -37,14 +39,21 @@ class SearchRequest(BaseModel):
 
 class Paper(BaseModel):
     """Paper model"""
-    source: str = Field(..., description="Paper source")
+    source: str = Field(..., description="Paper source (e.g. pubmed, openalex, pubmed, openalex)")
     title: str = Field(..., description="Paper title")
     download_url: Optional[str] = Field(None, description="Download URL")
     year: Optional[str] = Field(None, description="Publication year")
     keywords: List[str] = Field(default_factory=list, description="Paper keywords")
     doi: Optional[str] = Field(None, description="DOI")
+    pmid: Optional[str] = Field(None, description="PMID")
+    openalex_id: Optional[str] = Field(None, description="OpenAlex ID")
     authors: Optional[List[str]] = Field(default_factory=list, description="Authors")
+    affiliations: Optional[Union[str, List[str]]] = Field(None, description="Affiliations")
+    countries: Optional[List[str]] = Field(default_factory=list, description="Countries")
     abstract: Optional[str] = Field(None, description="Abstract")
+    citation_count: Optional[int] = Field(None, description="Citation count")
+    is_oa: Optional[bool] = Field(None, description="Open Access status")
+    pdf_url: Optional[str] = Field(None, description="PDF URL")
     relevance_score: Optional[float] = Field(
         None, description="MedCPT semantic relevance to the query (0-100, relative within this result set)"
     )
@@ -120,6 +129,31 @@ class PaginatedResponse(BaseModel):
     current_page: int
     total_pages: int
     per_page: int
+
+
+class ModelComponentStatus(BaseModel):
+    """Status for an individual model component"""
+    name: str = Field(..., description="Model identifier or name")
+    status: str = Field(..., description="Component status: loaded, not_loaded, loading, error, available, unavailable, not_configured, disabled")
+    type: str = Field(..., description="Component type: local or remote")
+    required: bool = Field(False, description="Whether this component is strictly required")
+    details: Optional[str] = Field(None, description="Additional status details")
+
+
+class ModelsStatus(BaseModel):
+    """Overall model status and component breakdown"""
+    status: str = Field(..., description="Overall model status: loaded, partial, loading, not_loaded, error")
+    components: Dict[str, ModelComponentStatus] = Field(default_factory=dict, description="Component status breakdown")
+
+
+class SystemStatusResponse(BaseModel):
+    """System health and model readiness response"""
+    status: str = Field("healthy", description="API health status: healthy, unhealthy")
+    api: str = Field("online", description="API connectivity status: online, offline")
+    version: str = Field("2.0.0", description="API version")
+    timestamp: float = Field(..., description="Current server timestamp")
+    models: ModelsStatus = Field(..., description="Model readiness and component breakdown")
+    services: Dict[str, str] = Field(default_factory=dict, description="Services summary for backward compatibility")
 
 
 class AnalysisRequest(BaseModel):
@@ -216,3 +250,106 @@ class KeywordMatrixResponse(BaseModel):
     total_rows: int = 0
     total_columns: int = 0
     truncated: bool = False
+
+
+class CountryNode(BaseModel):
+    """Graph node representing a country and its paper count"""
+    id: str = Field(..., description="Country identifier")
+    label: str = Field(..., description="Country display label")
+    iso_a3: Optional[str] = Field(None, description="ISO 3166-1 alpha-3 country code")
+    paper_count: int = Field(..., ge=0, description="Number of unique papers associated with this country")
+
+
+class CountryLink(BaseModel):
+    """Graph link representing a collaboration between two countries"""
+    source: str = Field(..., description="Source country")
+    target: str = Field(..., description="Target country")
+    weight: int = Field(..., ge=1, description="Number of papers co-authored by both countries")
+
+
+class CountryCollaborationGraphResponse(BaseModel):
+    """Response model for country collaboration graph data"""
+    filename: Optional[str] = Field(None, description="CSV filename analyzed")
+    nodes: List[CountryNode] = Field(default_factory=list, description="Graph nodes for countries")
+    links: List[CountryLink] = Field(default_factory=list, description="Graph links for country collaborations")
+    total_papers: int = Field(0, ge=0, description="Total papers analyzed")
+    papers_with_country_data: int = Field(0, ge=0, description="Number of papers with valid country affiliations")
+    papers_without_country_data: int = Field(0, ge=0, description="Number of papers lacking usable country affiliations")
+    international_papers: int = Field(0, ge=0, description="Number of papers with international collaborations (2+ countries)")
+    country_coverage_percentage: float = Field(0.0, ge=0.0, description="Percentage of papers with country data")
+
+
+class CountryFrequencyItem(BaseModel):
+    """Country publication frequency and percentage"""
+    country: str = Field(..., description="Country name")
+    iso_a3: Optional[str] = Field(None, description="ISO 3166-1 alpha-3 country code")
+    frequency: int = Field(..., ge=0, description="Paper count")
+    percentage: float = Field(..., ge=0.0, description="Percentage of total papers")
+
+
+class UnassignedPaperInfo(BaseModel):
+    """Information for paper lacking country affiliation data"""
+    paper_id: str = Field(..., description="Paper ID or PMID")
+    title: str = Field(..., description="Paper title")
+    authors: Optional[Union[str, List[str]]] = Field(None, description="Authors")
+    source: Optional[str] = Field(None, description="Journal or source")
+    year: Optional[str] = Field(None, description="Publication year")
+
+
+class CountryStatisticsResponse(BaseModel):
+    """Response model for country publication statistics endpoint"""
+    filename: Optional[str] = Field(None, description="CSV filename analyzed")
+    total_papers: int = Field(0, ge=0, description="Total papers analyzed")
+    papers_with_country_data: int = Field(0, ge=0, description="Number of papers with valid country affiliations")
+    papers_without_country_data: int = Field(0, ge=0, description="Number of papers lacking usable country affiliations")
+    unique_countries: int = Field(0, ge=0, description="Number of unique countries detected")
+    international_papers: int = Field(0, ge=0, description="Number of papers with international collaborations (2+ countries)")
+    country_coverage_percentage: float = Field(0.0, ge=0.0, description="Percentage of papers with country data")
+    countries: List[CountryFrequencyItem] = Field(default_factory=list, description="List of countries with paper counts and percentages")
+    unassigned_papers: List[UnassignedPaperInfo] = Field(default_factory=list, description="List of papers lacking country data for transparency")
+
+
+# ---------------------------------------------------------------------------
+# Canonical Dataset Normalization & Quality Schemas (Phases 1, 2 & 3)
+# ---------------------------------------------------------------------------
+from app.services.dataset_normalizer import (
+    ColumnMapping,
+    NormalizationReport,
+    CanonicalPaperRecord,
+)
+from app.services.dataset_quality import (
+    FeatureReadinessStatus,
+    FeatureReadiness,
+    FieldStatistics,
+    DatasetQualityReport,
+)
+
+
+class ExtendedFileUploadResponse(BaseModel):
+    """
+    Extended response model for CSV file upload including intelligent schema normalization,
+    quality score, feature readiness assessment, and vector index status.
+    Preserves backward compatibility with legacy {"message": ..., "filename": ...}.
+    """
+    message: str = Field(..., description="Upload status message")
+    filename: str = Field(..., description="Uploaded safe filename")
+    encoding: str = Field("utf-8", description="Detected character encoding")
+    total_records: int = Field(0, ge=0, description="Total number of paper records in the CSV")
+    valid_records: int = Field(0, ge=0, description="Number of unique non-duplicate records")
+    duplicate_records: int = Field(0, ge=0, description="Number of duplicate paper records detected")
+    overall_quality_score: float = Field(0.0, ge=0.0, le=100.0, description="Overall dataset quality score (0-100)")
+    quality_grade: str = Field("Critical", description="Quality grade (Excellent, Good, Fair, Poor, Critical)")
+    canonical_fields_detected: List[str] = Field(default_factory=list, description="Canonical fields identified")
+    column_mappings: Dict[str, ColumnMapping] = Field(default_factory=dict, description="Resolved column mappings")
+    unmapped_columns: List[str] = Field(default_factory=list, description="Custom unmapped column names")
+    conflicting_mappings: List[str] = Field(default_factory=list, description="Columns claiming duplicate canonical targets")
+    feature_readiness: Dict[str, FeatureReadiness] = Field(default_factory=dict, description="Operational readiness per feature")
+    warnings: List[str] = Field(default_factory=list, description="Data hygiene and coverage warnings")
+    recommendations: List[str] = Field(default_factory=list, description="Actionable dataset improvement steps")
+    index_status: str = Field("not_indexed", description="Vector index status (indexed, not_indexed)")
+
+
+__all__ = [name for name in dir() if not name.startswith("_")]
+
+
+

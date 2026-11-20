@@ -14,7 +14,8 @@ from pathlib import Path
 
 from app.core.config import get_settings
 from app.core.dependencies import get_sentence_model, get_llm_instance
-from app.api.routes import search, chat, files, embeddings, analysis
+from app.core.model_manager import model_manager
+from app.api.routes import search, chat, files, embeddings, analysis, system
 from app.core.logging import setup_logging
 
 # Setup logging
@@ -28,8 +29,9 @@ async def lifespan(app: FastAPI):
     """Application lifespan manager"""
     logger.info("Starting Research Rover API...")
     
-    # Initialize models and services
+    # Initialize models and services in background without blocking startup
     settings = get_settings()
+    model_manager.start_background_initialization()
     
     # Create data directory
     os.makedirs(settings.DATA_FOLDER, exist_ok=True)
@@ -64,6 +66,7 @@ app.include_router(chat.router, prefix="/api/v1/chat", tags=["chat"])
 app.include_router(files.router, prefix="/api/v1/files", tags=["files"])
 app.include_router(embeddings.router, prefix="/api/v1/embeddings", tags=["embeddings"])
 app.include_router(analysis.router, prefix="/api/v1/analysis", tags=["analysis"])
+app.include_router(system.router, prefix="/api/v1/system", tags=["system"])
 
 @app.get("/")
 async def root():
@@ -72,13 +75,16 @@ async def root():
 
 @app.get("/health")
 async def health_check():
-    """Detailed health check"""
+    """Detailed health check reflecting real runtime state"""
+    models_info = model_manager.get_models_status()
     return {
         "status": "healthy",
+        "api": "online",
         "version": "2.0.0",
+        "models": models_info,
         "services": {
             "api": "running",
-            "models": "loaded"
+            "models": models_info["status"]
         }
     }
 

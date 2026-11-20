@@ -10,6 +10,7 @@ import {
 } from 'react'
 import { useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
+import { ResearchRoverLoader } from '@/components/ResearchRoverLoader'
 import { Input } from '@/components/ui/input'
 import {
   ChartBarIcon,
@@ -26,11 +27,17 @@ import {
   ArrowUpTrayIcon,
   MagnifyingGlassPlusIcon,
   MagnifyingGlassMinusIcon,
+  GlobeAltIcon,
+  ShieldCheckIcon,
 } from '@heroicons/react/24/outline'
 import { toast } from 'sonner'
 import { useTheme } from '@/components/theme-provider'
 import { filesApi, analysisApi, type FileInfo } from '@/services/api'
 import { useAnalytics } from '@/context/AnalyticsContext'
+import { CountryAnalysisView } from '@/components/CountryAnalysisView'
+import { ErrorBoundary } from '@/components/ErrorBoundary'
+import { DatasetQualityModal } from '@/components/DatasetQualityModal'
+import { DatasetFeatureReadinessBanner } from '@/components/DatasetFeatureReadinessBanner'
 import type {
   KeywordFrequencyItem,
   CoOccurrenceEdge,
@@ -39,10 +46,14 @@ import type {
   AnalysisSummary,
   MatrixRow,
   KeywordMatrixResponse,
+  ExtendedFileUploadResponse,
+  DatasetQualityReport,
+  CountryNode,
+  CountryLink,
+  CountryCollaborationGraphResponse,
+  CountryStatisticsResponse,
 } from '@/types'
 
-// Analytics view types live in '@/types' (shared with the API layer). They are
-// re-exported here so AnalyticsContext's existing import path keeps working.
 export type {
   KeywordFrequencyItem,
   CoOccurrenceEdge,
@@ -51,6 +62,9 @@ export type {
   AnalysisSummary,
   MatrixRow,
   KeywordMatrixResponse,
+  CountryNode,
+  CountryLink,
+  CountryCollaborationGraphResponse,
 }
 
 
@@ -369,7 +383,13 @@ export function AnalyticsPage() {
   // filename (and the term that was searched) arrive via navigation state so
   // we can pre-select that file instead of defaulting to the first one.
   const location = useLocation()
-  const requestedFile = (location.state as { filename?: string } | null)?.filename
+  const navState = location.state as {
+    filename?: string
+    tab?: 'keywords' | 'country'
+    triggerUpload?: boolean
+    focusFiles?: boolean
+  } | null
+  const requestedFile = navState?.filename
   // Data-bearing state lives in context so it survives navigating away and back.
   const {
     sources, setSources,
@@ -381,6 +401,11 @@ export function AnalyticsPage() {
     topKeywordLimit, setTopKeywordLimit,
   } = useAnalytics()
   // Transient UI state stays local — fine to reset on navigation.
+  const [activeTab, setActiveTab] = useState<'keywords' | 'country'>(() => navState?.tab || 'keywords')
+  const [countryStats, setCountryStats] = useState<CountryStatisticsResponse | null>(null)
+  const [countryData, setCountryData] = useState<CountryCollaborationGraphResponse | null>(null)
+  const [loadingCountry, setLoadingCountry] = useState(false)
+  const [countryError, setCountryError] = useState('')
   const [loadingSources, setLoadingSources] = useState(false)
   const [loadingAnalysis, setLoadingAnalysis] = useState(false)
   const [regenerating, setRegenerating] = useState(false)
@@ -392,6 +417,43 @@ export function AnalyticsPage() {
   // Hidden file input for the "Upload CSV" button
   const uploadInputRef = useRef<HTMLInputElement | null>(null)
   const [uploading, setUploading] = useState(false)
+  const [isQualityModalOpen, setIsQualityModalOpen] = useState(false)
+  const [selectedQualityData, setSelectedQualityData] = useState<ExtendedFileUploadResponse | DatasetQualityReport | null>(null)
+
+  // Handle navigation directives (e.g. from Quick Actions)
+  useEffect(() => {
+    if (navState?.tab) {
+      setActiveTab(navState.tab)
+    }
+    if (navState?.triggerUpload) {
+      setTimeout(() => {
+        uploadInputRef.current?.click()
+      }, 150)
+    }
+    if (navState?.focusFiles) {
+      toast.info('Select a dataset from the dropdown to explore papers')
+    }
+  }, [location.state])
+
+  const loadCountryAnalysis = useCallback(async (filename: string) => {
+    if (!filename) return
+    setLoadingCountry(true)
+    setCountryError('')
+    try {
+      const [statsRes, collabRes] = await Promise.all([
+        analysisApi.getCountryStatistics(filename),
+        analysisApi.getCountryCollaboration(filename),
+      ])
+      setCountryStats(statsRes)
+      setCountryData(collabRes)
+    } catch (err: any) {
+      setCountryError(err.error || err.message || 'Failed to load country analysis')
+      setCountryStats(null)
+      setCountryData(null)
+    } finally {
+      setLoadingCountry(false)
+    }
+  }, [])
 
   // Load the file list once; skip if already loaded (e.g. returning to the page).
   useEffect(() => { if (sources.length === 0) void loadSources() }, [])
@@ -401,6 +463,10 @@ export function AnalyticsPage() {
       setSelectedFile(requestedFile)
     }
   }, [requestedFile, sources])
+  useEffect(() => {
+    if (!selectedFile) return
+    void loadCountryAnalysis(selectedFile)
+  }, [selectedFile, loadCountryAnalysis])
   useEffect(() => {
     if (!selectedFile || !generateOnSelect) return
     // Already computed for this file (persisted in context) — don't refetch.
@@ -450,7 +516,11 @@ export function AnalyticsPage() {
     setUploading(true); setError('')
     try {
       const res = await filesApi.upload(file)
-      toast.success(`Uploaded ${res.filename}`)
+      toast.success(
+        `Uploaded ${res.filename} · Quality: ${res.quality_grade} (${res.overall_quality_score.toFixed(0)}/100)`
+      )
+      setSelectedQualityData(res)
+      setIsQualityModalOpen(true)
       // Refresh source list and select the newly uploaded file. The list
       // refresh is in-line (rather than calling loadSources()) so we can read
       // the fresh list synchronously to decide what to select.
@@ -724,6 +794,19 @@ export function AnalyticsPage() {
                   <ArrowUpTrayIcon className={`h-4 w-4 ${uploading ? 'animate-pulse' : ''}`} />
                   <span className="hidden sm:inline">{uploading ? 'Uploading…' : 'Upload CSV'}</span>
                 </button>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedQualityData(null)
+                    setIsQualityModalOpen(true)
+                  }}
+                  disabled={!selectedFile}
+                  title="View dataset quality, column mappings and feature readiness"
+                  className="flex shrink-0 items-center gap-1.5 rounded-xl border border-sky-300 dark:border-sky-700/80 bg-sky-50/70 dark:bg-sky-950/40 px-3.5 py-3 text-sm font-semibold text-sky-700 dark:text-sky-300 shadow-sm transition hover:bg-sky-100 hover:border-sky-400 dark:hover:bg-sky-900/50 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  <ShieldCheckIcon className="h-4 w-4" />
+                  <span className="hidden sm:inline">Quality & Schema</span>
+                </button>
                 <input
                   ref={uploadInputRef}
                   type="file"
@@ -751,6 +834,17 @@ export function AnalyticsPage() {
               max={100}
             />
           </div>
+
+          {selectedFile && (
+            <DatasetFeatureReadinessBanner
+              filename={selectedFile}
+              onOpenModal={() => {
+                setSelectedQualityData(null)
+                setIsQualityModalOpen(true)
+              }}
+              className="mt-3"
+            />
+          )}
 
           <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
@@ -806,7 +900,55 @@ export function AnalyticsPage() {
         </div>
       </motion.div>
 
-      {/* ── Metric Cards ── */}
+      {/* ── View Switcher Tabs ── */}
+      <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}>
+        <div className="flex items-center gap-2 rounded-2xl border border-gray-200 dark:border-slate-800/60 p-2 bg-white dark:bg-slate-900 shadow-sm">
+          <button
+            type="button"
+            onClick={() => setActiveTab('keywords')}
+            className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold transition-all duration-200 ${
+              activeTab === 'keywords'
+                ? 'bg-gradient-to-r from-sky-500 to-indigo-500 text-white shadow-md shadow-sky-500/25'
+                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100'
+            }`}
+          >
+            <SparklesIcon className="h-4 w-4" />
+            Keyword Analytics
+          </button>
+          <button
+            type="button"
+            onClick={() => setActiveTab('country')}
+            className={`flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3 text-sm font-bold transition-all duration-200 ${
+              activeTab === 'country'
+                ? 'bg-gradient-to-r from-sky-500 to-indigo-500 text-white shadow-md shadow-sky-500/25'
+                : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-100'
+            }`}
+          >
+            <GlobeAltIcon className="h-4 w-4" />
+            Country Analysis
+          </button>
+        </div>
+      </motion.div>
+
+      {/* ── Country Analysis View ── */}
+      {activeTab === 'country' && (
+        <ErrorBoundary
+          fallbackTitle="Country Analysis View Error"
+          fallbackMessage="The Country Analysis section could not be loaded due to a rendering error. Other Analytics features remain available."
+        >
+          <CountryAnalysisView
+            countryStats={countryStats}
+            countryData={countryData}
+            loading={loadingCountry}
+            error={countryError}
+            downloadBase={downloadBase}
+          />
+        </ErrorBoundary>
+      )}
+
+      {/* ── Keyword Analytics View ── */}
+      {activeTab === 'keywords' && (
+        <>
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
@@ -1101,6 +1243,15 @@ export function AnalyticsPage() {
           </FullscreenModal>
         )}
       </AnimatePresence>
+
+      <DatasetQualityModal
+        isOpen={isQualityModalOpen}
+        onClose={() => setIsQualityModalOpen(false)}
+        filename={selectedFile}
+        initialData={selectedQualityData}
+      />
+        </>
+      )}
     </div>
   )
 }
@@ -1657,12 +1808,10 @@ function NetworkGraph({
 }
 
 // ─── Skeleton + Empty ─────────────────────────────────────────────────────────
-function Skeleton({ rows }: { rows: number }) {
+function Skeleton({ rows: _rows }: { rows?: number }) {
   return (
-    <div className="space-y-3">
-      {Array.from({ length: rows }).map((_, i) => (
-        <div key={i} className="h-6 animate-pulse rounded-lg bg-gray-200 dark:bg-slate-800/60" style={{ width: `${55 + (i % 3) * 15}%` }} />
-      ))}
+    <div className="py-8 flex justify-center items-center w-full">
+      <ResearchRoverLoader message="Analyzing research dataset..." size="md" />
     </div>
   )
 }

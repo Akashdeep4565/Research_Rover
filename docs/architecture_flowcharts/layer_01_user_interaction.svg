@@ -1,0 +1,189 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 950" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FAF5FF"/>
+      <stop offset="100%" stop-color="#F3E8FF"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7C3AED"/>
+      <stop offset="100%" stop-color="#9333EA"/>
+    </linearGradient>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#7C3AED"/>
+    </marker>
+    <marker id="arrowDash" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#BE185D"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="950" fill="#FAF5FF"/>
+  <rect x="20" y="20" width="1560" height="910" rx="16" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="2"/>
+
+  <!-- Header Banner -->
+  <rect x="50" y="40" width="1500" height="70" rx="12" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <text x="80" y="82" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">
+    LAYER 1: USER &amp; FRONTEND INTERACTION LAYER
+  </text>
+  <text x="1100" y="82" font-family="system-ui, sans-serif" font-size="14" fill="#E9D5FF">
+    Color Theme: Purple | Scope: User Journey &amp; Decision Navigation
+  </text>
+
+  <!-- Section Container -->
+  <rect x="50" y="130" width="1500" height="570" rx="14" fill="#FAF5FF" stroke="#9333EA" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="80" y="160" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#7C3AED">
+    1. USER &amp; FRONTEND LAYER (Internal Architecture)
+  </text>
+
+  <!-- Boundary In: Layer 7 Feedback -->
+  <g filter="url(#shadow)">
+    <rect x="70" y="365" width="220" height="80" rx="8" fill="#FDF2F8" stroke="#DB2777" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="180" y="395" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#9D174D" text-anchor="middle">
+      [External Input from Layer 7]
+    </text>
+    <text x="180" y="415" font-family="system-ui, sans-serif" font-size="11" fill="#BE185D" text-anchor="middle">
+      Delivered Insights &amp;
+    </text>
+    <text x="180" y="430" font-family="system-ui, sans-serif" font-size="11" fill="#BE185D" text-anchor="middle">
+      Exported CSV/JSON/PNG
+    </text>
+  </g>
+
+  <!-- Start Node -->
+  <g filter="url(#shadow)">
+    <rect x="620" y="175" width="360" height="55" rx="27.5" fill="#F3E8FF" stroke="#7C3AED" stroke-width="3"/>
+    <text x="800" y="210" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#4C1D95" text-anchor="middle">
+      User Accesses Research Rover
+    </text>
+  </g>
+
+  <!-- Arrow: Start -> Input -->
+  <line x1="800" y1="230" x2="800" y2="265" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Input Node -->
+  <g filter="url(#shadow)">
+    <rect x="580" y="265" width="440" height="70" rx="10" fill="url(#purpleGrad)" stroke="#9333EA" stroke-width="2.5"/>
+    <text x="800" y="295" font-family="system-ui, sans-serif" font-size="15" font-weight="bold" fill="#581C87" text-anchor="middle">
+      Enter Query / Filters
+    </text>
+    <text x="800" y="318" font-family="system-ui, sans-serif" font-size="12" fill="#7E22CE" text-anchor="middle">
+      (Query string, max results, date range)
+    </text>
+  </g>
+
+  <!-- Arrow: Input -> Nav -->
+  <line x1="800" y1="335" x2="800" y2="370" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Decision Diamond: Select Page View -->
+  <g filter="url(#shadow)">
+    <polygon points="800,370 940,420 800,470 660,420" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="2.5"/>
+    <text x="800" y="425" font-family="system-ui, sans-serif" font-size="15" font-weight="bold" fill="#5B21B6" text-anchor="middle">
+      Select Page View
+    </text>
+  </g>
+
+  <!-- Dashed Feedback Arrow -->
+  <line x1="290" y1="410" x2="655" y2="410" stroke="#DB2777" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#arrowDash)"/>
+  <text x="470" y="400" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#BE185D" text-anchor="middle">
+    User Review &amp; Exploration
+  </text>
+
+  <!-- Branch Arrows from Diamond -->
+  <!-- Left to Search -->
+  <path d="M 660 420 L 290 420 L 290 525" fill="none" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="440" y="440" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#6B21A8">
+    [Branch 1: Search Query]
+  </text>
+
+  <!-- Center to Analytics -->
+  <line x1="800" y1="470" x2="800" y2="525" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="815" y="500" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#6B21A8">
+    [Branch 2: Analyze CSV]
+  </text>
+
+  <!-- Right to Chat -->
+  <path d="M 940 420 L 1310 420 L 1310 525" fill="none" stroke="#7C3AED" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="1050" y="440" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#6B21A8">
+    [Branch 3: Chat Query]
+  </text>
+
+  <!-- Page 1: Search Page -->
+  <g filter="url(#shadow)">
+    <rect x="90" y="530" width="400" height="95" rx="10" fill="url(#purpleGrad)" stroke="#9333EA" stroke-width="2.5"/>
+    <text x="290" y="565" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#581C87" text-anchor="middle">
+      Search Page
+    </text>
+    <text x="290" y="590" font-family="system-ui, sans-serif" font-size="13" font-family="monospace" fill="#7E22CE" text-anchor="middle">
+      (SearchPage.tsx, SearchContext.tsx)
+    </text>
+  </g>
+
+  <!-- Page 2: Analytics Page -->
+  <g filter="url(#shadow)">
+    <rect x="600" y="530" width="400" height="95" rx="10" fill="url(#purpleGrad)" stroke="#9333EA" stroke-width="2.5"/>
+    <text x="800" y="565" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#581C87" text-anchor="middle">
+      Analytics Page
+    </text>
+    <text x="800" y="590" font-family="system-ui, sans-serif" font-size="13" font-family="monospace" fill="#7E22CE" text-anchor="middle">
+      (AnalyticsPage.tsx, AnalyticsContext.tsx)
+    </text>
+  </g>
+
+  <!-- Page 3: Chat Page -->
+  <g filter="url(#shadow)">
+    <rect x="1110" y="530" width="400" height="95" rx="10" fill="url(#purpleGrad)" stroke="#9333EA" stroke-width="2.5"/>
+    <text x="1310" y="565" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#581C87" text-anchor="middle">
+      Chat Page
+    </text>
+    <text x="1310" y="590" font-family="system-ui, sans-serif" font-size="13" font-family="monospace" fill="#7E22CE" text-anchor="middle">
+      (ChatPage.tsx, ChatContext.tsx)
+    </text>
+  </g>
+
+  <!-- Outgoing Boundary Connectors Container -->
+  <rect x="50" y="730" width="1500" height="170" rx="12" fill="#F8FAFC" stroke="#94A3B8" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <text x="80" y="755" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#475569">
+    BOUNDARY OUTPUTS &rarr; TO LAYER 2 (FRONTEND API CLIENT LAYER)
+  </text>
+
+  <!-- Arrows from Pages to Output Connectors -->
+  <line x1="290" y1="625" x2="290" y2="775" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="800" y1="625" x2="800" y2="775" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <line x1="1310" y1="625" x2="1310" y2="775" stroke="#2563EB" stroke-width="2.5" marker-end="url(#arrow)"/>
+
+  <!-- Output 1: Search -->
+  <g filter="url(#shadow)">
+    <rect x="90" y="780" width="400" height="85" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="290" y="812" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1E40AF" text-anchor="middle">
+      [Output to Layer 2: API Client]
+    </text>
+    <text x="290" y="835" font-family="monospace" font-size="12" fill="#1D4ED8" text-anchor="middle">
+      POST /api/v1/search/query
+    </text>
+  </g>
+
+  <!-- Output 2: Analytics -->
+  <g filter="url(#shadow)">
+    <rect x="600" y="780" width="400" height="85" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="800" y="812" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1E40AF" text-anchor="middle">
+      [Output to Layer 2: API Client]
+    </text>
+    <text x="800" y="835" font-family="monospace" font-size="12" fill="#1D4ED8" text-anchor="middle">
+      GET/POST /api/v1/analysis/* &amp; files/*
+    </text>
+  </g>
+
+  <!-- Output 3: Chat -->
+  <g filter="url(#shadow)">
+    <rect x="1110" y="780" width="400" height="85" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="2" stroke-dasharray="5 4"/>
+    <text x="1310" y="812" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1E40AF" text-anchor="middle">
+      [Output to Layer 2: API Client]
+    </text>
+    <text x="1310" y="835" font-family="monospace" font-size="12" fill="#1D4ED8" text-anchor="middle">
+      POST /api/v1/chat/query &amp; embeddings/*
+    </text>
+  </g>
+</svg>

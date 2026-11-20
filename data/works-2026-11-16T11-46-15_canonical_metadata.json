@@ -1,0 +1,692 @@
+{
+  "filename": "works-2026-11-16T11-46-15.csv",
+  "total_records": 207,
+  "valid_records": 207,
+  "duplicate_records": 0,
+  "overall_quality_score": 99.1,
+  "quality_grade": "Excellent",
+  "canonical_fields_detected": [
+    "title",
+    "authors",
+    "publication_year",
+    "citation_count",
+    "is_open_access",
+    "keywords",
+    "keywords",
+    "keywords",
+    "authors",
+    "countries",
+    "countries",
+    "download_url",
+    "download_url",
+    "doi",
+    "pmid",
+    "openalex_id",
+    "is_open_access",
+    "abstract",
+    "affiliations",
+    "affiliations"
+  ],
+  "column_mappings": {
+    "Title": {
+      "original_column": "Title",
+      "canonical_field": "title",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'title'"
+    },
+    "Author": {
+      "original_column": "Author",
+      "canonical_field": "authors",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'authors' is claimed by multiple columns: ['Author', 'Author IDs']"
+    },
+    "Year": {
+      "original_column": "Year",
+      "canonical_field": "publication_year",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'year' to canonical 'publication_year'"
+    },
+    "Citation count": {
+      "original_column": "Citation count",
+      "canonical_field": "citation_count",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'citation count' to canonical 'citation_count'"
+    },
+    "Open access": {
+      "original_column": "Open access",
+      "canonical_field": "is_open_access",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'is_open_access' is claimed by multiple columns: ['Open access', 'Is oa']"
+    },
+    "Topic IDs": {
+      "original_column": "Topic IDs",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Topic": {
+      "original_column": "Topic",
+      "canonical_field": "keywords",
+      "confidence": 0.909,
+      "matching_method": "fuzzy_match",
+      "status": "conflict",
+      "details": "Conflict: target 'keywords' is claimed by multiple columns: ['Topic', 'Concept', 'Keyword']"
+    },
+    "Subfield IDs": {
+      "original_column": "Subfield IDs",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Concept": {
+      "original_column": "Concept",
+      "canonical_field": "keywords",
+      "confidence": 0.933,
+      "matching_method": "fuzzy_match",
+      "status": "conflict",
+      "details": "Conflict: target 'keywords' is claimed by multiple columns: ['Topic', 'Concept', 'Keyword']"
+    },
+    "Domain": {
+      "original_column": "Domain",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Domain IDs": {
+      "original_column": "Domain IDs",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Field": {
+      "original_column": "Field",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Keyword": {
+      "original_column": "Keyword",
+      "canonical_field": "keywords",
+      "confidence": 0.933,
+      "matching_method": "fuzzy_match",
+      "status": "conflict",
+      "details": "Conflict: target 'keywords' is claimed by multiple columns: ['Topic', 'Concept', 'Keyword']"
+    },
+    "Keyword IDs": {
+      "original_column": "Keyword IDs",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "SDG IDs": {
+      "original_column": "SDG IDs",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Study design": {
+      "original_column": "Study design",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Subfield": {
+      "original_column": "Subfield",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Concept IDs": {
+      "original_column": "Concept IDs",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Author IDs": {
+      "original_column": "Author IDs",
+      "canonical_field": "authors",
+      "confidence": 0.889,
+      "matching_method": "fuzzy_match",
+      "status": "conflict",
+      "details": "Conflict: target 'authors' is claimed by multiple columns: ['Author', 'Author IDs']"
+    },
+    "Authors count": {
+      "original_column": "Authors count",
+      "canonical_field": "countries",
+      "confidence": 0.889,
+      "matching_method": "fuzzy_match",
+      "status": "conflict",
+      "details": "Conflict: target 'countries' is claimed by multiple columns: ['Authors count', 'Country']"
+    },
+    "Corresponding author": {
+      "original_column": "Corresponding author",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Continent": {
+      "original_column": "Continent",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Countries count": {
+      "original_column": "Countries count",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Country": {
+      "original_column": "Country",
+      "canonical_field": "countries",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'countries' is claimed by multiple columns: ['Authors count', 'Country']"
+    },
+    "Global south": {
+      "original_column": "Global south",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Language": {
+      "original_column": "Language",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "PDF URL": {
+      "original_column": "PDF URL",
+      "canonical_field": "download_url",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'download_url' is claimed by multiple columns: ['PDF URL', 'PDF-linked']"
+    },
+    "Open access URL": {
+      "original_column": "Open access URL",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "PDF-linked": {
+      "original_column": "PDF-linked",
+      "canonical_field": "download_url",
+      "confidence": 0.889,
+      "matching_method": "fuzzy_match",
+      "status": "conflict",
+      "details": "Conflict: target 'download_url' is claimed by multiple columns: ['PDF URL', 'PDF-linked']"
+    },
+    "OA published": {
+      "original_column": "OA published",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "OA accepted": {
+      "original_column": "OA accepted",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Date": {
+      "original_column": "Date",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "DOI": {
+      "original_column": "DOI",
+      "canonical_field": "doi",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'doi'"
+    },
+    "ROR ID": {
+      "original_column": "ROR ID",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "PubMed": {
+      "original_column": "PubMed",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "PMID": {
+      "original_column": "PMID",
+      "canonical_field": "pmid",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'pmid'"
+    },
+    "ORCID": {
+      "original_column": "ORCID",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Work ID": {
+      "original_column": "Work ID",
+      "canonical_field": "openalex_id",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'work id' to canonical 'openalex_id'"
+    },
+    "MAG-only": {
+      "original_column": "MAG-only",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "ISSN": {
+      "original_column": "ISSN",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Has PMCID": {
+      "original_column": "Has PMCID",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Has ORCID": {
+      "original_column": "Has ORCID",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Has DOI": {
+      "original_column": "Has DOI",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Related to": {
+      "original_column": "Related to",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Reference count": {
+      "original_column": "Reference count",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "FWCI": {
+      "original_column": "FWCI",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Cites": {
+      "original_column": "Cites",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Has abstract": {
+      "original_column": "Has abstract",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Has fulltext": {
+      "original_column": "Has fulltext",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Has ISSN": {
+      "original_column": "Has ISSN",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Is oa": {
+      "original_column": "Is oa",
+      "canonical_field": "is_open_access",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'is_open_access' is claimed by multiple columns: ['Open access', 'Is oa']"
+    },
+    "Abstract": {
+      "original_column": "Abstract",
+      "canonical_field": "abstract",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'abstract'"
+    },
+    "Any location accepted": {
+      "original_column": "Any location accepted",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Has references": {
+      "original_column": "Has references",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Primary accepted": {
+      "original_column": "Primary accepted",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Primary published": {
+      "original_column": "Primary published",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Top 1% cited": {
+      "original_column": "Top 1% cited",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Top 10% cited": {
+      "original_column": "Top 10% cited",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Any location source": {
+      "original_column": "Any location source",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Any location source IDs": {
+      "original_column": "Any location source IDs",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Institution IDs": {
+      "original_column": "Institution IDs",
+      "canonical_field": "affiliations",
+      "confidence": 0.889,
+      "matching_method": "fuzzy_match",
+      "status": "conflict",
+      "details": "Conflict: target 'affiliations' is claimed by multiple columns: ['Institution IDs', 'Institution']"
+    },
+    "Institution": {
+      "original_column": "Institution",
+      "canonical_field": "affiliations",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'affiliations' is claimed by multiple columns: ['Institution IDs', 'Institution']"
+    }
+  },
+  "unmapped_columns": [
+    "Topic IDs",
+    "Subfield IDs",
+    "Domain",
+    "Domain IDs",
+    "Field",
+    "Keyword IDs",
+    "SDG IDs",
+    "Study design",
+    "Subfield",
+    "Concept IDs",
+    "Corresponding author",
+    "Continent",
+    "Countries count",
+    "Global south",
+    "Language",
+    "Open access URL",
+    "OA published",
+    "OA accepted",
+    "Date",
+    "ROR ID",
+    "PubMed",
+    "ORCID",
+    "MAG-only",
+    "ISSN",
+    "Has PMCID",
+    "Has ORCID",
+    "Has DOI",
+    "Related to",
+    "Reference count",
+    "FWCI",
+    "Cites",
+    "Has abstract",
+    "Has fulltext",
+    "Has ISSN",
+    "Any location accepted",
+    "Has references",
+    "Primary accepted",
+    "Primary published",
+    "Top 1% cited",
+    "Top 10% cited",
+    "Any location source",
+    "Any location source IDs"
+  ],
+  "conflicts": [
+    "authors: multiple source columns ['Author', 'Author IDs']. Primary value selected from 'Author'; all original column values preserved.",
+    "is_open_access: multiple source columns ['Open access', 'Is oa']. Primary value selected from 'Open access'; all original column values preserved.",
+    "keywords: multiple source columns ['Topic', 'Concept', 'Keyword']. Primary value selected from 'Topic'; all original column values preserved.",
+    "countries: multiple source columns ['Authors count', 'Country']. Primary value selected from 'Authors count'; all original column values preserved.",
+    "download_url: multiple source columns ['PDF URL', 'PDF-linked']. Primary value selected from 'PDF URL'; all original column values preserved.",
+    "affiliations: multiple source columns ['Institution IDs', 'Institution']. Primary value selected from 'Institution IDs'; all original column values preserved."
+  ],
+  "feature_readiness": {
+    "keyword_analysis": {
+      "feature_name": "Keyword Frequency & Word Clouds",
+      "status": "ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [
+        "keywords"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "207/207 papers (100.0%) contain keyword metadata with 3637 unique terms. Fully operational."
+    },
+    "cooccurrence_analysis": {
+      "feature_name": "Keyword Co-occurrence & Network Centralities",
+      "status": "ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [
+        "keywords"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "207/207 papers (100.0%) have 2+ keywords. Co-occurrence graph and centrality algorithms fully operational."
+    },
+    "country_analysis": {
+      "feature_name": "Country Distribution & Collaboration Networks",
+      "status": "ready",
+      "required_fields": [
+        "affiliations"
+      ],
+      "available_fields": [
+        "affiliations"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "207/207 papers (100.0%) contain institutional or country affiliations. Geoparsing and collaboration graphs fully operational."
+    },
+    "author_analysis": {
+      "feature_name": "Author Analytics & Collaboration",
+      "status": "ready",
+      "required_fields": [
+        "authors"
+      ],
+      "available_fields": [
+        "authors"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "207/207 papers (100.0%) have author metadata. Author analytics fully operational."
+    },
+    "trend_analysis": {
+      "feature_name": "Research Publication Trends",
+      "status": "partially_ready",
+      "required_fields": [
+        "publication_year"
+      ],
+      "available_fields": [
+        "publication_year"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [
+        "Single publication year ([2026]) or low year coverage (100.0%)."
+      ],
+      "explanation": "Trend charts can display available data, but temporal trajectory analysis requires multiple years of coverage."
+    },
+    "semantic_search": {
+      "feature_name": "Semantic Vector Search & Indexing",
+      "status": "ready",
+      "required_fields": [
+        "title",
+        "abstract"
+      ],
+      "available_fields": [
+        "title",
+        "abstract"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 95.7,
+      "warnings": [],
+      "explanation": "198/207 papers (95.7%) contain multi-sentence abstracts suitable for HDBSCAN chunking and FAISS indexing."
+    },
+    "ai_chat_rag": {
+      "feature_name": "AI Research Assistant (RAG Chat)",
+      "status": "ready",
+      "required_fields": [
+        "title",
+        "abstract"
+      ],
+      "available_fields": [
+        "title",
+        "abstract",
+        "doi"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 95.7,
+      "warnings": [],
+      "explanation": "Papers have sufficient textual depth for semantic chunking and grounded multi-query RAG generation with citations."
+    }
+  },
+  "recommendations": [
+    "Detected 42 unmapped columns (Topic IDs, Subfield IDs, Domain...). Use custom column mappings to associate them with canonical fields."
+  ],
+  "generated_at": 1794830685.8073776,
+  "csv_mtime": 1794830685.0406733
+}

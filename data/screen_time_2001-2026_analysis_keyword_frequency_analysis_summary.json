@@ -1,0 +1,20 @@
+{
+  "filename": "screen_time_2001-2026_analysis_keyword_frequency.csv",
+  "source_file": "screen_time_2001-2026_analysis_keyword_frequency.csv",
+  "total_papers": 100,
+  "papers_with_keywords": 0,
+  "unique_keywords": 0,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "screen_time_2001-2026_analysis_keyword_frequency_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "screen_time_2001-2026_analysis_keyword_frequency_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "screen_time_2001-2026_analysis_keyword_frequency_analysis_keyword_presence_matrix.csv",
+  "summary_file": "screen_time_2001-2026_analysis_keyword_frequency_analysis_summary.json",
+  "generated_at": 1789474568.3225298,
+  "keyword_frequency": [],
+  "matrix_keywords": [],
+  "matrix_rows": 100,
+  "matrix_columns": 0,
+  "cooccurrence_edges": [],
+  "centrality_scores": []
+}

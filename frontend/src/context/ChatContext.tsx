@@ -3,6 +3,7 @@ import {
   useContext,
   useState,
   useEffect,
+  useRef,
   type ReactNode,
 } from 'react'
 import type { ChatMessage } from '@/types'
@@ -13,7 +14,7 @@ const initialMessage: ChatMessage = {
   id: '1',
   type: 'assistant',
   content:
-    "Hello! I'm your AI research assistant. I can help you analyze and understand research papers. Select a CSV file from your searches or ask me questions about your research.",
+    "Hello! I'm your AI research assistant. I can help you analyze and understand research papers, summarize methodologies, extract insights, and explain complex concepts.\n\nSelect a collection to ground my answers in your indexed papers, or ask any research question directly.",
   timestamp: Date.now() - 60000,
 }
 
@@ -30,7 +31,10 @@ interface ChatContextValue {
   error: string
   setError: (e: string) => void
   hasEmbeddings: boolean
-  sendMessage: () => Promise<void>
+  sendMessage: (customText?: string) => Promise<void>
+  stopGeneration: () => void
+  regenerateResponse: () => Promise<void>
+  clearConversation: () => void
 }
 
 const ChatContext = createContext<ChatContextValue | undefined>(undefined)
@@ -50,6 +54,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
   const [availableFiles, setAvailableFiles] = useState<string[]>([])
   const [error, setError] = useState('')
   const [hasEmbeddings, setHasEmbeddings] = useState(false)
+  const abortControllerRef = useRef<AbortController | null>(null)
 
   // Load available CSV files once.
   useEffect(() => {
@@ -63,9 +68,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
       .catch((err) => console.error('Error loading files:', err))
   }, [])
 
-  // When an embedding job finishes (started here or on the Search page), surface
-  // that file in Chat: add it to the dropdown if missing and auto-select it, so
-  // the user can chat with it immediately without a page reload or manual pick.
+  // When an embedding job finishes, auto-select it
   useEffect(() => {
     if (!completedFile) return
     setAvailableFiles((prev) =>
@@ -74,8 +77,7 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     setSelectedFile(completedFile)
   }, [completedFile])
 
-  // Refresh embedding status when the selected file changes, or when an
-  // embedding job finishes (completedFile flips), so the badge updates live.
+  // Refresh embedding status when selectedFile changes
   useEffect(() => {
     if (!selectedFile) return
     let cancelled = false
@@ -99,28 +101,45 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     setSelectedFile(filename)
   }
 
-  const sendMessage = async () => {
-    if (!inputMessage.trim() || isCreating) return
+  const stopGeneration = () => {
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+      abortControllerRef.current = null
+    }
+    setIsLoading(false)
+  }
+
+  const sendMessage = async (customText?: string) => {
+    const textToSend = (customText ?? inputMessage).trim()
+    if (!textToSend || isCreating) return
+
+    // Abort any existing in-flight request
+    if (abortControllerRef.current) {
+      abortControllerRef.current.abort()
+    }
+    const controller = new AbortController()
+    abortControllerRef.current = controller
 
     const userMessage: ChatMessage = {
       id: Date.now().toString(),
       type: 'user',
-      content: inputMessage,
+      content: textToSend,
       timestamp: Date.now(),
     }
 
-    const messageText = inputMessage
     setMessages((prev) => [...prev, userMessage])
-    setInputMessage('')
+    if (!customText) {
+      setInputMessage('')
+    }
     setIsLoading(true)
     setError('')
 
     try {
       const chatRequest: ChatRequest = {
-        message: messageText,
+        message: textToSend,
         filename: selectedFile || undefined,
       }
-      const response = await chatApi.sendMessageBody(chatRequest)
+      const response = await chatApi.sendMessageBody(chatRequest, controller.signal)
       setMessages((prev) => [
         ...prev,
         {
@@ -132,19 +151,65 @@ export function ChatProvider({ children }: { children: ReactNode }) {
         },
       ])
     } catch (err: any) {
-      setError(err.error || 'Failed to send message')
+      // If manually stopped/cancelled by user
+      if (controller.signal.aborted || err?.code === 'ERR_CANCELED' || err?.message === 'canceled') {
+        setMessages((prev) => [
+          ...prev,
+          {
+            id: (Date.now() + 1).toString(),
+            type: 'assistant',
+            content: '*[Generation stopped by user]*',
+            timestamp: Date.now(),
+          },
+        ])
+        return
+      }
+
+      const errMsg = err?.error || err?.detail || 'Failed to send message'
+      setError(errMsg)
       setMessages((prev) => [
         ...prev,
         {
           id: (Date.now() + 1).toString(),
           type: 'assistant',
-          content: 'Sorry, I encountered an error processing your message. Please try again.',
+          content: `Sorry, I encountered an error while processing your request:\n\n> ${errMsg}\n\nPlease verify that the backend is online and try again.`,
           timestamp: Date.now(),
         },
       ])
     } finally {
+      if (abortControllerRef.current === controller) {
+        abortControllerRef.current = null
+      }
       setIsLoading(false)
     }
+  }
+
+  const regenerateResponse = async () => {
+    if (isLoading || isCreating) return
+
+    // Find the latest user message
+    const lastUserMsg = [...messages].reverse().find((m) => m.type === 'user')
+    if (!lastUserMsg) return
+
+    // Remove the trailing assistant message(s) after that user message
+    const userMsgIndex = messages.lastIndexOf(lastUserMsg)
+    if (userMsgIndex >= 0) {
+      setMessages(messages.slice(0, userMsgIndex))
+    }
+
+    await sendMessage(lastUserMsg.content)
+  }
+
+  const clearConversation = () => {
+    stopGeneration()
+    setMessages([
+      {
+        ...initialMessage,
+        id: Date.now().toString(),
+        timestamp: Date.now(),
+      },
+    ])
+    setError('')
   }
 
   const value: ChatContextValue = {
@@ -160,6 +225,9 @@ export function ChatProvider({ children }: { children: ReactNode }) {
     setError,
     hasEmbeddings,
     sendMessage,
+    stopGeneration,
+    regenerateResponse,
+    clearConversation,
   }
 
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>

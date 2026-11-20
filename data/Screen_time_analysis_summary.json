@@ -1,0 +1,2676 @@
+{
+  "filename": "Screen_time.csv",
+  "source_file": "Screen_time.csv",
+  "total_papers": 199,
+  "papers_with_keywords": 191,
+  "papers_with_country_data": 185,
+  "unique_countries": 50,
+  "unique_keywords": 1118,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "Screen_time_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "Screen_time_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "Screen_time_analysis_keyword_presence_matrix.csv",
+  "summary_file": "Screen_time_analysis_summary.json",
+  "generated_at": 1791120129.3894546,
+  "keyword_frequency": [
+    {
+      "keyword": "screen time",
+      "frequency": 99,
+      "percentage": 49.75
+    },
+    {
+      "keyword": "psychology",
+      "frequency": 64,
+      "percentage": 32.16
+    },
+    {
+      "keyword": "medicine",
+      "frequency": 64,
+      "percentage": 32.16
+    },
+    {
+      "keyword": "child development and digital technology",
+      "frequency": 53,
+      "percentage": 26.63
+    },
+    {
+      "keyword": "impact of technology on adolescents",
+      "frequency": 43,
+      "percentage": 21.61
+    },
+    {
+      "keyword": "developmental psychology",
+      "frequency": 38,
+      "percentage": 19.1
+    },
+    {
+      "keyword": "physical activity",
+      "frequency": 33,
+      "percentage": 16.58
+    },
+    {
+      "keyword": "clinical psychology",
+      "frequency": 30,
+      "percentage": 15.08
+    },
+    {
+      "keyword": "mental health",
+      "frequency": 27,
+      "percentage": 13.57
+    },
+    {
+      "keyword": "gerontology",
+      "frequency": 26,
+      "percentage": 13.07
+    },
+    {
+      "keyword": "medline",
+      "frequency": 26,
+      "percentage": 13.07
+    },
+    {
+      "keyword": "social media",
+      "frequency": 23,
+      "percentage": 11.56
+    },
+    {
+      "keyword": "applied psychology",
+      "frequency": 21,
+      "percentage": 10.55
+    },
+    {
+      "keyword": "digital media",
+      "frequency": 20,
+      "percentage": 10.05
+    },
+    {
+      "keyword": "social psychology",
+      "frequency": 20,
+      "percentage": 10.05
+    },
+    {
+      "keyword": "psychiatry",
+      "frequency": 18,
+      "percentage": 9.05
+    },
+    {
+      "keyword": "association",
+      "frequency": 18,
+      "percentage": 9.05
+    },
+    {
+      "keyword": "public health",
+      "frequency": 17,
+      "percentage": 8.54
+    },
+    {
+      "keyword": "sedentary behavior",
+      "frequency": 16,
+      "percentage": 8.04
+    },
+    {
+      "keyword": "obesity",
+      "frequency": 16,
+      "percentage": 8.04
+    },
+    {
+      "keyword": "cross-sectional study",
+      "frequency": 15,
+      "percentage": 7.54
+    },
+    {
+      "keyword": "child development",
+      "frequency": 14,
+      "percentage": 7.04
+    },
+    {
+      "keyword": "early childhood",
+      "frequency": 14,
+      "percentage": 7.04
+    },
+    {
+      "keyword": "medical education",
+      "frequency": 14,
+      "percentage": 7.04
+    },
+    {
+      "keyword": "young adult",
+      "frequency": 13,
+      "percentage": 6.53
+    },
+    {
+      "keyword": "psychological intervention",
+      "frequency": 13,
+      "percentage": 6.53
+    },
+    {
+      "keyword": "obesity, physical activity, diet",
+      "frequency": 13,
+      "percentage": 6.53
+    },
+    {
+      "keyword": "mobile health and mhealth applications",
+      "frequency": 13,
+      "percentage": 6.53
+    },
+    {
+      "keyword": "pediatrics",
+      "frequency": 13,
+      "percentage": 6.53
+    },
+    {
+      "keyword": "anxiety",
+      "frequency": 12,
+      "percentage": 6.03
+    },
+    {
+      "keyword": "sleep",
+      "frequency": 12,
+      "percentage": 6.03
+    },
+    {
+      "keyword": "computer science",
+      "frequency": 12,
+      "percentage": 6.03
+    },
+    {
+      "keyword": "media use",
+      "frequency": 11,
+      "percentage": 5.53
+    },
+    {
+      "keyword": "depression",
+      "frequency": 11,
+      "percentage": 5.53
+    },
+    {
+      "keyword": "body mass index",
+      "frequency": 11,
+      "percentage": 5.53
+    },
+    {
+      "keyword": "environmental health",
+      "frequency": 11,
+      "percentage": 5.53
+    },
+    {
+      "keyword": "multimedia",
+      "frequency": 11,
+      "percentage": 5.53
+    },
+    {
+      "keyword": "literacy, media, and education",
+      "frequency": 11,
+      "percentage": 5.53
+    },
+    {
+      "keyword": "family medicine",
+      "frequency": 11,
+      "percentage": 5.53
+    },
+    {
+      "keyword": "nursing",
+      "frequency": 10,
+      "percentage": 5.03
+    },
+    {
+      "keyword": "health behavior",
+      "frequency": 10,
+      "percentage": 5.03
+    },
+    {
+      "keyword": "digital mental health interventions",
+      "frequency": 10,
+      "percentage": 5.03
+    },
+    {
+      "keyword": "physical therapy",
+      "frequency": 10,
+      "percentage": 5.03
+    },
+    {
+      "keyword": "health promotion",
+      "frequency": 9,
+      "percentage": 4.52
+    },
+    {
+      "keyword": "intervention",
+      "frequency": 9,
+      "percentage": 4.52
+    },
+    {
+      "keyword": "mediation",
+      "frequency": 9,
+      "percentage": 4.52
+    },
+    {
+      "keyword": "sedentary lifestyle",
+      "frequency": 9,
+      "percentage": 4.52
+    },
+    {
+      "keyword": "the internet",
+      "frequency": 9,
+      "percentage": 4.52
+    },
+    {
+      "keyword": "physical activity level",
+      "frequency": 8,
+      "percentage": 4.02
+    },
+    {
+      "keyword": "systematic review",
+      "frequency": 8,
+      "percentage": 4.02
+    },
+    {
+      "keyword": "data collection",
+      "frequency": 8,
+      "percentage": 4.02
+    },
+    {
+      "keyword": "ergonomics and musculoskeletal disorders",
+      "frequency": 8,
+      "percentage": 4.02
+    },
+    {
+      "keyword": "cognition",
+      "frequency": 8,
+      "percentage": 4.02
+    },
+    {
+      "keyword": "demography",
+      "frequency": 8,
+      "percentage": 4.02
+    },
+    {
+      "keyword": "children",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "epidemiology",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "injury prevention",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "structural equation modeling",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "duration",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "audiology",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "internet privacy",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "autism spectrum disorder research",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "observational study",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "sleep and related disorders",
+      "frequency": 7,
+      "percentage": 3.52
+    },
+    {
+      "keyword": "adolescents",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "overweight",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "sleep quality",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "digital health",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "suicide prevention",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "key",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "narrative",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "public relations",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "internal medicine",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "descriptive statistics",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "risk factor",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "correlation",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "physical activity and health",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "computer-assisted web interviewing",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "attention deficit hyperactivity disorder",
+      "frequency": 6,
+      "percentage": 3.02
+    },
+    {
+      "keyword": "affect",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "content analysis",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "preschool children",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "cognitive development",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "neuroimaging",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "artificial intelligence",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "moderation",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "childhood obesity",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "child health",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "poison control",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "human factors and ergonomics",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "cognitive psychology",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "occupational safety and health",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "advertising",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "time management",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "work",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "sociology",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "quality",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "social support",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "leisure time",
+      "frequency": 5,
+      "percentage": 2.51
+    },
+    {
+      "keyword": "children's physical and motor development",
+      "frequency": 5,
+      "percentage": 2.51
+    }
+  ],
+  "matrix_keywords": [
+    "screen time",
+    "psychology",
+    "medicine",
+    "child development and digital technology",
+    "impact of technology on adolescents",
+    "developmental psychology",
+    "physical activity",
+    "clinical psychology",
+    "mental health",
+    "gerontology",
+    "medline",
+    "social media",
+    "applied psychology",
+    "digital media",
+    "social psychology",
+    "psychiatry",
+    "association",
+    "public health",
+    "sedentary behavior",
+    "obesity",
+    "cross-sectional study",
+    "child development",
+    "early childhood",
+    "medical education",
+    "young adult",
+    "psychological intervention",
+    "obesity, physical activity, diet",
+    "mobile health and mhealth applications",
+    "pediatrics",
+    "anxiety",
+    "sleep",
+    "computer science",
+    "media use",
+    "depression",
+    "body mass index",
+    "environmental health",
+    "multimedia",
+    "literacy, media, and education",
+    "family medicine",
+    "nursing",
+    "health behavior",
+    "digital mental health interventions",
+    "physical therapy",
+    "health promotion",
+    "intervention",
+    "mediation",
+    "sedentary lifestyle",
+    "the internet",
+    "physical activity level",
+    "systematic review",
+    "data collection",
+    "ergonomics and musculoskeletal disorders",
+    "cognition",
+    "demography",
+    "children",
+    "epidemiology",
+    "injury prevention",
+    "structural equation modeling",
+    "duration",
+    "audiology",
+    "internet privacy",
+    "autism spectrum disorder research",
+    "observational study",
+    "sleep and related disorders",
+    "adolescents",
+    "overweight",
+    "sleep quality",
+    "digital health",
+    "suicide prevention",
+    "key",
+    "narrative",
+    "public relations",
+    "internal medicine",
+    "descriptive statistics",
+    "risk factor",
+    "correlation",
+    "physical activity and health",
+    "computer-assisted web interviewing",
+    "attention deficit hyperactivity disorder",
+    "affect",
+    "content analysis",
+    "preschool children",
+    "cognitive development",
+    "neuroimaging",
+    "artificial intelligence",
+    "moderation",
+    "childhood obesity",
+    "child health",
+    "poison control",
+    "human factors and ergonomics",
+    "cognitive psychology",
+    "occupational safety and health",
+    "advertising",
+    "time management",
+    "work",
+    "sociology",
+    "quality",
+    "social support",
+    "leisure time",
+    "children's physical and motor development"
+  ],
+  "matrix_rows": 199,
+  "matrix_columns": 100,
+  "cooccurrence_edges": [
+    {
+      "source": "medicine",
+      "target": "screen time",
+      "weight": 53
+    },
+    {
+      "source": "psychology",
+      "target": "screen time",
+      "weight": 50
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "screen time",
+      "weight": 46
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "psychology",
+      "weight": 40
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "psychology",
+      "weight": 37
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "screen time",
+      "weight": 37
+    },
+    {
+      "source": "medicine",
+      "target": "psychology",
+      "weight": 36
+    },
+    {
+      "source": "developmental psychology",
+      "target": "psychology",
+      "weight": 35
+    },
+    {
+      "source": "developmental psychology",
+      "target": "screen time",
+      "weight": 34
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "medicine",
+      "weight": 33
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "impact of technology on adolescents",
+      "weight": 31
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "developmental psychology",
+      "weight": 30
+    },
+    {
+      "source": "clinical psychology",
+      "target": "psychology",
+      "weight": 28
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "medicine",
+      "weight": 27
+    },
+    {
+      "source": "medicine",
+      "target": "medline",
+      "weight": 26
+    },
+    {
+      "source": "physical activity",
+      "target": "screen time",
+      "weight": 24
+    },
+    {
+      "source": "developmental psychology",
+      "target": "impact of technology on adolescents",
+      "weight": 24
+    },
+    {
+      "source": "gerontology",
+      "target": "medicine",
+      "weight": 24
+    },
+    {
+      "source": "gerontology",
+      "target": "screen time",
+      "weight": 24
+    },
+    {
+      "source": "medline",
+      "target": "screen time",
+      "weight": 24
+    },
+    {
+      "source": "clinical psychology",
+      "target": "screen time",
+      "weight": 23
+    },
+    {
+      "source": "mental health",
+      "target": "screen time",
+      "weight": 22
+    },
+    {
+      "source": "clinical psychology",
+      "target": "medicine",
+      "weight": 21
+    },
+    {
+      "source": "developmental psychology",
+      "target": "medicine",
+      "weight": 21
+    },
+    {
+      "source": "medicine",
+      "target": "physical activity",
+      "weight": 20
+    },
+    {
+      "source": "applied psychology",
+      "target": "psychology",
+      "weight": 20
+    },
+    {
+      "source": "psychology",
+      "target": "social psychology",
+      "weight": 19
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "clinical psychology",
+      "weight": 18
+    },
+    {
+      "source": "clinical psychology",
+      "target": "developmental psychology",
+      "weight": 18
+    },
+    {
+      "source": "clinical psychology",
+      "target": "impact of technology on adolescents",
+      "weight": 18
+    },
+    {
+      "source": "applied psychology",
+      "target": "screen time",
+      "weight": 18
+    },
+    {
+      "source": "medicine",
+      "target": "mental health",
+      "weight": 17
+    },
+    {
+      "source": "medicine",
+      "target": "psychiatry",
+      "weight": 17
+    },
+    {
+      "source": "mental health",
+      "target": "psychology",
+      "weight": 16
+    },
+    {
+      "source": "screen time",
+      "target": "social psychology",
+      "weight": 16
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "social media",
+      "weight": 16
+    },
+    {
+      "source": "psychology",
+      "target": "social media",
+      "weight": 16
+    },
+    {
+      "source": "medicine",
+      "target": "public health",
+      "weight": 16
+    },
+    {
+      "source": "public health",
+      "target": "screen time",
+      "weight": 16
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "medline",
+      "weight": 16
+    },
+    {
+      "source": "association",
+      "target": "medicine",
+      "weight": 16
+    },
+    {
+      "source": "digital media",
+      "target": "screen time",
+      "weight": 15
+    },
+    {
+      "source": "clinical psychology",
+      "target": "psychiatry",
+      "weight": 15
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "mental health",
+      "weight": 15
+    },
+    {
+      "source": "physical activity",
+      "target": "psychology",
+      "weight": 15
+    },
+    {
+      "source": "applied psychology",
+      "target": "impact of technology on adolescents",
+      "weight": 15
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "social psychology",
+      "weight": 15
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "social psychology",
+      "weight": 15
+    },
+    {
+      "source": "digital media",
+      "target": "psychology",
+      "weight": 15
+    },
+    {
+      "source": "screen time",
+      "target": "social media",
+      "weight": 15
+    },
+    {
+      "source": "gerontology",
+      "target": "physical activity",
+      "weight": 15
+    },
+    {
+      "source": "clinical psychology",
+      "target": "mental health",
+      "weight": 14
+    },
+    {
+      "source": "psychiatry",
+      "target": "psychology",
+      "weight": 14
+    },
+    {
+      "source": "developmental psychology",
+      "target": "social psychology",
+      "weight": 14
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "social media",
+      "weight": 14
+    },
+    {
+      "source": "gerontology",
+      "target": "medline",
+      "weight": 14
+    },
+    {
+      "source": "gerontology",
+      "target": "psychology",
+      "weight": 14
+    },
+    {
+      "source": "medline",
+      "target": "psychology",
+      "weight": 14
+    },
+    {
+      "source": "association",
+      "target": "psychology",
+      "weight": 14
+    },
+    {
+      "source": "association",
+      "target": "screen time",
+      "weight": 14
+    },
+    {
+      "source": "cross-sectional study",
+      "target": "screen time",
+      "weight": 13
+    },
+    {
+      "source": "obesity, physical activity, diet",
+      "target": "physical activity",
+      "weight": 13
+    },
+    {
+      "source": "psychiatry",
+      "target": "screen time",
+      "weight": 13
+    },
+    {
+      "source": "digital media",
+      "target": "social media",
+      "weight": 13
+    },
+    {
+      "source": "medicine",
+      "target": "mobile health and mhealth applications",
+      "weight": 13
+    },
+    {
+      "source": "mobile health and mhealth applications",
+      "target": "screen time",
+      "weight": 13
+    },
+    {
+      "source": "medical education",
+      "target": "screen time",
+      "weight": 13
+    },
+    {
+      "source": "medicine",
+      "target": "pediatrics",
+      "weight": 13
+    },
+    {
+      "source": "child development",
+      "target": "screen time",
+      "weight": 12
+    },
+    {
+      "source": "screen time",
+      "target": "young adult",
+      "weight": 12
+    },
+    {
+      "source": "physical activity",
+      "target": "sedentary behavior",
+      "weight": 12
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "mental health",
+      "weight": 12
+    },
+    {
+      "source": "medicine",
+      "target": "obesity, physical activity, diet",
+      "weight": 12
+    },
+    {
+      "source": "obesity, physical activity, diet",
+      "target": "screen time",
+      "weight": 12
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "digital media",
+      "weight": 12
+    },
+    {
+      "source": "social media",
+      "target": "social psychology",
+      "weight": 12
+    },
+    {
+      "source": "applied psychology",
+      "target": "child development and digital technology",
+      "weight": 12
+    },
+    {
+      "source": "pediatrics",
+      "target": "screen time",
+      "weight": 12
+    },
+    {
+      "source": "screen time",
+      "target": "sedentary behavior",
+      "weight": 11
+    },
+    {
+      "source": "mental health",
+      "target": "psychiatry",
+      "weight": 11
+    },
+    {
+      "source": "psychological intervention",
+      "target": "screen time",
+      "weight": 11
+    },
+    {
+      "source": "applied psychology",
+      "target": "developmental psychology",
+      "weight": 11
+    },
+    {
+      "source": "digital media",
+      "target": "impact of technology on adolescents",
+      "weight": 11
+    },
+    {
+      "source": "cross-sectional study",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "medicine",
+      "target": "young adult",
+      "weight": 11
+    },
+    {
+      "source": "early childhood",
+      "target": "screen time",
+      "weight": 11
+    },
+    {
+      "source": "child development",
+      "target": "child development and digital technology",
+      "weight": 11
+    },
+    {
+      "source": "family medicine",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "medical education",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "obesity",
+      "target": "screen time",
+      "weight": 10
+    },
+    {
+      "source": "anxiety",
+      "target": "screen time",
+      "weight": 10
+    },
+    {
+      "source": "anxiety",
+      "target": "psychology",
+      "weight": 10
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "psychological intervention",
+      "weight": 10
+    },
+    {
+      "source": "clinical psychology",
+      "target": "physical activity",
+      "weight": 10
+    },
+    {
+      "source": "developmental psychology",
+      "target": "physical activity",
+      "weight": 10
+    },
+    {
+      "source": "medicine",
+      "target": "psychological intervention",
+      "weight": 10
+    },
+    {
+      "source": "psychological intervention",
+      "target": "psychology",
+      "weight": 10
+    },
+    {
+      "source": "applied psychology",
+      "target": "social psychology",
+      "weight": 10
+    },
+    {
+      "source": "developmental psychology",
+      "target": "social media",
+      "weight": 10
+    },
+    {
+      "source": "multimedia",
+      "target": "psychology",
+      "weight": 10
+    },
+    {
+      "source": "clinical psychology",
+      "target": "gerontology",
+      "weight": 10
+    },
+    {
+      "source": "clinical psychology",
+      "target": "medline",
+      "weight": 10
+    },
+    {
+      "source": "environmental health",
+      "target": "medicine",
+      "weight": 10
+    },
+    {
+      "source": "medline",
+      "target": "public health",
+      "weight": 10
+    },
+    {
+      "source": "psychology",
+      "target": "public health",
+      "weight": 10
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "public health",
+      "weight": 10
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "early childhood",
+      "weight": 10
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "gerontology",
+      "weight": 10
+    },
+    {
+      "source": "association",
+      "target": "child development and digital technology",
+      "weight": 10
+    },
+    {
+      "source": "association",
+      "target": "clinical psychology",
+      "weight": 10
+    },
+    {
+      "source": "child development",
+      "target": "developmental psychology",
+      "weight": 10
+    },
+    {
+      "source": "family medicine",
+      "target": "screen time",
+      "weight": 10
+    },
+    {
+      "source": "applied psychology",
+      "target": "social media",
+      "weight": 10
+    },
+    {
+      "source": "obesity",
+      "target": "physical activity",
+      "weight": 9
+    },
+    {
+      "source": "anxiety",
+      "target": "mental health",
+      "weight": 9
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "psychiatry",
+      "weight": 9
+    },
+    {
+      "source": "developmental psychology",
+      "target": "mental health",
+      "weight": 9
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "psychiatry",
+      "weight": 9
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "psychological intervention",
+      "weight": 9
+    },
+    {
+      "source": "obesity, physical activity, diet",
+      "target": "psychology",
+      "weight": 9
+    },
+    {
+      "source": "applied psychology",
+      "target": "medicine",
+      "weight": 9
+    },
+    {
+      "source": "digital media",
+      "target": "social psychology",
+      "weight": 9
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "media use",
+      "weight": 9
+    },
+    {
+      "source": "media use",
+      "target": "screen time",
+      "weight": 9
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "literacy, media, and education",
+      "weight": 9
+    },
+    {
+      "source": "clinical psychology",
+      "target": "public health",
+      "weight": 9
+    },
+    {
+      "source": "environmental health",
+      "target": "screen time",
+      "weight": 9
+    },
+    {
+      "source": "gerontology",
+      "target": "mobile health and mhealth applications",
+      "weight": 9
+    },
+    {
+      "source": "gerontology",
+      "target": "public health",
+      "weight": 9
+    },
+    {
+      "source": "gerontology",
+      "target": "sedentary behavior",
+      "weight": 9
+    },
+    {
+      "source": "health behavior",
+      "target": "screen time",
+      "weight": 9
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "medline",
+      "weight": 9
+    },
+    {
+      "source": "medicine",
+      "target": "obesity",
+      "weight": 9
+    },
+    {
+      "source": "medline",
+      "target": "psychiatry",
+      "weight": 9
+    },
+    {
+      "source": "physical activity",
+      "target": "sedentary lifestyle",
+      "weight": 9
+    },
+    {
+      "source": "psychology",
+      "target": "the internet",
+      "weight": 9
+    },
+    {
+      "source": "early childhood",
+      "target": "psychology",
+      "weight": 9
+    },
+    {
+      "source": "gerontology",
+      "target": "obesity, physical activity, diet",
+      "weight": 9
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "medical education",
+      "weight": 9
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "medical education",
+      "weight": 9
+    },
+    {
+      "source": "medicine",
+      "target": "physical therapy",
+      "weight": 9
+    },
+    {
+      "source": "physical therapy",
+      "target": "screen time",
+      "weight": 9
+    },
+    {
+      "source": "medicine",
+      "target": "nursing",
+      "weight": 9
+    },
+    {
+      "source": "gerontology",
+      "target": "pediatrics",
+      "weight": 9
+    },
+    {
+      "source": "anxiety",
+      "target": "child development and digital technology",
+      "weight": 8
+    },
+    {
+      "source": "anxiety",
+      "target": "clinical psychology",
+      "weight": 8
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "physical activity",
+      "weight": 8
+    },
+    {
+      "source": "mental health",
+      "target": "psychological intervention",
+      "weight": 8
+    },
+    {
+      "source": "physical activity",
+      "target": "physical activity level",
+      "weight": 8
+    },
+    {
+      "source": "physical activity level",
+      "target": "screen time",
+      "weight": 8
+    },
+    {
+      "source": "digital mental health interventions",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "systematic review",
+      "weight": 8
+    },
+    {
+      "source": "media use",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "multimedia",
+      "target": "screen time",
+      "weight": 8
+    },
+    {
+      "source": "computer science",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "environmental health",
+      "target": "gerontology",
+      "weight": 8
+    },
+    {
+      "source": "gerontology",
+      "target": "health behavior",
+      "weight": 8
+    },
+    {
+      "source": "gerontology",
+      "target": "obesity",
+      "weight": 8
+    },
+    {
+      "source": "gerontology",
+      "target": "sedentary lifestyle",
+      "weight": 8
+    },
+    {
+      "source": "gerontology",
+      "target": "young adult",
+      "weight": 8
+    },
+    {
+      "source": "health behavior",
+      "target": "medicine",
+      "weight": 8
+    },
+    {
+      "source": "health behavior",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "public health",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "sedentary behavior",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "sedentary lifestyle",
+      "weight": 8
+    },
+    {
+      "source": "mobile health and mhealth applications",
+      "target": "physical activity",
+      "weight": 8
+    },
+    {
+      "source": "physical activity",
+      "target": "public health",
+      "weight": 8
+    },
+    {
+      "source": "psychology",
+      "target": "sedentary behavior",
+      "weight": 8
+    },
+    {
+      "source": "screen time",
+      "target": "sedentary lifestyle",
+      "weight": 8
+    },
+    {
+      "source": "sedentary behavior",
+      "target": "sedentary lifestyle",
+      "weight": 8
+    },
+    {
+      "source": "medline",
+      "target": "mental health",
+      "weight": 8
+    },
+    {
+      "source": "mental health",
+      "target": "public health",
+      "weight": 8
+    },
+    {
+      "source": "developmental psychology",
+      "target": "early childhood",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "social media",
+      "weight": 8
+    },
+    {
+      "source": "developmental psychology",
+      "target": "gerontology",
+      "weight": 8
+    },
+    {
+      "source": "developmental psychology",
+      "target": "medline",
+      "weight": 8
+    },
+    {
+      "source": "medical education",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "association",
+      "target": "impact of technology on adolescents",
+      "weight": 8
+    },
+    {
+      "source": "child development",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "cognition",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "cognition",
+      "target": "screen time",
+      "weight": 8
+    },
+    {
+      "source": "demography",
+      "target": "medicine",
+      "weight": 8
+    },
+    {
+      "source": "medical education",
+      "target": "nursing",
+      "weight": 8
+    },
+    {
+      "source": "nursing",
+      "target": "screen time",
+      "weight": 8
+    },
+    {
+      "source": "mental health",
+      "target": "social media",
+      "weight": 7
+    },
+    {
+      "source": "obesity",
+      "target": "sedentary behavior",
+      "weight": 7
+    },
+    {
+      "source": "screen time",
+      "target": "sleep",
+      "weight": 7
+    },
+    {
+      "source": "anxiety",
+      "target": "impact of technology on adolescents",
+      "weight": 7
+    },
+    {
+      "source": "anxiety",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "mediation",
+      "weight": 7
+    },
+    {
+      "source": "depression",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "depression",
+      "target": "psychology",
+      "weight": 7
+    },
+    {
+      "source": "developmental psychology",
+      "target": "mediation",
+      "weight": 7
+    },
+    {
+      "source": "developmental psychology",
+      "target": "obesity, physical activity, diet",
+      "weight": 7
+    },
+    {
+      "source": "developmental psychology",
+      "target": "psychiatry",
+      "weight": 7
+    },
+    {
+      "source": "developmental psychology",
+      "target": "psychological intervention",
+      "weight": 7
+    },
+    {
+      "source": "mediation",
+      "target": "psychology",
+      "weight": 7
+    },
+    {
+      "source": "psychology",
+      "target": "sleep",
+      "weight": 7
+    },
+    {
+      "source": "applied psychology",
+      "target": "mental health",
+      "weight": 7
+    },
+    {
+      "source": "psychology",
+      "target": "systematic review",
+      "weight": 7
+    },
+    {
+      "source": "screen time",
+      "target": "systematic review",
+      "weight": 7
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "media use",
+      "weight": 7
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "multimedia",
+      "weight": 7
+    },
+    {
+      "source": "developmental psychology",
+      "target": "digital media",
+      "weight": 7
+    },
+    {
+      "source": "digital media",
+      "target": "multimedia",
+      "weight": 7
+    },
+    {
+      "source": "data collection",
+      "target": "screen time",
+      "weight": 7
+    },
+    {
+      "source": "ergonomics and musculoskeletal disorders",
+      "target": "screen time",
+      "weight": 7
+    },
+    {
+      "source": "digital media",
+      "target": "literacy, media, and education",
+      "weight": 7
+    },
+    {
+      "source": "literacy, media, and education",
+      "target": "psychology",
+      "weight": 7
+    },
+    {
+      "source": "literacy, media, and education",
+      "target": "screen time",
+      "weight": 7
+    },
+    {
+      "source": "body mass index",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "cross-sectional study",
+      "target": "gerontology",
+      "weight": 7
+    },
+    {
+      "source": "environmental health",
+      "target": "physical activity",
+      "weight": 7
+    },
+    {
+      "source": "gerontology",
+      "target": "health promotion",
+      "weight": 7
+    },
+    {
+      "source": "gerontology",
+      "target": "impact of technology on adolescents",
+      "weight": 7
+    },
+    {
+      "source": "health promotion",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "medline",
+      "target": "physical activity",
+      "weight": 7
+    },
+    {
+      "source": "obesity",
+      "target": "sedentary lifestyle",
+      "weight": 7
+    },
+    {
+      "source": "physical activity",
+      "target": "young adult",
+      "weight": 7
+    },
+    {
+      "source": "psychology",
+      "target": "sedentary lifestyle",
+      "weight": 7
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "the internet",
+      "weight": 7
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "the internet",
+      "weight": 7
+    },
+    {
+      "source": "early childhood",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "association",
+      "target": "developmental psychology",
+      "weight": 7
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "mobile health and mhealth applications",
+      "weight": 7
+    },
+    {
+      "source": "obesity, physical activity, diet",
+      "target": "sedentary lifestyle",
+      "weight": 7
+    },
+    {
+      "source": "applied psychology",
+      "target": "digital media",
+      "weight": 7
+    },
+    {
+      "source": "pediatrics",
+      "target": "physical activity",
+      "weight": 7
+    },
+    {
+      "source": "child development",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "cognition",
+      "weight": 7
+    },
+    {
+      "source": "family medicine",
+      "target": "impact of technology on adolescents",
+      "weight": 7
+    },
+    {
+      "source": "cross-sectional study",
+      "target": "pediatrics",
+      "weight": 7
+    },
+    {
+      "source": "cognition",
+      "target": "impact of technology on adolescents",
+      "weight": 7
+    },
+    {
+      "source": "demography",
+      "target": "gerontology",
+      "weight": 7
+    },
+    {
+      "source": "demography",
+      "target": "screen time",
+      "weight": 7
+    },
+    {
+      "source": "obesity, physical activity, diet",
+      "target": "sedentary behavior",
+      "weight": 7
+    },
+    {
+      "source": "social media",
+      "target": "the internet",
+      "weight": 7
+    },
+    {
+      "source": "gerontology",
+      "target": "mental health",
+      "weight": 7
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "family medicine",
+      "weight": 7
+    },
+    {
+      "source": "gerontology",
+      "target": "physical therapy",
+      "weight": 7
+    },
+    {
+      "source": "association",
+      "target": "psychiatry",
+      "weight": 7
+    },
+    {
+      "source": "anxiety",
+      "target": "depression",
+      "weight": 6
+    },
+    {
+      "source": "body mass index",
+      "target": "physical activity",
+      "weight": 6
+    },
+    {
+      "source": "health promotion",
+      "target": "physical activity",
+      "weight": 6
+    },
+    {
+      "source": "anxiety",
+      "target": "developmental psychology",
+      "weight": 6
+    },
+    {
+      "source": "anxiety",
+      "target": "psychiatry",
+      "weight": 6
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "physical activity",
+      "weight": 6
+    },
+    {
+      "source": "child development and digital technology",
+      "target": "structural equation modeling",
+      "weight": 6
+    },
+    {
+      "source": "clinical psychology",
+      "target": "depression",
+      "weight": 6
+    },
+    {
+      "source": "clinical psychology",
+      "target": "psychological intervention",
+      "weight": 6
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "screen time",
+      "degree_centrality": 1.0,
+      "closeness_centrality": 1.0,
+      "betweenness_centrality": 0.051728,
+      "eigenvector_centrality": 0.167155,
+      "clustering_coefficient": 0.477633
+    },
+    {
+      "keyword": "psychology",
+      "degree_centrality": 0.969697,
+      "closeness_centrality": 0.970588,
+      "betweenness_centrality": 0.030482,
+      "eigenvector_centrality": 0.166507,
+      "clustering_coefficient": 0.504386
+    },
+    {
+      "keyword": "medicine",
+      "degree_centrality": 0.919192,
+      "closeness_centrality": 0.925234,
+      "betweenness_centrality": 0.021102,
+      "eigenvector_centrality": 0.163057,
+      "clustering_coefficient": 0.538462
+    },
+    {
+      "keyword": "child development and digital technology",
+      "degree_centrality": 0.919192,
+      "closeness_centrality": 0.925234,
+      "betweenness_centrality": 0.025674,
+      "eigenvector_centrality": 0.159437,
+      "clustering_coefficient": 0.515751
+    },
+    {
+      "keyword": "developmental psychology",
+      "degree_centrality": 0.89899,
+      "closeness_centrality": 0.908257,
+      "betweenness_centrality": 0.021696,
+      "eigenvector_centrality": 0.158627,
+      "clustering_coefficient": 0.532431
+    },
+    {
+      "keyword": "impact of technology on adolescents",
+      "degree_centrality": 0.888889,
+      "closeness_centrality": 0.9,
+      "betweenness_centrality": 0.020916,
+      "eigenvector_centrality": 0.157354,
+      "clustering_coefficient": 0.538924
+    },
+    {
+      "keyword": "medline",
+      "degree_centrality": 0.848485,
+      "closeness_centrality": 0.868421,
+      "betweenness_centrality": 0.015961,
+      "eigenvector_centrality": 0.15424,
+      "clustering_coefficient": 0.566839
+    },
+    {
+      "keyword": "gerontology",
+      "degree_centrality": 0.79798,
+      "closeness_centrality": 0.831933,
+      "betweenness_centrality": 0.010841,
+      "eigenvector_centrality": 0.149662,
+      "clustering_coefficient": 0.610191
+    },
+    {
+      "keyword": "physical activity",
+      "degree_centrality": 0.787879,
+      "closeness_centrality": 0.825,
+      "betweenness_centrality": 0.018745,
+      "eigenvector_centrality": 0.145148,
+      "clustering_coefficient": 0.588745
+    },
+    {
+      "keyword": "clinical psychology",
+      "degree_centrality": 0.767677,
+      "closeness_centrality": 0.811475,
+      "betweenness_centrality": 0.01176,
+      "eigenvector_centrality": 0.142278,
+      "clustering_coefficient": 0.597895
+    },
+    {
+      "keyword": "social media",
+      "degree_centrality": 0.717172,
+      "closeness_centrality": 0.779528,
+      "betweenness_centrality": 0.013069,
+      "eigenvector_centrality": 0.129532,
+      "clustering_coefficient": 0.588732
+    },
+    {
+      "keyword": "applied psychology",
+      "degree_centrality": 0.717172,
+      "closeness_centrality": 0.779528,
+      "betweenness_centrality": 0.009964,
+      "eigenvector_centrality": 0.13172,
+      "clustering_coefficient": 0.604829
+    },
+    {
+      "keyword": "public health",
+      "degree_centrality": 0.717172,
+      "closeness_centrality": 0.779528,
+      "betweenness_centrality": 0.007628,
+      "eigenvector_centrality": 0.13828,
+      "clustering_coefficient": 0.649095
+    },
+    {
+      "keyword": "psychological intervention",
+      "degree_centrality": 0.717172,
+      "closeness_centrality": 0.779528,
+      "betweenness_centrality": 0.008571,
+      "eigenvector_centrality": 0.136561,
+      "clustering_coefficient": 0.628571
+    },
+    {
+      "keyword": "mental health",
+      "degree_centrality": 0.707071,
+      "closeness_centrality": 0.773438,
+      "betweenness_centrality": 0.010244,
+      "eigenvector_centrality": 0.133649,
+      "clustering_coefficient": 0.622774
+    },
+    {
+      "keyword": "social psychology",
+      "degree_centrality": 0.666667,
+      "closeness_centrality": 0.75,
+      "betweenness_centrality": 0.009152,
+      "eigenvector_centrality": 0.121182,
+      "clustering_coefficient": 0.604662
+    },
+    {
+      "keyword": "association",
+      "degree_centrality": 0.656566,
+      "closeness_centrality": 0.744361,
+      "betweenness_centrality": 0.00695,
+      "eigenvector_centrality": 0.124814,
+      "clustering_coefficient": 0.637019
+    },
+    {
+      "keyword": "psychiatry",
+      "degree_centrality": 0.646465,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.005895,
+      "eigenvector_centrality": 0.125915,
+      "clustering_coefficient": 0.668155
+    },
+    {
+      "keyword": "mobile health and mhealth applications",
+      "degree_centrality": 0.636364,
+      "closeness_centrality": 0.733333,
+      "betweenness_centrality": 0.005329,
+      "eigenvector_centrality": 0.124486,
+      "clustering_coefficient": 0.683052
+    },
+    {
+      "keyword": "health behavior",
+      "degree_centrality": 0.626263,
+      "closeness_centrality": 0.727941,
+      "betweenness_centrality": 0.006813,
+      "eigenvector_centrality": 0.122595,
+      "clustering_coefficient": 0.682179
+    },
+    {
+      "keyword": "cross-sectional study",
+      "degree_centrality": 0.616162,
+      "closeness_centrality": 0.722628,
+      "betweenness_centrality": 0.007822,
+      "eigenvector_centrality": 0.117677,
+      "clustering_coefficient": 0.648634
+    },
+    {
+      "keyword": "early childhood",
+      "degree_centrality": 0.616162,
+      "closeness_centrality": 0.722628,
+      "betweenness_centrality": 0.006482,
+      "eigenvector_centrality": 0.118487,
+      "clustering_coefficient": 0.640437
+    },
+    {
+      "keyword": "digital media",
+      "degree_centrality": 0.606061,
+      "closeness_centrality": 0.717391,
+      "betweenness_centrality": 0.01416,
+      "eigenvector_centrality": 0.104646,
+      "clustering_coefficient": 0.573446
+    },
+    {
+      "keyword": "pediatrics",
+      "degree_centrality": 0.585859,
+      "closeness_centrality": 0.707143,
+      "betweenness_centrality": 0.004525,
+      "eigenvector_centrality": 0.114508,
+      "clustering_coefficient": 0.69389
+    },
+    {
+      "keyword": "intervention",
+      "degree_centrality": 0.585859,
+      "closeness_centrality": 0.707143,
+      "betweenness_centrality": 0.004255,
+      "eigenvector_centrality": 0.116276,
+      "clustering_coefficient": 0.699335
+    },
+    {
+      "keyword": "medical education",
+      "degree_centrality": 0.575758,
+      "closeness_centrality": 0.702128,
+      "betweenness_centrality": 0.005664,
+      "eigenvector_centrality": 0.110248,
+      "clustering_coefficient": 0.662907
+    },
+    {
+      "keyword": "obesity, physical activity, diet",
+      "degree_centrality": 0.575758,
+      "closeness_centrality": 0.702128,
+      "betweenness_centrality": 0.003654,
+      "eigenvector_centrality": 0.114606,
+      "clustering_coefficient": 0.721178
+    },
+    {
+      "keyword": "sedentary behavior",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.697183,
+      "betweenness_centrality": 0.00579,
+      "eigenvector_centrality": 0.109946,
+      "clustering_coefficient": 0.693506
+    },
+    {
+      "keyword": "young adult",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.697183,
+      "betweenness_centrality": 0.004795,
+      "eigenvector_centrality": 0.110726,
+      "clustering_coefficient": 0.69026
+    },
+    {
+      "keyword": "environmental health",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.697183,
+      "betweenness_centrality": 0.003602,
+      "eigenvector_centrality": 0.113056,
+      "clustering_coefficient": 0.721429
+    },
+    {
+      "keyword": "family medicine",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.003446,
+      "eigenvector_centrality": 0.112009,
+      "clustering_coefficient": 0.719192
+    },
+    {
+      "keyword": "health promotion",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.00343,
+      "eigenvector_centrality": 0.110846,
+      "clustering_coefficient": 0.724579
+    },
+    {
+      "keyword": "media use",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.003859,
+      "eigenvector_centrality": 0.107916,
+      "clustering_coefficient": 0.696716
+    },
+    {
+      "keyword": "digital mental health interventions",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.005118,
+      "eigenvector_centrality": 0.105765,
+      "clustering_coefficient": 0.67086
+    },
+    {
+      "keyword": "injury prevention",
+      "degree_centrality": 0.535354,
+      "closeness_centrality": 0.682759,
+      "betweenness_centrality": 0.002815,
+      "eigenvector_centrality": 0.109339,
+      "clustering_coefficient": 0.741655
+    },
+    {
+      "keyword": "sedentary lifestyle",
+      "degree_centrality": 0.525253,
+      "closeness_centrality": 0.678082,
+      "betweenness_centrality": 0.002819,
+      "eigenvector_centrality": 0.103707,
+      "clustering_coefficient": 0.740573
+    },
+    {
+      "keyword": "nursing",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.004169,
+      "eigenvector_centrality": 0.100525,
+      "clustering_coefficient": 0.681569
+    },
+    {
+      "keyword": "physical activity level",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.00282,
+      "eigenvector_centrality": 0.102784,
+      "clustering_coefficient": 0.73098
+    },
+    {
+      "keyword": "obesity",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.005243,
+      "eigenvector_centrality": 0.097967,
+      "clustering_coefficient": 0.73551
+    },
+    {
+      "keyword": "sleep",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.005054,
+      "eigenvector_centrality": 0.094262,
+      "clustering_coefficient": 0.645714
+    },
+    {
+      "keyword": "systematic review",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.002492,
+      "eigenvector_centrality": 0.102897,
+      "clustering_coefficient": 0.745306
+    },
+    {
+      "keyword": "demography",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.002585,
+      "eigenvector_centrality": 0.100635,
+      "clustering_coefficient": 0.745306
+    },
+    {
+      "keyword": "structural equation modeling",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.003873,
+      "eigenvector_centrality": 0.099705,
+      "clustering_coefficient": 0.687347
+    },
+    {
+      "keyword": "multimedia",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.004755,
+      "eigenvector_centrality": 0.090903,
+      "clustering_coefficient": 0.659014
+    },
+    {
+      "keyword": "data collection",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.003901,
+      "eigenvector_centrality": 0.094784,
+      "clustering_coefficient": 0.694728
+    },
+    {
+      "keyword": "cognition",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.00363,
+      "eigenvector_centrality": 0.098521,
+      "clustering_coefficient": 0.69983
+    },
+    {
+      "keyword": "duration",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.003263,
+      "eigenvector_centrality": 0.097846,
+      "clustering_coefficient": 0.704932
+    },
+    {
+      "keyword": "descriptive statistics",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.002034,
+      "eigenvector_centrality": 0.102667,
+      "clustering_coefficient": 0.77466
+    },
+    {
+      "keyword": "child development",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.00394,
+      "eigenvector_centrality": 0.094177,
+      "clustering_coefficient": 0.674645
+    },
+    {
+      "keyword": "observational study",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.002476,
+      "eigenvector_centrality": 0.098079,
+      "clustering_coefficient": 0.734929
+    },
+    {
+      "keyword": "digital health",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.002493,
+      "eigenvector_centrality": 0.098958,
+      "clustering_coefficient": 0.750887
+    },
+    {
+      "keyword": "anxiety",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.003384,
+      "eigenvector_centrality": 0.09262,
+      "clustering_coefficient": 0.703978
+    },
+    {
+      "keyword": "physical therapy",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.002985,
+      "eigenvector_centrality": 0.091324,
+      "clustering_coefficient": 0.702128
+    },
+    {
+      "keyword": "the internet",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.003443,
+      "eigenvector_centrality": 0.087194,
+      "clustering_coefficient": 0.682126
+    },
+    {
+      "keyword": "suicide prevention",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.001802,
+      "eigenvector_centrality": 0.094323,
+      "clustering_coefficient": 0.769697
+    },
+    {
+      "keyword": "body mass index",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.003187,
+      "eigenvector_centrality": 0.0851,
+      "clustering_coefficient": 0.741015
+    },
+    {
+      "keyword": "mediation",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.003623,
+      "eigenvector_centrality": 0.084838,
+      "clustering_coefficient": 0.663848
+    },
+    {
+      "keyword": "child health",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.001586,
+      "eigenvector_centrality": 0.093004,
+      "clustering_coefficient": 0.799154
+    },
+    {
+      "keyword": "human factors and ergonomics",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.001675,
+      "eigenvector_centrality": 0.091936,
+      "clustering_coefficient": 0.772727
+    },
+    {
+      "keyword": "computer science",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.0035,
+      "eigenvector_centrality": 0.077441,
+      "clustering_coefficient": 0.669989
+    },
+    {
+      "keyword": "epidemiology",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.001741,
+      "eigenvector_centrality": 0.088348,
+      "clustering_coefficient": 0.769657
+    },
+    {
+      "keyword": "narrative",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.002527,
+      "eigenvector_centrality": 0.084922,
+      "clustering_coefficient": 0.722038
+    },
+    {
+      "keyword": "poison control",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.001514,
+      "eigenvector_centrality": 0.090994,
+      "clustering_coefficient": 0.788483
+    },
+    {
+      "keyword": "occupational safety and health",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.001514,
+      "eigenvector_centrality": 0.090994,
+      "clustering_coefficient": 0.788483
+    },
+    {
+      "keyword": "quality",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.002314,
+      "eigenvector_centrality": 0.084686,
+      "clustering_coefficient": 0.721254
+    },
+    {
+      "keyword": "depression",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.002541,
+      "eigenvector_centrality": 0.082369,
+      "clustering_coefficient": 0.72561
+    },
+    {
+      "keyword": "leisure time",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.001919,
+      "eigenvector_centrality": 0.084895,
+      "clustering_coefficient": 0.74878
+    },
+    {
+      "keyword": "literacy, media, and education",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.00235,
+      "eigenvector_centrality": 0.076249,
+      "clustering_coefficient": 0.70641
+    },
+    {
+      "keyword": "risk factor",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.00093,
+      "eigenvector_centrality": 0.08129,
+      "clustering_coefficient": 0.839406
+    },
+    {
+      "keyword": "correlation",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.001322,
+      "eigenvector_centrality": 0.08061,
+      "clustering_coefficient": 0.780027
+    },
+    {
+      "keyword": "attention deficit hyperactivity disorder",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.001558,
+      "eigenvector_centrality": 0.077662,
+      "clustering_coefficient": 0.768137
+    },
+    {
+      "keyword": "cognitive psychology",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.002264,
+      "eigenvector_centrality": 0.073269,
+      "clustering_coefficient": 0.708393
+    },
+    {
+      "keyword": "social support",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.001505,
+      "eigenvector_centrality": 0.076427,
+      "clustering_coefficient": 0.756757
+    },
+    {
+      "keyword": "ergonomics and musculoskeletal disorders",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.00295,
+      "eigenvector_centrality": 0.068148,
+      "clustering_coefficient": 0.634921
+    },
+    {
+      "keyword": "sleep and related disorders",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001653,
+      "eigenvector_centrality": 0.076809,
+      "clustering_coefficient": 0.788889
+    },
+    {
+      "keyword": "time management",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001791,
+      "eigenvector_centrality": 0.071018,
+      "clustering_coefficient": 0.750794
+    },
+    {
+      "keyword": "physical activity and health",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.000628,
+      "eigenvector_centrality": 0.071298,
+      "clustering_coefficient": 0.860504
+    },
+    {
+      "keyword": "moderation",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.000781,
+      "eigenvector_centrality": 0.075839,
+      "clustering_coefficient": 0.836975
+    },
+    {
+      "keyword": "autism spectrum disorder research",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.001508,
+      "eigenvector_centrality": 0.068292,
+      "clustering_coefficient": 0.755793
+    },
+    {
+      "keyword": "overweight",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.001204,
+      "eigenvector_centrality": 0.067995,
+      "clustering_coefficient": 0.869318
+    },
+    {
+      "keyword": "internal medicine",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.596386,
+      "betweenness_centrality": 0.000447,
+      "eigenvector_centrality": 0.067985,
+      "clustering_coefficient": 0.883065
+    },
+    {
+      "keyword": "work",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.596386,
+      "betweenness_centrality": 0.00188,
+      "eigenvector_centrality": 0.058332,
+      "clustering_coefficient": 0.715726
+    },
+    {
+      "keyword": "key",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.000875,
+      "eigenvector_centrality": 0.061312,
+      "clustering_coefficient": 0.815054
+    },
+    {
+      "keyword": "public relations",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.000991,
+      "eigenvector_centrality": 0.063084,
+      "clustering_coefficient": 0.797849
+    },
+    {
+      "keyword": "childhood obesity",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.001057,
+      "eigenvector_centrality": 0.065057,
+      "clustering_coefficient": 0.870968
+    },
+    {
+      "keyword": "children's physical and motor development",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.000664,
+      "eigenvector_centrality": 0.066488,
+      "clustering_coefficient": 0.823656
+    },
+    {
+      "keyword": "audiology",
+      "degree_centrality": 0.30303,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.000928,
+      "eigenvector_centrality": 0.061023,
+      "clustering_coefficient": 0.795402
+    },
+    {
+      "keyword": "internet privacy",
+      "degree_centrality": 0.30303,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.000949,
+      "eigenvector_centrality": 0.05606,
+      "clustering_coefficient": 0.797701
+    },
+    {
+      "keyword": "content analysis",
+      "degree_centrality": 0.30303,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.00075,
+      "eigenvector_centrality": 0.062764,
+      "clustering_coefficient": 0.816092
+    },
+    {
+      "keyword": "computer-assisted web interviewing",
+      "degree_centrality": 0.282828,
+      "closeness_centrality": 0.582353,
+      "betweenness_centrality": 0.00087,
+      "eigenvector_centrality": 0.054287,
+      "clustering_coefficient": 0.785714
+    },
+    {
+      "keyword": "affect",
+      "degree_centrality": 0.272727,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.00059,
+      "eigenvector_centrality": 0.054408,
+      "clustering_coefficient": 0.820513
+    },
+    {
+      "keyword": "advertising",
+      "degree_centrality": 0.242424,
+      "closeness_centrality": 0.568966,
+      "betweenness_centrality": 0.000377,
+      "eigenvector_centrality": 0.044353,
+      "clustering_coefficient": 0.862319
+    },
+    {
+      "keyword": "sleep quality",
+      "degree_centrality": 0.191919,
+      "closeness_centrality": 0.553073,
+      "betweenness_centrality": 0.000229,
+      "eigenvector_centrality": 0.039061,
+      "clustering_coefficient": 0.836257
+    },
+    {
+      "keyword": "cognitive development",
+      "degree_centrality": 0.191919,
+      "closeness_centrality": 0.553073,
+      "betweenness_centrality": 0.002486,
+      "eigenvector_centrality": 0.036226,
+      "clustering_coefficient": 0.701754
+    },
+    {
+      "keyword": "neuroimaging",
+      "degree_centrality": 0.191919,
+      "closeness_centrality": 0.553073,
+      "betweenness_centrality": 0.000219,
+      "eigenvector_centrality": 0.038093,
+      "clustering_coefficient": 0.888889
+    },
+    {
+      "keyword": "sociology",
+      "degree_centrality": 0.181818,
+      "closeness_centrality": 0.55,
+      "betweenness_centrality": 5.5e-05,
+      "eigenvector_centrality": 0.032884,
+      "clustering_coefficient": 0.960784
+    },
+    {
+      "keyword": "artificial intelligence",
+      "degree_centrality": 0.141414,
+      "closeness_centrality": 0.538043,
+      "betweenness_centrality": 0.000815,
+      "eigenvector_centrality": 0.023382,
+      "clustering_coefficient": 0.714286
+    },
+    {
+      "keyword": "children",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.526596,
+      "betweenness_centrality": 0.000756,
+      "eigenvector_centrality": 0.014008,
+      "clustering_coefficient": 0.533333
+    },
+    {
+      "keyword": "adolescents",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.521053,
+      "betweenness_centrality": 0.000232,
+      "eigenvector_centrality": 0.016067,
+      "clustering_coefficient": 0.714286
+    },
+    {
+      "keyword": "preschool children",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.507692,
+      "betweenness_centrality": 1.5e-05,
+      "eigenvector_centrality": 0.006311,
+      "clustering_coefficient": 0.666667
+    }
+  ]
+}

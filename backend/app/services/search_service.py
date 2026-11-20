@@ -19,6 +19,7 @@ from app.core.config import Settings
 from app.utils.csv_loader import read_csv_to_records, CSVLoadError
 
 from app.services.pubmed_service import PubMedService
+from app.services.unified_search_service import UnifiedSearchService
 from app.core.dependencies import get_reranker
 
 logger = logging.getLogger("research_rover")
@@ -33,6 +34,7 @@ class SearchService:
 
     def __init__(self, settings: Settings):
         self.settings = settings
+        self.unified_service = UnifiedSearchService(settings)
         # Set after a PubMed search if ESpell corrected the query and the
         # corrected spelling produced the results. None otherwise.
         self.last_corrected_query: Optional[str] = None
@@ -71,20 +73,28 @@ class SearchService:
         max_results: int = 10,
         start_date: Optional[date] = None,
         end_date: Optional[date] = None,
-        search_source: SearchSource = SearchSource.CORE,
+        search_source: SearchSource = SearchSource.UNIFIED,
         use_raw_query: bool = False,
         cancel_event: Optional[Any] = None,
         sort_mode: str = "relevance",
     ) -> List[Dict[str, Any]]:
-        """Search for papers using the specified source"""
+        """Search for papers using Unified Search (default), PubMed, or OpenAlex."""
         try:
-            if search_source == SearchSource.PUBMED:
+            async def _fetch_pubmed(q, max_res, start_d, end_d, raw_q, cancel_ev):
                 return await self._search_pubmed(
-                    query, max_results, start_date, end_date, use_raw_query,
-                    cancel_event, sort_mode,
+                    q, max_res, start_d, end_d, raw_q, cancel_ev, sort_mode
                 )
-            else:
-                return await self._search_core(query, max_results, start_date, end_date)
+
+            return await self.unified_service.execute_search(
+                query=query,
+                max_results=max_results,
+                start_date=start_date,
+                end_date=end_date,
+                search_source=search_source,
+                use_raw_query=use_raw_query,
+                cancel_event=cancel_event,
+                pubmed_fetch_fn=_fetch_pubmed,
+            )
         except Exception as e:
             logger.error(f"Error in search_papers: {e}")
             raise
@@ -211,11 +221,11 @@ class SearchService:
             logger.info(f"Converting {len(results)} results to DataFrame")
             df = pd.DataFrame(results)
 
-            required_columns = ['Title', 'DOI', 'Abstract', 'Source', 'Download_URL',
-                                 'Publication Year', 'Reference']
+            required_columns = ['Title', 'DOI', 'PMID', 'OpenAlex_ID', 'Abstract', 'Source', 'Download_URL',
+                                 'Publication Year', 'Reference', 'Affiliations', 'Citation_Count', 'Is_OA', 'PDF_URL']
             for col in required_columns:
                 if col not in df.columns:
-                    if col in ('Title',):
+                    if col == 'Title':
                         df[col] = 'Unknown Title'
                     elif col == 'Reference':
                         df[col] = df.apply(
@@ -226,7 +236,17 @@ class SearchService:
                             ), axis=1
                         )
                     else:
-                        df[col] = ''
+                        df[col] = ""
+
+            def format_affiliations(val):
+                if isinstance(val, list):
+                    return "; ".join([str(v).strip() for v in val if str(v).strip()])
+                if isinstance(val, str):
+                    return val.strip()
+                return ""
+
+            if 'Affiliations' in df.columns:
+                df['Affiliations'] = df['Affiliations'].apply(format_affiliations)
 
             logger.info(f"DataFrame shape: {df.shape}")
             df.to_csv(csv_path, index=False, encoding='utf-8-sig')
@@ -235,10 +255,9 @@ class SearchService:
             papers = []
             for result in results:
                 try:
-                    # --- FIX: read Authors directly (already a list from pubmed_service) ---
-                    authors = result.get('Authors', [])
+                    # Authors
+                    authors = result.get('Authors', result.get('authors', []))
                     if isinstance(authors, str):
-                        # Fallback: parse string representation
                         try:
                             import ast
                             authors = ast.literal_eval(authors)
@@ -248,7 +267,7 @@ class SearchService:
                         authors = []
 
                     # Keywords
-                    kw_raw = result.get('Keywords', [])
+                    kw_raw = result.get('Keywords', result.get('keywords', []))
                     if isinstance(kw_raw, str):
                         try:
                             import ast
@@ -263,23 +282,62 @@ class SearchService:
                     else:
                         keywords = []
 
-                    source = str(result.get('Source', 'Unknown')).strip() or 'Unknown'
-                    title  = str(result.get('Title',  'Unknown')).strip() or 'Unknown'
+                    # Countries
+                    c_raw = result.get('Countries', result.get('countries', []))
+                    if isinstance(c_raw, str):
+                        try:
+                            import ast
+                            countries = ast.literal_eval(c_raw)
+                        except Exception:
+                            countries = [c.strip() for c in c_raw.split(';') if c.strip()]
+                    elif isinstance(c_raw, list):
+                        countries = c_raw
+                    else:
+                        countries = []
 
-                    # --- FIX: use 'DOI' key (matches pubmed_service output) ---
-                    doi = str(result.get('DOI', '') or result.get('Doi', '')).strip()
+                    source = str(result.get('Source', result.get('source', 'Unknown'))).strip() or 'Unknown'
+                    title  = str(result.get('Title', result.get('title', 'Unknown'))).strip() or 'Unknown'
+
+                    doi = str(result.get('DOI', '') or result.get('doi', '') or '').strip()
+                    pmid = str(result.get('PMID', '') or result.get('pmid', '') or '').strip()
+                    openalex_id = str(result.get('OpenAlex_ID', '') or result.get('openalex_id', '') or '').strip()
+
+                    citation_count = result.get('Citation_Count', result.get('citation_count'))
+                    if citation_count is not None:
+                        try:
+                            citation_count = int(citation_count)
+                        except (ValueError, TypeError):
+                            citation_count = None
+
+                    is_oa = result.get('Is_OA', result.get('is_oa'))
+                    if is_oa is not None and not isinstance(is_oa, bool):
+                        if str(is_oa).lower() in ('true', '1'):
+                            is_oa = True
+                        elif str(is_oa).lower() in ('false', '0'):
+                            is_oa = False
+                        else:
+                            is_oa = None
+
+                    pdf_url = str(result.get('PDF_URL', '') or result.get('pdf_url', '') or '').strip() or None
 
                     paper = Paper(
                         source=source,
                         title=title,
-                        download_url=result.get('Download_URL', ''),
-                        year=str(result.get('Publication Year', result.get('Year_Published', 'Unknown'))),
+                        download_url=result.get('Download_URL', result.get('download_url', '')),
+                        year=str(result.get('Publication Year', result.get('Year_Published', result.get('year', 'Unknown')))),
                         keywords=keywords,
                         doi=doi,
+                        pmid=pmid if pmid else None,
+                        openalex_id=openalex_id if openalex_id else None,
                         authors=authors,
-                        abstract=result.get('Abstract', ''),
-                        relevance_score=result.get('Relevance_Score'),
-                        relevance_rank=result.get('Relevance_Rank'),
+                        affiliations=result.get('Affiliations', result.get('affiliations')),
+                        countries=countries,
+                        abstract=result.get('Abstract', result.get('abstract', '')),
+                        citation_count=citation_count,
+                        is_oa=is_oa,
+                        pdf_url=pdf_url,
+                        relevance_score=result.get('Relevance_Score', result.get('relevance_score')),
+                        relevance_rank=result.get('Relevance_Rank', result.get('relevance_rank')),
                     )
                     papers.append(paper)
 
@@ -308,13 +366,65 @@ class SearchService:
             logger.error(f"Error saving results to CSV: {e}")
             raise
 
-    async def load_papers_from_csv(self, csv_path: str) -> List[Paper]:
-        """Load papers from CSV file"""
+    async def load_papers_from_csv(self, csv_path: str, exclude_duplicates: bool = False) -> List[Paper]:
+        """
+        Load papers from CSV file using canonical loader with fallback.
+        By default exclude_duplicates=False so the complete user catalogue is displayed.
+        """
         papers = []
+        try:
+            from app.services.canonical_loader import CanonicalDataLoader
+            canonical_records = CanonicalDataLoader.load_canonical_records(
+                csv_path, exclude_duplicates=exclude_duplicates
+            )
+            for rec in canonical_records:
+                try:
+                    paper = Paper(
+                        source=rec.journal or 'Unknown',
+                        title=rec.title,
+                        download_url=rec.download_url or '',
+                        year=str(rec.publication_year) if rec.publication_year else 'Unknown',
+                        keywords=rec.keywords,
+                        doi=rec.doi or '',
+                        pmid=rec.pmid,
+                        openalex_id=rec.openalex_id,
+                        authors=rec.authors,
+                        affiliations="; ".join(rec.affiliations) if rec.affiliations else None,
+                        countries=rec.countries,
+                        abstract=rec.abstract or '',
+                        citation_count=rec.citation_count,
+                        is_oa=rec.is_open_access,
+                        pdf_url=rec.url,
+                    )
+                    papers.append(paper)
+                except Exception as e:
+                    logger.warning(f"Error mapping canonical record to Paper: {e}")
+                    continue
+            if papers:
+                return papers
+        except Exception as e:
+            logger.warning(f"Canonical loader fallback in SearchService: {e}")
+
+        # Fallback to direct CSV row parsing for backward compatibility
         try:
             records = read_csv_to_records(csv_path)
             for row in records:
                 try:
+                    citation_count = row.get('Citation_Count') or row.get('citation_count')
+                    if citation_count is not None and str(citation_count).strip():
+                        try:
+                            citation_count = int(citation_count)
+                        except (ValueError, TypeError):
+                            citation_count = None
+                    else:
+                        citation_count = None
+
+                    is_oa_raw = row.get('Is_OA') or row.get('is_oa')
+                    if is_oa_raw is not None and str(is_oa_raw).strip():
+                        is_oa = str(is_oa_raw).lower() in ('true', '1')
+                    else:
+                        is_oa = None
+
                     paper = Paper(
                         source=str(row.get('Source', '')).strip() or 'Unknown',
                         title=str(row.get('Title', '')).strip() or 'Unknown',
@@ -322,8 +432,15 @@ class SearchService:
                         year=str(row.get('Publication Year', row.get('Year_Published', ''))).strip() or 'Unknown',
                         keywords=self._process_keywords(row.get('Keywords', '')),
                         doi=str(row.get('DOI', '') or row.get('Doi', '')).strip() or '',
+                        pmid=str(row.get('PMID', '') or row.get('pmid', '')).strip() or None,
+                        openalex_id=str(row.get('OpenAlex_ID', '') or row.get('openalex_id', '')).strip() or None,
                         authors=self._process_authors(row.get('Authors', '')),
-                        abstract=str(row.get('Abstract', '')).strip() or ''
+                        affiliations=str(row.get('Affiliations', '')).strip() or None,
+                        countries=self._process_keywords(row.get('Countries', '')),
+                        abstract=str(row.get('Abstract', '')).strip() or '',
+                        citation_count=citation_count,
+                        is_oa=is_oa,
+                        pdf_url=str(row.get('PDF_URL', '') or row.get('pdf_url', '')).strip() or None,
                     )
                     papers.append(paper)
                 except Exception as e:

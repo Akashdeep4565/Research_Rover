@@ -1,0 +1,2082 @@
+{
+  "filename": "speaker_identification_and_verification.csv",
+  "source_file": "speaker_identification_and_verification.csv",
+  "total_papers": 25,
+  "papers_with_keywords": 17,
+  "papers_with_country_data": 0,
+  "unique_countries": 0,
+  "unique_keywords": 79,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "speaker_identification_and_verification_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "speaker_identification_and_verification_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "speaker_identification_and_verification_analysis_keyword_presence_matrix.csv",
+  "summary_file": "speaker_identification_and_verification_analysis_summary.json",
+  "generated_at": 1790606472.6279652,
+  "keyword_frequency": [
+    {
+      "keyword": "speaker verification",
+      "frequency": 6,
+      "percentage": 24.0
+    },
+    {
+      "keyword": "speaker identification",
+      "frequency": 3,
+      "percentage": 12.0
+    },
+    {
+      "keyword": "speaker recognition",
+      "frequency": 2,
+      "percentage": 8.0
+    },
+    {
+      "keyword": "deep learning",
+      "frequency": 2,
+      "percentage": 8.0
+    },
+    {
+      "keyword": "adaptive systems",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "elderly care",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "interactive art therapy",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "multimodal computer graphics",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "resilient artificial intelligence",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "smart community",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "biometric authentication",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "emotion embeddings",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "emotion-dependent authentication",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "score fusion",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "user usability",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "contrast-enhanced computed tomography images",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "deep femoral artery",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "femoral nailing",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "total hip arthroplasty",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "vascular injury",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "human-computer interaction",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "silent communication",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "speech recognition",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "triboelectric nanogenerators",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "vibration sensors",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "attention",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "audio–visual fusion",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "face verification",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "gated",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "inter–attention",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "authorization",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "hyper-chaotic system",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "novel image encryption",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "background noise",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "face mask",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "mfcc",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "i-vector",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "gaussian mixture model",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "cepstral analysis",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "genetic algorithms",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "system comparison",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "system identification",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "system verification",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "gene expression omnibus",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "hepatocellular carcinoma",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "the cancer genome atlas",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "circular rna hsa_circ_0039466",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "competitive endogenous rna",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "attention mechanism",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "hierarchical attention",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "speaker embeddings",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "misidentification",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "public databases",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "science policy",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "taxonomy",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "voucher",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "robust speaker recognition",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "speaker diarization",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "arabic audio clips",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "cantillations",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "imitators",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "machine learning",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "quran recitations",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "cnn",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "bidirectional attention",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "interactive representation",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "text-dependent speaker verification",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "brachytherapy",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "practice survey",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "quality",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "safety",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "danish",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "assessment",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "cochlear implant",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "prosody",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "acoustic analysis",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "automatic identification",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "fess",
+      "frequency": 1,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "formants",
+      "frequency": 1,
+      "percentage": 4.0
+    }
+  ],
+  "matrix_keywords": [
+    "speaker verification",
+    "speaker identification",
+    "speaker recognition",
+    "deep learning",
+    "adaptive systems",
+    "elderly care",
+    "interactive art therapy",
+    "multimodal computer graphics",
+    "resilient artificial intelligence",
+    "smart community",
+    "biometric authentication",
+    "emotion embeddings",
+    "emotion-dependent authentication",
+    "score fusion",
+    "user usability",
+    "contrast-enhanced computed tomography images",
+    "deep femoral artery",
+    "femoral nailing",
+    "total hip arthroplasty",
+    "vascular injury",
+    "human-computer interaction",
+    "silent communication",
+    "speech recognition",
+    "triboelectric nanogenerators",
+    "vibration sensors",
+    "attention",
+    "audio–visual fusion",
+    "face verification",
+    "gated",
+    "inter–attention",
+    "authorization",
+    "hyper-chaotic system",
+    "novel image encryption",
+    "background noise",
+    "face mask",
+    "mfcc",
+    "i-vector",
+    "gaussian mixture model",
+    "cepstral analysis",
+    "genetic algorithms",
+    "system comparison",
+    "system identification",
+    "system verification",
+    "gene expression omnibus",
+    "hepatocellular carcinoma",
+    "the cancer genome atlas",
+    "circular rna hsa_circ_0039466",
+    "competitive endogenous rna",
+    "attention mechanism",
+    "hierarchical attention",
+    "speaker embeddings",
+    "misidentification",
+    "public databases",
+    "science policy",
+    "taxonomy",
+    "voucher",
+    "robust speaker recognition",
+    "speaker diarization",
+    "arabic audio clips",
+    "cantillations",
+    "imitators",
+    "machine learning",
+    "quran recitations",
+    "cnn",
+    "bidirectional attention",
+    "interactive representation",
+    "text-dependent speaker verification",
+    "brachytherapy",
+    "practice survey",
+    "quality",
+    "safety",
+    "danish",
+    "assessment",
+    "cochlear implant",
+    "prosody",
+    "acoustic analysis",
+    "automatic identification",
+    "fess",
+    "formants"
+  ],
+  "matrix_rows": 25,
+  "matrix_columns": 79,
+  "cooccurrence_edges": [
+    {
+      "source": "speaker identification",
+      "target": "speaker verification",
+      "weight": 2
+    },
+    {
+      "source": "deep learning",
+      "target": "speaker identification",
+      "weight": 2
+    },
+    {
+      "source": "adaptive systems",
+      "target": "elderly care",
+      "weight": 1
+    },
+    {
+      "source": "adaptive systems",
+      "target": "interactive art therapy",
+      "weight": 1
+    },
+    {
+      "source": "adaptive systems",
+      "target": "multimodal computer graphics",
+      "weight": 1
+    },
+    {
+      "source": "adaptive systems",
+      "target": "resilient artificial intelligence",
+      "weight": 1
+    },
+    {
+      "source": "adaptive systems",
+      "target": "smart community",
+      "weight": 1
+    },
+    {
+      "source": "elderly care",
+      "target": "interactive art therapy",
+      "weight": 1
+    },
+    {
+      "source": "elderly care",
+      "target": "multimodal computer graphics",
+      "weight": 1
+    },
+    {
+      "source": "elderly care",
+      "target": "resilient artificial intelligence",
+      "weight": 1
+    },
+    {
+      "source": "elderly care",
+      "target": "smart community",
+      "weight": 1
+    },
+    {
+      "source": "interactive art therapy",
+      "target": "multimodal computer graphics",
+      "weight": 1
+    },
+    {
+      "source": "interactive art therapy",
+      "target": "resilient artificial intelligence",
+      "weight": 1
+    },
+    {
+      "source": "interactive art therapy",
+      "target": "smart community",
+      "weight": 1
+    },
+    {
+      "source": "multimodal computer graphics",
+      "target": "resilient artificial intelligence",
+      "weight": 1
+    },
+    {
+      "source": "multimodal computer graphics",
+      "target": "smart community",
+      "weight": 1
+    },
+    {
+      "source": "resilient artificial intelligence",
+      "target": "smart community",
+      "weight": 1
+    },
+    {
+      "source": "biometric authentication",
+      "target": "emotion embeddings",
+      "weight": 1
+    },
+    {
+      "source": "biometric authentication",
+      "target": "emotion-dependent authentication",
+      "weight": 1
+    },
+    {
+      "source": "biometric authentication",
+      "target": "score fusion",
+      "weight": 1
+    },
+    {
+      "source": "biometric authentication",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "biometric authentication",
+      "target": "user usability",
+      "weight": 1
+    },
+    {
+      "source": "emotion embeddings",
+      "target": "emotion-dependent authentication",
+      "weight": 1
+    },
+    {
+      "source": "emotion embeddings",
+      "target": "score fusion",
+      "weight": 1
+    },
+    {
+      "source": "emotion embeddings",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "emotion embeddings",
+      "target": "user usability",
+      "weight": 1
+    },
+    {
+      "source": "emotion-dependent authentication",
+      "target": "score fusion",
+      "weight": 1
+    },
+    {
+      "source": "emotion-dependent authentication",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "emotion-dependent authentication",
+      "target": "user usability",
+      "weight": 1
+    },
+    {
+      "source": "score fusion",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "score fusion",
+      "target": "user usability",
+      "weight": 1
+    },
+    {
+      "source": "speaker verification",
+      "target": "user usability",
+      "weight": 1
+    },
+    {
+      "source": "contrast-enhanced computed tomography images",
+      "target": "deep femoral artery",
+      "weight": 1
+    },
+    {
+      "source": "contrast-enhanced computed tomography images",
+      "target": "femoral nailing",
+      "weight": 1
+    },
+    {
+      "source": "contrast-enhanced computed tomography images",
+      "target": "total hip arthroplasty",
+      "weight": 1
+    },
+    {
+      "source": "contrast-enhanced computed tomography images",
+      "target": "vascular injury",
+      "weight": 1
+    },
+    {
+      "source": "deep femoral artery",
+      "target": "femoral nailing",
+      "weight": 1
+    },
+    {
+      "source": "deep femoral artery",
+      "target": "total hip arthroplasty",
+      "weight": 1
+    },
+    {
+      "source": "deep femoral artery",
+      "target": "vascular injury",
+      "weight": 1
+    },
+    {
+      "source": "femoral nailing",
+      "target": "total hip arthroplasty",
+      "weight": 1
+    },
+    {
+      "source": "femoral nailing",
+      "target": "vascular injury",
+      "weight": 1
+    },
+    {
+      "source": "total hip arthroplasty",
+      "target": "vascular injury",
+      "weight": 1
+    },
+    {
+      "source": "human-computer interaction",
+      "target": "silent communication",
+      "weight": 1
+    },
+    {
+      "source": "human-computer interaction",
+      "target": "speech recognition",
+      "weight": 1
+    },
+    {
+      "source": "human-computer interaction",
+      "target": "triboelectric nanogenerators",
+      "weight": 1
+    },
+    {
+      "source": "human-computer interaction",
+      "target": "vibration sensors",
+      "weight": 1
+    },
+    {
+      "source": "silent communication",
+      "target": "speech recognition",
+      "weight": 1
+    },
+    {
+      "source": "silent communication",
+      "target": "triboelectric nanogenerators",
+      "weight": 1
+    },
+    {
+      "source": "silent communication",
+      "target": "vibration sensors",
+      "weight": 1
+    },
+    {
+      "source": "speech recognition",
+      "target": "triboelectric nanogenerators",
+      "weight": 1
+    },
+    {
+      "source": "speech recognition",
+      "target": "vibration sensors",
+      "weight": 1
+    },
+    {
+      "source": "triboelectric nanogenerators",
+      "target": "vibration sensors",
+      "weight": 1
+    },
+    {
+      "source": "attention",
+      "target": "audio–visual fusion",
+      "weight": 1
+    },
+    {
+      "source": "attention",
+      "target": "face verification",
+      "weight": 1
+    },
+    {
+      "source": "attention",
+      "target": "gated",
+      "weight": 1
+    },
+    {
+      "source": "attention",
+      "target": "inter–attention",
+      "weight": 1
+    },
+    {
+      "source": "attention",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "audio–visual fusion",
+      "target": "face verification",
+      "weight": 1
+    },
+    {
+      "source": "audio–visual fusion",
+      "target": "gated",
+      "weight": 1
+    },
+    {
+      "source": "audio–visual fusion",
+      "target": "inter–attention",
+      "weight": 1
+    },
+    {
+      "source": "audio–visual fusion",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "face verification",
+      "target": "gated",
+      "weight": 1
+    },
+    {
+      "source": "face verification",
+      "target": "inter–attention",
+      "weight": 1
+    },
+    {
+      "source": "face verification",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "gated",
+      "target": "inter–attention",
+      "weight": 1
+    },
+    {
+      "source": "gated",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "inter–attention",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "authorization",
+      "target": "hyper-chaotic system",
+      "weight": 1
+    },
+    {
+      "source": "authorization",
+      "target": "novel image encryption",
+      "weight": 1
+    },
+    {
+      "source": "authorization",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "hyper-chaotic system",
+      "target": "novel image encryption",
+      "weight": 1
+    },
+    {
+      "source": "hyper-chaotic system",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "novel image encryption",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "background noise",
+      "target": "face mask",
+      "weight": 1
+    },
+    {
+      "source": "background noise",
+      "target": "i-vector",
+      "weight": 1
+    },
+    {
+      "source": "background noise",
+      "target": "mfcc",
+      "weight": 1
+    },
+    {
+      "source": "background noise",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "face mask",
+      "target": "i-vector",
+      "weight": 1
+    },
+    {
+      "source": "face mask",
+      "target": "mfcc",
+      "weight": 1
+    },
+    {
+      "source": "face mask",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "i-vector",
+      "target": "mfcc",
+      "weight": 1
+    },
+    {
+      "source": "i-vector",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "mfcc",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "cepstral analysis",
+      "target": "gaussian mixture model",
+      "weight": 1
+    },
+    {
+      "source": "cepstral analysis",
+      "target": "genetic algorithms",
+      "weight": 1
+    },
+    {
+      "source": "cepstral analysis",
+      "target": "speaker recognition",
+      "weight": 1
+    },
+    {
+      "source": "cepstral analysis",
+      "target": "system comparison",
+      "weight": 1
+    },
+    {
+      "source": "cepstral analysis",
+      "target": "system identification",
+      "weight": 1
+    },
+    {
+      "source": "cepstral analysis",
+      "target": "system verification",
+      "weight": 1
+    },
+    {
+      "source": "gaussian mixture model",
+      "target": "genetic algorithms",
+      "weight": 1
+    },
+    {
+      "source": "gaussian mixture model",
+      "target": "speaker recognition",
+      "weight": 1
+    },
+    {
+      "source": "gaussian mixture model",
+      "target": "system comparison",
+      "weight": 1
+    },
+    {
+      "source": "gaussian mixture model",
+      "target": "system identification",
+      "weight": 1
+    },
+    {
+      "source": "gaussian mixture model",
+      "target": "system verification",
+      "weight": 1
+    },
+    {
+      "source": "genetic algorithms",
+      "target": "speaker recognition",
+      "weight": 1
+    },
+    {
+      "source": "genetic algorithms",
+      "target": "system comparison",
+      "weight": 1
+    },
+    {
+      "source": "genetic algorithms",
+      "target": "system identification",
+      "weight": 1
+    },
+    {
+      "source": "genetic algorithms",
+      "target": "system verification",
+      "weight": 1
+    },
+    {
+      "source": "speaker recognition",
+      "target": "system comparison",
+      "weight": 1
+    },
+    {
+      "source": "speaker recognition",
+      "target": "system identification",
+      "weight": 1
+    },
+    {
+      "source": "speaker recognition",
+      "target": "system verification",
+      "weight": 1
+    },
+    {
+      "source": "system comparison",
+      "target": "system identification",
+      "weight": 1
+    },
+    {
+      "source": "system comparison",
+      "target": "system verification",
+      "weight": 1
+    },
+    {
+      "source": "system identification",
+      "target": "system verification",
+      "weight": 1
+    },
+    {
+      "source": "circular rna hsa_circ_0039466",
+      "target": "competitive endogenous rna",
+      "weight": 1
+    },
+    {
+      "source": "circular rna hsa_circ_0039466",
+      "target": "gene expression omnibus",
+      "weight": 1
+    },
+    {
+      "source": "circular rna hsa_circ_0039466",
+      "target": "hepatocellular carcinoma",
+      "weight": 1
+    },
+    {
+      "source": "circular rna hsa_circ_0039466",
+      "target": "the cancer genome atlas",
+      "weight": 1
+    },
+    {
+      "source": "competitive endogenous rna",
+      "target": "gene expression omnibus",
+      "weight": 1
+    },
+    {
+      "source": "competitive endogenous rna",
+      "target": "hepatocellular carcinoma",
+      "weight": 1
+    },
+    {
+      "source": "competitive endogenous rna",
+      "target": "the cancer genome atlas",
+      "weight": 1
+    },
+    {
+      "source": "gene expression omnibus",
+      "target": "hepatocellular carcinoma",
+      "weight": 1
+    },
+    {
+      "source": "gene expression omnibus",
+      "target": "the cancer genome atlas",
+      "weight": 1
+    },
+    {
+      "source": "hepatocellular carcinoma",
+      "target": "the cancer genome atlas",
+      "weight": 1
+    },
+    {
+      "source": "attention mechanism",
+      "target": "hierarchical attention",
+      "weight": 1
+    },
+    {
+      "source": "attention mechanism",
+      "target": "speaker embeddings",
+      "weight": 1
+    },
+    {
+      "source": "attention mechanism",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "attention mechanism",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "hierarchical attention",
+      "target": "speaker embeddings",
+      "weight": 1
+    },
+    {
+      "source": "hierarchical attention",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "hierarchical attention",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "speaker embeddings",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "speaker embeddings",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "misidentification",
+      "target": "public databases",
+      "weight": 1
+    },
+    {
+      "source": "misidentification",
+      "target": "science policy",
+      "weight": 1
+    },
+    {
+      "source": "misidentification",
+      "target": "taxonomy",
+      "weight": 1
+    },
+    {
+      "source": "misidentification",
+      "target": "voucher",
+      "weight": 1
+    },
+    {
+      "source": "public databases",
+      "target": "science policy",
+      "weight": 1
+    },
+    {
+      "source": "public databases",
+      "target": "taxonomy",
+      "weight": 1
+    },
+    {
+      "source": "public databases",
+      "target": "voucher",
+      "weight": 1
+    },
+    {
+      "source": "science policy",
+      "target": "taxonomy",
+      "weight": 1
+    },
+    {
+      "source": "science policy",
+      "target": "voucher",
+      "weight": 1
+    },
+    {
+      "source": "taxonomy",
+      "target": "voucher",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "robust speaker recognition",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "speaker diarization",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "speaker recognition",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "robust speaker recognition",
+      "target": "speaker diarization",
+      "weight": 1
+    },
+    {
+      "source": "robust speaker recognition",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "robust speaker recognition",
+      "target": "speaker recognition",
+      "weight": 1
+    },
+    {
+      "source": "robust speaker recognition",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "speaker diarization",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "speaker diarization",
+      "target": "speaker recognition",
+      "weight": 1
+    },
+    {
+      "source": "speaker diarization",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "speaker identification",
+      "target": "speaker recognition",
+      "weight": 1
+    },
+    {
+      "source": "speaker recognition",
+      "target": "speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "arabic audio clips",
+      "target": "cantillations",
+      "weight": 1
+    },
+    {
+      "source": "arabic audio clips",
+      "target": "deep learning",
+      "weight": 1
+    },
+    {
+      "source": "arabic audio clips",
+      "target": "imitators",
+      "weight": 1
+    },
+    {
+      "source": "arabic audio clips",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "arabic audio clips",
+      "target": "quran recitations",
+      "weight": 1
+    },
+    {
+      "source": "arabic audio clips",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "cantillations",
+      "target": "deep learning",
+      "weight": 1
+    },
+    {
+      "source": "cantillations",
+      "target": "imitators",
+      "weight": 1
+    },
+    {
+      "source": "cantillations",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "cantillations",
+      "target": "quran recitations",
+      "weight": 1
+    },
+    {
+      "source": "cantillations",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "imitators",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "quran recitations",
+      "weight": 1
+    },
+    {
+      "source": "imitators",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "imitators",
+      "target": "quran recitations",
+      "weight": 1
+    },
+    {
+      "source": "imitators",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "quran recitations",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "quran recitations",
+      "target": "speaker identification",
+      "weight": 1
+    },
+    {
+      "source": "bidirectional attention",
+      "target": "cnn",
+      "weight": 1
+    },
+    {
+      "source": "bidirectional attention",
+      "target": "interactive representation",
+      "weight": 1
+    },
+    {
+      "source": "bidirectional attention",
+      "target": "text-dependent speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "cnn",
+      "target": "interactive representation",
+      "weight": 1
+    },
+    {
+      "source": "cnn",
+      "target": "text-dependent speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "interactive representation",
+      "target": "text-dependent speaker verification",
+      "weight": 1
+    },
+    {
+      "source": "brachytherapy",
+      "target": "practice survey",
+      "weight": 1
+    },
+    {
+      "source": "brachytherapy",
+      "target": "quality",
+      "weight": 1
+    },
+    {
+      "source": "brachytherapy",
+      "target": "safety",
+      "weight": 1
+    },
+    {
+      "source": "practice survey",
+      "target": "quality",
+      "weight": 1
+    },
+    {
+      "source": "practice survey",
+      "target": "safety",
+      "weight": 1
+    },
+    {
+      "source": "quality",
+      "target": "safety",
+      "weight": 1
+    },
+    {
+      "source": "assessment",
+      "target": "cochlear implant",
+      "weight": 1
+    },
+    {
+      "source": "assessment",
+      "target": "danish",
+      "weight": 1
+    },
+    {
+      "source": "assessment",
+      "target": "prosody",
+      "weight": 1
+    },
+    {
+      "source": "cochlear implant",
+      "target": "danish",
+      "weight": 1
+    },
+    {
+      "source": "cochlear implant",
+      "target": "prosody",
+      "weight": 1
+    },
+    {
+      "source": "danish",
+      "target": "prosody",
+      "weight": 1
+    },
+    {
+      "source": "acoustic analysis",
+      "target": "automatic identification",
+      "weight": 1
+    },
+    {
+      "source": "acoustic analysis",
+      "target": "fess",
+      "weight": 1
+    },
+    {
+      "source": "acoustic analysis",
+      "target": "formants",
+      "weight": 1
+    },
+    {
+      "source": "automatic identification",
+      "target": "fess",
+      "weight": 1
+    },
+    {
+      "source": "automatic identification",
+      "target": "formants",
+      "weight": 1
+    },
+    {
+      "source": "fess",
+      "target": "formants",
+      "weight": 1
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "speaker verification",
+      "degree_centrality": 0.320513,
+      "closeness_centrality": 0.353519,
+      "betweenness_centrality": 0.148185,
+      "eigenvector_centrality": 0.450371,
+      "clustering_coefficient": 0.15
+    },
+    {
+      "keyword": "speaker identification",
+      "degree_centrality": 0.166667,
+      "closeness_centrality": 0.281617,
+      "betweenness_centrality": 0.032468,
+      "eigenvector_centrality": 0.341046,
+      "clustering_coefficient": 0.397436
+    },
+    {
+      "keyword": "speaker recognition",
+      "degree_centrality": 0.141026,
+      "closeness_centrality": 0.272383,
+      "betweenness_centrality": 0.05994,
+      "eigenvector_centrality": 0.263413,
+      "clustering_coefficient": 0.454545
+    },
+    {
+      "keyword": "deep learning",
+      "degree_centrality": 0.128205,
+      "closeness_centrality": 0.26799,
+      "betweenness_centrality": 0.022478,
+      "eigenvector_centrality": 0.294338,
+      "clustering_coefficient": 0.555556
+    },
+    {
+      "keyword": "gaussian mixture model",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.182587,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.09457,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cepstral analysis",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.182587,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.09457,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "genetic algorithms",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.182587,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.09457,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "system comparison",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.182587,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.09457,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "system identification",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.182587,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.09457,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "system verification",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.182587,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.09457,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "arabic audio clips",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.18669,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.167833,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cantillations",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.18669,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.167833,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "imitators",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.18669,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.167833,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "machine learning",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.18669,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.167833,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "quran recitations",
+      "degree_centrality": 0.076923,
+      "closeness_centrality": 0.18669,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.167833,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "adaptive systems",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.064103,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 1e-06,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "elderly care",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.064103,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 1e-06,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "interactive art therapy",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.064103,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 1e-06,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "multimodal computer graphics",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.064103,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 1e-06,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "resilient artificial intelligence",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.064103,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 1e-06,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "smart community",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.064103,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 1e-06,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "biometric authentication",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "emotion embeddings",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "emotion-dependent authentication",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "score fusion",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "user usability",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "attention",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "audio–visual fusion",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "face verification",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "gated",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "inter–attention",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.213018,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.118967,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "robust speaker recognition",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.247991,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.198825,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "speaker diarization",
+      "degree_centrality": 0.064103,
+      "closeness_centrality": 0.247991,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.198825,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "contrast-enhanced computed tomography images",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "deep femoral artery",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "femoral nailing",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "total hip arthroplasty",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "vascular injury",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "human-computer interaction",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "silent communication",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "speech recognition",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "triboelectric nanogenerators",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "vibration sensors",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "background noise",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.210321,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.094108,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "face mask",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.210321,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.094108,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "mfcc",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.210321,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.094108,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "i-vector",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.210321,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.094108,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "gene expression omnibus",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "hepatocellular carcinoma",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "the cancer genome atlas",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "circular rna hsa_circ_0039466",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "competitive endogenous rna",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "attention mechanism",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.224532,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.136788,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "hierarchical attention",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.224532,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.136788,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "speaker embeddings",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.224532,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.136788,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "misidentification",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "public databases",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "science policy",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "taxonomy",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "voucher",
+      "degree_centrality": 0.051282,
+      "closeness_centrality": 0.051282,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "authorization",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.207692,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.077842,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "hyper-chaotic system",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.207692,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.077842,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "novel image encryption",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.207692,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.077842,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cnn",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "bidirectional attention",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "interactive representation",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "text-dependent speaker verification",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "brachytherapy",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "practice survey",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "quality",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "safety",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "danish",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "assessment",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cochlear implant",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "prosody",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "acoustic analysis",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "automatic identification",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "fess",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "formants",
+      "degree_centrality": 0.038462,
+      "closeness_centrality": 0.038462,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    }
+  ]
+}

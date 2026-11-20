@@ -12,17 +12,9 @@ logger = logging.getLogger("research_rover")
 
 @lru_cache()
 def get_sentence_model() -> SentenceTransformer:
-    """Get cached sentence transformer model"""
-    settings = get_settings()
-    
-    try:
-        logger.info(f"Loading sentence model: {settings.EMBEDDING_MODEL}")
-        model = SentenceTransformer(settings.EMBEDDING_MODEL)
-        logger.info("Sentence model loaded successfully")
-        return model
-    except Exception as e:
-        logger.error(f"Failed to load sentence model: {e}")
-        raise RuntimeError(f"Failed to load sentence model: {e}")
+    """Get sentence transformer model via model manager"""
+    from app.core.model_manager import model_manager
+    return model_manager.get_sentence_model()
 
 @lru_cache()
 def get_reranker():

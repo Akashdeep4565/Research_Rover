@@ -36,7 +36,7 @@ search_progress_state = {
 # can retrieve them after the background task finishes.
 _last_results: List[Paper] = []
 _last_csv_filename: str = ""
-_last_search_source: str = "pubmed"
+_last_search_source: str = "unified"
 
 # Handle to the running search task and a cooperative cancel flag, so a
 # POST /search/cancel can both interrupt the asyncio task and stop the
@@ -151,10 +151,11 @@ async def _perform_search_with_progress(
 
         search_service = SearchService(settings)
 
+        source_name = "PubMed" if request.search_source == SearchSource.PUBMED else ("OpenAlex" if request.search_source == SearchSource.OPENALEX else "Unified Search (PubMed + OpenAlex)")
         search_progress_state = {
             "stage": 1,
             "sub_stage": 0,
-            "message": f"Querying {'PubMed' if request.search_source == SearchSource.PUBMED else 'CORE'} API",
+            "message": f"Querying {source_name} API",
             "timestamp": time.time(),
             "status": "searching",
             "progress": 15
@@ -337,7 +338,7 @@ async def search_papers_get(
     max_results: int = Query(10, ge=1, description="Maximum results"),
     start_date: Optional[date] = Query(None, description="Start date"),
     end_date: Optional[date] = Query(None, description="End date"),
-    search_source: SearchSource = Query(SearchSource.CORE, description="Search source"),
+    search_source: SearchSource = Query(SearchSource.UNIFIED, description="Search source"),
     use_raw_query: bool = Query(False, description="Pass query directly to PubMed"),
     sort_mode: str = Query("relevance", description="Ordering: 'relevance' or 'recency'"),
     background_tasks: BackgroundTasks = BackgroundTasks(),

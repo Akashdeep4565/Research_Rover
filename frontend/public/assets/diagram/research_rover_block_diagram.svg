@@ -1,0 +1,313 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080" style="background:#F4F5F7; font-family:'Segoe UI', Inter, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;">
+  <defs>
+    <!-- Soft shadow filter typical of Miro sticky blocks -->
+    <filter id="blockShadow" x="-5%" y="-5%" width="115%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="1.5" dy="2.5" stdDeviation="3" flood-opacity="0.08" flood-color="#000000"/>
+    </filter>
+    
+    <!-- Dark Arrowhead Marker -->
+    <marker id="arrow" viewBox="0 0 10 10" refX="7" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#1E1E1E"/>
+    </marker>
+  </defs>
+
+  <!-- Miro Canvas Top Navigation Bar (Header) -->
+  <rect x="0" y="0" width="1920" height="60" fill="#FFFFFF" stroke="#E2E4E8" stroke-width="1.2"/>
+  <rect x="30" y="14" width="32" height="32" rx="8" fill="#FFDA54"/>
+  <text x="75" y="36" font-size="20" font-weight="bold" fill="#1E1E1E">Research Rover</text>
+  <text x="235" y="36" font-size="14" font-weight="500" fill="#6B7280">|  System Workflow &amp; Process Block Diagram</text>
+  
+  <rect x="1680" y="16" width="200" height="28" rx="14" fill="#EFF0F4"/>
+  <text x="1780" y="35" text-anchor="middle" font-size="12" font-weight="600" fill="#4B5563">Academic Review Edition</text>
+
+  <!-- Stage Column Banners (Subtle backgrounds) -->
+  <g opacity="0.45">
+    <rect x="40" y="80" width="410" height="970" rx="16" fill="#FFFFFF" stroke="#E2E4E8" stroke-width="1"/>
+    <text x="60" y="112" font-size="13" font-weight="700" fill="#6B7280" letter-spacing="1">1. USER INTERACTION &amp; SEARCH</text>
+
+    <rect x="490" y="80" width="440" height="970" rx="16" fill="#FFFFFF" stroke="#E2E4E8" stroke-width="1"/>
+    <text x="510" y="112" font-size="13" font-weight="700" fill="#6B7280" letter-spacing="1">2. DATA COLLECTION &amp; NORMALIZATION</text>
+
+    <rect x="970" y="80" width="440" height="970" rx="16" fill="#FFFFFF" stroke="#E2E4E8" stroke-width="1"/>
+    <text x="990" y="112" font-size="13" font-weight="700" fill="#6B7280" letter-spacing="1">3. BIBLIOMETRICS &amp; AI ASSISTANT</text>
+
+    <rect x="1450" y="80" width="430" height="970" rx="16" fill="#FFFFFF" stroke="#E2E4E8" stroke-width="1"/>
+    <text x="1470" y="112" font-size="13" font-weight="700" fill="#6B7280" letter-spacing="1">4. VISUALIZATION &amp; INSIGHTS</text>
+  </g>
+
+  <!-- ======================================================================== -->
+  <!-- CONNECTION ARROWS (Rendered behind blocks)                               -->
+  <!-- ======================================================================== -->
+  <g fill="none" stroke="#1E1E1E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+    
+    <!-- Col 1: Downward flow -->
+    <!-- Start -> Enter Query -->
+    <path d="M 245 200 L 245 235" marker-end="url(#arrow)"/>
+    <!-- Enter Query -> Select Options -->
+    <path d="M 245 305 L 245 340" marker-end="url(#arrow)"/>
+    <!-- Select Options -> Submit Request -->
+    <path d="M 245 410 L 245 445" marker-end="url(#arrow)"/>
+    <!-- Submit Request -> FastAPI Dispatch -->
+    <path d="M 245 515 L 245 550" marker-end="url(#arrow)"/>
+    <!-- FastAPI -> Query APIs -->
+    <path d="M 245 620 L 245 655" marker-end="url(#arrow)"/>
+    <!-- Query APIs -> Decision 1: API Success? -->
+    <path d="M 245 725 L 245 765" marker-end="url(#arrow)"/>
+
+    <!-- Decision 1 No -> Display Error -->
+    <path d="M 175 830 L 105 830 L 105 895" marker-end="url(#arrow)"/>
+    <!-- Display Error Loop Back to Query -->
+    <path d="M 105 965 L 105 1010 L 40 1010 L 40 270 L 125 270" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+
+    <!-- Decision 1 Yes -> Col 2: Retrieve Papers -->
+    <path d="M 315 830 L 420 830 L 420 200 L 590 200" marker-end="url(#arrow)"/>
+
+    <!-- Col 2: Processing Flow -->
+    <!-- Retrieve Papers -> Decision 2: Papers Found? -->
+    <path d="M 710 235 L 710 275" marker-end="url(#arrow)"/>
+
+    <!-- Decision 2 No -> Display No Results -->
+    <path d="M 780 340 L 870 340 L 870 415" marker-end="url(#arrow)"/>
+    <!-- Display No Results Loop Back to Enter Query -->
+    <path d="M 870 485 L 870 525 L 945 525 L 945 1025 L 245 1025 L 245 970" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+
+    <!-- Decision 2 Yes -> Deduplicate & Merge -->
+    <path d="M 710 405 L 710 445" marker-end="url(#arrow)"/>
+    <!-- Deduplicate -> Extract Affiliations -->
+    <path d="M 710 515 L 710 550" marker-end="url(#arrow)"/>
+    <!-- Extract Affiliations -> Save Clean Corpus -->
+    <path d="M 710 620 L 710 655" marker-end="url(#arrow)"/>
+    
+    <!-- Save Clean Corpus -> Col 3: Run Bibliometrics -->
+    <path d="M 710 725 L 710 760 L 1070 760 L 1070 200 L 1190 200" marker-end="url(#arrow)"/>
+
+    <!-- Col 3: Analytics Flow -->
+    <!-- Run Bibliometrics -> Build Network Models -->
+    <path d="M 1190 235 L 1190 270" marker-end="url(#arrow)"/>
+    <!-- Build Networks -> Decision 3: Analysis Success? -->
+    <path d="M 1190 340 L 1190 380" marker-end="url(#arrow)"/>
+
+    <!-- Decision 3 No -> Fallback View -->
+    <path d="M 1260 445 L 1350 445 L 1350 520" marker-end="url(#arrow)"/>
+    <!-- Fallback View -> Render Visualizations -->
+    <path d="M 1350 590 L 1350 630 L 1540 630 L 1540 270 L 1665 270" marker-end="url(#arrow)"/>
+
+    <!-- Decision 3 Yes -> AI Research Assistant -->
+    <path d="M 1190 510 L 1190 560" marker-end="url(#arrow)"/>
+    <!-- AI Assistant -> Col 4: Render Visualizations -->
+    <path d="M 1190 630 L 1190 670 L 1420 670 L 1420 200 L 1545 200" marker-end="url(#arrow)"/>
+
+    <!-- Col 4: Visualizations & Terminal Flow -->
+    <!-- Render Visualizations -> Explore Paper Cards -->
+    <path d="M 1665 235 L 1665 295" marker-end="url(#arrow)"/>
+    <!-- Explore Cards -> Download OA PDFs -->
+    <path d="M 1665 365 L 1665 425" marker-end="url(#arrow)"/>
+    <!-- Download OA PDFs -> Explore Insights (Terminal) -->
+    <path d="M 1665 495 L 1665 555" marker-end="url(#arrow)"/>
+  </g>
+
+  <!-- ======================================================================== -->
+  <!-- BRANCH LABELS (Decision annotations)                                     -->
+  <!-- ======================================================================== -->
+  <g font-size="12" font-weight="700" fill="#1E1E1E">
+    <!-- Decision 1 labels -->
+    <rect x="110" y="815" width="45" height="20" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="132" y="829" text-anchor="middle" fill="#EF4444">No</text>
+    
+    <rect x="345" y="815" width="48" height="20" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="369" y="829" text-anchor="middle" fill="#10B981">Yes</text>
+
+    <!-- Decision 2 labels -->
+    <rect x="800" y="325" width="45" height="20" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="822" y="339" text-anchor="middle" fill="#EF4444">No</text>
+
+    <rect x="715" y="412" width="48" height="20" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="739" y="426" text-anchor="middle" fill="#10B981">Yes</text>
+
+    <!-- Decision 3 labels -->
+    <rect x="1285" y="430" width="45" height="20" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="1307" y="444" text-anchor="middle" fill="#EF4444">No</text>
+
+    <rect x="1195" y="520" width="48" height="20" rx="4" fill="#FFFFFF" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="1219" y="534" text-anchor="middle" fill="#10B981">Yes</text>
+  </g>
+
+
+  <!-- ======================================================================== -->
+  <!-- COLUMN 1: USER INTERACTION & API DISPATCH BLOCKS                         -->
+  <!-- ======================================================================== -->
+
+  <!-- Start Node (Miro Yellow Pill) -->
+  <g filter="url(#blockShadow)" transform="translate(125, 130)">
+    <rect width="240" height="70" rx="20" fill="#FFDA54" stroke="#1E1E1E" stroke-width="2.2"/>
+    <text x="120" y="42" text-anchor="middle" font-size="16" font-weight="bold" fill="#1E1E1E">Open Research Rover</text>
+  </g>
+
+  <!-- Enter Research Query -->
+  <g filter="url(#blockShadow)" transform="translate(125, 235)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="42" text-anchor="middle" font-size="15" font-weight="600" fill="#1E1E1E">Enter Research Query</text>
+  </g>
+
+  <!-- Select Search Options -->
+  <g filter="url(#blockShadow)" transform="translate(125, 340)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Select Search Options</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(Sources, Date Range, Limit)</text>
+  </g>
+
+  <!-- Submit Search Request -->
+  <g filter="url(#blockShadow)" transform="translate(125, 445)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="42" text-anchor="middle" font-size="15" font-weight="600" fill="#1E1E1E">Submit Search Request</text>
+  </g>
+
+  <!-- FastAPI Orchestrator -->
+  <g filter="url(#blockShadow)" transform="translate(125, 550)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">FastAPI Orchestrator</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(Async Job &amp; Progress Poll)</text>
+  </g>
+
+  <!-- Query Scholarly APIs -->
+  <g filter="url(#blockShadow)" transform="translate(125, 655)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Query Scholarly APIs</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(PubMed E-Utils &amp; OpenAlex)</text>
+  </g>
+
+  <!-- Decision 1: API Success? (Miro Sky Blue Diamond) -->
+  <g filter="url(#blockShadow)" transform="translate(245, 830)">
+    <polygon points="0,-65 70,0 0,65 -70,0" fill="#82D2FD" stroke="#1E1E1E" stroke-width="2.2"/>
+    <text x="0" y="-5" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E1E1E">API Request</text>
+    <text x="0" y="14" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E1E1E">Successful?</text>
+  </g>
+
+  <!-- Display API Error (Miro Soft Coral) -->
+  <g filter="url(#blockShadow)" transform="translate(45, 895)">
+    <rect width="120" height="70" rx="12" fill="#FFB3B3" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="60" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E1E1E">Display API</text>
+    <text x="60" y="51" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E1E1E">Error &amp; Retry</text>
+  </g>
+
+
+  <!-- ======================================================================== -->
+  <!-- COLUMN 2: DATA COLLECTION & NORMALIZATION BLOCKS                         -->
+  <!-- ======================================================================== -->
+
+  <!-- Retrieve Papers & Metadata -->
+  <g filter="url(#blockShadow)" transform="translate(590, 165)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Retrieve Papers</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">&amp; Raw Metadata Records</text>
+  </g>
+
+  <!-- Decision 2: Papers Found? (Sky Blue Diamond) -->
+  <g filter="url(#blockShadow)" transform="translate(710, 340)">
+    <polygon points="0,-65 70,0 0,65 -70,0" fill="#82D2FD" stroke="#1E1E1E" stroke-width="2.2"/>
+    <text x="0" y="-5" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E1E1E">Research Papers</text>
+    <text x="0" y="14" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E1E1E">Found?</text>
+  </g>
+
+  <!-- Display No Results (Soft Coral) -->
+  <g filter="url(#blockShadow)" transform="translate(810, 415)">
+    <rect width="120" height="70" rx="12" fill="#FFB3B3" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="60" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E1E1E">Display</text>
+    <text x="60" y="51" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E1E1E">No-Results</text>
+  </g>
+
+  <!-- Deduplicate & Merge -->
+  <g filter="url(#blockShadow)" transform="translate(590, 445)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Deduplicate &amp; Merge</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(DOI, PMID, Title Matching)</text>
+  </g>
+
+  <!-- Extract Affiliations & Countries -->
+  <g filter="url(#blockShadow)" transform="translate(590, 550)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Extract Affiliations</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">&amp; Normalize Countries (ISO-3)</text>
+  </g>
+
+  <!-- Save Clean Corpus (CSV) -->
+  <g filter="url(#blockShadow)" transform="translate(590, 655)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Save Clean Corpus</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(Structured CSV in data/ Folder)</text>
+  </g>
+
+
+  <!-- ======================================================================== -->
+  <!-- COLUMN 3: BIBLIOMETRICS & AI PROCESSING BLOCKS                           -->
+  <!-- ======================================================================== -->
+
+  <!-- Compute Bibliometrics -->
+  <g filter="url(#blockShadow)" transform="translate(1070, 165)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Compute Bibliometrics</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(Keywords &amp; Country Freq)</text>
+  </g>
+
+  <!-- Build Network Models -->
+  <g filter="url(#blockShadow)" transform="translate(1070, 270)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Build Network Models</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(NetworkX &amp; Collab Edges)</text>
+  </g>
+
+  <!-- Decision 3: Analysis Success? (Sky Blue Diamond) -->
+  <g filter="url(#blockShadow)" transform="translate(1190, 445)">
+    <polygon points="0,-65 70,0 0,65 -70,0" fill="#82D2FD" stroke="#1E1E1E" stroke-width="2.2"/>
+    <text x="0" y="-5" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E1E1E">Analysis</text>
+    <text x="0" y="14" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E1E1E">Successful?</text>
+  </g>
+
+  <!-- Fallback Metadata View (Soft Coral) -->
+  <g filter="url(#blockShadow)" transform="translate(1290, 520)">
+    <rect width="120" height="70" rx="12" fill="#FFB3B3" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="60" y="34" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E1E1E">Fallback</text>
+    <text x="60" y="51" text-anchor="middle" font-size="12" font-weight="bold" fill="#1E1E1E">Metadata View</text>
+  </g>
+
+  <!-- AI Research Assistant -->
+  <g filter="url(#blockShadow)" transform="translate(1070, 560)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">AI Research Assistant</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(Vector Q&amp;A with Citations)</text>
+  </g>
+
+
+  <!-- ======================================================================== -->
+  <!-- COLUMN 4: VISUALIZATION & OUTPUT BLOCKS                                  -->
+  <!-- ======================================================================== -->
+
+  <!-- Render Visualizations -->
+  <g filter="url(#blockShadow)" transform="translate(1545, 165)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Render Visualizations</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(Word Cloud, Charts, World Map)</text>
+  </g>
+
+  <!-- Explore Paper Cards -->
+  <g filter="url(#blockShadow)" transform="translate(1545, 295)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Explore Paper Cards</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(Metadata, Citations, OA Tags)</text>
+  </g>
+
+  <!-- Download OA PDFs -->
+  <g filter="url(#blockShadow)" transform="translate(1545, 425)">
+    <rect width="240" height="70" rx="14" fill="#B3ACFF" stroke="#1E1E1E" stroke-width="2"/>
+    <text x="120" y="34" text-anchor="middle" font-size="14.5" font-weight="600" fill="#1E1E1E">Download OA PDFs</text>
+    <text x="120" y="53" text-anchor="middle" font-size="11" font-weight="500" fill="#374151">(Secure Streaming Proxy)</text>
+  </g>
+
+  <!-- Terminal: Explore Insights & Export (Miro Yellow Pill) -->
+  <g filter="url(#blockShadow)" transform="translate(1545, 555)">
+    <rect width="240" height="75" rx="20" fill="#FFDA54" stroke="#1E1E1E" stroke-width="2.2"/>
+    <text x="120" y="36" text-anchor="middle" font-size="15.5" font-weight="bold" fill="#1E1E1E">Explore Insights</text>
+    <text x="120" y="56" text-anchor="middle" font-size="14" font-weight="bold" fill="#1E1E1E">&amp; Export Data</text>
+  </g>
+
+</svg>

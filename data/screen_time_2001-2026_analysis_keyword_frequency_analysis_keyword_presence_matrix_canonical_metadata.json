@@ -1,0 +1,185 @@
+{
+  "filename": "screen_time_2001-2026_analysis_keyword_frequency_analysis_keyword_presence_matrix.csv",
+  "total_records": 100,
+  "valid_records": 100,
+  "duplicate_records": 0,
+  "overall_quality_score": 25.0,
+  "quality_grade": "Poor",
+  "canonical_fields_detected": [
+    "paper_id",
+    "title",
+    "journal",
+    "publication_year",
+    "keywords"
+  ],
+  "column_mappings": {
+    "paper_id": {
+      "original_column": "paper_id",
+      "canonical_field": "paper_id",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'paper_id'"
+    },
+    "title": {
+      "original_column": "title",
+      "canonical_field": "title",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'title'"
+    },
+    "source": {
+      "original_column": "source",
+      "canonical_field": "journal",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'source' to canonical 'journal'"
+    },
+    "year": {
+      "original_column": "year",
+      "canonical_field": "publication_year",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'year' to canonical 'publication_year'"
+    },
+    "keywords": {
+      "original_column": "keywords",
+      "canonical_field": "keywords",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'keywords'"
+    }
+  },
+  "unmapped_columns": [],
+  "conflicts": [],
+  "feature_readiness": {
+    "keyword_analysis": {
+      "feature_name": "Keyword Frequency & Word Clouds",
+      "status": "not_ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "keywords"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No keyword data found in dataset."
+      ],
+      "explanation": "None of the papers contain keywords. Keyword frequency tables and word clouds cannot be generated."
+    },
+    "cooccurrence_analysis": {
+      "feature_name": "Keyword Co-occurrence & Network Centralities",
+      "status": "not_ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "keywords"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "Fewer than 2 papers contain multi-keyword combinations."
+      ],
+      "explanation": "Network co-occurrence and centrality scores require papers with at least 2 keywords each to compute graph edges."
+    },
+    "country_analysis": {
+      "feature_name": "Country Distribution & Collaboration Networks",
+      "status": "not_ready",
+      "required_fields": [
+        "affiliations"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "affiliations"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No author affiliation or country data present."
+      ],
+      "explanation": "Affiliation addresses are missing. World map, 3D globe, and international collaboration networks cannot be rendered."
+    },
+    "author_analysis": {
+      "feature_name": "Author Analytics & Collaboration",
+      "status": "not_ready",
+      "required_fields": [
+        "authors"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "authors"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No author names present in dataset."
+      ],
+      "explanation": "Author metadata is absent. Author frequency, co-authorship lists, and researcher rankings cannot be computed."
+    },
+    "trend_analysis": {
+      "feature_name": "Research Publication Trends",
+      "status": "not_ready",
+      "required_fields": [
+        "publication_year"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "publication_year"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No valid publication years found in dataset."
+      ],
+      "explanation": "Publication years are missing or unparseable. Annual publication trends and temporal graphs cannot be generated."
+    },
+    "semantic_search": {
+      "feature_name": "Semantic Vector Search & Indexing",
+      "status": "not_ready",
+      "required_fields": [
+        "abstract"
+      ],
+      "available_fields": [
+        "title"
+      ],
+      "missing_fields": [
+        "abstract"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No paper abstracts or downloadable URLs available for text embedding."
+      ],
+      "explanation": "Semantic search requires paper text (abstracts or full-text URLs) to generate sentence embeddings and build FAISS vector indices."
+    },
+    "ai_chat_rag": {
+      "feature_name": "AI Research Assistant (RAG Chat)",
+      "status": "not_ready",
+      "required_fields": [
+        "abstract",
+        "title"
+      ],
+      "available_fields": [
+        "title"
+      ],
+      "missing_fields": [
+        "abstract"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No text content available to index for document-grounded RAG answers."
+      ],
+      "explanation": "Without abstract or full text embeddings, AI Chat cannot retrieve paper context and would produce ungrounded generic answers."
+    }
+  },
+  "recommendations": [
+    "Abstract coverage is low (0.0%). Adding abstracts unlocks semantic search, HDBSCAN clustering, and AI RAG chat.",
+    "Keywords coverage is 0.0%. Adding semicolon-delimited keywords unlocks keyword frequency and network co-occurrence graphs.",
+    "Affiliations coverage is 0.0%. Include institution or country addresses to render 2D/3D country collaboration maps."
+  ],
+  "generated_at": 1795104045.0973945,
+  "csv_mtime": 1789474568.3225298
+}

@@ -1,0 +1,107 @@
+flowchart TD
+    %% =========================================================================
+    %% COMPLETE SYSTEM ARCHITECTURE OVERVIEW: RESEARCH ROVER
+    %% Unified 7-Layer Flowchart Connecting All Subsystems
+    %% =========================================================================
+
+    classDef l1 fill:#EFF6FF,stroke:#2563EB,stroke-width:2px,color:#1E3A8A,font-weight:bold;
+    classDef l2 fill:#EEF2FF,stroke:#4F46E5,stroke-width:2px,color:#312E81,font-weight:bold;
+    classDef l3 fill:#FAF5FF,stroke:#9333EA,stroke-width:2px,color:#581C87,font-weight:bold;
+    classDef l4 fill:#ECFEFF,stroke:#0891B2,stroke-width:2px,color:#155E75,font-weight:bold;
+    classDef l5 fill:#ECFDF5,stroke:#059669,stroke-width:2px,color:#064E3B,font-weight:bold;
+    classDef l6 fill:#FFFBEB,stroke:#D97706,stroke-width:2px,color:#78350F,font-weight:bold;
+    classDef l7 fill:#FFF1F2,stroke:#E11D48,stroke-width:2px,color:#9F1239,font-weight:bold;
+    classDef storage fill:#F1F5F9,stroke:#64748B,stroke-width:2px,color:#0F172A;
+
+    subgraph L1["LAYER 1: USER INTERACTION LAYER"]
+        U_START(["User Accesses Research Rover"]):::l1
+        U_INPUT["Query & Filter Configuration<br/>(Sources, limits, date sliders, sort mode)"]:::l1
+        U_WORKSPACES{"Select Workspace Branch"}:::l1
+        WS_SEARCH["Search Workspace (/search)"]:::l1
+        WS_ANALYTICS["Analytics Workspace (/analytics)"]:::l1
+        WS_CHAT["Conversational RAG Chat (/chat)"]:::l1
+        WS_FILES["Files & Architecture (/files)"]:::l1
+    end
+
+    subgraph L2["LAYER 2: FRONTEND / API CLIENT LAYER"]
+        SPA_STACK["React 19 SPA & Router<br/>(Context Providers: Search, Analytics, Chat, Embedding, Status)"]:::l2
+        EVENT_DISPATCH["Event Handlers & 1s Polling Loops"]:::l2
+        AXIOS_CORE["Axios API Client (services/api.ts)<br/>Typed modules: searchApi, filesApi, chatApi, embeddingsApi, analysisApi"]:::l2
+    end
+
+    subgraph L3["LAYER 3: BACKEND PROCESSING & CONTROLLERS"]
+        UVICORN_GATEWAY["Uvicorn ASGI Gateway (main.py) • Port 8000"]:::l3
+        ROUTERS["Mounted FastAPIRouters<br/>/search, /files, /chat, /embeddings, /analysis, /system"]:::l3
+        PYDANTIC_ENGINE["Pydantic Validation (schemas.py) & SSRF Checks"]:::l3
+        CONTROLLER_LOGIC["Controller Endpoint Logic & Task Orchestration"]:::l3
+        EXCEPTION_MAP["HTTP Error Code Mapping (400, 404, 422, 500)"]:::l3
+    end
+
+    subgraph L4["LAYER 4: DATA COLLECTION & EXTERNAL SOURCES"]
+        SEARCH_ORCH["SearchService & UnifiedSearchService"]:::l4
+        NCBI_PUBMED["NCBI PubMed Entrez E-Utilities<br/>(esearch, efetch batch 50, esummary, espell fallback)"]:::l4
+        OPENALEX_API["OpenAlex Universal Works REST API<br/>(Abstract inversion, authors, institutions, OA links)"]:::l4
+        CORE_STUB["CORE Repository Harvester (Planned Stub)"]:::l4
+        FAULT_TOLERANCE["Non-Blocking Partial Failure Resilience"]:::l4
+    end
+
+    subgraph L5["LAYER 5: DATA CLEANING & ENRICHMENT"]
+        NORM_ENGINE["Identifier Normalization (DOI, PMID, OpenAlex ID, Title Key)"]:::l5
+        DEDUP_ENGINE["4-Priority Deduplication Engine<br/>(Match DOI → PMID → OpenAlex ID → Title Key)"]:::l5
+        MERGE_ENGINE["Record Merging: Sources, Authors, Longer Abstract, Highest Citations"]:::l5
+        AFF_FALLBACK["PubMed Affiliation Fallback Enricher (batch EFetch XML)"]:::l5
+        GEO_EXTRACTOR["ISO 3166-1 Country Extractor (700+ aliases & regex word boundary)"]:::l5
+        CSV_STORE[("Persistent Dataset Storage<br/>data/<sanitized_query>.csv (UTF-8-SIG)")]:::storage
+    end
+
+    subgraph L6["LAYER 6: ANALYSIS & COMPUTATION LAYER"]
+        KW_FREQ_ENG["1. Keyword Frequency & Distribution Engine"]:::l6
+        NETWORKX_ENG["2. NetworkX Centralities (Degree, Closeness, Betweenness, Eigenvector, Clustering)"]:::l6
+        MATRIX_ENG["3. Binary Keyword Presence Matrix Engine"]:::l6
+        CTRY_STATS_ENG["4. Country Publication Volume & Coverage Statistics"]:::l6
+        CTRY_GRAPH_ENG["5. International Co-Authorship Collaboration Network Engine"]:::l6
+        MEDCPT_ENG["6. MedCPT PyTorch Bi-Encoder Neural Re-ranking Engine"]:::l6
+        FAISS_ENG["7. HDBSCAN Semantic Chunking & FAISS Flat L2 Vector Store"]:::l6
+        RAG_ENG["8. Conversational RAG Query Decomposition & Gemini Synthesis"]:::l6
+        CITATION_NOTE["9. Numerical Citation Metrics (No Citation Graph)"]:::l6
+    end
+
+    subgraph L7["LAYER 7: VISUALIZATION & OUTPUT LAYER"]
+        ERR_BOUND["React Error Boundary Wrappers"]:::l7
+        GEO_MAP["TopoJSON World Choropleth Map (WorldMap.tsx)"]:::l7
+        GRAPH_2D["2D Force Collaboration Graph (react-force-graph-2d)"]:::l7
+        GRAPH_3D["3D WebGL Spherical Space (Three.js & react-force-graph-3d)"]:::l7
+        WORD_CLOUD["Interactive SVG Word Cloud (scaled text tokens)"]:::l7
+        KW_GRAPH_SVG["Keyword Co-Occurrence Network Graph SVG"]:::l7
+        RANK_TABLES["Centrality & Country Publication Ranking Tables"]:::l7
+        RAG_STREAM["Conversational RAG Chat Stream & Citation Cards"]:::l7
+        EXPORTS["Export Pipelines: UTF-8 BOM CSV, JSON Summaries, High-Res PNG, PDF Downloads"]:::l7
+        U_OUTPUT(["Presentation-Ready Insights Delivered to User"]):::l7
+    end
+
+    %% Flow Connections Between Layers
+    U_START --> U_INPUT --> U_WORKSPACES
+    U_WORKSPACES --> WS_SEARCH & WS_ANALYTICS & WS_CHAT & WS_FILES
+    WS_SEARCH & WS_ANALYTICS & WS_CHAT & WS_FILES --> SPA_STACK
+
+    SPA_STACK --> EVENT_DISPATCH --> AXIOS_CORE
+    AXIOS_CORE -->|HTTP Requests| UVICORN_GATEWAY
+
+    UVICORN_GATEWAY --> ROUTERS --> PYDANTIC_ENGINE --> CONTROLLER_LOGIC
+    CONTROLLER_LOGIC --> EXCEPTION_MAP
+
+    CONTROLLER_LOGIC -->|Search Query| SEARCH_ORCH
+    SEARCH_ORCH --> NCBI_PUBMED & OPENALEX_API & CORE_STUB --> FAULT_TOLERANCE
+
+    FAULT_TOLERANCE -->|Raw Paper Records| NORM_ENGINE
+    NORM_ENGINE --> DEDUP_ENGINE --> MERGE_ENGINE --> AFF_FALLBACK --> GEO_EXTRACTOR --> CSV_STORE
+
+    CSV_STORE --> KW_FREQ_ENG & NETWORKX_ENG & MATRIX_ENG & CTRY_STATS_ENG & CTRY_GRAPH_ENG & MEDCPT_ENG & FAISS_ENG & RAG_ENG & CITATION_NOTE
+
+    KW_FREQ_ENG & MATRIX_ENG --> WORD_CLOUD & RANK_TABLES
+    NETWORKX_ENG --> KW_GRAPH_SVG & RANK_TABLES
+    CTRY_STATS_ENG & CTRY_GRAPH_ENG --> GEO_MAP & GRAPH_2D & GRAPH_3D & RANK_TABLES
+    MEDCPT_ENG --> WS_SEARCH
+    FAISS_ENG & RAG_ENG --> RAG_STREAM
+
+    GEO_MAP & GRAPH_2D & GRAPH_3D & WORD_CLOUD & KW_GRAPH_SVG & RANK_TABLES & RAG_STREAM --> ERR_BOUND --> EXPORTS --> U_OUTPUT

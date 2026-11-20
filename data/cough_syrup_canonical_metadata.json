@@ -1,0 +1,572 @@
+{
+  "filename": "cough_syrup.csv",
+  "total_records": 107,
+  "valid_records": 107,
+  "duplicate_records": 0,
+  "overall_quality_score": 93.6,
+  "quality_grade": "Excellent",
+  "canonical_fields_detected": [
+    "journal",
+    "journal",
+    "journal",
+    "title",
+    "title",
+    "doi",
+    "doi",
+    "pmid",
+    "pmid",
+    "openalex_id",
+    "openalex_id",
+    "abstract",
+    "abstract",
+    "publication_year",
+    "publication_year",
+    "authors",
+    "authors",
+    "affiliations",
+    "affiliations",
+    "countries",
+    "countries",
+    "keywords",
+    "keywords",
+    "download_url",
+    "download_url",
+    "citation_count",
+    "citation_count",
+    "is_open_access",
+    "is_open_access",
+    "journal",
+    "keywords",
+    "citation_count",
+    "pmcid",
+    "authors",
+    "publication_date",
+    "journal",
+    "download_url",
+    "download_url",
+    "url"
+  ],
+  "column_mappings": {
+    "Source": {
+      "original_column": "Source",
+      "canonical_field": "journal",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'journal' is claimed by multiple columns: ['Source', 'source', 'sources', 'Journal/Book', 'Journal']"
+    },
+    "source": {
+      "original_column": "source",
+      "canonical_field": "journal",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'journal' is claimed by multiple columns: ['Source', 'source', 'sources', 'Journal/Book', 'Journal']"
+    },
+    "sources": {
+      "original_column": "sources",
+      "canonical_field": "journal",
+      "confidence": 0.923,
+      "matching_method": "fuzzy_match",
+      "status": "conflict",
+      "details": "Conflict: target 'journal' is claimed by multiple columns: ['Source', 'source', 'sources', 'Journal/Book', 'Journal']"
+    },
+    "Title": {
+      "original_column": "Title",
+      "canonical_field": "title",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'title' is claimed by multiple columns: ['Title', 'title']"
+    },
+    "title": {
+      "original_column": "title",
+      "canonical_field": "title",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'title' is claimed by multiple columns: ['Title', 'title']"
+    },
+    "DOI": {
+      "original_column": "DOI",
+      "canonical_field": "doi",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'doi' is claimed by multiple columns: ['DOI', 'doi']"
+    },
+    "doi": {
+      "original_column": "doi",
+      "canonical_field": "doi",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'doi' is claimed by multiple columns: ['DOI', 'doi']"
+    },
+    "PMID": {
+      "original_column": "PMID",
+      "canonical_field": "pmid",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'pmid' is claimed by multiple columns: ['PMID', 'pmid']"
+    },
+    "pmid": {
+      "original_column": "pmid",
+      "canonical_field": "pmid",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'pmid' is claimed by multiple columns: ['PMID', 'pmid']"
+    },
+    "OpenAlex_ID": {
+      "original_column": "OpenAlex_ID",
+      "canonical_field": "openalex_id",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'openalex_id' is claimed by multiple columns: ['OpenAlex_ID', 'openalex_id']"
+    },
+    "openalex_id": {
+      "original_column": "openalex_id",
+      "canonical_field": "openalex_id",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'openalex_id' is claimed by multiple columns: ['OpenAlex_ID', 'openalex_id']"
+    },
+    "Abstract": {
+      "original_column": "Abstract",
+      "canonical_field": "abstract",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'abstract' is claimed by multiple columns: ['Abstract', 'abstract']"
+    },
+    "abstract": {
+      "original_column": "abstract",
+      "canonical_field": "abstract",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'abstract' is claimed by multiple columns: ['Abstract', 'abstract']"
+    },
+    "Publication Year": {
+      "original_column": "Publication Year",
+      "canonical_field": "publication_year",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'publication_year' is claimed by multiple columns: ['Publication Year', 'year']"
+    },
+    "year": {
+      "original_column": "year",
+      "canonical_field": "publication_year",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'publication_year' is claimed by multiple columns: ['Publication Year', 'year']"
+    },
+    "Authors": {
+      "original_column": "Authors",
+      "canonical_field": "authors",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'authors' is claimed by multiple columns: ['Authors', 'authors', 'First Author']"
+    },
+    "authors": {
+      "original_column": "authors",
+      "canonical_field": "authors",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'authors' is claimed by multiple columns: ['Authors', 'authors', 'First Author']"
+    },
+    "Affiliations": {
+      "original_column": "Affiliations",
+      "canonical_field": "affiliations",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'affiliations' is claimed by multiple columns: ['Affiliations', 'affiliations']"
+    },
+    "affiliations": {
+      "original_column": "affiliations",
+      "canonical_field": "affiliations",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'affiliations' is claimed by multiple columns: ['Affiliations', 'affiliations']"
+    },
+    "Countries": {
+      "original_column": "Countries",
+      "canonical_field": "countries",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'countries' is claimed by multiple columns: ['Countries', 'countries']"
+    },
+    "countries": {
+      "original_column": "countries",
+      "canonical_field": "countries",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'countries' is claimed by multiple columns: ['Countries', 'countries']"
+    },
+    "Keywords": {
+      "original_column": "Keywords",
+      "canonical_field": "keywords",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'keywords' is claimed by multiple columns: ['Keywords', 'keywords', 'MeSH_Terms']"
+    },
+    "keywords": {
+      "original_column": "keywords",
+      "canonical_field": "keywords",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'keywords' is claimed by multiple columns: ['Keywords', 'keywords', 'MeSH_Terms']"
+    },
+    "Download_URL": {
+      "original_column": "Download_URL",
+      "canonical_field": "download_url",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'download_url' is claimed by multiple columns: ['Download_URL', 'download_url', 'pdf_url', 'PDF_URL']"
+    },
+    "download_url": {
+      "original_column": "download_url",
+      "canonical_field": "download_url",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'download_url' is claimed by multiple columns: ['Download_URL', 'download_url', 'pdf_url', 'PDF_URL']"
+    },
+    "Citation_Count": {
+      "original_column": "Citation_Count",
+      "canonical_field": "citation_count",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'citation_count' is claimed by multiple columns: ['Citation_Count', 'citation_count', 'Citation']"
+    },
+    "citation_count": {
+      "original_column": "citation_count",
+      "canonical_field": "citation_count",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'citation_count' is claimed by multiple columns: ['Citation_Count', 'citation_count', 'Citation']"
+    },
+    "Is_OA": {
+      "original_column": "Is_OA",
+      "canonical_field": "is_open_access",
+      "confidence": 0.98,
+      "matching_method": "normalized_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'is_open_access' is claimed by multiple columns: ['Is_OA', 'is_oa']"
+    },
+    "is_oa": {
+      "original_column": "is_oa",
+      "canonical_field": "is_open_access",
+      "confidence": 0.98,
+      "matching_method": "normalized_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'is_open_access' is claimed by multiple columns: ['Is_OA', 'is_oa']"
+    },
+    "Relevance_Score": {
+      "original_column": "Relevance_Score",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "relevance_score": {
+      "original_column": "relevance_score",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Journal/Book": {
+      "original_column": "Journal/Book",
+      "canonical_field": "journal",
+      "confidence": 0.98,
+      "matching_method": "normalized_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'journal' is claimed by multiple columns: ['Source', 'source', 'sources', 'Journal/Book', 'Journal']"
+    },
+    "MeSH_Terms": {
+      "original_column": "MeSH_Terms",
+      "canonical_field": "keywords",
+      "confidence": 0.98,
+      "matching_method": "normalized_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'keywords' is claimed by multiple columns: ['Keywords', 'keywords', 'MeSH_Terms']"
+    },
+    "Citation": {
+      "original_column": "Citation",
+      "canonical_field": "citation_count",
+      "confidence": 0.941,
+      "matching_method": "fuzzy_match",
+      "status": "conflict",
+      "details": "Conflict: target 'citation_count' is claimed by multiple columns: ['Citation_Count', 'citation_count', 'Citation']"
+    },
+    "Create Date": {
+      "original_column": "Create Date",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "PMCID": {
+      "original_column": "PMCID",
+      "canonical_field": "pmcid",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'pmcid'"
+    },
+    "NIHMS ID": {
+      "original_column": "NIHMS ID",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "First Author": {
+      "original_column": "First Author",
+      "canonical_field": "authors",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'authors' is claimed by multiple columns: ['Authors', 'authors', 'First Author']"
+    },
+    "Reference": {
+      "original_column": "Reference",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Relevance_Rank": {
+      "original_column": "Relevance_Rank",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Publication_Date": {
+      "original_column": "Publication_Date",
+      "canonical_field": "publication_date",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'publication_date'"
+    },
+    "Journal": {
+      "original_column": "Journal",
+      "canonical_field": "journal",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'journal' is claimed by multiple columns: ['Source', 'source', 'sources', 'Journal/Book', 'Journal']"
+    },
+    "source_journal": {
+      "original_column": "source_journal",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "pdf_url": {
+      "original_column": "pdf_url",
+      "canonical_field": "download_url",
+      "confidence": 0.98,
+      "matching_method": "normalized_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'download_url' is claimed by multiple columns: ['Download_URL', 'download_url', 'pdf_url', 'PDF_URL']"
+    },
+    "PDF_URL": {
+      "original_column": "PDF_URL",
+      "canonical_field": "download_url",
+      "confidence": 0.98,
+      "matching_method": "normalized_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'download_url' is claimed by multiple columns: ['Download_URL', 'download_url', 'pdf_url', 'PDF_URL']"
+    },
+    "landing_page_url": {
+      "original_column": "landing_page_url",
+      "canonical_field": "url",
+      "confidence": 0.98,
+      "matching_method": "normalized_alias",
+      "status": "matched",
+      "details": "Matched alias 'landing page url' to canonical 'url'"
+    },
+    "type": {
+      "original_column": "type",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "raw_openalex": {
+      "original_column": "raw_openalex",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    }
+  },
+  "unmapped_columns": [
+    "Relevance_Score",
+    "relevance_score",
+    "Create Date",
+    "NIHMS ID",
+    "Reference",
+    "Relevance_Rank",
+    "source_journal",
+    "type",
+    "raw_openalex"
+  ],
+  "conflicts": [
+    "journal: multiple source columns ['Source', 'source', 'sources', 'Journal/Book', 'Journal']. Primary value selected from 'Source'; all original column values preserved.",
+    "title: multiple source columns ['Title', 'title']. Primary value selected from 'Title'; all original column values preserved.",
+    "doi: multiple source columns ['DOI', 'doi']. Primary value selected from 'DOI'; all original column values preserved.",
+    "pmid: multiple source columns ['PMID', 'pmid']. Primary value selected from 'PMID'; all original column values preserved.",
+    "openalex_id: multiple source columns ['OpenAlex_ID', 'openalex_id']. Primary value selected from 'OpenAlex_ID'; all original column values preserved.",
+    "abstract: multiple source columns ['Abstract', 'abstract']. Primary value selected from 'Abstract'; all original column values preserved.",
+    "publication_year: multiple source columns ['Publication Year', 'year']. Primary value selected from 'Publication Year'; all original column values preserved.",
+    "authors: multiple source columns ['Authors', 'authors', 'First Author']. Primary value selected from 'Authors'; all original column values preserved.",
+    "affiliations: multiple source columns ['Affiliations', 'affiliations']. Primary value selected from 'Affiliations'; all original column values preserved.",
+    "countries: multiple source columns ['Countries', 'countries']. Primary value selected from 'Countries'; all original column values preserved.",
+    "keywords: multiple source columns ['Keywords', 'keywords', 'MeSH_Terms']. Primary value selected from 'Keywords'; all original column values preserved.",
+    "download_url: multiple source columns ['Download_URL', 'download_url', 'pdf_url', 'PDF_URL']. Primary value selected from 'Download_URL'; all original column values preserved.",
+    "citation_count: multiple source columns ['Citation_Count', 'citation_count', 'Citation']. Primary value selected from 'Citation_Count'; all original column values preserved.",
+    "is_open_access: multiple source columns ['Is_OA', 'is_oa']. Primary value selected from 'Is_OA'; all original column values preserved."
+  ],
+  "feature_readiness": {
+    "keyword_analysis": {
+      "feature_name": "Keyword Frequency & Word Clouds",
+      "status": "ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [
+        "keywords"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "107/107 papers (100.0%) contain keyword metadata with 893 unique terms. Fully operational."
+    },
+    "cooccurrence_analysis": {
+      "feature_name": "Keyword Co-occurrence & Network Centralities",
+      "status": "ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [
+        "keywords"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "107/107 papers (100.0%) have 2+ keywords. Co-occurrence graph and centrality algorithms fully operational."
+    },
+    "country_analysis": {
+      "feature_name": "Country Distribution & Collaboration Networks",
+      "status": "ready",
+      "required_fields": [
+        "affiliations"
+      ],
+      "available_fields": [
+        "affiliations"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 67.3,
+      "warnings": [],
+      "explanation": "72/107 papers (67.3%) contain institutional or country affiliations. Geoparsing and collaboration graphs fully operational."
+    },
+    "author_analysis": {
+      "feature_name": "Author Analytics & Collaboration",
+      "status": "ready",
+      "required_fields": [
+        "authors"
+      ],
+      "available_fields": [
+        "authors"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 98.1,
+      "warnings": [],
+      "explanation": "105/107 papers (98.1%) have author metadata. Author analytics fully operational."
+    },
+    "trend_analysis": {
+      "feature_name": "Research Publication Trends",
+      "status": "ready",
+      "required_fields": [
+        "publication_year"
+      ],
+      "available_fields": [
+        "publication_year"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "107/107 papers (100.0%) have valid years spanning 2026 - 2027. Timeline charts fully operational."
+    },
+    "semantic_search": {
+      "feature_name": "Semantic Vector Search & Indexing",
+      "status": "ready",
+      "required_fields": [
+        "title",
+        "abstract"
+      ],
+      "available_fields": [
+        "title",
+        "abstract"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 87.9,
+      "warnings": [],
+      "explanation": "94/107 papers (87.9%) contain multi-sentence abstracts suitable for HDBSCAN chunking and FAISS indexing."
+    },
+    "ai_chat_rag": {
+      "feature_name": "AI Research Assistant (RAG Chat)",
+      "status": "ready",
+      "required_fields": [
+        "title",
+        "abstract"
+      ],
+      "available_fields": [
+        "title",
+        "abstract",
+        "doi"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 87.9,
+      "warnings": [],
+      "explanation": "Papers have sufficient textual depth for semantic chunking and grounded multi-query RAG generation with citations."
+    }
+  },
+  "recommendations": [
+    "Detected 9 unmapped columns (Relevance_Score, relevance_score, Create Date...). Use custom column mappings to associate them with canonical fields."
+  ],
+  "generated_at": 1794828394.2409074,
+  "csv_mtime": 1792267528.2698157
+}

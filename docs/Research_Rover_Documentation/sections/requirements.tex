@@ -1,0 +1,57 @@
+\section{System Requirements}
+\label{sec:requirements}
+
+\subsection{Hardware and Operational Requirements}
+To ensure reliable operation of the backend language models, embedding pipelines, and responsive frontend rendering, the host environment must meet the verified hardware specifications detailed below.
+
+\begin{itemize}
+    \item \textbf{Processor (CPU):} Minimum 4 physical cores (x86\_64 architecture). AVX2 instruction set support is strongly recommended for optimized FAISS vector similarity operations and PyTorch tensor calculations.
+    \item \textbf{System Memory (RAM):}
+    \begin{itemize}
+        \item \textit{Minimum:} 8 GB RAM (sufficient for core API services and basic dataset ingestion).
+        \item \textit{Recommended:} 16 GB RAM (necessary when loading Sentence Transformers and MedCPT neural re-ranking models into memory concurrently).
+    \end{itemize}
+    \item \textbf{Disk Storage:} Minimum 5 GB free disk space. This accommodates the Python virtual environment, Node.js modules, local cache directories for Hugging Face transformer models (\texttt{\textasciitilde/.cache/huggingface}), temporary web scraping artifacts, and exported bibliographic datasets.
+    \item \textbf{Network Connectivity:} Persistent broadband internet connection is required for initial model weight downloads, package installations, and live querying of the NCBI PubMed and Google Gemini APIs.
+\end{itemize}
+
+\subsection{Operating System and Software Dependencies}
+Research Rover is cross-platform and operates on:
+\begin{itemize}
+    \item \textbf{Windows:} Windows 10 or Windows 11 (64-bit) with PowerShell 5.1 or PowerShell 7+.
+    \item \textbf{Linux:} Ubuntu 20.04 LTS or later, Debian 11+, or Fedora 36+ (64-bit).
+    \item \textbf{macOS:} macOS 12.0 (Monterey) or later (Apple Silicon or Intel x86\_64).
+\end{itemize}
+
+The foundational software environments must be pre-installed on the host system:
+\begin{enumerate}
+    \item \textbf{Python Runtime:} Python 3.11.x (verified 3.11.0 to 3.12.x). A 64-bit installation is strictly mandatory; 32-bit Python runtimes cannot allocate sufficient address space for PyTorch and FAISS.
+    \item \textbf{Node.js Runtime:} Node.js version 18.x LTS, 20.x LTS, or 22.x LTS.
+    \item \textbf{Package Managers:} \texttt{pip} (Python package installer) version 23.0+ and \texttt{npm} (Node package manager) version 9.0+.
+    \item \textbf{Version Control:} Git version 2.30+ for repository cloning and revision tracking.
+\end{enumerate}
+
+\subsection{API Credentials and Configuration Keys}
+Table~\ref{tab:requirements_summary} distinguishes between mandatory and optional software and credential requirements.
+
+\begin{table}[H]
+\centering
+\caption{System Requirements and External Dependency Classification}
+\label{tab:requirements_summary}
+\begin{tabularx}{\textwidth}{l p{3.2cm} X l}
+\toprule
+\textbf{Component} & \textbf{Requirement} & \textbf{Operational Function} & \textbf{Status} \\
+\midrule
+Python 3.11+ & Runtime Environment & Executes FastAPI backend and AI pipelines & Mandatory \\
+Node.js 18+ / npm & Runtime Environment & Compiles and runs Vite / React frontend & Mandatory \\
+Git & Version Control & Clones and updates repository source tree & Mandatory \\
+Google Gemini API Key & \texttt{GOOGLE\_GENAI\_API\_KEY} & Powers conversational AI assistant and RAG & Mandatory \\
+User Contact Email & \texttt{EMAIL} & Transmitted in NCBI E-utilities API headers & Mandatory \\
+PubMed API Key & \texttt{PUBMED\_API\_KEY} & Increases NCBI rate limits from 3 to 10 req/s & Optional \\
+OpenAlex API Key & \texttt{OPENALEX\_API\_KEY} & Raises OpenAlex rate limits and priority & Optional \\
+FAISS CPU Index & Disk Storage & Enables dense vector semantic search & Feature-Specific \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\noindent \textbf{Security Notice:} API keys and secrets must never be committed to source code repositories. Research Rover utilizes local \texttt{.env} configuration files excluded from version control via \texttt{.gitignore}.

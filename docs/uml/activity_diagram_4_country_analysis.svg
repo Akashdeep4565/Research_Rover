@@ -1,0 +1,152 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1150" width="1600" height="1150" style="background:#ffffff; font-family:'Segoe UI', Inter, -apple-system, sans-serif;">
+  <defs>
+    <filter id="shadow4" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-opacity="0.1"/>
+    </filter>
+    <marker id="arr4" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#059669"/>
+    </marker>
+    <linearGradient id="headerGrad4" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="30" y="20" width="1540" height="70" rx="12" fill="url(#headerGrad4)" filter="url(#shadow4)"/>
+  <text x="50" y="50" fill="#34d399" font-size="12" font-weight="700" letter-spacing="2">UML 2.5 ACTIVITY DIAGRAM</text>
+  <text x="50" y="74" fill="#ffffff" font-size="20" font-weight="bold">Activity Diagram 4: Bibliometric Country Analysis &amp; Co-Authorship Network</text>
+  <text x="1350" y="60" fill="#94a3b8" font-size="13">Verified: country_service.py</text>
+
+  <!-- 4 Swimlanes -->
+  <rect x="30" y="105" width="370" height="990" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="30" y="105" width="370" height="40" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="215" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#1e40af">1. INGESTION &amp; CACHE INVALIDATION</text>
+
+  <rect x="400" y="105" width="410" height="990" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="400" y="105" width="410" height="40" fill="#fefce8" stroke="#fde047" stroke-width="1.5"/>
+  <text x="605" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#854d0e">2. AFFILIATION &amp; CANONICAL EXTRACTION</text>
+
+  <rect x="810" y="105" width="380" height="990" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="810" y="105" width="380" height="40" fill="#faf5ff" stroke="#d8b4fe" stroke-width="1.5"/>
+  <text x="1000" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#6b21a8">3. CO-AUTHORSHIP COLLABORATION GRAPH</text>
+
+  <rect x="1190" y="105" width="380" height="990" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="1190" y="105" width="380" height="40" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1.5"/>
+  <text x="1380" y="130" text-anchor="middle" font-size="14" font-weight="bold" fill="#065f46">4. DASHBOARD &amp; 2D/3D NETWORKS</text>
+
+  <!-- Start Node -->
+  <circle cx="215" cy="180" r="14" fill="#0f172a" stroke="#64748b" stroke-width="3"/>
+  <path d="M 215 194 L 215 230" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <rect x="105" y="230" width="220" height="50" rx="8" fill="#ffffff" stroke="#059669" stroke-width="1.6" filter="url(#shadow4)"/>
+  <text x="215" y="250" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Receive CSV Path</text>
+  <text x="215" y="266" text-anchor="middle" font-size="10" fill="#64748b">Check _CACHE (abs_path, mtime, size)</text>
+
+  <path d="M 215 280 L 215 315" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <polygon points="215,315 295,340 215,365 135,340" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="215" y="344" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">Is Cached?</text>
+
+  <path d="M 295 340 L 1380 340 L 1380 430" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr4)"/>
+  <text x="350" y="330" font-size="10" font-weight="bold" fill="#047857">[Yes: Return Cache Instant]</text>
+
+  <path d="M 215 365 L 215 410" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arr4)"/>
+  <text x="220" y="385" font-size="10" font-weight="bold" fill="#64748b">[No]</text>
+
+  <rect x="105" y="410" width="220" height="56" rx="8" fill="#ffffff" stroke="#059669" stroke-width="1.6" filter="url(#shadow4)"/>
+  <text x="215" y="430" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Read CSV Records</text>
+  <text x="215" y="446" text-anchor="middle" font-size="10" fill="#64748b">Init Counters &amp; Unassigned List</text>
+
+  <path d="M 325 438 L 460 438" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <rect x="460" y="410" width="290" height="56" rx="8" fill="#ffffff" stroke="#ca8a04" stroke-width="1.6" filter="url(#shadow4)"/>
+  <text x="605" y="430" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">Inspect Explicit Affiliation Keys</text>
+  <text x="605" y="446" text-anchor="middle" font-size="10" fill="#a16207">Affiliations, affiliation, Address</text>
+
+  <path d="M 605 466 L 605 500" fill="none" stroke="#ca8a04" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <polygon points="605,500 685,525 605,550 525,525" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="605" y="529" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">Affiliation Found?</text>
+
+  <path d="M 685 525 L 750 525 L 750 600 L 690 600" fill="none" stroke="#16a34a" stroke-width="1.6" marker-end="url(#arr4)"/>
+  <text x="700" y="515" font-size="10" font-weight="bold" fill="#15803d">[Yes]</text>
+
+  <path d="M 525 525 L 450 525 L 450 600 L 520 600" fill="none" stroke="#dc2626" stroke-width="1.6" marker-end="url(#arr4)"/>
+  <text x="440" y="515" font-size="10" font-weight="bold" fill="#b91c1c">[No: Author Fallback]</text>
+
+  <rect x="460" y="580" width="290" height="60" rx="8" fill="#ffffff" stroke="#ca8a04" stroke-width="1.8" filter="url(#shadow4)"/>
+  <text x="605" y="602" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">Regex &amp; ISO-3166-1 Canonical Map</text>
+  <text x="605" y="618" text-anchor="middle" font-size="10" fill="#a16207">Deduplicate Countries per Paper</text>
+
+  <path d="M 605 640 L 605 680" fill="none" stroke="#ca8a04" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <polygon points="605,680 685,705 605,730 525,705" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="605" y="709" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">Country Detected?</text>
+
+  <path d="M 525 705 L 440 705 L 440 770 L 460 770" fill="none" stroke="#dc2626" stroke-width="1.8" marker-end="url(#arr4)"/>
+  <text x="430" y="690" font-size="10" font-weight="bold" fill="#dc2626">[No Country]</text>
+
+  <rect x="460" y="750" width="290" height="60" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="1.6" filter="url(#shadow4)"/>
+  <text x="605" y="772" text-anchor="middle" font-size="11" font-weight="bold" fill="#c2410c">Append to unassigned_papers List</text>
+  <text x="605" y="788" text-anchor="middle" font-size="10" fill="#ea580c">Preserve PMID, Title (NO Guesswork)</text>
+
+  <path d="M 685 705 L 850 705" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr4)"/>
+  <text x="730" y="695" font-size="10" font-weight="bold" fill="#047857">[Yes]</text>
+
+  <rect x="850" y="680" width="300" height="56" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6" filter="url(#shadow4)"/>
+  <text x="1000" y="702" text-anchor="middle" font-size="11" font-weight="bold" fill="#4c1d95">Increment Country Publication Counts</text>
+  <text x="1000" y="718" text-anchor="middle" font-size="10" fill="#6d28d9">Track Papers with Country Data</text>
+
+  <path d="M 1000 736 L 1000 770" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <polygon points="1000,770 1080,795 1000,820 920,795" fill="#fef3c7" stroke="#d97706" stroke-width="1.8"/>
+  <text x="1000" y="799" text-anchor="middle" font-size="10" font-weight="bold" fill="#92400e">&gt;= 2 Countries?</text>
+
+  <path d="M 1080 795 L 1140 795 L 1140 860 L 1080 860" fill="none" stroke="#059669" stroke-width="1.8" marker-end="url(#arr4)"/>
+  <text x="1100" y="785" font-size="10" font-weight="bold" fill="#047857">[International]</text>
+
+  <rect x="850" y="840" width="300" height="60" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.8" filter="url(#shadow4)"/>
+  <text x="1000" y="862" text-anchor="middle" font-size="11" font-weight="bold" fill="#4c1d95">Build Co-Authorship Partnerships</text>
+  <text x="1000" y="878" text-anchor="middle" font-size="10" fill="#6d28d9">combinations(unique_countries, 2)</text>
+
+  <path d="M 1000 900 L 1000 930" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <rect x="850" y="930" width="300" height="60" rx="8" fill="#faf5ff" stroke="#a855f7" stroke-width="1.6" filter="url(#shadow4)"/>
+  <text x="1000" y="952" text-anchor="middle" font-size="11" font-weight="bold" fill="#581c87">Calculate Coverage % &amp; Graph JSON</text>
+  <text x="1000" y="968" text-anchor="middle" font-size="10" fill="#7e22ce">Nodes: {id, paperCount}; Links: {weight}</text>
+
+  <path d="M 1150 960 L 1230 960" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <rect x="1230" y="430" width="300" height="560" rx="12" fill="#ffffff" stroke="#059669" stroke-width="2" filter="url(#shadow4)"/>
+  <text x="1380" y="460" text-anchor="middle" font-size="13" font-weight="bold" fill="#065f46">Render Country Analysis Views</text>
+
+  <text x="1260" y="495" font-size="11" font-weight="bold" fill="#1e293b">1. Coverage KPI Cards</text>
+  <text x="1260" y="515" font-size="10" fill="#64748b">Total Papers, Coverage %, International</text>
+
+  <text x="1260" y="550" font-size="11" font-weight="bold" fill="#1e293b">2. Coverage Split Bar</text>
+  <text x="1260" y="570" font-size="10" fill="#64748b">Papers With vs Without Country</text>
+
+  <text x="1260" y="605" font-size="11" font-weight="bold" fill="#c2410c">3. Unassigned Papers Modal</text>
+  <text x="1260" y="625" font-size="10" fill="#ea580c">Interactive inspection of unassigned papers</text>
+
+  <text x="1260" y="660" font-size="11" font-weight="bold" fill="#1e293b">4. TopoJSON World Map</text>
+  <text x="1260" y="680" font-size="10" fill="#64748b">Choropleth density shading &amp; tooltips</text>
+
+  <text x="1260" y="715" font-size="11" font-weight="bold" fill="#1e293b">5. Country Ranking Table</text>
+  <text x="1260" y="735" font-size="10" fill="#64748b">Searchable, paper volumes &amp; percentages</text>
+
+  <text x="1260" y="770" font-size="11" font-weight="bold" fill="#1e293b">6. 2D D3 Force Network</text>
+  <text x="1260" y="790" font-size="10" fill="#64748b">Strength filters (All/Med/Strong), zoom/pan</text>
+
+  <text x="1260" y="825" font-size="11" font-weight="bold" fill="#1e293b">7. 3D Three.js Force Network</text>
+  <text x="1260" y="845" font-size="10" fill="#64748b">Rotating orbit space, particle pulses</text>
+
+  <text x="1260" y="880" font-size="11" font-weight="bold" fill="#1e293b">8. CSV &amp; Image Export</text>
+  <text x="1260" y="900" font-size="10" fill="#64748b">Download rankings &amp; collaborations CSV</text>
+
+  <path d="M 1380 990 L 1380 1020" fill="none" stroke="#059669" stroke-width="2" marker-end="url(#arr4)"/>
+
+  <circle cx="1380" cy="1040" r="14" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+  <circle cx="1380" cy="1040" r="8" fill="#0f172a"/>
+  <text x="1380" y="1070" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">End: Country Analytics Complete</text>
+</svg>

@@ -1,0 +1,42 @@
+flowchart TD
+    %% =========================================================================
+    %% LAYER 1: USER & FRONTEND INTERACTION LAYER (PURPLE)
+    %% Standalone Enlarged Flowchart with Boundary Connectors
+    %% =========================================================================
+
+    classDef purpleNode fill:#FAF5FF,stroke:#9333EA,stroke-width:2.5px,color:#581C87,font-size:14px;
+    classDef startNode fill:#F3E8FF,stroke:#7C3AED,stroke-width:3px,color:#4C1D95,font-weight:bold,font-size:15px;
+    classDef decisionNode fill:#EDE9FE,stroke:#8B5CF6,stroke-width:2.5px,color:#5B21B6,font-weight:bold,font-size:14px;
+    classDef boundaryOut fill:#EFF6FF,stroke:#2563EB,stroke-width:2px,stroke-dasharray: 5 5,color:#1E3A8A,font-size:13px;
+    classDef boundaryIn fill:#FDF2F8,stroke:#DB2777,stroke-width:2px,stroke-dasharray: 5 5,color:#831843,font-size:13px;
+
+    IN_L7_FEEDBACK[["[External Feedback from Layer 7]<br/>Delivered Insights & Exported CSV/JSON/PNG"]]:::boundaryIn
+
+    subgraph L1_CORE["LAYER 1: USER & FRONTEND INTERACTION LAYER"]
+        U_START(["User Accesses Research Rover"]):::startNode
+        U_INPUT["Enter Query / Filters<br/>(Query string, max results, date range)"]:::purpleNode
+        U_NAV{"Select Page View"}:::decisionNode
+        PAGE_SEARCH["Search Page<br/>(SearchPage.tsx, SearchContext.tsx)"]:::purpleNode
+        PAGE_ANALYTICS["Analytics Page<br/>(AnalyticsPage.tsx, AnalyticsContext.tsx)"]:::purpleNode
+        PAGE_CHAT["Chat Page<br/>(ChatPage.tsx, ChatContext.tsx)"]:::purpleNode
+    end
+
+    OUT_API_SEARCH[["[Output to Layer 2: API Client]<br/>POST /api/v1/search/query"]]:::boundaryOut
+    OUT_API_ANALYTICS[["[Output to Layer 2: API Client]<br/>GET/POST /api/v1/analysis/* & files/*"]]:::boundaryOut
+    OUT_API_CHAT[["[Output to Layer 2: API Client]<br/>POST /api/v1/chat/query & embeddings/*"]]:::boundaryOut
+
+    %% Internal Connections
+    U_START --> U_INPUT
+    U_INPUT --> U_NAV
+
+    U_NAV -->|Search Query| PAGE_SEARCH
+    U_NAV -->|Analyze CSV| PAGE_ANALYTICS
+    U_NAV -->|Chat Query| PAGE_CHAT
+
+    %% External Outgoing Connections
+    PAGE_SEARCH --> OUT_API_SEARCH
+    PAGE_ANALYTICS --> OUT_API_ANALYTICS
+    PAGE_CHAT --> OUT_API_CHAT
+
+    %% External Incoming Feedback
+    IN_L7_FEEDBACK -.->|User Explores Results| U_NAV

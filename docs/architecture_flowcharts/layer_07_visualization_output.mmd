@@ -1,0 +1,49 @@
+flowchart TD
+    %% =========================================================================
+    %% LAYER 7: VISUALIZATION & USER OUTPUT LAYER (PINK)
+    %% Standalone Enlarged Flowchart with Boundary Connectors
+    %% =========================================================================
+
+    classDef pinkNode fill:#FFF1F2,stroke:#E11D48,stroke-width:2.5px,color:#9F1239,font-size:14px;
+    classDef wrapperNode fill:#FFE4E6,stroke:#BE123C,stroke-width:3px,color:#881337,font-weight:bold,font-size:15px;
+    classDef outputNode fill:#F43F5E,stroke:#9F1239,stroke-width:3px,color:#FFFFFF,font-weight:bold,font-size:16px;
+    classDef boundaryInL6 fill:#FAF5FF,stroke:#9333EA,stroke-width:2px,stroke-dasharray: 5 5,color:#581C87,font-size:13px;
+
+    subgraph IN_L6["INPUTS FROM LAYER 6 (ANALYSIS & COMPUTATION)"]
+        IN_L6_KW_CACHE[["From Layer 6: Cached Summary Artifacts<br/>(data/*_summary.json)"]]:::boundaryInL6
+        IN_L6_CTRY_STATS[["From Layer 6: Country Frequency & Coverage %"]]:::boundaryInL6
+        IN_L6_CTRY_GRAPH[["From Layer 6: International Collaboration Graph"]]:::boundaryInL6
+        IN_L6_RAG[["From Layer 6: RAG Chat Service<br/>(Synthesized Answers & Citations)"]]:::boundaryInL6
+    end
+
+    subgraph L7_CORE["LAYER 7: VISUALIZATION & USER OUTPUT LAYER"]
+        ERR_BOUND["React Error Boundaries<br/>(components/ErrorBoundary.tsx)"]:::wrapperNode
+        
+        VIEW_KW["Keyword Analytics View<br/>(DashCards, WordCloudSvg, NetworkGraph)"]:::pinkNode
+        VIEW_MAP["Geographic World Map<br/>(components/WorldMap.tsx - react-simple-maps)"]:::pinkNode
+        VIEW_2D["2D Collaboration Network<br/>(components/CountryCollaboration2D.tsx - react-force-graph-2d)"]:::pinkNode
+        VIEW_3D["3D Collaboration Network<br/>(components/CountryCollaboration3D.tsx - react-force-graph-3d)"]:::pinkNode
+        VIEW_STATS["Summary Stats & Ranking Tables<br/>(components/CountryAnalysisView.tsx)"]:::pinkNode
+        VIEW_CHAT["Interactive RAG Stream & Citations<br/>(pages/ChatPage.tsx)"]:::pinkNode
+        
+        U_OUTPUT(["User Insights & Exported CSV/JSON/PNG"]):::outputNode
+    end
+
+    %% Internal Connections
+    IN_L6_KW_CACHE --> ERR_BOUND
+    IN_L6_CTRY_STATS --> ERR_BOUND
+    IN_L6_CTRY_GRAPH --> ERR_BOUND
+    IN_L6_RAG --> VIEW_CHAT
+
+    ERR_BOUND --> VIEW_KW
+    ERR_BOUND --> VIEW_MAP
+    ERR_BOUND --> VIEW_2D
+    ERR_BOUND --> VIEW_3D
+    ERR_BOUND --> VIEW_STATS
+
+    VIEW_KW --> U_OUTPUT
+    VIEW_MAP --> U_OUTPUT
+    VIEW_2D --> U_OUTPUT
+    VIEW_3D --> U_OUTPUT
+    VIEW_STATS --> U_OUTPUT
+    VIEW_CHAT --> U_OUTPUT

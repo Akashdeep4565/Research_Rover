@@ -1,0 +1,72 @@
+flowchart TD
+    %% Activity Diagram 2: Dataset Upload and Analysis Workflow
+
+    subgraph SWIM_USER ["Researcher (User)"]
+        U1(["Start: Access Analytics Module"])
+        U2["Navigate to '/analytics' Page"]
+        U3{"Dataset Origin"}
+        U4["Select Existing Dataset from Dropdown"]
+        U5["Click 'Upload CSV' & Select Local File"]
+        U6["Configure Analysis Parameters<br/>(Top-N Keywords limit, Min Frequency)"]
+        U7{"Select Analysis Perspective"}
+        U8["Select 'Keyword Analytics' Tab"]
+        U9["Select 'Country Analysis' Tab"]
+        U10["Interact with Visualizations<br/>(Word Cloud, TopoJSON Map, 2D/3D Graphs)"]
+        U11{"Export Analysis Assets?"}
+        U12["Download CSV Data, JSON Summary, or PNG Charts"]
+        U13(["End: Analytics Completed"])
+    end
+
+    subgraph SWIM_FRONTEND ["Frontend Analytics UI (AnalyticsPage.tsx & Context)"]
+        F1["Query GET /api/v1/analysis/files"]
+        F2["Populate Dataset Selection Menu"]
+        F3["Validate File Extension (.csv)"]
+        F4["Display Error: 'Only CSV files allowed'"]
+        F5["Dispatch POST /api/v1/files/upload (Multipart)"]
+        F6["Display Upload Success & Refresh File List"]
+        F7["Dispatch POST /api/v1/analysis/generate"]
+        F8["Show ResearchRoverLoader Animation"]
+        F9["Receive Analysis Summary & Matrices"]
+        F10["Render Keyword Analytics Dashboard<br/>(Frequency Bars, Word Cloud, Centrality Table, Matrix Preview)"]
+        F11["Render Country Analysis Dashboard<br/>(World Map, Top Countries Bar, Ranking Table, 2D/3D Force Graphs)"]
+        F12["Generate Client-Side Downloads<br/>(UTF-8 BOM CSV, JSON, Canvas Rasterized PNG)"]
+    end
+
+    subgraph SWIM_BACKEND ["Backend Controllers & Services (FastAPI)"]
+        B1["Receive File Upload Stream"]
+        B2["Sanitize Filename (Path Traversal Protection)"]
+        B3["Detect Encoding (UTF-8, UTF-8-BOM, Latin-1)"]
+        B4["Save File to data/ Folder"]
+        B5{"Cached Analysis Summary Exists?"}
+        B6["Load Pre-computed JSON Summary"]
+        B7["Execute 5-Phase Keyword Pipeline"]
+        B8["Invoke CountryService.analyze_csv()"]
+        B9["Compute Coverage & Build 2D/3D Graph Data"]
+        B10["Save Artifacts (Summary JSON, Matrices CSV)"]
+        B11["Return Combined Analytics Payloads"]
+    end
+
+    %% Flow Connections
+    U1 --> U2 --> F1 --> F2 --> U3
+    U3 -- "Existing CSV" --> U4 --> U6
+    U3 -- "New Local CSV" --> U5 --> F3
+
+    F3 -- "Invalid Type" --> F4 --> U5
+    F3 -- "Valid .csv" --> F5 --> B1 --> B2 --> B3 --> B4 --> F6 --> U4
+
+    U6 --> F7 --> F8
+    F7 --> B5
+    B5 -- "Yes (refresh=False)" --> B6 --> B11
+    B5 -- "No (or refresh=True)" --> B7 & B8
+
+    B7 --> B10
+    B8 --> B9 --> B10
+    B10 --> B11 --> F9
+
+    F9 --> U7
+    U7 -- "Keywords" --> U8 --> F10 --> U10
+    U7 -- "Country" --> U9 --> F11 --> U10
+
+    U10 --> U11
+    U11 -- "Yes" --> U12 --> F12 --> U13
+    U11 -- "No" --> U13

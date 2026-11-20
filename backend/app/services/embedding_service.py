@@ -179,11 +179,17 @@ class EmbeddingService:
     
     def load_csv_data_clean(self, csv_path: str):
         """
-        Load CSV data without adding Full_Text column (clean approach)
+        Load CSV data without adding Full_Text column (clean approach).
+        Uses CanonicalDataLoader to normalize arbitrary bibliographic column headers.
         """
         logger.info(f"Loading CSV data from {csv_path}...")
         try:
-            df = read_csv_to_dataframe(csv_path)
+            try:
+                from app.services.canonical_loader import CanonicalDataLoader
+                df = CanonicalDataLoader.load_canonical_dataframe(csv_path)
+            except Exception as e:
+                logger.warning(f"Canonical loader fallback in EmbeddingService: {e}")
+                df = read_csv_to_dataframe(csv_path)
             
             # Ensure required columns exist with proper defaults (NO Full_Text column)
             required_columns = {'Title', 'Abstract'}

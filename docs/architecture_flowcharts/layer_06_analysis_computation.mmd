@@ -1,0 +1,66 @@
+flowchart TD
+    %% =========================================================================
+    %% LAYER 6: ANALYSIS & COMPUTATION ENGINES (PURPLE)
+    %% Standalone Enlarged Flowchart with Boundary Connectors
+    %% =========================================================================
+
+    classDef purpleNode fill:#FAF5FF,stroke:#9333EA,stroke-width:2.5px,color:#581C87,font-size:14px;
+    classDef phaseNode fill:#F3E8FF,stroke:#7E22CE,stroke-width:2.5px,color:#4C1D95,font-weight:bold,font-size:14px;
+    classDef storageNode fill:#EDE9FE,stroke:#6B21A8,stroke-width:3px,color:#3B0764,font-weight:bold,font-size:15px;
+    classDef apiNode fill:#E9D5FF,stroke:#581C87,stroke-width:2.5px,color:#3B0764,font-weight:bold,font-size:14px;
+    classDef boundaryInL3 fill:#FFF7ED,stroke:#EA580C,stroke-width:2px,stroke-dasharray: 5 5,color:#9A3412,font-size:13px;
+    classDef boundaryInL5 fill:#ECFDF5,stroke:#059669,stroke-width:2px,stroke-dasharray: 5 5,color:#064E3B,font-size:13px;
+    classDef boundaryOutL7 fill:#FFF1F2,stroke:#E11D48,stroke-width:2px,stroke-dasharray: 5 5,color:#9F1239,font-size:13px;
+
+    subgraph IN_DATA["INPUTS FROM PREVIOUS LAYERS"]
+        IN_L3_REQ[["From Layer 3: Validated Analysis Triggers<br/>(Keyword / Country / Embed / Chat)"]]:::boundaryInL3
+        IN_L5_CSV[("From Layer 5: Local CSV Storage<br/>(data/*.csv)")]:::boundaryInL5
+    end
+
+    subgraph L6_CORE["LAYER 6: ANALYSIS & COMPUTATION ENGINES"]
+        subgraph PIPELINE_KW["Keyword Analysis Pipeline"]
+            SRV_KW["Analysis Service<br/>(services/analysis_service.py)"]:::purpleNode
+            KW_FREQ["Phase 1: Keyword Frequency & Percentage"]:::phaseNode
+            KW_GRAPH["Phase 2: Co-Occurrence Graph & Matrix"]:::phaseNode
+            KW_CENTRALITY["Phase 3: NetworkX Centralities<br/>(Degree, Closeness, Betweenness, Eigenvector, Clustering)"]:::phaseNode
+            KW_PRESENCE["Phase 4: Binary Keyword Presence Matrix"]:::phaseNode
+            KW_CACHE[("Cached Summary Artifacts<br/>data/*_summary.json")]:::storageNode
+        end
+
+        subgraph PIPELINE_CTRY["Country & Collaboration Pipeline"]
+            SRV_CTRY["Country Service<br/>(services/country_service.py)"]:::purpleNode
+            CTRY_STATS["Country Publication Frequency & Coverage %"]:::phaseNode
+            CTRY_GRAPH["International Co-Authorship Graph<br/>(Nodes & Weighted Collaboration Links)"]:::phaseNode
+        end
+
+        subgraph PIPELINE_RAG["Vector Embeddings & RAG Chat Pipeline"]
+            SRV_EMBED["Embedding & Vector Service<br/>(services/embedding_service.py)"]:::purpleNode
+            FAISS_STORE[("FAISS Vector Index<br/>data/*.index & *.pkl")]:::storageNode
+            SRV_CHAT["RAG Chat Service<br/>(services/chat_service.py)"]:::purpleNode
+            LLM_API["LLM Provider API<br/>(OpenAI / DeepSeek / Groq)"]:::apiNode
+        end
+    end
+
+    subgraph OUT_L7["OUTPUTS TO LAYER 7 (VISUALIZATION)"]
+        OUT_L7_KW_CACHE[["To Layer 7: Error Boundaries<br/>(Cached Summary JSON)"]]:::boundaryOutL7
+        OUT_L7_CTRY_STATS[["To Layer 7: Error Boundaries<br/>(Country Publication Stats)"]]:::boundaryOutL7
+        OUT_L7_CTRY_GRAPH[["To Layer 7: Error Boundaries<br/>(Co-Authorship Graph)"]]:::boundaryOutL7
+        OUT_L7_RAG_STREAM[["To Layer 7: Interactive RAG Stream<br/>(AI Responses & Citations)"]]:::boundaryOutL7
+    end
+
+    %% Wiring Inputs
+    IN_L3_REQ --> SRV_KW & SRV_CTRY & SRV_EMBED & SRV_CHAT
+    IN_L5_CSV --> SRV_KW & SRV_CTRY & SRV_EMBED
+
+    %% Keyword Pipeline Flow
+    SRV_KW --> KW_FREQ --> KW_GRAPH --> KW_CENTRALITY --> KW_PRESENCE --> KW_CACHE --> OUT_L7_KW_CACHE
+
+    %% Country Pipeline Flow
+    SRV_CTRY --> CTRY_STATS --> OUT_L7_CTRY_STATS
+    SRV_CTRY --> CTRY_GRAPH --> OUT_L7_CTRY_GRAPH
+
+    %% RAG Pipeline Flow
+    SRV_EMBED --> FAISS_STORE
+    FAISS_STORE --> SRV_CHAT
+    SRV_CHAT <-->|Query & Context Stream| LLM_API
+    SRV_CHAT --> OUT_L7_RAG_STREAM

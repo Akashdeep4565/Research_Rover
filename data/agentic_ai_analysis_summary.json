@@ -1,0 +1,2676 @@
+{
+  "filename": "agentic_ai.csv",
+  "source_file": "agentic_ai.csv",
+  "total_papers": 100,
+  "papers_with_keywords": 99,
+  "papers_with_country_data": 74,
+  "unique_countries": 39,
+  "unique_keywords": 895,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "agentic_ai_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "agentic_ai_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "agentic_ai_analysis_keyword_presence_matrix.csv",
+  "summary_file": "agentic_ai_analysis_summary.json",
+  "generated_at": 1795103759.056429,
+  "keyword_frequency": [
+    {
+      "keyword": "computer science",
+      "frequency": 92,
+      "percentage": 92.0
+    },
+    {
+      "keyword": "artificial intelligence",
+      "frequency": 77,
+      "percentage": 77.0
+    },
+    {
+      "keyword": "knowledge management",
+      "frequency": 55,
+      "percentage": 55.0
+    },
+    {
+      "keyword": "data science",
+      "frequency": 43,
+      "percentage": 43.0
+    },
+    {
+      "keyword": "key",
+      "frequency": 29,
+      "percentage": 29.0
+    },
+    {
+      "keyword": "management science",
+      "frequency": 29,
+      "percentage": 29.0
+    },
+    {
+      "keyword": "multi-agent systems and negotiation",
+      "frequency": 28,
+      "percentage": 28.0
+    },
+    {
+      "keyword": "process management",
+      "frequency": 26,
+      "percentage": 26.0
+    },
+    {
+      "keyword": "ethics and social impacts of ai",
+      "frequency": 26,
+      "percentage": 26.0
+    },
+    {
+      "keyword": "psychology",
+      "frequency": 24,
+      "percentage": 24.0
+    },
+    {
+      "keyword": "cognitive science",
+      "frequency": 24,
+      "percentage": 24.0
+    },
+    {
+      "keyword": "human–computer interaction",
+      "frequency": 24,
+      "percentage": 24.0
+    },
+    {
+      "keyword": "corporate governance",
+      "frequency": 21,
+      "percentage": 21.0
+    },
+    {
+      "keyword": "computer security",
+      "frequency": 21,
+      "percentage": 21.0
+    },
+    {
+      "keyword": "agency",
+      "frequency": 18,
+      "percentage": 18.0
+    },
+    {
+      "keyword": "risk analysis",
+      "frequency": 18,
+      "percentage": 18.0
+    },
+    {
+      "keyword": "software engineering",
+      "frequency": 17,
+      "percentage": 17.0
+    },
+    {
+      "keyword": "workflow",
+      "frequency": 16,
+      "percentage": 16.0
+    },
+    {
+      "keyword": "engineering ethics",
+      "frequency": 16,
+      "percentage": 16.0
+    },
+    {
+      "keyword": "artificial intelligence in healthcare and education",
+      "frequency": 16,
+      "percentage": 16.0
+    },
+    {
+      "keyword": "business",
+      "frequency": 15,
+      "percentage": 15.0
+    },
+    {
+      "keyword": "sociology",
+      "frequency": 15,
+      "percentage": 15.0
+    },
+    {
+      "keyword": "epistemology",
+      "frequency": 14,
+      "percentage": 14.0
+    },
+    {
+      "keyword": "context",
+      "frequency": 14,
+      "percentage": 14.0
+    },
+    {
+      "keyword": "engineering",
+      "frequency": 14,
+      "percentage": 14.0
+    },
+    {
+      "keyword": "applications of artificial intelligence",
+      "frequency": 13,
+      "percentage": 13.0
+    },
+    {
+      "keyword": "intelligent agent",
+      "frequency": 12,
+      "percentage": 12.0
+    },
+    {
+      "keyword": "perspective",
+      "frequency": 12,
+      "percentage": 12.0
+    },
+    {
+      "keyword": "autonomy",
+      "frequency": 12,
+      "percentage": 12.0
+    },
+    {
+      "keyword": "taxonomy",
+      "frequency": 11,
+      "percentage": 11.0
+    },
+    {
+      "keyword": "autonomous agent",
+      "frequency": 11,
+      "percentage": 11.0
+    },
+    {
+      "keyword": "core",
+      "frequency": 10,
+      "percentage": 10.0
+    },
+    {
+      "keyword": "automation",
+      "frequency": 10,
+      "percentage": 10.0
+    },
+    {
+      "keyword": "architecture",
+      "frequency": 10,
+      "percentage": 10.0
+    },
+    {
+      "keyword": "software",
+      "frequency": 10,
+      "percentage": 10.0
+    },
+    {
+      "keyword": "field",
+      "frequency": 10,
+      "percentage": 10.0
+    },
+    {
+      "keyword": "scalability",
+      "frequency": 10,
+      "percentage": 10.0
+    },
+    {
+      "keyword": "human intelligence",
+      "frequency": 9,
+      "percentage": 9.0
+    },
+    {
+      "keyword": "reinforcement learning in robotics",
+      "frequency": 9,
+      "percentage": 9.0
+    },
+    {
+      "keyword": "component",
+      "frequency": 9,
+      "percentage": 9.0
+    },
+    {
+      "keyword": "cognition",
+      "frequency": 9,
+      "percentage": 9.0
+    },
+    {
+      "keyword": "explainable artificial intelligence",
+      "frequency": 9,
+      "percentage": 9.0
+    },
+    {
+      "keyword": "work",
+      "frequency": 9,
+      "percentage": 9.0
+    },
+    {
+      "keyword": "control",
+      "frequency": 9,
+      "percentage": 9.0
+    },
+    {
+      "keyword": "multi-agent system",
+      "frequency": 9,
+      "percentage": 9.0
+    },
+    {
+      "keyword": "adaptation",
+      "frequency": 8,
+      "percentage": 8.0
+    },
+    {
+      "keyword": "conceptual framework",
+      "frequency": 8,
+      "percentage": 8.0
+    },
+    {
+      "keyword": "orchestration",
+      "frequency": 8,
+      "percentage": 8.0
+    },
+    {
+      "keyword": "cognitive psychology",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "adversarial system",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "accountability",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "software deployment",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "health care",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "set",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "big data",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "systems engineering",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "digital transformation in industry",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "distributed computing",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "machine learning",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "generative grammar",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "variety",
+      "frequency": 7,
+      "percentage": 7.0
+    },
+    {
+      "keyword": "focus",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "adaptability",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "perception",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "access control and trust",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "process",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "innovation, sustainability, human-machine systems",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "public relations",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "machine learning in healthcare",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "adversarial robustness in machine learning",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "protocol",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "reinforcement learning",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "transformative learning",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "robustness",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "decision support system",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "political science",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "applied psychology",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "task",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "operations research",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "social psychology",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "ai-based problem solving and planning",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "value",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "medicine",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "action",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "software agent",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "smart agriculture and ai",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "semantics",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "resilience",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "threat model",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "reliability",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "empirical research",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "artificial general intelligence",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "economics",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "flexibility",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "identification",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "resource",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "responsible research and innovation",
+      "frequency": 4,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "transparency",
+      "frequency": 4,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "mobile agent-based network management",
+      "frequency": 4,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "information system",
+      "frequency": 4,
+      "percentage": 4.0
+    }
+  ],
+  "matrix_keywords": [
+    "computer science",
+    "artificial intelligence",
+    "knowledge management",
+    "data science",
+    "key",
+    "management science",
+    "multi-agent systems and negotiation",
+    "process management",
+    "ethics and social impacts of ai",
+    "psychology",
+    "cognitive science",
+    "human–computer interaction",
+    "corporate governance",
+    "computer security",
+    "agency",
+    "risk analysis",
+    "software engineering",
+    "workflow",
+    "engineering ethics",
+    "artificial intelligence in healthcare and education",
+    "business",
+    "sociology",
+    "epistemology",
+    "context",
+    "engineering",
+    "applications of artificial intelligence",
+    "intelligent agent",
+    "perspective",
+    "autonomy",
+    "taxonomy",
+    "autonomous agent",
+    "core",
+    "automation",
+    "architecture",
+    "software",
+    "field",
+    "scalability",
+    "human intelligence",
+    "reinforcement learning in robotics",
+    "component",
+    "cognition",
+    "explainable artificial intelligence",
+    "work",
+    "control",
+    "multi-agent system",
+    "adaptation",
+    "conceptual framework",
+    "orchestration",
+    "cognitive psychology",
+    "adversarial system",
+    "accountability",
+    "software deployment",
+    "health care",
+    "set",
+    "big data",
+    "systems engineering",
+    "digital transformation in industry",
+    "distributed computing",
+    "machine learning",
+    "generative grammar",
+    "variety",
+    "focus",
+    "adaptability",
+    "perception",
+    "access control and trust",
+    "process",
+    "innovation, sustainability, human-machine systems",
+    "public relations",
+    "machine learning in healthcare",
+    "adversarial robustness in machine learning",
+    "protocol",
+    "reinforcement learning",
+    "transformative learning",
+    "robustness",
+    "decision support system",
+    "political science",
+    "applied psychology",
+    "task",
+    "operations research",
+    "social psychology",
+    "ai-based problem solving and planning",
+    "value",
+    "medicine",
+    "action",
+    "software agent",
+    "smart agriculture and ai",
+    "semantics",
+    "resilience",
+    "threat model",
+    "reliability",
+    "empirical research",
+    "artificial general intelligence",
+    "economics",
+    "flexibility",
+    "identification",
+    "resource",
+    "responsible research and innovation",
+    "transparency",
+    "mobile agent-based network management",
+    "information system"
+  ],
+  "matrix_rows": 100,
+  "matrix_columns": 100,
+  "cooccurrence_edges": [
+    {
+      "source": "artificial intelligence",
+      "target": "computer science",
+      "weight": 76
+    },
+    {
+      "source": "computer science",
+      "target": "knowledge management",
+      "weight": 51
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "knowledge management",
+      "weight": 43
+    },
+    {
+      "source": "computer science",
+      "target": "data science",
+      "weight": 43
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "data science",
+      "weight": 38
+    },
+    {
+      "source": "data science",
+      "target": "knowledge management",
+      "weight": 32
+    },
+    {
+      "source": "computer science",
+      "target": "management science",
+      "weight": 29
+    },
+    {
+      "source": "computer science",
+      "target": "key",
+      "weight": 28
+    },
+    {
+      "source": "computer science",
+      "target": "multi-agent systems and negotiation",
+      "weight": 27
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "management science",
+      "weight": 25
+    },
+    {
+      "source": "computer science",
+      "target": "ethics and social impacts of ai",
+      "weight": 25
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "human–computer interaction",
+      "weight": 24
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "key",
+      "weight": 24
+    },
+    {
+      "source": "computer science",
+      "target": "human–computer interaction",
+      "weight": 24
+    },
+    {
+      "source": "computer science",
+      "target": "process management",
+      "weight": 24
+    },
+    {
+      "source": "knowledge management",
+      "target": "management science",
+      "weight": 24
+    },
+    {
+      "source": "cognitive science",
+      "target": "computer science",
+      "weight": 23
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "ethics and social impacts of ai",
+      "weight": 23
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "cognitive science",
+      "weight": 22
+    },
+    {
+      "source": "knowledge management",
+      "target": "process management",
+      "weight": 22
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "multi-agent systems and negotiation",
+      "weight": 22
+    },
+    {
+      "source": "computer science",
+      "target": "computer security",
+      "weight": 21
+    },
+    {
+      "source": "data science",
+      "target": "management science",
+      "weight": 21
+    },
+    {
+      "source": "computer science",
+      "target": "psychology",
+      "weight": 20
+    },
+    {
+      "source": "key",
+      "target": "knowledge management",
+      "weight": 20
+    },
+    {
+      "source": "computer science",
+      "target": "corporate governance",
+      "weight": 20
+    },
+    {
+      "source": "data science",
+      "target": "human–computer interaction",
+      "weight": 19
+    },
+    {
+      "source": "ethics and social impacts of ai",
+      "target": "knowledge management",
+      "weight": 19
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "psychology",
+      "weight": 18
+    },
+    {
+      "source": "computer science",
+      "target": "risk analysis",
+      "weight": 18
+    },
+    {
+      "source": "agency",
+      "target": "computer science",
+      "weight": 17
+    },
+    {
+      "source": "knowledge management",
+      "target": "multi-agent systems and negotiation",
+      "weight": 17
+    },
+    {
+      "source": "knowledge management",
+      "target": "psychology",
+      "weight": 17
+    },
+    {
+      "source": "computer science",
+      "target": "software engineering",
+      "weight": 17
+    },
+    {
+      "source": "data science",
+      "target": "key",
+      "weight": 16
+    },
+    {
+      "source": "human–computer interaction",
+      "target": "knowledge management",
+      "weight": 16
+    },
+    {
+      "source": "computer science",
+      "target": "workflow",
+      "weight": 16
+    },
+    {
+      "source": "agency",
+      "target": "artificial intelligence",
+      "weight": 15
+    },
+    {
+      "source": "corporate governance",
+      "target": "knowledge management",
+      "weight": 15
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "process management",
+      "weight": 15
+    },
+    {
+      "source": "cognitive science",
+      "target": "knowledge management",
+      "weight": 15
+    },
+    {
+      "source": "engineering ethics",
+      "target": "knowledge management",
+      "weight": 15
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "corporate governance",
+      "weight": 15
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "software engineering",
+      "weight": 15
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "epistemology",
+      "weight": 14
+    },
+    {
+      "source": "computer science",
+      "target": "epistemology",
+      "weight": 14
+    },
+    {
+      "source": "computer science",
+      "target": "engineering",
+      "weight": 14
+    },
+    {
+      "source": "computer science",
+      "target": "engineering ethics",
+      "weight": 14
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "computer security",
+      "weight": 14
+    },
+    {
+      "source": "corporate governance",
+      "target": "ethics and social impacts of ai",
+      "weight": 14
+    },
+    {
+      "source": "cognitive science",
+      "target": "psychology",
+      "weight": 13
+    },
+    {
+      "source": "applications of artificial intelligence",
+      "target": "artificial intelligence",
+      "weight": 13
+    },
+    {
+      "source": "applications of artificial intelligence",
+      "target": "computer science",
+      "weight": 13
+    },
+    {
+      "source": "human–computer interaction",
+      "target": "key",
+      "weight": 13
+    },
+    {
+      "source": "business",
+      "target": "computer science",
+      "weight": 13
+    },
+    {
+      "source": "computer science",
+      "target": "context",
+      "weight": 13
+    },
+    {
+      "source": "data science",
+      "target": "multi-agent systems and negotiation",
+      "weight": 13
+    },
+    {
+      "source": "data science",
+      "target": "process management",
+      "weight": 13
+    },
+    {
+      "source": "management science",
+      "target": "process management",
+      "weight": 13
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "workflow",
+      "weight": 13
+    },
+    {
+      "source": "computer science",
+      "target": "sociology",
+      "weight": 13
+    },
+    {
+      "source": "cognitive science",
+      "target": "data science",
+      "weight": 13
+    },
+    {
+      "source": "computer science",
+      "target": "intelligent agent",
+      "weight": 12
+    },
+    {
+      "source": "business",
+      "target": "knowledge management",
+      "weight": 12
+    },
+    {
+      "source": "computer security",
+      "target": "knowledge management",
+      "weight": 12
+    },
+    {
+      "source": "knowledge management",
+      "target": "risk analysis",
+      "weight": 12
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "sociology",
+      "weight": 12
+    },
+    {
+      "source": "knowledge management",
+      "target": "sociology",
+      "weight": 12
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "engineering ethics",
+      "weight": 12
+    },
+    {
+      "source": "artificial intelligence in healthcare and education",
+      "target": "knowledge management",
+      "weight": 12
+    },
+    {
+      "source": "cognitive science",
+      "target": "management science",
+      "weight": 12
+    },
+    {
+      "source": "autonomy",
+      "target": "knowledge management",
+      "weight": 12
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "risk analysis",
+      "weight": 12
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "intelligent agent",
+      "weight": 11
+    },
+    {
+      "source": "computer science",
+      "target": "taxonomy",
+      "weight": 11
+    },
+    {
+      "source": "computer security",
+      "target": "corporate governance",
+      "weight": 11
+    },
+    {
+      "source": "corporate governance",
+      "target": "process management",
+      "weight": 11
+    },
+    {
+      "source": "process management",
+      "target": "risk analysis",
+      "weight": 11
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "artificial intelligence in healthcare and education",
+      "weight": 11
+    },
+    {
+      "source": "artificial intelligence in healthcare and education",
+      "target": "computer science",
+      "weight": 11
+    },
+    {
+      "source": "engineering ethics",
+      "target": "psychology",
+      "weight": 11
+    },
+    {
+      "source": "multi-agent systems and negotiation",
+      "target": "software engineering",
+      "weight": 11
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "context",
+      "weight": 11
+    },
+    {
+      "source": "autonomous agent",
+      "target": "computer science",
+      "weight": 11
+    },
+    {
+      "source": "agency",
+      "target": "knowledge management",
+      "weight": 11
+    },
+    {
+      "source": "agency",
+      "target": "psychology",
+      "weight": 10
+    },
+    {
+      "source": "cognitive science",
+      "target": "epistemology",
+      "weight": 10
+    },
+    {
+      "source": "computer science",
+      "target": "core",
+      "weight": 10
+    },
+    {
+      "source": "business",
+      "target": "process management",
+      "weight": 10
+    },
+    {
+      "source": "architecture",
+      "target": "computer science",
+      "weight": 10
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "engineering",
+      "weight": 10
+    },
+    {
+      "source": "automation",
+      "target": "computer science",
+      "weight": 10
+    },
+    {
+      "source": "data science",
+      "target": "workflow",
+      "weight": 10
+    },
+    {
+      "source": "ethics and social impacts of ai",
+      "target": "management science",
+      "weight": 10
+    },
+    {
+      "source": "ethics and social impacts of ai",
+      "target": "sociology",
+      "weight": 10
+    },
+    {
+      "source": "computer security",
+      "target": "ethics and social impacts of ai",
+      "weight": 10
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "software",
+      "weight": 10
+    },
+    {
+      "source": "computer science",
+      "target": "software",
+      "weight": 10
+    },
+    {
+      "source": "data science",
+      "target": "software engineering",
+      "weight": 10
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "field",
+      "weight": 10
+    },
+    {
+      "source": "computer science",
+      "target": "field",
+      "weight": 10
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "autonomous agent",
+      "weight": 10
+    },
+    {
+      "source": "computer science",
+      "target": "scalability",
+      "weight": 10
+    },
+    {
+      "source": "computer science",
+      "target": "human intelligence",
+      "weight": 9
+    },
+    {
+      "source": "computer science",
+      "target": "reinforcement learning in robotics",
+      "weight": 9
+    },
+    {
+      "source": "epistemology",
+      "target": "psychology",
+      "weight": 9
+    },
+    {
+      "source": "applications of artificial intelligence",
+      "target": "knowledge management",
+      "weight": 9
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "core",
+      "weight": 9
+    },
+    {
+      "source": "business",
+      "target": "corporate governance",
+      "weight": 9
+    },
+    {
+      "source": "component",
+      "target": "computer science",
+      "weight": 9
+    },
+    {
+      "source": "context",
+      "target": "key",
+      "weight": 9
+    },
+    {
+      "source": "key",
+      "target": "multi-agent systems and negotiation",
+      "weight": 9
+    },
+    {
+      "source": "management science",
+      "target": "multi-agent systems and negotiation",
+      "weight": 9
+    },
+    {
+      "source": "multi-agent systems and negotiation",
+      "target": "process management",
+      "weight": 9
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "automation",
+      "weight": 9
+    },
+    {
+      "source": "knowledge management",
+      "target": "workflow",
+      "weight": 9
+    },
+    {
+      "source": "cognitive science",
+      "target": "engineering ethics",
+      "weight": 9
+    },
+    {
+      "source": "cognitive science",
+      "target": "human–computer interaction",
+      "weight": 9
+    },
+    {
+      "source": "computer science",
+      "target": "perspective",
+      "weight": 9
+    },
+    {
+      "source": "data science",
+      "target": "engineering ethics",
+      "weight": 9
+    },
+    {
+      "source": "engineering ethics",
+      "target": "management science",
+      "weight": 9
+    },
+    {
+      "source": "management science",
+      "target": "psychology",
+      "weight": 9
+    },
+    {
+      "source": "psychology",
+      "target": "sociology",
+      "weight": 9
+    },
+    {
+      "source": "ethics and social impacts of ai",
+      "target": "process management",
+      "weight": 9
+    },
+    {
+      "source": "knowledge management",
+      "target": "software engineering",
+      "weight": 9
+    },
+    {
+      "source": "data science",
+      "target": "software",
+      "weight": 9
+    },
+    {
+      "source": "computer science",
+      "target": "explainable artificial intelligence",
+      "weight": 9
+    },
+    {
+      "source": "ethics and social impacts of ai",
+      "target": "psychology",
+      "weight": 9
+    },
+    {
+      "source": "computer science",
+      "target": "work",
+      "weight": 9
+    },
+    {
+      "source": "software engineering",
+      "target": "workflow",
+      "weight": 9
+    },
+    {
+      "source": "autonomous agent",
+      "target": "intelligent agent",
+      "weight": 9
+    },
+    {
+      "source": "autonomy",
+      "target": "computer science",
+      "weight": 9
+    },
+    {
+      "source": "computer science",
+      "target": "multi-agent system",
+      "weight": 9
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "human intelligence",
+      "weight": 8
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "reinforcement learning in robotics",
+      "weight": 8
+    },
+    {
+      "source": "adaptation",
+      "target": "computer science",
+      "weight": 8
+    },
+    {
+      "source": "adaptation",
+      "target": "knowledge management",
+      "weight": 8
+    },
+    {
+      "source": "intelligent agent",
+      "target": "knowledge management",
+      "weight": 8
+    },
+    {
+      "source": "computer science",
+      "target": "conceptual framework",
+      "weight": 8
+    },
+    {
+      "source": "computer security",
+      "target": "data science",
+      "weight": 8
+    },
+    {
+      "source": "context",
+      "target": "multi-agent systems and negotiation",
+      "weight": 8
+    },
+    {
+      "source": "data science",
+      "target": "risk analysis",
+      "weight": 8
+    },
+    {
+      "source": "data science",
+      "target": "taxonomy",
+      "weight": 8
+    },
+    {
+      "source": "architecture",
+      "target": "artificial intelligence",
+      "weight": 8
+    },
+    {
+      "source": "management science",
+      "target": "sociology",
+      "weight": 8
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "business",
+      "weight": 8
+    },
+    {
+      "source": "artificial intelligence in healthcare and education",
+      "target": "data science",
+      "weight": 8
+    },
+    {
+      "source": "artificial intelligence in healthcare and education",
+      "target": "management science",
+      "weight": 8
+    },
+    {
+      "source": "artificial intelligence in healthcare and education",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "business",
+      "target": "perspective",
+      "weight": 8
+    },
+    {
+      "source": "epistemology",
+      "target": "sociology",
+      "weight": 8
+    },
+    {
+      "source": "applications of artificial intelligence",
+      "target": "cognitive science",
+      "weight": 8
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "taxonomy",
+      "weight": 8
+    },
+    {
+      "source": "agency",
+      "target": "ethics and social impacts of ai",
+      "weight": 8
+    },
+    {
+      "source": "epistemology",
+      "target": "ethics and social impacts of ai",
+      "weight": 8
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "work",
+      "weight": 8
+    },
+    {
+      "source": "computer science",
+      "target": "orchestration",
+      "weight": 8
+    },
+    {
+      "source": "computer science",
+      "target": "control",
+      "weight": 8
+    },
+    {
+      "source": "knowledge management",
+      "target": "scalability",
+      "weight": 8
+    },
+    {
+      "source": "agency",
+      "target": "cognitive science",
+      "weight": 7
+    },
+    {
+      "source": "cognitive psychology",
+      "target": "psychology",
+      "weight": 7
+    },
+    {
+      "source": "core",
+      "target": "data science",
+      "weight": 7
+    },
+    {
+      "source": "core",
+      "target": "knowledge management",
+      "weight": 7
+    },
+    {
+      "source": "human–computer interaction",
+      "target": "intelligent agent",
+      "weight": 7
+    },
+    {
+      "source": "intelligent agent",
+      "target": "key",
+      "weight": 7
+    },
+    {
+      "source": "computer science",
+      "target": "software deployment",
+      "weight": 7
+    },
+    {
+      "source": "computer security",
+      "target": "key",
+      "weight": 7
+    },
+    {
+      "source": "computer security",
+      "target": "multi-agent systems and negotiation",
+      "weight": 7
+    },
+    {
+      "source": "computer security",
+      "target": "process management",
+      "weight": 7
+    },
+    {
+      "source": "computer security",
+      "target": "risk analysis",
+      "weight": 7
+    },
+    {
+      "source": "conceptual framework",
+      "target": "knowledge management",
+      "weight": 7
+    },
+    {
+      "source": "conceptual framework",
+      "target": "management science",
+      "weight": 7
+    },
+    {
+      "source": "context",
+      "target": "data science",
+      "weight": 7
+    },
+    {
+      "source": "context",
+      "target": "knowledge management",
+      "weight": 7
+    },
+    {
+      "source": "corporate governance",
+      "target": "management science",
+      "weight": 7
+    },
+    {
+      "source": "corporate governance",
+      "target": "multi-agent systems and negotiation",
+      "weight": 7
+    },
+    {
+      "source": "key",
+      "target": "management science",
+      "weight": 7
+    },
+    {
+      "source": "key",
+      "target": "risk analysis",
+      "weight": 7
+    },
+    {
+      "source": "knowledge management",
+      "target": "software deployment",
+      "weight": 7
+    },
+    {
+      "source": "management science",
+      "target": "risk analysis",
+      "weight": 7
+    },
+    {
+      "source": "management science",
+      "target": "taxonomy",
+      "weight": 7
+    },
+    {
+      "source": "multi-agent systems and negotiation",
+      "target": "risk analysis",
+      "weight": 7
+    },
+    {
+      "source": "multi-agent systems and negotiation",
+      "target": "taxonomy",
+      "weight": 7
+    },
+    {
+      "source": "data science",
+      "target": "ethics and social impacts of ai",
+      "weight": 7
+    },
+    {
+      "source": "engineering",
+      "target": "knowledge management",
+      "weight": 7
+    },
+    {
+      "source": "ethics and social impacts of ai",
+      "target": "key",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "perspective",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "set",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence in healthcare and education",
+      "target": "health care",
+      "weight": 7
+    },
+    {
+      "source": "business",
+      "target": "sociology",
+      "weight": 7
+    },
+    {
+      "source": "cognitive science",
+      "target": "sociology",
+      "weight": 7
+    },
+    {
+      "source": "computer science",
+      "target": "set",
+      "weight": 7
+    },
+    {
+      "source": "data science",
+      "target": "psychology",
+      "weight": 7
+    },
+    {
+      "source": "epistemology",
+      "target": "knowledge management",
+      "weight": 7
+    },
+    {
+      "source": "epistemology",
+      "target": "management science",
+      "weight": 7
+    },
+    {
+      "source": "perspective",
+      "target": "sociology",
+      "weight": 7
+    },
+    {
+      "source": "applications of artificial intelligence",
+      "target": "management science",
+      "weight": 7
+    },
+    {
+      "source": "big data",
+      "target": "knowledge management",
+      "weight": 7
+    },
+    {
+      "source": "cognitive science",
+      "target": "key",
+      "weight": 7
+    },
+    {
+      "source": "engineering ethics",
+      "target": "multi-agent systems and negotiation",
+      "weight": 7
+    },
+    {
+      "source": "multi-agent systems and negotiation",
+      "target": "workflow",
+      "weight": 7
+    },
+    {
+      "source": "business",
+      "target": "ethics and social impacts of ai",
+      "weight": 7
+    },
+    {
+      "source": "human–computer interaction",
+      "target": "software",
+      "weight": 7
+    },
+    {
+      "source": "human–computer interaction",
+      "target": "software engineering",
+      "weight": 7
+    },
+    {
+      "source": "software",
+      "target": "software engineering",
+      "weight": 7
+    },
+    {
+      "source": "agency",
+      "target": "management science",
+      "weight": 7
+    },
+    {
+      "source": "agency",
+      "target": "multi-agent systems and negotiation",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "explainable artificial intelligence",
+      "weight": 7
+    },
+    {
+      "source": "multi-agent systems and negotiation",
+      "target": "psychology",
+      "weight": 7
+    },
+    {
+      "source": "computer science",
+      "target": "digital transformation in industry",
+      "weight": 7
+    },
+    {
+      "source": "computer science",
+      "target": "systems engineering",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "component",
+      "weight": 7
+    },
+    {
+      "source": "cognition",
+      "target": "cognitive science",
+      "weight": 7
+    },
+    {
+      "source": "cognition",
+      "target": "computer science",
+      "weight": 7
+    },
+    {
+      "source": "explainable artificial intelligence",
+      "target": "knowledge management",
+      "weight": 7
+    },
+    {
+      "source": "knowledge management",
+      "target": "work",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "orchestration",
+      "weight": 7
+    },
+    {
+      "source": "knowledge management",
+      "target": "orchestration",
+      "weight": 7
+    },
+    {
+      "source": "computer science",
+      "target": "distributed computing",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "machine learning",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "multi-agent system",
+      "weight": 7
+    },
+    {
+      "source": "computer science",
+      "target": "machine learning",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "generative grammar",
+      "weight": 7
+    },
+    {
+      "source": "computer science",
+      "target": "generative grammar",
+      "weight": 7
+    },
+    {
+      "source": "human–computer interaction",
+      "target": "multi-agent systems and negotiation",
+      "weight": 7
+    },
+    {
+      "source": "cognitive science",
+      "target": "ethics and social impacts of ai",
+      "weight": 7
+    },
+    {
+      "source": "agency",
+      "target": "key",
+      "weight": 7
+    },
+    {
+      "source": "corporate governance",
+      "target": "sociology",
+      "weight": 7
+    },
+    {
+      "source": "computer science",
+      "target": "variety",
+      "weight": 7
+    },
+    {
+      "source": "agency",
+      "target": "epistemology",
+      "weight": 6
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "cognitive psychology",
+      "weight": 6
+    },
+    {
+      "source": "cognitive psychology",
+      "target": "cognitive science",
+      "weight": 6
+    },
+    {
+      "source": "cognitive psychology",
+      "target": "computer science",
+      "weight": 6
+    },
+    {
+      "source": "adaptability",
+      "target": "computer science",
+      "weight": 6
+    },
+    {
+      "source": "adaptation",
+      "target": "data science",
+      "weight": 6
+    },
+    {
+      "source": "applications of artificial intelligence",
+      "target": "data science",
+      "weight": 6
+    },
+    {
+      "source": "data science",
+      "target": "intelligent agent",
+      "weight": 6
+    },
+    {
+      "source": "accountability",
+      "target": "computer science",
+      "weight": 6
+    },
+    {
+      "source": "accountability",
+      "target": "corporate governance",
+      "weight": 6
+    },
+    {
+      "source": "adversarial system",
+      "target": "computer science",
+      "weight": 6
+    },
+    {
+      "source": "adversarial system",
+      "target": "computer security",
+      "weight": 6
+    },
+    {
+      "source": "business",
+      "target": "computer security",
+      "weight": 6
+    },
+    {
+      "source": "computer security",
+      "target": "context",
+      "weight": 6
+    },
+    {
+      "source": "data science",
+      "target": "software deployment",
+      "weight": 6
+    },
+    {
+      "source": "key",
+      "target": "process management",
+      "weight": 6
+    },
+    {
+      "source": "knowledge management",
+      "target": "taxonomy",
+      "weight": 6
+    },
+    {
+      "source": "process management",
+      "target": "taxonomy",
+      "weight": 6
+    },
+    {
+      "source": "architecture",
+      "target": "knowledge management",
+      "weight": 6
+    },
+    {
+      "source": "automation",
+      "target": "knowledge management",
+      "weight": 6
+    },
+    {
+      "source": "computer science",
+      "target": "innovation, sustainability, human-machine systems",
+      "weight": 6
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "computer science",
+      "degree_centrality": 1.0,
+      "closeness_centrality": 1.0,
+      "betweenness_centrality": 0.020365,
+      "eigenvector_centrality": 0.158099,
+      "clustering_coefficient": 0.545248
+    },
+    {
+      "keyword": "artificial intelligence",
+      "degree_centrality": 1.0,
+      "closeness_centrality": 1.0,
+      "betweenness_centrality": 0.020365,
+      "eigenvector_centrality": 0.158099,
+      "clustering_coefficient": 0.545248
+    },
+    {
+      "keyword": "knowledge management",
+      "degree_centrality": 1.0,
+      "closeness_centrality": 1.0,
+      "betweenness_centrality": 0.020365,
+      "eigenvector_centrality": 0.158099,
+      "clustering_coefficient": 0.545248
+    },
+    {
+      "keyword": "data science",
+      "degree_centrality": 0.949495,
+      "closeness_centrality": 0.951923,
+      "betweenness_centrality": 0.016075,
+      "eigenvector_centrality": 0.153519,
+      "clustering_coefficient": 0.571494
+    },
+    {
+      "keyword": "process management",
+      "degree_centrality": 0.939394,
+      "closeness_centrality": 0.942857,
+      "betweenness_centrality": 0.016525,
+      "eigenvector_centrality": 0.150912,
+      "clustering_coefficient": 0.563581
+    },
+    {
+      "keyword": "management science",
+      "degree_centrality": 0.919192,
+      "closeness_centrality": 0.925234,
+      "betweenness_centrality": 0.015007,
+      "eigenvector_centrality": 0.149147,
+      "clustering_coefficient": 0.577045
+    },
+    {
+      "keyword": "key",
+      "degree_centrality": 0.909091,
+      "closeness_centrality": 0.916667,
+      "betweenness_centrality": 0.014516,
+      "eigenvector_centrality": 0.148236,
+      "clustering_coefficient": 0.582772
+    },
+    {
+      "keyword": "ethics and social impacts of ai",
+      "degree_centrality": 0.888889,
+      "closeness_centrality": 0.9,
+      "betweenness_centrality": 0.013827,
+      "eigenvector_centrality": 0.145028,
+      "clustering_coefficient": 0.583856
+    },
+    {
+      "keyword": "multi-agent systems and negotiation",
+      "degree_centrality": 0.878788,
+      "closeness_centrality": 0.891892,
+      "betweenness_centrality": 0.014089,
+      "eigenvector_centrality": 0.142279,
+      "clustering_coefficient": 0.576316
+    },
+    {
+      "keyword": "human–computer interaction",
+      "degree_centrality": 0.858586,
+      "closeness_centrality": 0.876106,
+      "betweenness_centrality": 0.011157,
+      "eigenvector_centrality": 0.142889,
+      "clustering_coefficient": 0.611485
+    },
+    {
+      "keyword": "corporate governance",
+      "degree_centrality": 0.848485,
+      "closeness_centrality": 0.868421,
+      "betweenness_centrality": 0.011288,
+      "eigenvector_centrality": 0.141032,
+      "clustering_coefficient": 0.608721
+    },
+    {
+      "keyword": "cognitive science",
+      "degree_centrality": 0.818182,
+      "closeness_centrality": 0.846154,
+      "betweenness_centrality": 0.011046,
+      "eigenvector_centrality": 0.135128,
+      "clustering_coefficient": 0.601235
+    },
+    {
+      "keyword": "context",
+      "degree_centrality": 0.767677,
+      "closeness_centrality": 0.811475,
+      "betweenness_centrality": 0.009143,
+      "eigenvector_centrality": 0.128192,
+      "clustering_coefficient": 0.614737
+    },
+    {
+      "keyword": "risk analysis",
+      "degree_centrality": 0.757576,
+      "closeness_centrality": 0.804878,
+      "betweenness_centrality": 0.009283,
+      "eigenvector_centrality": 0.124439,
+      "clustering_coefficient": 0.604324
+    },
+    {
+      "keyword": "agency",
+      "degree_centrality": 0.747475,
+      "closeness_centrality": 0.798387,
+      "betweenness_centrality": 0.007918,
+      "eigenvector_centrality": 0.126847,
+      "clustering_coefficient": 0.640133
+    },
+    {
+      "keyword": "workflow",
+      "degree_centrality": 0.747475,
+      "closeness_centrality": 0.798387,
+      "betweenness_centrality": 0.00831,
+      "eigenvector_centrality": 0.124894,
+      "clustering_coefficient": 0.624583
+    },
+    {
+      "keyword": "computer security",
+      "degree_centrality": 0.737374,
+      "closeness_centrality": 0.792,
+      "betweenness_centrality": 0.008189,
+      "eigenvector_centrality": 0.123824,
+      "clustering_coefficient": 0.62519
+    },
+    {
+      "keyword": "autonomy",
+      "degree_centrality": 0.737374,
+      "closeness_centrality": 0.792,
+      "betweenness_centrality": 0.007919,
+      "eigenvector_centrality": 0.124852,
+      "clustering_coefficient": 0.636606
+    },
+    {
+      "keyword": "psychology",
+      "degree_centrality": 0.717172,
+      "closeness_centrality": 0.779528,
+      "betweenness_centrality": 0.008,
+      "eigenvector_centrality": 0.11915,
+      "clustering_coefficient": 0.62495
+    },
+    {
+      "keyword": "artificial intelligence in healthcare and education",
+      "degree_centrality": 0.686869,
+      "closeness_centrality": 0.761538,
+      "betweenness_centrality": 0.006233,
+      "eigenvector_centrality": 0.117187,
+      "clustering_coefficient": 0.660228
+    },
+    {
+      "keyword": "taxonomy",
+      "degree_centrality": 0.686869,
+      "closeness_centrality": 0.761538,
+      "betweenness_centrality": 0.006237,
+      "eigenvector_centrality": 0.117752,
+      "clustering_coefficient": 0.652766
+    },
+    {
+      "keyword": "engineering ethics",
+      "degree_centrality": 0.676768,
+      "closeness_centrality": 0.755725,
+      "betweenness_centrality": 0.005841,
+      "eigenvector_centrality": 0.116641,
+      "clustering_coefficient": 0.672094
+    },
+    {
+      "keyword": "software engineering",
+      "degree_centrality": 0.656566,
+      "closeness_centrality": 0.744361,
+      "betweenness_centrality": 0.005591,
+      "eigenvector_centrality": 0.111986,
+      "clustering_coefficient": 0.662019
+    },
+    {
+      "keyword": "sociology",
+      "degree_centrality": 0.656566,
+      "closeness_centrality": 0.744361,
+      "betweenness_centrality": 0.005408,
+      "eigenvector_centrality": 0.11262,
+      "clustering_coefficient": 0.675962
+    },
+    {
+      "keyword": "applications of artificial intelligence",
+      "degree_centrality": 0.656566,
+      "closeness_centrality": 0.744361,
+      "betweenness_centrality": 0.005415,
+      "eigenvector_centrality": 0.113832,
+      "clustering_coefficient": 0.676923
+    },
+    {
+      "keyword": "engineering",
+      "degree_centrality": 0.646465,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.005329,
+      "eigenvector_centrality": 0.111047,
+      "clustering_coefficient": 0.668155
+    },
+    {
+      "keyword": "core",
+      "degree_centrality": 0.646465,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.005702,
+      "eigenvector_centrality": 0.111104,
+      "clustering_coefficient": 0.652282
+    },
+    {
+      "keyword": "adaptation",
+      "degree_centrality": 0.646465,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.005002,
+      "eigenvector_centrality": 0.11289,
+      "clustering_coefficient": 0.676091
+    },
+    {
+      "keyword": "intelligent agent",
+      "degree_centrality": 0.636364,
+      "closeness_centrality": 0.733333,
+      "betweenness_centrality": 0.005592,
+      "eigenvector_centrality": 0.108473,
+      "clustering_coefficient": 0.661034
+    },
+    {
+      "keyword": "conceptual framework",
+      "degree_centrality": 0.636364,
+      "closeness_centrality": 0.733333,
+      "betweenness_centrality": 0.004178,
+      "eigenvector_centrality": 0.113294,
+      "clustering_coefficient": 0.704557
+    },
+    {
+      "keyword": "variety",
+      "degree_centrality": 0.636364,
+      "closeness_centrality": 0.733333,
+      "betweenness_centrality": 0.005022,
+      "eigenvector_centrality": 0.111044,
+      "clustering_coefficient": 0.678955
+    },
+    {
+      "keyword": "business",
+      "degree_centrality": 0.626263,
+      "closeness_centrality": 0.727941,
+      "betweenness_centrality": 0.005121,
+      "eigenvector_centrality": 0.108043,
+      "clustering_coefficient": 0.670545
+    },
+    {
+      "keyword": "autonomous agent",
+      "degree_centrality": 0.626263,
+      "closeness_centrality": 0.727941,
+      "betweenness_centrality": 0.005516,
+      "eigenvector_centrality": 0.1063,
+      "clustering_coefficient": 0.652565
+    },
+    {
+      "keyword": "component",
+      "degree_centrality": 0.616162,
+      "closeness_centrality": 0.722628,
+      "betweenness_centrality": 0.004617,
+      "eigenvector_centrality": 0.107443,
+      "clustering_coefficient": 0.680328
+    },
+    {
+      "keyword": "epistemology",
+      "degree_centrality": 0.59596,
+      "closeness_centrality": 0.71223,
+      "betweenness_centrality": 0.004829,
+      "eigenvector_centrality": 0.101707,
+      "clustering_coefficient": 0.669199
+    },
+    {
+      "keyword": "automation",
+      "degree_centrality": 0.585859,
+      "closeness_centrality": 0.707143,
+      "betweenness_centrality": 0.003909,
+      "eigenvector_centrality": 0.102275,
+      "clustering_coefficient": 0.69268
+    },
+    {
+      "keyword": "scalability",
+      "degree_centrality": 0.585859,
+      "closeness_centrality": 0.707143,
+      "betweenness_centrality": 0.003812,
+      "eigenvector_centrality": 0.10279,
+      "clustering_coefficient": 0.69873
+    },
+    {
+      "keyword": "cognition",
+      "degree_centrality": 0.585859,
+      "closeness_centrality": 0.707143,
+      "betweenness_centrality": 0.004073,
+      "eigenvector_centrality": 0.101577,
+      "clustering_coefficient": 0.6951
+    },
+    {
+      "keyword": "field",
+      "degree_centrality": 0.575758,
+      "closeness_centrality": 0.702128,
+      "betweenness_centrality": 0.004501,
+      "eigenvector_centrality": 0.09919,
+      "clustering_coefficient": 0.669799
+    },
+    {
+      "keyword": "software deployment",
+      "degree_centrality": 0.575758,
+      "closeness_centrality": 0.702128,
+      "betweenness_centrality": 0.004313,
+      "eigenvector_centrality": 0.097901,
+      "clustering_coefficient": 0.667293
+    },
+    {
+      "keyword": "orchestration",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.697183,
+      "betweenness_centrality": 0.003126,
+      "eigenvector_centrality": 0.100973,
+      "clustering_coefficient": 0.718182
+    },
+    {
+      "keyword": "software",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.003364,
+      "eigenvector_centrality": 0.097161,
+      "clustering_coefficient": 0.707744
+    },
+    {
+      "keyword": "human intelligence",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.003117,
+      "eigenvector_centrality": 0.098971,
+      "clustering_coefficient": 0.727273
+    },
+    {
+      "keyword": "perspective",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.003523,
+      "eigenvector_centrality": 0.094073,
+      "clustering_coefficient": 0.712788
+    },
+    {
+      "keyword": "explainable artificial intelligence",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.003153,
+      "eigenvector_centrality": 0.096884,
+      "clustering_coefficient": 0.709993
+    },
+    {
+      "keyword": "multi-agent system",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.003269,
+      "eigenvector_centrality": 0.094999,
+      "clustering_coefficient": 0.713487
+    },
+    {
+      "keyword": "architecture",
+      "degree_centrality": 0.535354,
+      "closeness_centrality": 0.682759,
+      "betweenness_centrality": 0.002868,
+      "eigenvector_centrality": 0.094194,
+      "clustering_coefficient": 0.727866
+    },
+    {
+      "keyword": "generative grammar",
+      "degree_centrality": 0.525253,
+      "closeness_centrality": 0.678082,
+      "betweenness_centrality": 0.002517,
+      "eigenvector_centrality": 0.094759,
+      "clustering_coefficient": 0.736802
+    },
+    {
+      "keyword": "adaptability",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.00248,
+      "eigenvector_centrality": 0.093329,
+      "clustering_coefficient": 0.742745
+    },
+    {
+      "keyword": "process",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.002669,
+      "eigenvector_centrality": 0.092325,
+      "clustering_coefficient": 0.72549
+    },
+    {
+      "keyword": "control",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.002522,
+      "eigenvector_centrality": 0.090949,
+      "clustering_coefficient": 0.745306
+    },
+    {
+      "keyword": "accountability",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.002535,
+      "eigenvector_centrality": 0.089943,
+      "clustering_coefficient": 0.731429
+    },
+    {
+      "keyword": "innovation, sustainability, human-machine systems",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.002019,
+      "eigenvector_centrality": 0.092444,
+      "clustering_coefficient": 0.767347
+    },
+    {
+      "keyword": "flexibility",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.002074,
+      "eigenvector_centrality": 0.092908,
+      "clustering_coefficient": 0.759184
+    },
+    {
+      "keyword": "transformative learning",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.001876,
+      "eigenvector_centrality": 0.09139,
+      "clustering_coefficient": 0.769558
+    },
+    {
+      "keyword": "reinforcement learning in robotics",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.002696,
+      "eigenvector_centrality": 0.08686,
+      "clustering_coefficient": 0.714539
+    },
+    {
+      "keyword": "health care",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.002372,
+      "eigenvector_centrality": 0.086581,
+      "clustering_coefficient": 0.735816
+    },
+    {
+      "keyword": "set",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.001839,
+      "eigenvector_centrality": 0.089262,
+      "clustering_coefficient": 0.77305
+    },
+    {
+      "keyword": "big data",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.001991,
+      "eigenvector_centrality": 0.08983,
+      "clustering_coefficient": 0.759752
+    },
+    {
+      "keyword": "responsible research and innovation",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.001233,
+      "eigenvector_centrality": 0.090223,
+      "clustering_coefficient": 0.818686
+    },
+    {
+      "keyword": "work",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.0021,
+      "eigenvector_centrality": 0.08284,
+      "clustering_coefficient": 0.727536
+    },
+    {
+      "keyword": "adversarial system",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.002231,
+      "eigenvector_centrality": 0.082336,
+      "clustering_coefficient": 0.729469
+    },
+    {
+      "keyword": "adversarial robustness in machine learning",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.001867,
+      "eigenvector_centrality": 0.085574,
+      "clustering_coefficient": 0.764251
+    },
+    {
+      "keyword": "value",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.001702,
+      "eigenvector_centrality": 0.085874,
+      "clustering_coefficient": 0.771014
+    },
+    {
+      "keyword": "transparency",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.00175,
+      "eigenvector_centrality": 0.085674,
+      "clustering_coefficient": 0.77971
+    },
+    {
+      "keyword": "digital transformation in industry",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.001864,
+      "eigenvector_centrality": 0.08159,
+      "clustering_coefficient": 0.742424
+    },
+    {
+      "keyword": "perception",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.001962,
+      "eigenvector_centrality": 0.082824,
+      "clustering_coefficient": 0.756566
+    },
+    {
+      "keyword": "decision support system",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.002221,
+      "eigenvector_centrality": 0.078644,
+      "clustering_coefficient": 0.715645
+    },
+    {
+      "keyword": "systems engineering",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.001629,
+      "eigenvector_centrality": 0.076718,
+      "clustering_coefficient": 0.751938
+    },
+    {
+      "keyword": "resource",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.00216,
+      "eigenvector_centrality": 0.076619,
+      "clustering_coefficient": 0.723145
+    },
+    {
+      "keyword": "mobile agent-based network management",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.001216,
+      "eigenvector_centrality": 0.080699,
+      "clustering_coefficient": 0.799557
+    },
+    {
+      "keyword": "machine learning",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.001671,
+      "eigenvector_centrality": 0.074371,
+      "clustering_coefficient": 0.74216
+    },
+    {
+      "keyword": "protocol",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.001772,
+      "eigenvector_centrality": 0.075867,
+      "clustering_coefficient": 0.731707
+    },
+    {
+      "keyword": "reinforcement learning",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.001706,
+      "eigenvector_centrality": 0.073932,
+      "clustering_coefficient": 0.737515
+    },
+    {
+      "keyword": "semantics",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.00174,
+      "eigenvector_centrality": 0.076195,
+      "clustering_coefficient": 0.736353
+    },
+    {
+      "keyword": "artificial general intelligence",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.001198,
+      "eigenvector_centrality": 0.079415,
+      "clustering_coefficient": 0.801394
+    },
+    {
+      "keyword": "access control and trust",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.001842,
+      "eigenvector_centrality": 0.073868,
+      "clustering_coefficient": 0.742683
+    },
+    {
+      "keyword": "public relations",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.001471,
+      "eigenvector_centrality": 0.075376,
+      "clustering_coefficient": 0.77439
+    },
+    {
+      "keyword": "task",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.001469,
+      "eigenvector_centrality": 0.074513,
+      "clustering_coefficient": 0.773171
+    },
+    {
+      "keyword": "robustness",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.001508,
+      "eigenvector_centrality": 0.071454,
+      "clustering_coefficient": 0.75641
+    },
+    {
+      "keyword": "empirical research",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.00143,
+      "eigenvector_centrality": 0.07374,
+      "clustering_coefficient": 0.765385
+    },
+    {
+      "keyword": "distributed computing",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.000888,
+      "eigenvector_centrality": 0.069788,
+      "clustering_coefficient": 0.819346
+    },
+    {
+      "keyword": "focus",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.00188,
+      "eigenvector_centrality": 0.06648,
+      "clustering_coefficient": 0.709815
+    },
+    {
+      "keyword": "identification",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.001108,
+      "eigenvector_centrality": 0.068657,
+      "clustering_coefficient": 0.785285
+    },
+    {
+      "keyword": "ai-based problem solving and planning",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001154,
+      "eigenvector_centrality": 0.066109,
+      "clustering_coefficient": 0.773016
+    },
+    {
+      "keyword": "resilience",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001211,
+      "eigenvector_centrality": 0.065808,
+      "clustering_coefficient": 0.744444
+    },
+    {
+      "keyword": "information system",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.000692,
+      "eigenvector_centrality": 0.069242,
+      "clustering_coefficient": 0.831746
+    },
+    {
+      "keyword": "machine learning in healthcare",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.001174,
+      "eigenvector_centrality": 0.062673,
+      "clustering_coefficient": 0.763025
+    },
+    {
+      "keyword": "operations research",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.001327,
+      "eigenvector_centrality": 0.062725,
+      "clustering_coefficient": 0.729412
+    },
+    {
+      "keyword": "action",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.00077,
+      "eigenvector_centrality": 0.067395,
+      "clustering_coefficient": 0.82521
+    },
+    {
+      "keyword": "software agent",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.000671,
+      "eigenvector_centrality": 0.0672,
+      "clustering_coefficient": 0.847059
+    },
+    {
+      "keyword": "cognitive psychology",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.000973,
+      "eigenvector_centrality": 0.061337,
+      "clustering_coefficient": 0.793226
+    },
+    {
+      "keyword": "political science",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.000716,
+      "eigenvector_centrality": 0.061416,
+      "clustering_coefficient": 0.829545
+    },
+    {
+      "keyword": "smart agriculture and ai",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.596386,
+      "betweenness_centrality": 0.000709,
+      "eigenvector_centrality": 0.060214,
+      "clustering_coefficient": 0.800403
+    },
+    {
+      "keyword": "reliability",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.596386,
+      "betweenness_centrality": 0.000742,
+      "eigenvector_centrality": 0.056557,
+      "clustering_coefficient": 0.792339
+    },
+    {
+      "keyword": "applied psychology",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.000999,
+      "eigenvector_centrality": 0.055206,
+      "clustering_coefficient": 0.750538
+    },
+    {
+      "keyword": "medicine",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.000707,
+      "eigenvector_centrality": 0.056046,
+      "clustering_coefficient": 0.817204
+    },
+    {
+      "keyword": "threat model",
+      "degree_centrality": 0.30303,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.000346,
+      "eigenvector_centrality": 0.05875,
+      "clustering_coefficient": 0.873563
+    },
+    {
+      "keyword": "economics",
+      "degree_centrality": 0.30303,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.000659,
+      "eigenvector_centrality": 0.055373,
+      "clustering_coefficient": 0.813793
+    },
+    {
+      "keyword": "social psychology",
+      "degree_centrality": 0.282828,
+      "closeness_centrality": 0.582353,
+      "betweenness_centrality": 0.000645,
+      "eigenvector_centrality": 0.048977,
+      "clustering_coefficient": 0.785714
+    }
+  ]
+}

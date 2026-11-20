@@ -1,0 +1,116 @@
+flowchart TD
+    %% Activity Diagram 1: Research Paper Search Workflow
+
+    subgraph SWIM_USER ["Researcher (User)"]
+        A1(["Start: Open Research Rover"])
+        A2["Navigate to '/search' Page"]
+        A3["Enter Research Query<br/>(e.g., 'smart healthcare, machine learning')"]
+        A4{"Configure Advanced Filters?"}
+        A5["Set Date Range Slider, Max Results, Sort Mode"]
+        A6["Click 'Search' Button"]
+        A7{"Cancel Search Requested?"}
+        A8["Click 'Cancel' Button"]
+        A9["Browse Paginated Results<br/>(Inspect Title, Authors, Citations, Score)"]
+        A10{"Full-Text PDF Available?"}
+        A11["Click 'Download PDF'"]
+        A12["Click 'View Paper' (Publisher URL)"]
+        A13(["End: Paper Exploration Complete"])
+    end
+
+    subgraph SWIM_FRONTEND ["Frontend UI (SearchPage.tsx & SearchContext)"]
+        B1["Validate Query String Input"]
+        B2{"Is Query Valid?"}
+        B3["Display Error / Validation Toast"]
+        B4["Dispatch POST /api/v1/search/"]
+        B5["Initialize Progress Stepper Modal<br/>(Init -> Query -> Process -> Save -> Done)"]
+        B6["Poll GET /api/v1/search/progress<br/>(Every 500ms)"]
+        B7["Dispatch POST /api/v1/search/cancel"]
+        B8{"Search Progress Complete?"}
+        B9["Fetch GET /api/v1/search/results"]
+        B10["Render Paginated Paper Cards<br/>(Badges: MedCPT %, Open-Access, MeSH)"]
+        B11["Display 'No Papers Found' Alert & Suggestions"]
+        B12["Trigger PDF Stream Download via API"]
+        B13{"Direct PDF Stream Failed?"}
+        B14["Open Direct PDF in New Browser Tab (Fallback)"]
+        B15["Save PDF File to Local Downloads Folder"]
+    end
+
+    subgraph SWIM_BACKEND ["Backend Search Service & Controller (FastAPI)"]
+        C1["Accept Search Request & Reset State"]
+        C2["Spawn Async Background Worker Task"]
+        C3["Listen to Cooperative Cancellation Flag"]
+        C4["Normalise Query & Expand Abbreviations<br/>(ml -> machine learning, dl -> deep learning)"]
+        C5{"Selected Search Source"}
+        C6["Execute Concurrent Search<br/>(PubMed + OpenAlex)"]
+        C7["Execute PubMed Search Pipeline"]
+        C8["Execute OpenAlex Search Pipeline"]
+        C9["Deduplicate Candidates by PMID, DOI, and Title"]
+        C10{"Candidate Papers Found?"}
+        C11["Update Progress to 'No results found'"]
+        C12{"Sort Mode == 'relevance'?"}
+        C13["Invoke MedCPT Semantic Re-Ranker"]
+        C14["Sort by Recency (Publication Date)"]
+        C15["Extract Full Metadata & Save to CSV<br/>(data/{sanitized_query}.csv)"]
+        C16["Set Search Progress to 100% Completed"]
+        C17["Stream PDF with SSRF & Redirect Checks"]
+    end
+
+    subgraph SWIM_EXTERNAL ["External Academic & AI Providers"]
+        D1["NCBI Entrez E-Utilities<br/>(esearch, efetch, espell)"]
+        D2["OpenAlex REST API<br/>(Works, Locations, Citations)"]
+        D3["MedCPT Bi-Encoder Models<br/>(Query & Article Encoders)"]
+        D4["Remote Publisher / PMC Repository"]
+    end
+
+    %% Workflow Connections
+    A1 --> A2 --> A3 --> A4
+    A4 -- "Yes" --> A5 --> A6
+    A4 -- "No" --> A6
+
+    A6 --> B1 --> B2
+    B2 -- "Invalid (Empty)" --> B3 --> A3
+    B2 -- "Valid" --> B4
+
+    B4 --> C1 --> C2 --> B5
+    B5 --> B6
+
+    B6 -. "Poll Status" .-> C3
+    A7 -- "Yes" --> A8 --> B7 --> C3
+    C3 -- "Interrupt Flag Set" --> C11
+
+    C2 --> C4 --> C5
+    C5 -- "Unified" --> C6
+    C5 -- "PubMed" --> C7
+    C5 -- "OpenAlex" --> C8
+
+    C6 <--> D1
+    C6 <--> D2
+    C7 <--> D1
+    C8 <--> D2
+
+    C6 --> C9
+    C7 --> C9
+    C8 --> C9
+
+    C9 --> C10
+    C10 -- "No" --> C11 --> B8
+    C10 -- "Yes" --> C12
+
+    C12 -- "Relevance" --> C13 <--> D3
+    C12 -- "Recency" --> C14
+
+    C13 --> C15
+    C14 --> C15
+    C15 --> C16 --> B8
+
+    B8 -- "Still In Progress" --> B6
+    B8 -- "Completed (No Results)" --> B11 --> A13
+    B8 -- "Completed (Success)" --> B9 --> B10 --> A9
+
+    A9 --> A10
+    A10 -- "Yes" --> A11 --> B12 --> C17 <--> D4
+    A10 -- "No" --> A12 --> A13
+
+    C17 --> B13
+    B13 -- "Stream OK" --> B15 --> A13
+    B13 -- "POW / Paywall (422/403)" --> B14 --> A13

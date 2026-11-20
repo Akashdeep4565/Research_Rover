@@ -1,0 +1,128 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1150" width="1600" height="1150" style="background:#ffffff; font-family:'Segoe UI', Inter, -apple-system, sans-serif;">
+  <defs>
+    <filter id="shadow3" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="1" dy="2" stdDeviation="2.5" flood-opacity="0.1"/>
+    </filter>
+    <marker id="arr3" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#0284c7"/>
+    </marker>
+    <linearGradient id="headerGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="30" y="20" width="1540" height="70" rx="12" fill="url(#headerGrad3)" filter="url(#shadow3)"/>
+  <text x="50" y="50" fill="#38bdf8" font-size="12" font-weight="700" letter-spacing="2">UML 2.5 ACTIVITY DIAGRAM</text>
+  <text x="50" y="74" fill="#ffffff" font-size="20" font-weight="bold">Activity Diagram 3: Keyword Bibliometrics &amp; NetworkX Analytics Algorithm</text>
+  <text x="1350" y="60" fill="#94a3b8" font-size="13">Verified: analysis_service.py</text>
+
+  <!-- 5 Horizontal Processing Phases -->
+  <rect x="30" y="110" width="300" height="980" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="30" y="110" width="300" height="40" fill="#eff6ff" stroke="#93c5fd" stroke-width="1.5"/>
+  <text x="180" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#1e40af">1. INGESTION &amp; EXTRACTION</text>
+
+  <rect x="330" y="110" width="330" height="980" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="330" y="110" width="330" height="40" fill="#fefce8" stroke="#fde047" stroke-width="1.5"/>
+  <text x="495" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#854d0e">2. PARSING &amp; ALIAS NORMALIZATION</text>
+
+  <rect x="660" y="110" width="340" height="980" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="660" y="110" width="340" height="40" fill="#faf5ff" stroke="#d8b4fe" stroke-width="1.5"/>
+  <text x="830" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#6b21a8">3. NETWORKX &amp; CO-OCCURRENCE</text>
+
+  <rect x="1000" y="110" width="270" height="980" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="1000" y="110" width="270" height="40" fill="#fff7ed" stroke="#fed7aa" stroke-width="1.5"/>
+  <text x="1135" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#9a3412">4. ARTIFACT PERSISTENCE</text>
+
+  <rect x="1270" y="110" width="300" height="980" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+  <rect x="1270" y="110" width="300" height="40" fill="#f0fdf4" stroke="#86efac" stroke-width="1.5"/>
+  <text x="1420" y="135" text-anchor="middle" font-size="13" font-weight="bold" fill="#166534">5. INTERACTIVE DASHBOARD</text>
+
+  <!-- Start Node -->
+  <circle cx="180" cy="180" r="14" fill="#0f172a" stroke="#64748b" stroke-width="3"/>
+  <path d="M 180 194 L 180 230" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="60" y="230" width="240" height="56" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.6" filter="url(#shadow3)"/>
+  <text x="180" y="252" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Load CSV via Centralized Loader</text>
+  <text x="180" y="268" text-anchor="middle" font-size="10" fill="#64748b">(read_csv_to_dataframe)</text>
+
+  <path d="M 180 286 L 180 320" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="60" y="320" width="240" height="56" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.6" filter="url(#shadow3)"/>
+  <text x="180" y="342" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Normalize Schema Headers</text>
+  <text x="180" y="358" text-anchor="middle" font-size="10" fill="#64748b">Title, Keywords, DOI, Authors</text>
+
+  <path d="M 180 376 L 180 410" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="60" y="410" width="240" height="56" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="1.6" filter="url(#shadow3)"/>
+  <text x="180" y="432" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Iterate Paper Records</text>
+  <text x="180" y="448" text-anchor="middle" font-size="10" fill="#64748b">Extract Raw 'Keywords' Field</text>
+
+  <path d="M 300 438 L 360 438" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="360" y="410" width="270" height="56" rx="8" fill="#ffffff" stroke="#ca8a04" stroke-width="1.6" filter="url(#shadow3)"/>
+  <text x="495" y="432" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">Detect Format &amp; Parse String</text>
+  <text x="495" y="448" text-anchor="middle" font-size="10" fill="#a16207">ast.literal_eval() or ; / , Split</text>
+
+  <path d="M 495 466 L 495 500" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="360" y="500" width="270" height="56" rx="8" fill="#ffffff" stroke="#ca8a04" stroke-width="1.6" filter="url(#shadow3)"/>
+  <text x="495" y="522" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">Strip Parenthetical Expressions</text>
+  <text x="495" y="538" text-anchor="middle" font-size="10" fill="#a16207">re.sub(r'\(.*?\)', '', word)</text>
+
+  <path d="M 495 556 L 495 590" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="360" y="590" width="270" height="70" rx="8" fill="#ffffff" stroke="#ca8a04" stroke-width="1.8" filter="url(#shadow3)"/>
+  <text x="495" y="612" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">Domain Alias &amp; Synonym Map</text>
+  <text x="495" y="628" text-anchor="middle" font-size="10" fill="#a16207">• iot -&gt; internet of things • ml -&gt; machine learning</text>
+  <text x="495" y="644" text-anchor="middle" font-size="10" fill="#a16207">• block chain -&gt; blockchain • dl -&gt; deep learning</text>
+
+  <path d="M 495 660 L 495 690" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="360" y="690" width="270" height="56" rx="8" fill="#ffffff" stroke="#ca8a04" stroke-width="1.6" filter="url(#shadow3)"/>
+  <text x="495" y="712" text-anchor="middle" font-size="11" font-weight="bold" fill="#854d0e">Deduplicate within Paper</text>
+  <text x="495" y="728" text-anchor="middle" font-size="10" fill="#a16207">Prevent self-co-occurrence bias</text>
+
+  <path d="M 630 718 L 690 718" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="690" y="690" width="280" height="56" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6" filter="url(#shadow3)"/>
+  <text x="830" y="712" text-anchor="middle" font-size="11" font-weight="bold" fill="#4c1d95">Count Frequencies &amp; Percentages</text>
+  <text x="830" y="728" text-anchor="middle" font-size="10" fill="#6d28d9">Filter Top-N (100) &amp; Min Freq (1)</text>
+
+  <path d="M 830 746 L 830 780" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="690" y="780" width="280" height="56" rx="8" fill="#ffffff" stroke="#7c3aed" stroke-width="1.6" filter="url(#shadow3)"/>
+  <text x="830" y="802" text-anchor="middle" font-size="11" font-weight="bold" fill="#4c1d95">Pairwise Combinations for Edges</text>
+  <text x="830" y="818" text-anchor="middle" font-size="10" fill="#6d28d9">itertools.combinations(keywords, 2)</text>
+
+  <path d="M 830 836 L 830 870" fill="none" stroke="#7c3aed" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="690" y="870" width="280" height="85" rx="10" fill="#ffffff" stroke="#7c3aed" stroke-width="1.8" filter="url(#shadow3)"/>
+  <text x="830" y="892" text-anchor="middle" font-size="11" font-weight="bold" fill="#4c1d95">NetworkX Centrality Measures</text>
+  <text x="830" y="908" text-anchor="middle" font-size="10" fill="#6d28d9">• Degree: nx.degree_centrality</text>
+  <text x="830" y="922" text-anchor="middle" font-size="10" fill="#6d28d9">• Closeness: nx.closeness_centrality</text>
+  <text x="830" y="936" text-anchor="middle" font-size="10" fill="#6d28d9">• Betweenness, Eigenvector, Clustering</text>
+
+  <path d="M 970 912 L 1030 912" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="1030" y="880" width="210" height="66" rx="8" fill="#ffffff" stroke="#ea580c" stroke-width="1.6" filter="url(#shadow3)"/>
+  <text x="1135" y="902" text-anchor="middle" font-size="11" font-weight="bold" fill="#9a3412">Persist Artifacts</text>
+  <text x="1135" y="918" text-anchor="middle" font-size="10" fill="#c2410c">• summary.json</text>
+  <text x="1135" y="932" text-anchor="middle" font-size="10" fill="#c2410c">• frequency.csv &amp; matrix.csv</text>
+
+  <path d="M 1240 912 L 1300 912" fill="none" stroke="#0284c7" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <rect x="1300" y="860" width="240" height="110" rx="10" fill="#ffffff" stroke="#16a34a" stroke-width="1.8" filter="url(#shadow3)"/>
+  <text x="1420" y="882" text-anchor="middle" font-size="12" font-weight="bold" fill="#14532d">Render Keyword Dashboard</text>
+  <text x="1420" y="900" text-anchor="middle" font-size="10" fill="#15803d">1. Summary KPI Cards</text>
+  <text x="1420" y="914" text-anchor="middle" font-size="10" fill="#15803d">2. Frequency Progress Bars</text>
+  <text x="1420" y="928" text-anchor="middle" font-size="10" fill="#15803d">3. Interactive SVG Word Cloud</text>
+  <text x="1420" y="942" text-anchor="middle" font-size="10" fill="#15803d">4. Co-occurrence Network Graph</text>
+  <text x="1420" y="956" text-anchor="middle" font-size="10" fill="#15803d">5. Centrality Table &amp; Presence Matrix</text>
+
+  <path d="M 1420 970 L 1420 1010" fill="none" stroke="#16a34a" stroke-width="2" marker-end="url(#arr3)"/>
+
+  <circle cx="1420" cy="1030" r="14" fill="#ffffff" stroke="#0f172a" stroke-width="3"/>
+  <circle cx="1420" cy="1030" r="8" fill="#0f172a"/>
+  <text x="1420" y="1060" text-anchor="middle" font-size="12" font-weight="bold" fill="#334155">End: Visual Analytics Ready</text>
+</svg>

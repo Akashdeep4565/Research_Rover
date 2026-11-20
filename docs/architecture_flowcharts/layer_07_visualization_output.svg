@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 950" width="100%" height="100%">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-color="#000000" flood-opacity="0.12"/>
+    </filter>
+    <linearGradient id="pinkGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF1F2"/>
+      <stop offset="100%" stop-color="#FFE4E6"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#BE123C"/>
+      <stop offset="100%" stop-color="#E11D48"/>
+    </linearGradient>
+    <marker id="arrowPink" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#E11D48"/>
+    </marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 8 5 L 0 8.5 z" fill="#9333EA"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1600" height="950" fill="#FFF1F2"/>
+  <rect x="20" y="20" width="1560" height="910" rx="16" fill="#FFFFFF" stroke="#FECDD3" stroke-width="2"/>
+
+  <!-- Header Banner -->
+  <rect x="50" y="40" width="1500" height="70" rx="12" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <text x="80" y="82" font-family="system-ui, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">
+    LAYER 7: VISUALIZATION &amp; USER OUTPUT LAYER
+  </text>
+  <text x="1060" y="82" font-family="system-ui, sans-serif" font-size="14" fill="#FFE4E6">
+    Color Theme: Pink | Scope: Error Boundaries, 2D/3D Force Graphs &amp; User Delivery
+  </text>
+
+  <!-- Left: Inputs from Layer 6 -->
+  <rect x="50" y="130" width="340" height="780" rx="14" fill="#FAF5FF" stroke="#9333EA" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="75" y="160" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#7C3AED">
+    INPUTS &larr; FROM LAYER 6
+  </text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="200" width="300" height="85" rx="10" fill="#FFFFFF" stroke="#9333EA" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="220" y="235" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#581C87" text-anchor="middle">
+      From Layer 6: Summary Artifacts
+    </text>
+    <text x="220" y="258" font-family="monospace" font-size="11" fill="#7C3AED" text-anchor="middle">
+      data/*_summary.json (Keywords)
+    </text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="340" width="300" height="85" rx="10" fill="#FFFFFF" stroke="#9333EA" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="220" y="375" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#581C87" text-anchor="middle">
+      From Layer 6: Country Statistics
+    </text>
+    <text x="220" y="398" font-family="monospace" font-size="11" fill="#7C3AED" text-anchor="middle">
+      Publication Frequency &amp; Coverage %
+    </text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="480" width="300" height="85" rx="10" fill="#FFFFFF" stroke="#9333EA" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="220" y="515" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#581C87" text-anchor="middle">
+      From Layer 6: Collaboration Graph
+    </text>
+    <text x="220" y="538" font-family="monospace" font-size="11" fill="#7C3AED" text-anchor="middle">
+      (Nodes &amp; Weighted Links Topology)
+    </text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="650" width="300" height="85" rx="10" fill="#FFFFFF" stroke="#9333EA" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="220" y="685" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#581C87" text-anchor="middle">
+      From Layer 6: RAG Chat Service
+    </text>
+    <text x="220" y="708" font-family="monospace" font-size="11" fill="#7C3AED" text-anchor="middle">
+      (LLM Streaming Responses &amp; Citations)
+    </text>
+  </g>
+
+  <!-- Center-Right Container: Layer 7 Core -->
+  <rect x="420" y="130" width="1130" height="780" rx="14" fill="#FFF1F2" stroke="#E11D48" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="445" y="160" font-family="system-ui, sans-serif" font-size="16" font-weight="bold" fill="#BE123C">
+    7. VISUALIZATION &amp; USER OUTPUT LAYER (Internal Architecture)
+  </text>
+
+  <!-- Error Boundary Wrapper Node -->
+  <g filter="url(#shadow)">
+    <rect x="450" y="190" width="1070" height="80" rx="12" fill="#FFE4E6" stroke="#BE123C" stroke-width="3"/>
+    <text x="985" y="228" font-family="system-ui, sans-serif" font-size="17" font-weight="bold" fill="#881337" text-anchor="middle">
+      React Error Boundaries Wrapper
+    </text>
+    <text x="985" y="252" font-family="monospace" font-size="12" fill="#9F1239" text-anchor="middle">
+      (components/ErrorBoundary.tsx - Prevents unhandled crash in WebGL &amp; Canvas views)
+    </text>
+  </g>
+
+  <!-- Arrows from Inputs into Error Boundary -->
+  <path d="M 370 242 L 410 242 L 410 220 L 450 220" fill="none" stroke="#9333EA" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <path d="M 370 382 L 410 382 L 410 230 L 450 230" fill="none" stroke="#9333EA" stroke-width="2" marker-end="url(#arrowPurple)"/>
+  <path d="M 370 522 L 410 522 L 410 240 L 450 240" fill="none" stroke="#9333EA" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- Visualizations Grid (5 views from Error Boundary, 1 direct RAG view) -->
+  <!-- 1. Keyword Analytics View -->
+  <g filter="url(#shadow)">
+    <rect x="450" y="310" width="330" height="95" rx="10" fill="url(#pinkGrad)" stroke="#E11D48" stroke-width="2.5"/>
+    <text x="615" y="347" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#9F1239" text-anchor="middle">
+      Keyword Analytics View
+    </text>
+    <text x="615" y="372" font-family="monospace" font-size="11" fill="#BE123C" text-anchor="middle">
+      (DashCards, WordCloudSvg, Graph)
+    </text>
+  </g>
+  <path d="M 615 270 L 615 310" stroke="#E11D48" stroke-width="2" marker-end="url(#arrowPink)"/>
+
+  <!-- 2. Geographic World Map -->
+  <g filter="url(#shadow)">
+    <rect x="820" y="310" width="330" height="95" rx="10" fill="url(#pinkGrad)" stroke="#E11D48" stroke-width="2.5"/>
+    <text x="985" y="347" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#9F1239" text-anchor="middle">
+      Geographic World Map
+    </text>
+    <text x="985" y="372" font-family="monospace" font-size="11" fill="#BE123C" text-anchor="middle">
+      (WorldMap.tsx - react-simple-maps)
+    </text>
+  </g>
+  <path d="M 985 270 L 985 310" stroke="#E11D48" stroke-width="2" marker-end="url(#arrowPink)"/>
+
+  <!-- 3. Summary Stats & Tables -->
+  <g filter="url(#shadow)">
+    <rect x="1190" y="310" width="330" height="95" rx="10" fill="url(#pinkGrad)" stroke="#E11D48" stroke-width="2.5"/>
+    <text x="1355" y="347" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#9F1239" text-anchor="middle">
+      Summary Stats &amp; Tables
+    </text>
+    <text x="1355" y="372" font-family="monospace" font-size="11" fill="#BE123C" text-anchor="middle">
+      (CountryAnalysisView.tsx)
+    </text>
+  </g>
+  <path d="M 1355 270 L 1355 310" stroke="#E11D48" stroke-width="2" marker-end="url(#arrowPink)"/>
+
+  <!-- 4. 2D Collaboration Network -->
+  <g filter="url(#shadow)">
+    <rect x="450" y="450" width="330" height="95" rx="10" fill="url(#pinkGrad)" stroke="#E11D48" stroke-width="2.5"/>
+    <text x="615" y="487" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#9F1239" text-anchor="middle">
+      2D Collaboration Network
+    </text>
+    <text x="615" y="512" font-family="monospace" font-size="11" fill="#BE123C" text-anchor="middle">
+      (react-force-graph-2d Canvas)
+    </text>
+  </g>
+  <path d="M 615 270 L 430 270 L 430 497 L 450 497" fill="none" stroke="#E11D48" stroke-width="1.5" marker-end="url(#arrowPink)"/>
+
+  <!-- 5. 3D Collaboration Network -->
+  <g filter="url(#shadow)">
+    <rect x="820" y="450" width="330" height="95" rx="10" fill="url(#pinkGrad)" stroke="#E11D48" stroke-width="2.5"/>
+    <text x="985" y="487" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#9F1239" text-anchor="middle">
+      3D Collaboration Network
+    </text>
+    <text x="985" y="512" font-family="monospace" font-size="11" fill="#BE123C" text-anchor="middle">
+      (Three.js &amp; react-force-graph-3d)
+    </text>
+  </g>
+  <path d="M 985 270 L 800 270 L 800 497 L 820 497" fill="none" stroke="#E11D48" stroke-width="1.5" marker-end="url(#arrowPink)"/>
+
+  <!-- 6. Interactive RAG Stream & Citations (Direct from Layer 6 Chat) -->
+  <g filter="url(#shadow)">
+    <rect x="1190" y="450" width="330" height="95" rx="10" fill="url(#pinkGrad)" stroke="#E11D48" stroke-width="2.5"/>
+    <text x="1355" y="487" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#9F1239" text-anchor="middle">
+      Interactive RAG Stream
+    </text>
+    <text x="1355" y="512" font-family="monospace" font-size="11" fill="#BE123C" text-anchor="middle">
+      (pages/ChatPage.tsx - Citations)
+    </text>
+  </g>
+  <!-- Direct arrow from Chat Input -->
+  <path d="M 370 692 L 1355 692 L 1355 545" fill="none" stroke="#9333EA" stroke-width="2" marker-end="url(#arrowPurple)"/>
+
+  <!-- Converging Connections from All 6 Views to Final Output Node -->
+  <!-- Final Terminal Output Node -->
+  <g filter="url(#shadow)">
+    <rect x="450" y="750" width="1070" height="85" rx="42.5" fill="#F43F5E" stroke="#9F1239" stroke-width="3"/>
+    <text x="985" y="792" font-family="system-ui, sans-serif" font-size="20" font-weight="bold" fill="#FFFFFF" text-anchor="middle">
+      User Insights &amp; Exported CSV / JSON / PNG
+    </text>
+    <text x="985" y="818" font-family="system-ui, sans-serif" font-size="13" fill="#FFE4E6" text-anchor="middle">
+      (Final deliverable insights, high-resolution visual plots, and reproducible research artifacts)
+    </text>
+  </g>
+
+  <!-- Arrows into Terminal Node -->
+  <path d="M 615 545 L 615 750" stroke="#E11D48" stroke-width="2.5" marker-end="url(#arrowPink)"/>
+  <path d="M 985 545 L 985 750" stroke="#E11D48" stroke-width="2.5" marker-end="url(#arrowPink)"/>
+  <path d="M 1355 545 L 1355 750" stroke="#E11D48" stroke-width="2.5" marker-end="url(#arrowPink)"/>
+</svg>

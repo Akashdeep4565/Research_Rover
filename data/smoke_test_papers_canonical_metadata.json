@@ -1,0 +1,194 @@
+{
+  "filename": "smoke_test_papers.csv",
+  "total_records": 6,
+  "valid_records": 5,
+  "duplicate_records": 1,
+  "overall_quality_score": 81.7,
+  "quality_grade": "Good",
+  "canonical_fields_detected": [
+    "title",
+    "abstract",
+    "authors",
+    "affiliations",
+    "publication_year",
+    "doi"
+  ],
+  "column_mappings": {
+    "Item Title": {
+      "original_column": "Item Title",
+      "canonical_field": "title",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'item title' to canonical 'title'"
+    },
+    "Summary": {
+      "original_column": "Summary",
+      "canonical_field": "abstract",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'summary' to canonical 'abstract'"
+    },
+    "Author Names": {
+      "original_column": "Author Names",
+      "canonical_field": "authors",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'author names' to canonical 'authors'"
+    },
+    "Addresses": {
+      "original_column": "Addresses",
+      "canonical_field": "affiliations",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'addresses' to canonical 'affiliations'"
+    },
+    "Keywords List": {
+      "original_column": "Keywords List",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "Year Published": {
+      "original_column": "Year Published",
+      "canonical_field": "publication_year",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'year published' to canonical 'publication_year'"
+    },
+    "Digital Object Identifier": {
+      "original_column": "Digital Object Identifier",
+      "canonical_field": "doi",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'digital object identifier' to canonical 'doi'"
+    }
+  },
+  "unmapped_columns": [
+    "Keywords List"
+  ],
+  "conflicts": [],
+  "feature_readiness": {
+    "keyword_analysis": {
+      "feature_name": "Keyword Frequency & Word Clouds",
+      "status": "not_ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "keywords"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No keyword data found in dataset."
+      ],
+      "explanation": "None of the papers contain keywords. Keyword frequency tables and word clouds cannot be generated."
+    },
+    "cooccurrence_analysis": {
+      "feature_name": "Keyword Co-occurrence & Network Centralities",
+      "status": "not_ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "keywords"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "Fewer than 2 papers contain multi-keyword combinations."
+      ],
+      "explanation": "Network co-occurrence and centrality scores require papers with at least 2 keywords each to compute graph edges."
+    },
+    "country_analysis": {
+      "feature_name": "Country Distribution & Collaboration Networks",
+      "status": "ready",
+      "required_fields": [
+        "affiliations"
+      ],
+      "available_fields": [
+        "affiliations"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "6/6 papers (100.0%) contain institutional or country affiliations. Geoparsing and collaboration graphs fully operational."
+    },
+    "author_analysis": {
+      "feature_name": "Author Analytics & Collaboration",
+      "status": "ready",
+      "required_fields": [
+        "authors"
+      ],
+      "available_fields": [
+        "authors"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "6/6 papers (100.0%) have author metadata. Author analytics fully operational."
+    },
+    "trend_analysis": {
+      "feature_name": "Research Publication Trends",
+      "status": "ready",
+      "required_fields": [
+        "publication_year"
+      ],
+      "available_fields": [
+        "publication_year"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "6/6 papers (100.0%) have valid years spanning 2021 - 2024. Timeline charts fully operational."
+    },
+    "semantic_search": {
+      "feature_name": "Semantic Vector Search & Indexing",
+      "status": "ready",
+      "required_fields": [
+        "title",
+        "abstract"
+      ],
+      "available_fields": [
+        "title",
+        "abstract"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "6/6 papers (100.0%) contain multi-sentence abstracts suitable for HDBSCAN chunking and FAISS indexing."
+    },
+    "ai_chat_rag": {
+      "feature_name": "AI Research Assistant (RAG Chat)",
+      "status": "ready",
+      "required_fields": [
+        "title",
+        "abstract"
+      ],
+      "available_fields": [
+        "title",
+        "abstract",
+        "doi"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "Papers have sufficient textual depth for semantic chunking and grounded multi-query RAG generation with citations."
+    }
+  },
+  "recommendations": [
+    "Dataset contains 1 duplicate paper records. Consider deduplicating by DOI/PMID to prevent overcounting in frequency analyses.",
+    "Keywords coverage is 0.0%. Adding semicolon-delimited keywords unlocks keyword frequency and network co-occurrence graphs.",
+    "Detected 1 unmapped columns (Keywords List). Use custom column mappings to associate them with canonical fields."
+  ],
+  "generated_at": 1794828284.5866082,
+  "csv_mtime": 1794828284.5004227
+}

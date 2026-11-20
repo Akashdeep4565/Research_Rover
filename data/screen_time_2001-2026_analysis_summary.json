@@ -1,0 +1,2676 @@
+{
+  "filename": "screen_time_2001-2026.csv",
+  "source_file": "screen_time_2001-2026.csv",
+  "total_papers": 6945,
+  "papers_with_keywords": 5224,
+  "papers_with_country_data": 6620,
+  "unique_countries": 83,
+  "unique_keywords": 7844,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "screen_time_2001-2026_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "screen_time_2001-2026_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "screen_time_2001-2026_analysis_keyword_presence_matrix.csv",
+  "summary_file": "screen_time_2001-2026_analysis_summary.json",
+  "generated_at": 1791120128.3878436,
+  "keyword_frequency": [
+    {
+      "keyword": "screen time",
+      "frequency": 1831,
+      "percentage": 26.36
+    },
+    {
+      "keyword": "physical activity",
+      "frequency": 1132,
+      "percentage": 16.3
+    },
+    {
+      "keyword": "children",
+      "frequency": 658,
+      "percentage": 9.47
+    },
+    {
+      "keyword": "adolescents",
+      "frequency": 566,
+      "percentage": 8.15
+    },
+    {
+      "keyword": "sleep",
+      "frequency": 561,
+      "percentage": 8.08
+    },
+    {
+      "keyword": "obesity",
+      "frequency": 449,
+      "percentage": 6.47
+    },
+    {
+      "keyword": "covid-19",
+      "frequency": 361,
+      "percentage": 5.2
+    },
+    {
+      "keyword": "sedentary behavior",
+      "frequency": 353,
+      "percentage": 5.08
+    },
+    {
+      "keyword": "mental health",
+      "frequency": 323,
+      "percentage": 4.65
+    },
+    {
+      "keyword": "adolescent",
+      "frequency": 259,
+      "percentage": 3.73
+    },
+    {
+      "keyword": "depression",
+      "frequency": 190,
+      "percentage": 2.74
+    },
+    {
+      "keyword": "sedentary behaviour",
+      "frequency": 184,
+      "percentage": 2.65
+    },
+    {
+      "keyword": "youth",
+      "frequency": 183,
+      "percentage": 2.63
+    },
+    {
+      "keyword": "child",
+      "frequency": 177,
+      "percentage": 2.55
+    },
+    {
+      "keyword": "exercise",
+      "frequency": 173,
+      "percentage": 2.49
+    },
+    {
+      "keyword": "lifestyle",
+      "frequency": 161,
+      "percentage": 2.32
+    },
+    {
+      "keyword": "social media",
+      "frequency": 158,
+      "percentage": 2.28
+    },
+    {
+      "keyword": "childhood obesity",
+      "frequency": 157,
+      "percentage": 2.26
+    },
+    {
+      "keyword": "diet",
+      "frequency": 154,
+      "percentage": 2.22
+    },
+    {
+      "keyword": "public health",
+      "frequency": 147,
+      "percentage": 2.12
+    },
+    {
+      "keyword": "sleep duration",
+      "frequency": 128,
+      "percentage": 1.84
+    },
+    {
+      "keyword": "anxiety",
+      "frequency": 126,
+      "percentage": 1.81
+    },
+    {
+      "keyword": "overweight",
+      "frequency": 117,
+      "percentage": 1.68
+    },
+    {
+      "keyword": "television",
+      "frequency": 115,
+      "percentage": 1.66
+    },
+    {
+      "keyword": "adolescence",
+      "frequency": 107,
+      "percentage": 1.54
+    },
+    {
+      "keyword": "risk factors",
+      "frequency": 98,
+      "percentage": 1.41
+    },
+    {
+      "keyword": "body mass index",
+      "frequency": 94,
+      "percentage": 1.35
+    },
+    {
+      "keyword": "preschool children",
+      "frequency": 92,
+      "percentage": 1.32
+    },
+    {
+      "keyword": "sleep quality",
+      "frequency": 92,
+      "percentage": 1.32
+    },
+    {
+      "keyword": "early childhood",
+      "frequency": 89,
+      "percentage": 1.28
+    },
+    {
+      "keyword": "preschool",
+      "frequency": 87,
+      "percentage": 1.25
+    },
+    {
+      "keyword": "parenting",
+      "frequency": 83,
+      "percentage": 1.2
+    },
+    {
+      "keyword": "epidemiology",
+      "frequency": 82,
+      "percentage": 1.18
+    },
+    {
+      "keyword": "smartphone",
+      "frequency": 81,
+      "percentage": 1.17
+    },
+    {
+      "keyword": "parents",
+      "frequency": 80,
+      "percentage": 1.15
+    },
+    {
+      "keyword": "pandemic",
+      "frequency": 77,
+      "percentage": 1.11
+    },
+    {
+      "keyword": "myopia",
+      "frequency": 76,
+      "percentage": 1.09
+    },
+    {
+      "keyword": "covid-19 pandemic",
+      "frequency": 72,
+      "percentage": 1.04
+    },
+    {
+      "keyword": "health promotion",
+      "frequency": 71,
+      "percentage": 1.02
+    },
+    {
+      "keyword": "nutrition",
+      "frequency": 70,
+      "percentage": 1.01
+    },
+    {
+      "keyword": "health",
+      "frequency": 67,
+      "percentage": 0.96
+    },
+    {
+      "keyword": "children and adolescents",
+      "frequency": 67,
+      "percentage": 0.96
+    },
+    {
+      "keyword": "prevalence",
+      "frequency": 65,
+      "percentage": 0.94
+    },
+    {
+      "keyword": "screen use",
+      "frequency": 65,
+      "percentage": 0.94
+    },
+    {
+      "keyword": "digital media",
+      "frequency": 65,
+      "percentage": 0.94
+    },
+    {
+      "keyword": "child development",
+      "frequency": 64,
+      "percentage": 0.92
+    },
+    {
+      "keyword": "students",
+      "frequency": 61,
+      "percentage": 0.88
+    },
+    {
+      "keyword": "health behavior",
+      "frequency": 61,
+      "percentage": 0.88
+    },
+    {
+      "keyword": "pediatrics",
+      "frequency": 61,
+      "percentage": 0.88
+    },
+    {
+      "keyword": "bmi",
+      "frequency": 60,
+      "percentage": 0.86
+    },
+    {
+      "keyword": "preschoolers",
+      "frequency": 59,
+      "percentage": 0.85
+    },
+    {
+      "keyword": "well-being",
+      "frequency": 58,
+      "percentage": 0.84
+    },
+    {
+      "keyword": "screen exposure",
+      "frequency": 58,
+      "percentage": 0.84
+    },
+    {
+      "keyword": "screen-time",
+      "frequency": 57,
+      "percentage": 0.82
+    },
+    {
+      "keyword": "mobile phone",
+      "frequency": 56,
+      "percentage": 0.81
+    },
+    {
+      "keyword": "family",
+      "frequency": 56,
+      "percentage": 0.81
+    },
+    {
+      "keyword": "young adults",
+      "frequency": 55,
+      "percentage": 0.79
+    },
+    {
+      "keyword": "intervention",
+      "frequency": 55,
+      "percentage": 0.79
+    },
+    {
+      "keyword": "stress",
+      "frequency": 54,
+      "percentage": 0.78
+    },
+    {
+      "keyword": "child health",
+      "frequency": 54,
+      "percentage": 0.78
+    },
+    {
+      "keyword": "media",
+      "frequency": 53,
+      "percentage": 0.76
+    },
+    {
+      "keyword": "health behaviors",
+      "frequency": 53,
+      "percentage": 0.76
+    },
+    {
+      "keyword": "prevention",
+      "frequency": 53,
+      "percentage": 0.76
+    },
+    {
+      "keyword": "adolescent health",
+      "frequency": 53,
+      "percentage": 0.76
+    },
+    {
+      "keyword": "quality of life",
+      "frequency": 51,
+      "percentage": 0.73
+    },
+    {
+      "keyword": "longitudinal",
+      "frequency": 51,
+      "percentage": 0.73
+    },
+    {
+      "keyword": "sedentary lifestyle",
+      "frequency": 51,
+      "percentage": 0.73
+    },
+    {
+      "keyword": "sedentary time",
+      "frequency": 50,
+      "percentage": 0.72
+    },
+    {
+      "keyword": "childhood",
+      "frequency": 50,
+      "percentage": 0.72
+    },
+    {
+      "keyword": "video games",
+      "frequency": 49,
+      "percentage": 0.71
+    },
+    {
+      "keyword": "physical fitness",
+      "frequency": 49,
+      "percentage": 0.71
+    },
+    {
+      "keyword": "technology",
+      "frequency": 48,
+      "percentage": 0.69
+    },
+    {
+      "keyword": "lockdown",
+      "frequency": 48,
+      "percentage": 0.69
+    },
+    {
+      "keyword": "academic performance",
+      "frequency": 45,
+      "percentage": 0.65
+    },
+    {
+      "keyword": "adiposity",
+      "frequency": 45,
+      "percentage": 0.65
+    },
+    {
+      "keyword": "china",
+      "frequency": 44,
+      "percentage": 0.63
+    },
+    {
+      "keyword": "media use",
+      "frequency": 42,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "meta-analysis",
+      "frequency": 42,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "school",
+      "frequency": 42,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "mendelian randomization",
+      "frequency": 42,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "systematic review",
+      "frequency": 41,
+      "percentage": 0.59
+    },
+    {
+      "keyword": "pediatric obesity",
+      "frequency": 41,
+      "percentage": 0.59
+    },
+    {
+      "keyword": "sedentary",
+      "frequency": 41,
+      "percentage": 0.59
+    },
+    {
+      "keyword": "autism spectrum disorder",
+      "frequency": 40,
+      "percentage": 0.58
+    },
+    {
+      "keyword": "metabolic syndrome",
+      "frequency": 39,
+      "percentage": 0.56
+    },
+    {
+      "keyword": "mediterranean diet",
+      "frequency": 39,
+      "percentage": 0.56
+    },
+    {
+      "keyword": "lifestyle behaviors",
+      "frequency": 38,
+      "percentage": 0.55
+    },
+    {
+      "keyword": "depressive symptoms",
+      "frequency": 38,
+      "percentage": 0.55
+    },
+    {
+      "keyword": "dietary habits",
+      "frequency": 37,
+      "percentage": 0.53
+    },
+    {
+      "keyword": "infant",
+      "frequency": 37,
+      "percentage": 0.53
+    },
+    {
+      "keyword": "saudi arabia",
+      "frequency": 36,
+      "percentage": 0.52
+    },
+    {
+      "keyword": "internet",
+      "frequency": 36,
+      "percentage": 0.52
+    },
+    {
+      "keyword": "sitting",
+      "frequency": 35,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "obesity prevention",
+      "frequency": 35,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "longitudinal study",
+      "frequency": 35,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "coronavirus",
+      "frequency": 35,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "young children",
+      "frequency": 34,
+      "percentage": 0.49
+    },
+    {
+      "keyword": "digital eye strain",
+      "frequency": 34,
+      "percentage": 0.49
+    },
+    {
+      "keyword": "pediatric",
+      "frequency": 34,
+      "percentage": 0.49
+    },
+    {
+      "keyword": "adhd",
+      "frequency": 34,
+      "percentage": 0.49
+    }
+  ],
+  "matrix_keywords": [
+    "screen time",
+    "physical activity",
+    "children",
+    "adolescents",
+    "sleep",
+    "obesity",
+    "covid-19",
+    "sedentary behavior",
+    "mental health",
+    "adolescent",
+    "depression",
+    "sedentary behaviour",
+    "youth",
+    "child",
+    "exercise",
+    "lifestyle",
+    "social media",
+    "childhood obesity",
+    "diet",
+    "public health",
+    "sleep duration",
+    "anxiety",
+    "overweight",
+    "television",
+    "adolescence",
+    "risk factors",
+    "body mass index",
+    "preschool children",
+    "sleep quality",
+    "early childhood",
+    "preschool",
+    "parenting",
+    "epidemiology",
+    "smartphone",
+    "parents",
+    "pandemic",
+    "myopia",
+    "covid-19 pandemic",
+    "health promotion",
+    "nutrition",
+    "health",
+    "children and adolescents",
+    "prevalence",
+    "screen use",
+    "digital media",
+    "child development",
+    "students",
+    "health behavior",
+    "pediatrics",
+    "bmi",
+    "preschoolers",
+    "well-being",
+    "screen exposure",
+    "screen-time",
+    "mobile phone",
+    "family",
+    "young adults",
+    "intervention",
+    "stress",
+    "child health",
+    "media",
+    "health behaviors",
+    "prevention",
+    "adolescent health",
+    "quality of life",
+    "longitudinal",
+    "sedentary lifestyle",
+    "sedentary time",
+    "childhood",
+    "video games",
+    "physical fitness",
+    "technology",
+    "lockdown",
+    "academic performance",
+    "adiposity",
+    "china",
+    "media use",
+    "meta-analysis",
+    "school",
+    "mendelian randomization",
+    "systematic review",
+    "pediatric obesity",
+    "sedentary",
+    "autism spectrum disorder",
+    "metabolic syndrome",
+    "mediterranean diet",
+    "lifestyle behaviors",
+    "depressive symptoms",
+    "dietary habits",
+    "infant",
+    "saudi arabia",
+    "internet",
+    "sitting",
+    "obesity prevention",
+    "longitudinal study",
+    "coronavirus",
+    "young children",
+    "digital eye strain",
+    "pediatric",
+    "adhd"
+  ],
+  "matrix_rows": 6945,
+  "matrix_columns": 100,
+  "cooccurrence_edges": [
+    {
+      "source": "physical activity",
+      "target": "screen time",
+      "weight": 555
+    },
+    {
+      "source": "screen time",
+      "target": "sleep",
+      "weight": 318
+    },
+    {
+      "source": "physical activity",
+      "target": "sleep",
+      "weight": 317
+    },
+    {
+      "source": "children",
+      "target": "screen time",
+      "weight": 252
+    },
+    {
+      "source": "adolescents",
+      "target": "screen time",
+      "weight": 227
+    },
+    {
+      "source": "physical activity",
+      "target": "sedentary behavior",
+      "weight": 179
+    },
+    {
+      "source": "children",
+      "target": "physical activity",
+      "weight": 163
+    },
+    {
+      "source": "adolescents",
+      "target": "children",
+      "weight": 135
+    },
+    {
+      "source": "adolescents",
+      "target": "physical activity",
+      "weight": 127
+    },
+    {
+      "source": "mental health",
+      "target": "screen time",
+      "weight": 124
+    },
+    {
+      "source": "screen time",
+      "target": "sedentary behavior",
+      "weight": 122
+    },
+    {
+      "source": "obesity",
+      "target": "physical activity",
+      "weight": 122
+    },
+    {
+      "source": "covid-19",
+      "target": "screen time",
+      "weight": 117
+    },
+    {
+      "source": "physical activity",
+      "target": "sedentary behaviour",
+      "weight": 108
+    },
+    {
+      "source": "obesity",
+      "target": "screen time",
+      "weight": 107
+    },
+    {
+      "source": "diet",
+      "target": "physical activity",
+      "weight": 103
+    },
+    {
+      "source": "adolescent",
+      "target": "screen time",
+      "weight": 97
+    },
+    {
+      "source": "anxiety",
+      "target": "depression",
+      "weight": 94
+    },
+    {
+      "source": "children",
+      "target": "obesity",
+      "weight": 83
+    },
+    {
+      "source": "screen time",
+      "target": "sleep duration",
+      "weight": 82
+    },
+    {
+      "source": "covid-19",
+      "target": "physical activity",
+      "weight": 77
+    },
+    {
+      "source": "child",
+      "target": "screen time",
+      "weight": 75
+    },
+    {
+      "source": "screen time",
+      "target": "social media",
+      "weight": 75
+    },
+    {
+      "source": "screen time",
+      "target": "sedentary behaviour",
+      "weight": 74
+    },
+    {
+      "source": "obesity",
+      "target": "overweight",
+      "weight": 73
+    },
+    {
+      "source": "children",
+      "target": "covid-19",
+      "weight": 72
+    },
+    {
+      "source": "depression",
+      "target": "screen time",
+      "weight": 70
+    },
+    {
+      "source": "sedentary behavior",
+      "target": "sleep",
+      "weight": 70
+    },
+    {
+      "source": "screen time",
+      "target": "youth",
+      "weight": 69
+    },
+    {
+      "source": "diet",
+      "target": "screen time",
+      "weight": 68
+    },
+    {
+      "source": "children",
+      "target": "sleep",
+      "weight": 64
+    },
+    {
+      "source": "mental health",
+      "target": "physical activity",
+      "weight": 63
+    },
+    {
+      "source": "sedentary behaviour",
+      "target": "sleep",
+      "weight": 60
+    },
+    {
+      "source": "covid-19",
+      "target": "pandemic",
+      "weight": 55
+    },
+    {
+      "source": "exercise",
+      "target": "screen time",
+      "weight": 53
+    },
+    {
+      "source": "adolescents",
+      "target": "sleep",
+      "weight": 53
+    },
+    {
+      "source": "mental health",
+      "target": "sleep",
+      "weight": 52
+    },
+    {
+      "source": "physical activity",
+      "target": "sleep duration",
+      "weight": 52
+    },
+    {
+      "source": "obesity",
+      "target": "sleep",
+      "weight": 51
+    },
+    {
+      "source": "covid-19",
+      "target": "mental health",
+      "weight": 51
+    },
+    {
+      "source": "physical activity",
+      "target": "youth",
+      "weight": 50
+    },
+    {
+      "source": "adolescents",
+      "target": "mental health",
+      "weight": 49
+    },
+    {
+      "source": "adolescents",
+      "target": "obesity",
+      "weight": 48
+    },
+    {
+      "source": "preschool",
+      "target": "screen time",
+      "weight": 47
+    },
+    {
+      "source": "diet",
+      "target": "sleep",
+      "weight": 47
+    },
+    {
+      "source": "childhood obesity",
+      "target": "physical activity",
+      "weight": 47
+    },
+    {
+      "source": "screen time",
+      "target": "television",
+      "weight": 45
+    },
+    {
+      "source": "depression",
+      "target": "mental health",
+      "weight": 45
+    },
+    {
+      "source": "children",
+      "target": "sedentary behavior",
+      "weight": 45
+    },
+    {
+      "source": "screen time",
+      "target": "sleep quality",
+      "weight": 44
+    },
+    {
+      "source": "anxiety",
+      "target": "screen time",
+      "weight": 43
+    },
+    {
+      "source": "public health",
+      "target": "screen time",
+      "weight": 41
+    },
+    {
+      "source": "adolescent",
+      "target": "child",
+      "weight": 41
+    },
+    {
+      "source": "lifestyle",
+      "target": "physical activity",
+      "weight": 40
+    },
+    {
+      "source": "adolescent",
+      "target": "physical activity",
+      "weight": 40
+    },
+    {
+      "source": "childhood obesity",
+      "target": "screen time",
+      "weight": 39
+    },
+    {
+      "source": "preschool children",
+      "target": "screen time",
+      "weight": 37
+    },
+    {
+      "source": "digital media",
+      "target": "screen time",
+      "weight": 37
+    },
+    {
+      "source": "nutrition",
+      "target": "physical activity",
+      "weight": 37
+    },
+    {
+      "source": "covid-19",
+      "target": "sleep",
+      "weight": 37
+    },
+    {
+      "source": "early childhood",
+      "target": "screen time",
+      "weight": 37
+    },
+    {
+      "source": "adolescents",
+      "target": "social media",
+      "weight": 36
+    },
+    {
+      "source": "adolescents",
+      "target": "sedentary behavior",
+      "weight": 36
+    },
+    {
+      "source": "covid-19",
+      "target": "lockdown",
+      "weight": 36
+    },
+    {
+      "source": "adolescence",
+      "target": "screen time",
+      "weight": 35
+    },
+    {
+      "source": "adolescents",
+      "target": "covid-19",
+      "weight": 35
+    },
+    {
+      "source": "screen time",
+      "target": "smartphone",
+      "weight": 34
+    },
+    {
+      "source": "child development",
+      "target": "screen time",
+      "weight": 34
+    },
+    {
+      "source": "obesity",
+      "target": "sedentary behavior",
+      "weight": 34
+    },
+    {
+      "source": "diet",
+      "target": "obesity",
+      "weight": 34
+    },
+    {
+      "source": "parenting",
+      "target": "screen time",
+      "weight": 33
+    },
+    {
+      "source": "children",
+      "target": "mental health",
+      "weight": 33
+    },
+    {
+      "source": "parents",
+      "target": "screen time",
+      "weight": 33
+    },
+    {
+      "source": "anxiety",
+      "target": "mental health",
+      "weight": 32
+    },
+    {
+      "source": "body mass index",
+      "target": "screen time",
+      "weight": 32
+    },
+    {
+      "source": "adolescent",
+      "target": "mental health",
+      "weight": 32
+    },
+    {
+      "source": "adolescent",
+      "target": "sleep",
+      "weight": 31
+    },
+    {
+      "source": "child",
+      "target": "sleep",
+      "weight": 30
+    },
+    {
+      "source": "mental health",
+      "target": "social media",
+      "weight": 30
+    },
+    {
+      "source": "children",
+      "target": "parents",
+      "weight": 30
+    },
+    {
+      "source": "adolescents",
+      "target": "sleep duration",
+      "weight": 29
+    },
+    {
+      "source": "covid-19",
+      "target": "depression",
+      "weight": 29
+    },
+    {
+      "source": "child",
+      "target": "obesity",
+      "weight": 28
+    },
+    {
+      "source": "depression",
+      "target": "physical activity",
+      "weight": 28
+    },
+    {
+      "source": "exercise",
+      "target": "physical activity",
+      "weight": 28
+    },
+    {
+      "source": "adolescent",
+      "target": "obesity",
+      "weight": 28
+    },
+    {
+      "source": "adolescents",
+      "target": "depression",
+      "weight": 28
+    },
+    {
+      "source": "adolescence",
+      "target": "physical activity",
+      "weight": 27
+    },
+    {
+      "source": "adolescents",
+      "target": "lifestyle",
+      "weight": 27
+    },
+    {
+      "source": "body mass index",
+      "target": "physical activity",
+      "weight": 27
+    },
+    {
+      "source": "physical activity",
+      "target": "screen-time",
+      "weight": 27
+    },
+    {
+      "source": "children",
+      "target": "lifestyle",
+      "weight": 26
+    },
+    {
+      "source": "physical activity",
+      "target": "public health",
+      "weight": 26
+    },
+    {
+      "source": "screen time",
+      "target": "sedentary time",
+      "weight": 26
+    },
+    {
+      "source": "overweight",
+      "target": "physical activity",
+      "weight": 26
+    },
+    {
+      "source": "anxiety",
+      "target": "covid-19",
+      "weight": 26
+    },
+    {
+      "source": "exercise",
+      "target": "sleep",
+      "weight": 26
+    },
+    {
+      "source": "screen time",
+      "target": "students",
+      "weight": 25
+    },
+    {
+      "source": "preschoolers",
+      "target": "screen time",
+      "weight": 25
+    },
+    {
+      "source": "covid-19",
+      "target": "lifestyle",
+      "weight": 25
+    },
+    {
+      "source": "lifestyle",
+      "target": "screen time",
+      "weight": 25
+    },
+    {
+      "source": "mental health",
+      "target": "youth",
+      "weight": 25
+    },
+    {
+      "source": "children",
+      "target": "sedentary behaviour",
+      "weight": 25
+    },
+    {
+      "source": "media",
+      "target": "screen time",
+      "weight": 24
+    },
+    {
+      "source": "children",
+      "target": "myopia",
+      "weight": 24
+    },
+    {
+      "source": "overweight",
+      "target": "screen time",
+      "weight": 24
+    },
+    {
+      "source": "adiposity",
+      "target": "screen time",
+      "weight": 24
+    },
+    {
+      "source": "child",
+      "target": "physical activity",
+      "weight": 24
+    },
+    {
+      "source": "pandemic",
+      "target": "screen time",
+      "weight": 24
+    },
+    {
+      "source": "exercise",
+      "target": "sedentary behavior",
+      "weight": 24
+    },
+    {
+      "source": "meta-analysis",
+      "target": "screen time",
+      "weight": 23
+    },
+    {
+      "source": "children",
+      "target": "overweight",
+      "weight": 23
+    },
+    {
+      "source": "adolescent",
+      "target": "social media",
+      "weight": 23
+    },
+    {
+      "source": "sedentary behavior",
+      "target": "youth",
+      "weight": 23
+    },
+    {
+      "source": "sleep",
+      "target": "youth",
+      "weight": 23
+    },
+    {
+      "source": "physical activity",
+      "target": "sedentary time",
+      "weight": 23
+    },
+    {
+      "source": "covid-19 pandemic",
+      "target": "screen time",
+      "weight": 23
+    },
+    {
+      "source": "epidemiology",
+      "target": "public health",
+      "weight": 23
+    },
+    {
+      "source": "health promotion",
+      "target": "physical activity",
+      "weight": 22
+    },
+    {
+      "source": "autism spectrum disorder",
+      "target": "screen time",
+      "weight": 22
+    },
+    {
+      "source": "lifestyle",
+      "target": "obesity",
+      "weight": 22
+    },
+    {
+      "source": "physical activity",
+      "target": "preschool children",
+      "weight": 22
+    },
+    {
+      "source": "media use",
+      "target": "screen time",
+      "weight": 22
+    },
+    {
+      "source": "screen time",
+      "target": "well-being",
+      "weight": 22
+    },
+    {
+      "source": "academic performance",
+      "target": "screen time",
+      "weight": 22
+    },
+    {
+      "source": "myopia",
+      "target": "screen time",
+      "weight": 22
+    },
+    {
+      "source": "children and adolescents",
+      "target": "screen time",
+      "weight": 22
+    },
+    {
+      "source": "exercise",
+      "target": "youth",
+      "weight": 22
+    },
+    {
+      "source": "adolescents",
+      "target": "sedentary behaviour",
+      "weight": 22
+    },
+    {
+      "source": "covid-19 pandemic",
+      "target": "physical activity",
+      "weight": 22
+    },
+    {
+      "source": "screen time",
+      "target": "young adults",
+      "weight": 21
+    },
+    {
+      "source": "screen time",
+      "target": "video games",
+      "weight": 21
+    },
+    {
+      "source": "physical activity",
+      "target": "preschool",
+      "weight": 21
+    },
+    {
+      "source": "risk factors",
+      "target": "screen time",
+      "weight": 21
+    },
+    {
+      "source": "intervention",
+      "target": "physical activity",
+      "weight": 21
+    },
+    {
+      "source": "longitudinal",
+      "target": "screen time",
+      "weight": 21
+    },
+    {
+      "source": "child",
+      "target": "preschool",
+      "weight": 20
+    },
+    {
+      "source": "mendelian randomization",
+      "target": "physical activity",
+      "weight": 20
+    },
+    {
+      "source": "infant",
+      "target": "screen time",
+      "weight": 20
+    },
+    {
+      "source": "children",
+      "target": "diet",
+      "weight": 20
+    },
+    {
+      "source": "adolescent",
+      "target": "children",
+      "weight": 20
+    },
+    {
+      "source": "bmi",
+      "target": "obesity",
+      "weight": 20
+    },
+    {
+      "source": "depression",
+      "target": "sleep",
+      "weight": 19
+    },
+    {
+      "source": "physical activity",
+      "target": "preschoolers",
+      "weight": 19
+    },
+    {
+      "source": "body mass index",
+      "target": "obesity",
+      "weight": 19
+    },
+    {
+      "source": "adolescents",
+      "target": "anxiety",
+      "weight": 19
+    },
+    {
+      "source": "adolescent health",
+      "target": "screen time",
+      "weight": 19
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "screen time",
+      "weight": 19
+    },
+    {
+      "source": "children and adolescents",
+      "target": "physical activity",
+      "weight": 19
+    },
+    {
+      "source": "epidemiology",
+      "target": "screen time",
+      "weight": 19
+    },
+    {
+      "source": "parents",
+      "target": "physical activity",
+      "weight": 18
+    },
+    {
+      "source": "exercise",
+      "target": "obesity",
+      "weight": 18
+    },
+    {
+      "source": "physical activity",
+      "target": "physical fitness",
+      "weight": 18
+    },
+    {
+      "source": "obesity",
+      "target": "prevention",
+      "weight": 18
+    },
+    {
+      "source": "dietary habits",
+      "target": "physical activity",
+      "weight": 18
+    },
+    {
+      "source": "prevalence",
+      "target": "screen time",
+      "weight": 18
+    },
+    {
+      "source": "children",
+      "target": "television",
+      "weight": 18
+    },
+    {
+      "source": "covid-19",
+      "target": "public health",
+      "weight": 18
+    },
+    {
+      "source": "health",
+      "target": "screen time",
+      "weight": 18
+    },
+    {
+      "source": "health",
+      "target": "physical activity",
+      "weight": 18
+    },
+    {
+      "source": "childhood",
+      "target": "obesity",
+      "weight": 18
+    },
+    {
+      "source": "parenting",
+      "target": "physical activity",
+      "weight": 18
+    },
+    {
+      "source": "depression",
+      "target": "stress",
+      "weight": 17
+    },
+    {
+      "source": "anxiety",
+      "target": "sleep",
+      "weight": 17
+    },
+    {
+      "source": "adhd",
+      "target": "screen time",
+      "weight": 17
+    },
+    {
+      "source": "health behavior",
+      "target": "screen time",
+      "weight": 17
+    },
+    {
+      "source": "screen time",
+      "target": "technology",
+      "weight": 17
+    },
+    {
+      "source": "lifestyle",
+      "target": "sleep",
+      "weight": 17
+    },
+    {
+      "source": "longitudinal study",
+      "target": "screen time",
+      "weight": 17
+    },
+    {
+      "source": "bmi",
+      "target": "physical activity",
+      "weight": 17
+    },
+    {
+      "source": "mobile phone",
+      "target": "screen time",
+      "weight": 17
+    },
+    {
+      "source": "children",
+      "target": "preschool",
+      "weight": 17
+    },
+    {
+      "source": "epidemiology",
+      "target": "physical activity",
+      "weight": 17
+    },
+    {
+      "source": "bmi",
+      "target": "screen time",
+      "weight": 17
+    },
+    {
+      "source": "children",
+      "target": "exercise",
+      "weight": 17
+    },
+    {
+      "source": "nutrition",
+      "target": "obesity",
+      "weight": 17
+    },
+    {
+      "source": "physical activity",
+      "target": "quality of life",
+      "weight": 16
+    },
+    {
+      "source": "child health",
+      "target": "screen time",
+      "weight": 16
+    },
+    {
+      "source": "prevalence",
+      "target": "risk factors",
+      "weight": 16
+    },
+    {
+      "source": "adolescence",
+      "target": "sleep",
+      "weight": 16
+    },
+    {
+      "source": "adolescents",
+      "target": "diet",
+      "weight": 16
+    },
+    {
+      "source": "longitudinal",
+      "target": "physical activity",
+      "weight": 16
+    },
+    {
+      "source": "nutrition",
+      "target": "screen time",
+      "weight": 16
+    },
+    {
+      "source": "exercise",
+      "target": "television",
+      "weight": 16
+    },
+    {
+      "source": "screen time",
+      "target": "young children",
+      "weight": 15
+    },
+    {
+      "source": "mental health",
+      "target": "well-being",
+      "weight": 15
+    },
+    {
+      "source": "body mass index",
+      "target": "overweight",
+      "weight": 15
+    },
+    {
+      "source": "quality of life",
+      "target": "screen time",
+      "weight": 15
+    },
+    {
+      "source": "screen time",
+      "target": "stress",
+      "weight": 15
+    },
+    {
+      "source": "screen time",
+      "target": "systematic review",
+      "weight": 15
+    },
+    {
+      "source": "adolescents",
+      "target": "overweight",
+      "weight": 15
+    },
+    {
+      "source": "children",
+      "target": "covid-19 pandemic",
+      "weight": 15
+    },
+    {
+      "source": "early childhood",
+      "target": "physical activity",
+      "weight": 15
+    },
+    {
+      "source": "adolescent",
+      "target": "depression",
+      "weight": 15
+    },
+    {
+      "source": "covid-19",
+      "target": "obesity",
+      "weight": 15
+    },
+    {
+      "source": "pediatrics",
+      "target": "screen time",
+      "weight": 15
+    },
+    {
+      "source": "children",
+      "target": "sleep duration",
+      "weight": 15
+    },
+    {
+      "source": "intervention",
+      "target": "screen time",
+      "weight": 15
+    },
+    {
+      "source": "adolescent",
+      "target": "television",
+      "weight": 15
+    },
+    {
+      "source": "sedentary behaviour",
+      "target": "youth",
+      "weight": 15
+    },
+    {
+      "source": "children",
+      "target": "screen-time",
+      "weight": 15
+    },
+    {
+      "source": "covid-19",
+      "target": "sedentary behavior",
+      "weight": 15
+    },
+    {
+      "source": "television",
+      "target": "video games",
+      "weight": 15
+    },
+    {
+      "source": "pandemic",
+      "target": "physical activity",
+      "weight": 15
+    },
+    {
+      "source": "screen time",
+      "target": "sedentary",
+      "weight": 15
+    },
+    {
+      "source": "obesity",
+      "target": "pediatric",
+      "weight": 14
+    },
+    {
+      "source": "anxiety",
+      "target": "stress",
+      "weight": 14
+    },
+    {
+      "source": "physical activity",
+      "target": "stress",
+      "weight": 14
+    },
+    {
+      "source": "preschool",
+      "target": "sleep",
+      "weight": 14
+    },
+    {
+      "source": "screen time",
+      "target": "sitting",
+      "weight": 14
+    },
+    {
+      "source": "physical fitness",
+      "target": "screen time",
+      "weight": 14
+    },
+    {
+      "source": "obesity",
+      "target": "risk factors",
+      "weight": 14
+    },
+    {
+      "source": "adolescents",
+      "target": "body mass index",
+      "weight": 14
+    },
+    {
+      "source": "anxiety",
+      "target": "physical activity",
+      "weight": 14
+    },
+    {
+      "source": "childhood obesity",
+      "target": "diet",
+      "weight": 14
+    },
+    {
+      "source": "physical activity",
+      "target": "well-being",
+      "weight": 14
+    },
+    {
+      "source": "physical activity",
+      "target": "sedentary lifestyle",
+      "weight": 14
+    },
+    {
+      "source": "mental health",
+      "target": "sedentary behavior",
+      "weight": 14
+    },
+    {
+      "source": "physical activity",
+      "target": "sedentary",
+      "weight": 14
+    },
+    {
+      "source": "health behaviors",
+      "target": "physical activity",
+      "weight": 14
+    },
+    {
+      "source": "pediatric obesity",
+      "target": "screen time",
+      "weight": 14
+    },
+    {
+      "source": "public health",
+      "target": "sleep",
+      "weight": 14
+    },
+    {
+      "source": "early childhood",
+      "target": "sleep",
+      "weight": 14
+    },
+    {
+      "source": "diet",
+      "target": "lifestyle",
+      "weight": 14
+    },
+    {
+      "source": "coronavirus",
+      "target": "physical activity",
+      "weight": 14
+    },
+    {
+      "source": "adiposity",
+      "target": "physical activity",
+      "weight": 14
+    },
+    {
+      "source": "children",
+      "target": "parenting",
+      "weight": 14
+    },
+    {
+      "source": "lockdown",
+      "target": "screen time",
+      "weight": 14
+    },
+    {
+      "source": "adolescents",
+      "target": "sleep quality",
+      "weight": 13
+    },
+    {
+      "source": "saudi arabia",
+      "target": "screen time",
+      "weight": 13
+    },
+    {
+      "source": "children",
+      "target": "digital media",
+      "weight": 13
+    },
+    {
+      "source": "adolescence",
+      "target": "mental health",
+      "weight": 13
+    },
+    {
+      "source": "children",
+      "target": "social media",
+      "weight": 13
+    },
+    {
+      "source": "adolescence",
+      "target": "social media",
+      "weight": 13
+    },
+    {
+      "source": "obesity",
+      "target": "sedentary behaviour",
+      "weight": 13
+    },
+    {
+      "source": "children",
+      "target": "family",
+      "weight": 13
+    },
+    {
+      "source": "mental health",
+      "target": "sleep quality",
+      "weight": 13
+    },
+    {
+      "source": "social media",
+      "target": "well-being",
+      "weight": 13
+    },
+    {
+      "source": "anxiety",
+      "target": "children",
+      "weight": 13
+    },
+    {
+      "source": "obesity prevention",
+      "target": "physical activity",
+      "weight": 13
+    },
+    {
+      "source": "children",
+      "target": "sleep quality",
+      "weight": 13
+    },
+    {
+      "source": "obesity",
+      "target": "pediatrics",
+      "weight": 13
+    },
+    {
+      "source": "children",
+      "target": "nutrition",
+      "weight": 13
+    },
+    {
+      "source": "depression",
+      "target": "sedentary behavior",
+      "weight": 13
+    },
+    {
+      "source": "adolescents",
+      "target": "risk factors",
+      "weight": 13
+    },
+    {
+      "source": "family",
+      "target": "screen time",
+      "weight": 13
+    },
+    {
+      "source": "obesity",
+      "target": "youth",
+      "weight": 13
+    },
+    {
+      "source": "childhood",
+      "target": "physical activity",
+      "weight": 13
+    },
+    {
+      "source": "child",
+      "target": "television",
+      "weight": 13
+    },
+    {
+      "source": "coronavirus",
+      "target": "covid-19",
+      "weight": 13
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "screen time",
+      "degree_centrality": 1.0,
+      "closeness_centrality": 1.0,
+      "betweenness_centrality": 0.023917,
+      "eigenvector_centrality": 0.16094,
+      "clustering_coefficient": 0.527314
+    },
+    {
+      "keyword": "physical activity",
+      "degree_centrality": 0.979798,
+      "closeness_centrality": 0.980198,
+      "betweenness_centrality": 0.019783,
+      "eigenvector_centrality": 0.159541,
+      "clustering_coefficient": 0.539948
+    },
+    {
+      "keyword": "children",
+      "degree_centrality": 0.959596,
+      "closeness_centrality": 0.961165,
+      "betweenness_centrality": 0.017828,
+      "eigenvector_centrality": 0.157488,
+      "clustering_coefficient": 0.548936
+    },
+    {
+      "keyword": "sleep",
+      "degree_centrality": 0.949495,
+      "closeness_centrality": 0.951923,
+      "betweenness_centrality": 0.018039,
+      "eigenvector_centrality": 0.155862,
+      "clustering_coefficient": 0.549073
+    },
+    {
+      "keyword": "sedentary behavior",
+      "degree_centrality": 0.929293,
+      "closeness_centrality": 0.933962,
+      "betweenness_centrality": 0.017071,
+      "eigenvector_centrality": 0.152717,
+      "clustering_coefficient": 0.551123
+    },
+    {
+      "keyword": "obesity",
+      "degree_centrality": 0.909091,
+      "closeness_centrality": 0.916667,
+      "betweenness_centrality": 0.017665,
+      "eigenvector_centrality": 0.150613,
+      "clustering_coefficient": 0.561298
+    },
+    {
+      "keyword": "mental health",
+      "degree_centrality": 0.888889,
+      "closeness_centrality": 0.9,
+      "betweenness_centrality": 0.013875,
+      "eigenvector_centrality": 0.148574,
+      "clustering_coefficient": 0.571317
+    },
+    {
+      "keyword": "adolescents",
+      "degree_centrality": 0.868687,
+      "closeness_centrality": 0.883929,
+      "betweenness_centrality": 0.013327,
+      "eigenvector_centrality": 0.145866,
+      "clustering_coefficient": 0.575103
+    },
+    {
+      "keyword": "covid-19",
+      "degree_centrality": 0.868687,
+      "closeness_centrality": 0.883929,
+      "betweenness_centrality": 0.014764,
+      "eigenvector_centrality": 0.145432,
+      "clustering_coefficient": 0.572914
+    },
+    {
+      "keyword": "adolescent",
+      "degree_centrality": 0.838384,
+      "closeness_centrality": 0.86087,
+      "betweenness_centrality": 0.011783,
+      "eigenvector_centrality": 0.142253,
+      "clustering_coefficient": 0.586247
+    },
+    {
+      "keyword": "youth",
+      "degree_centrality": 0.818182,
+      "closeness_centrality": 0.846154,
+      "betweenness_centrality": 0.010522,
+      "eigenvector_centrality": 0.140395,
+      "clustering_coefficient": 0.603704
+    },
+    {
+      "keyword": "child",
+      "degree_centrality": 0.787879,
+      "closeness_centrality": 0.825,
+      "betweenness_centrality": 0.01086,
+      "eigenvector_centrality": 0.133819,
+      "clustering_coefficient": 0.590743
+    },
+    {
+      "keyword": "exercise",
+      "degree_centrality": 0.777778,
+      "closeness_centrality": 0.818182,
+      "betweenness_centrality": 0.008733,
+      "eigenvector_centrality": 0.135311,
+      "clustering_coefficient": 0.62201
+    },
+    {
+      "keyword": "diet",
+      "degree_centrality": 0.757576,
+      "closeness_centrality": 0.804878,
+      "betweenness_centrality": 0.008288,
+      "eigenvector_centrality": 0.131778,
+      "clustering_coefficient": 0.625225
+    },
+    {
+      "keyword": "public health",
+      "degree_centrality": 0.747475,
+      "closeness_centrality": 0.798387,
+      "betweenness_centrality": 0.009736,
+      "eigenvector_centrality": 0.129191,
+      "clustering_coefficient": 0.614957
+    },
+    {
+      "keyword": "depression",
+      "degree_centrality": 0.737374,
+      "closeness_centrality": 0.792,
+      "betweenness_centrality": 0.008647,
+      "eigenvector_centrality": 0.127365,
+      "clustering_coefficient": 0.617199
+    },
+    {
+      "keyword": "lifestyle",
+      "degree_centrality": 0.737374,
+      "closeness_centrality": 0.792,
+      "betweenness_centrality": 0.008891,
+      "eigenvector_centrality": 0.12738,
+      "clustering_coefficient": 0.615677
+    },
+    {
+      "keyword": "sedentary behaviour",
+      "degree_centrality": 0.707071,
+      "closeness_centrality": 0.773438,
+      "betweenness_centrality": 0.007352,
+      "eigenvector_centrality": 0.122984,
+      "clustering_coefficient": 0.619048
+    },
+    {
+      "keyword": "sleep duration",
+      "degree_centrality": 0.69697,
+      "closeness_centrality": 0.767442,
+      "betweenness_centrality": 0.007716,
+      "eigenvector_centrality": 0.119357,
+      "clustering_coefficient": 0.608269
+    },
+    {
+      "keyword": "overweight",
+      "degree_centrality": 0.686869,
+      "closeness_centrality": 0.761538,
+      "betweenness_centrality": 0.007307,
+      "eigenvector_centrality": 0.119036,
+      "clustering_coefficient": 0.617647
+    },
+    {
+      "keyword": "television",
+      "degree_centrality": 0.686869,
+      "closeness_centrality": 0.761538,
+      "betweenness_centrality": 0.006135,
+      "eigenvector_centrality": 0.121448,
+      "clustering_coefficient": 0.648815
+    },
+    {
+      "keyword": "body mass index",
+      "degree_centrality": 0.686869,
+      "closeness_centrality": 0.761538,
+      "betweenness_centrality": 0.00817,
+      "eigenvector_centrality": 0.117658,
+      "clustering_coefficient": 0.607112
+    },
+    {
+      "keyword": "social media",
+      "degree_centrality": 0.676768,
+      "closeness_centrality": 0.755725,
+      "betweenness_centrality": 0.006365,
+      "eigenvector_centrality": 0.118932,
+      "clustering_coefficient": 0.644957
+    },
+    {
+      "keyword": "nutrition",
+      "degree_centrality": 0.656566,
+      "closeness_centrality": 0.744361,
+      "betweenness_centrality": 0.006745,
+      "eigenvector_centrality": 0.112764,
+      "clustering_coefficient": 0.613462
+    },
+    {
+      "keyword": "childhood obesity",
+      "degree_centrality": 0.626263,
+      "closeness_centrality": 0.727941,
+      "betweenness_centrality": 0.005711,
+      "eigenvector_centrality": 0.108269,
+      "clustering_coefficient": 0.621893
+    },
+    {
+      "keyword": "adolescence",
+      "degree_centrality": 0.606061,
+      "closeness_centrality": 0.717391,
+      "betweenness_centrality": 0.004237,
+      "eigenvector_centrality": 0.11063,
+      "clustering_coefficient": 0.683616
+    },
+    {
+      "keyword": "risk factors",
+      "degree_centrality": 0.585859,
+      "closeness_centrality": 0.707143,
+      "betweenness_centrality": 0.007219,
+      "eigenvector_centrality": 0.099741,
+      "clustering_coefficient": 0.604356
+    },
+    {
+      "keyword": "epidemiology",
+      "degree_centrality": 0.585859,
+      "closeness_centrality": 0.707143,
+      "betweenness_centrality": 0.003468,
+      "eigenvector_centrality": 0.10841,
+      "clustering_coefficient": 0.707804
+    },
+    {
+      "keyword": "anxiety",
+      "degree_centrality": 0.575758,
+      "closeness_centrality": 0.702128,
+      "betweenness_centrality": 0.00415,
+      "eigenvector_centrality": 0.103283,
+      "clustering_coefficient": 0.672306
+    },
+    {
+      "keyword": "preschool",
+      "degree_centrality": 0.575758,
+      "closeness_centrality": 0.702128,
+      "betweenness_centrality": 0.00449,
+      "eigenvector_centrality": 0.102164,
+      "clustering_coefficient": 0.646617
+    },
+    {
+      "keyword": "parents",
+      "degree_centrality": 0.575758,
+      "closeness_centrality": 0.702128,
+      "betweenness_centrality": 0.003818,
+      "eigenvector_centrality": 0.104624,
+      "clustering_coefficient": 0.688596
+    },
+    {
+      "keyword": "parenting",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.697183,
+      "betweenness_centrality": 0.003109,
+      "eigenvector_centrality": 0.10395,
+      "clustering_coefficient": 0.715584
+    },
+    {
+      "keyword": "smartphone",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.697183,
+      "betweenness_centrality": 0.004494,
+      "eigenvector_centrality": 0.103011,
+      "clustering_coefficient": 0.686364
+    },
+    {
+      "keyword": "pandemic",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.697183,
+      "betweenness_centrality": 0.003527,
+      "eigenvector_centrality": 0.103202,
+      "clustering_coefficient": 0.694805
+    },
+    {
+      "keyword": "screen use",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.697183,
+      "betweenness_centrality": 0.003514,
+      "eigenvector_centrality": 0.103714,
+      "clustering_coefficient": 0.698701
+    },
+    {
+      "keyword": "health promotion",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.003531,
+      "eigenvector_centrality": 0.102254,
+      "clustering_coefficient": 0.692929
+    },
+    {
+      "keyword": "health",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.003067,
+      "eigenvector_centrality": 0.102686,
+      "clustering_coefficient": 0.713805
+    },
+    {
+      "keyword": "well-being",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.003237,
+      "eigenvector_centrality": 0.102609,
+      "clustering_coefficient": 0.705724
+    },
+    {
+      "keyword": "childhood",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.003654,
+      "eigenvector_centrality": 0.101182,
+      "clustering_coefficient": 0.686195
+    },
+    {
+      "keyword": "digital media",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.003946,
+      "eigenvector_centrality": 0.097347,
+      "clustering_coefficient": 0.66457
+    },
+    {
+      "keyword": "prevention",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.003617,
+      "eigenvector_centrality": 0.10058,
+      "clustering_coefficient": 0.697414
+    },
+    {
+      "keyword": "technology",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.003363,
+      "eigenvector_centrality": 0.099418,
+      "clustering_coefficient": 0.699511
+    },
+    {
+      "keyword": "bmi",
+      "degree_centrality": 0.535354,
+      "closeness_centrality": 0.682759,
+      "betweenness_centrality": 0.004268,
+      "eigenvector_centrality": 0.093836,
+      "clustering_coefficient": 0.630624
+    },
+    {
+      "keyword": "stress",
+      "degree_centrality": 0.535354,
+      "closeness_centrality": 0.682759,
+      "betweenness_centrality": 0.003139,
+      "eigenvector_centrality": 0.098365,
+      "clustering_coefficient": 0.698839
+    },
+    {
+      "keyword": "sleep quality",
+      "degree_centrality": 0.525253,
+      "closeness_centrality": 0.678082,
+      "betweenness_centrality": 0.003345,
+      "eigenvector_centrality": 0.095311,
+      "clustering_coefficient": 0.687783
+    },
+    {
+      "keyword": "health behavior",
+      "degree_centrality": 0.525253,
+      "closeness_centrality": 0.678082,
+      "betweenness_centrality": 0.003063,
+      "eigenvector_centrality": 0.09639,
+      "clustering_coefficient": 0.696078
+    },
+    {
+      "keyword": "family",
+      "degree_centrality": 0.525253,
+      "closeness_centrality": 0.678082,
+      "betweenness_centrality": 0.002594,
+      "eigenvector_centrality": 0.098059,
+      "clustering_coefficient": 0.717195
+    },
+    {
+      "keyword": "screen-time",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.003396,
+      "eigenvector_centrality": 0.092771,
+      "clustering_coefficient": 0.669804
+    },
+    {
+      "keyword": "video games",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.002924,
+      "eigenvector_centrality": 0.093735,
+      "clustering_coefficient": 0.683922
+    },
+    {
+      "keyword": "internet",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.003505,
+      "eigenvector_centrality": 0.095465,
+      "clustering_coefficient": 0.715294
+    },
+    {
+      "keyword": "covid-19 pandemic",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.002667,
+      "eigenvector_centrality": 0.093778,
+      "clustering_coefficient": 0.712653
+    },
+    {
+      "keyword": "pediatrics",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.0025,
+      "eigenvector_centrality": 0.093902,
+      "clustering_coefficient": 0.718367
+    },
+    {
+      "keyword": "intervention",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.003054,
+      "eigenvector_centrality": 0.091359,
+      "clustering_coefficient": 0.680816
+    },
+    {
+      "keyword": "sedentary lifestyle",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.00364,
+      "eigenvector_centrality": 0.090505,
+      "clustering_coefficient": 0.662041
+    },
+    {
+      "keyword": "students",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.003086,
+      "eigenvector_centrality": 0.09207,
+      "clustering_coefficient": 0.727041
+    },
+    {
+      "keyword": "child health",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.002056,
+      "eigenvector_centrality": 0.091854,
+      "clustering_coefficient": 0.740248
+    },
+    {
+      "keyword": "media",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.002252,
+      "eigenvector_centrality": 0.090971,
+      "clustering_coefficient": 0.728723
+    },
+    {
+      "keyword": "health behaviors",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.003034,
+      "eigenvector_centrality": 0.087417,
+      "clustering_coefficient": 0.672872
+    },
+    {
+      "keyword": "quality of life",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.002505,
+      "eigenvector_centrality": 0.089442,
+      "clustering_coefficient": 0.718085
+    },
+    {
+      "keyword": "preschool children",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.003243,
+      "eigenvector_centrality": 0.083315,
+      "clustering_coefficient": 0.644773
+    },
+    {
+      "keyword": "mobile phone",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.002542,
+      "eigenvector_centrality": 0.087095,
+      "clustering_coefficient": 0.688252
+    },
+    {
+      "keyword": "prevalence",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.00303,
+      "eigenvector_centrality": 0.085534,
+      "clustering_coefficient": 0.708213
+    },
+    {
+      "keyword": "myopia",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.002675,
+      "eigenvector_centrality": 0.082203,
+      "clustering_coefficient": 0.69596
+    },
+    {
+      "keyword": "children and adolescents",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.003187,
+      "eigenvector_centrality": 0.077577,
+      "clustering_coefficient": 0.607071
+    },
+    {
+      "keyword": "adiposity",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.00236,
+      "eigenvector_centrality": 0.082854,
+      "clustering_coefficient": 0.69798
+    },
+    {
+      "keyword": "sedentary",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.002698,
+      "eigenvector_centrality": 0.084135,
+      "clustering_coefficient": 0.70202
+    },
+    {
+      "keyword": "pediatric",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.002576,
+      "eigenvector_centrality": 0.08677,
+      "clustering_coefficient": 0.742424
+    },
+    {
+      "keyword": "physical fitness",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.002104,
+      "eigenvector_centrality": 0.081761,
+      "clustering_coefficient": 0.700846
+    },
+    {
+      "keyword": "systematic review",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.002042,
+      "eigenvector_centrality": 0.082703,
+      "clustering_coefficient": 0.705074
+    },
+    {
+      "keyword": "school",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.001613,
+      "eigenvector_centrality": 0.08084,
+      "clustering_coefficient": 0.745645
+    },
+    {
+      "keyword": "early childhood",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.002386,
+      "eigenvector_centrality": 0.073307,
+      "clustering_coefficient": 0.663415
+    },
+    {
+      "keyword": "child development",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.001987,
+      "eigenvector_centrality": 0.074226,
+      "clustering_coefficient": 0.679268
+    },
+    {
+      "keyword": "young adults",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.001281,
+      "eigenvector_centrality": 0.079615,
+      "clustering_coefficient": 0.770732
+    },
+    {
+      "keyword": "longitudinal",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.00153,
+      "eigenvector_centrality": 0.079789,
+      "clustering_coefficient": 0.746341
+    },
+    {
+      "keyword": "media use",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.00146,
+      "eigenvector_centrality": 0.078782,
+      "clustering_coefficient": 0.75
+    },
+    {
+      "keyword": "lifestyle behaviors",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.002173,
+      "eigenvector_centrality": 0.074163,
+      "clustering_coefficient": 0.690244
+    },
+    {
+      "keyword": "preschoolers",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.002112,
+      "eigenvector_centrality": 0.073184,
+      "clustering_coefficient": 0.662821
+    },
+    {
+      "keyword": "adolescent health",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.001489,
+      "eigenvector_centrality": 0.076534,
+      "clustering_coefficient": 0.742308
+    },
+    {
+      "keyword": "infant",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.001303,
+      "eigenvector_centrality": 0.07568,
+      "clustering_coefficient": 0.747436
+    },
+    {
+      "keyword": "sedentary time",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.001813,
+      "eigenvector_centrality": 0.069589,
+      "clustering_coefficient": 0.698435
+    },
+    {
+      "keyword": "lockdown",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.001241,
+      "eigenvector_centrality": 0.073209,
+      "clustering_coefficient": 0.758179
+    },
+    {
+      "keyword": "coronavirus",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.001127,
+      "eigenvector_centrality": 0.071369,
+      "clustering_coefficient": 0.761261
+    },
+    {
+      "keyword": "china",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001324,
+      "eigenvector_centrality": 0.06797,
+      "clustering_coefficient": 0.749206
+    },
+    {
+      "keyword": "meta-analysis",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001699,
+      "eigenvector_centrality": 0.063685,
+      "clustering_coefficient": 0.671429
+    },
+    {
+      "keyword": "dietary habits",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.000989,
+      "eigenvector_centrality": 0.069801,
+      "clustering_coefficient": 0.77619
+    },
+    {
+      "keyword": "longitudinal study",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.00135,
+      "eigenvector_centrality": 0.067861,
+      "clustering_coefficient": 0.728571
+    },
+    {
+      "keyword": "pediatric obesity",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.001581,
+      "eigenvector_centrality": 0.06501,
+      "clustering_coefficient": 0.692437
+    },
+    {
+      "keyword": "saudi arabia",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.001053,
+      "eigenvector_centrality": 0.06677,
+      "clustering_coefficient": 0.756303
+    },
+    {
+      "keyword": "screen exposure",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.001335,
+      "eigenvector_centrality": 0.063225,
+      "clustering_coefficient": 0.7041
+    },
+    {
+      "keyword": "mediterranean diet",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.001184,
+      "eigenvector_centrality": 0.06174,
+      "clustering_coefficient": 0.732955
+    },
+    {
+      "keyword": "sitting",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.000797,
+      "eigenvector_centrality": 0.064694,
+      "clustering_coefficient": 0.791667
+    },
+    {
+      "keyword": "adhd",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.001328,
+      "eigenvector_centrality": 0.062707,
+      "clustering_coefficient": 0.725379
+    },
+    {
+      "keyword": "academic performance",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.596386,
+      "betweenness_centrality": 0.001039,
+      "eigenvector_centrality": 0.060081,
+      "clustering_coefficient": 0.727823
+    },
+    {
+      "keyword": "depressive symptoms",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.596386,
+      "betweenness_centrality": 0.000582,
+      "eigenvector_centrality": 0.06389,
+      "clustering_coefficient": 0.828629
+    },
+    {
+      "keyword": "metabolic syndrome",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.001051,
+      "eigenvector_centrality": 0.057423,
+      "clustering_coefficient": 0.724731
+    },
+    {
+      "keyword": "autism spectrum disorder",
+      "degree_centrality": 0.30303,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.001141,
+      "eigenvector_centrality": 0.056863,
+      "clustering_coefficient": 0.74023
+    },
+    {
+      "keyword": "young children",
+      "degree_centrality": 0.282828,
+      "closeness_centrality": 0.582353,
+      "betweenness_centrality": 0.00074,
+      "eigenvector_centrality": 0.053159,
+      "clustering_coefficient": 0.746032
+    },
+    {
+      "keyword": "obesity prevention",
+      "degree_centrality": 0.272727,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.000553,
+      "eigenvector_centrality": 0.05243,
+      "clustering_coefficient": 0.777778
+    },
+    {
+      "keyword": "mendelian randomization",
+      "degree_centrality": 0.161616,
+      "closeness_centrality": 0.543956,
+      "betweenness_centrality": 0.000212,
+      "eigenvector_centrality": 0.031819,
+      "clustering_coefficient": 0.783333
+    },
+    {
+      "keyword": "digital eye strain",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.526596,
+      "betweenness_centrality": 5.5e-05,
+      "eigenvector_centrality": 0.019624,
+      "clustering_coefficient": 0.822222
+    }
+  ]
+}

@@ -2,7 +2,9 @@ import React from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
 import { useTheme } from '@/components/theme-provider'
+import { useSidebar } from '@/context/SidebarContext'
 import { 
+  Bars3Icon,
   MoonIcon, 
   SunIcon, 
   CogIcon,
@@ -14,10 +16,21 @@ import { motion } from 'framer-motion'
 export function Navbar() {
   const { theme, setTheme } = useTheme()
   const location = useLocation()
+  const { isCollapsed, toggleCollapse, isMobileOpen, toggleMobileOpen } = useSidebar()
 
   const toggleTheme = () => {
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
+
+  const handleToggle = () => {
+    if (window.innerWidth < 768) {
+      toggleMobileOpen()
+    } else {
+      toggleCollapse()
+    }
+  }
+
+  const isNavActive = typeof window !== 'undefined' && window.innerWidth < 768 ? isMobileOpen : !isCollapsed
 
   return (
     <motion.nav 
@@ -27,18 +40,33 @@ export function Navbar() {
     >
       <div className="px-6 py-4">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <Link to="/" className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">RR</span>
-            </div>
-            <span className="text-xl font-bold gradient-text">
-              Research Rover
-            </span>
-          </Link>
+          {/* Brand & Hamburger button */}
+          <div className="flex items-center space-x-3">
+            <button
+              type="button"
+              onClick={handleToggle}
+              className="p-2 -ml-2 rounded-xl text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-gray-900 dark:hover:text-white transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500"
+              aria-label={isNavActive ? 'Collapse navigation' : 'Expand navigation'}
+              title={isNavActive ? 'Collapse navigation' : 'Expand navigation'}
+            >
+              <Bars3Icon className="h-6 w-6" />
+            </button>
+
+            {/* Logo */}
+            <Link to="/" className="flex items-center space-x-3 group">
+              <img
+                src="/assets/research-rover-logo.png"
+                alt="Research ROVER"
+                className="h-8 w-auto object-contain transition-transform group-hover:scale-105"
+              />
+              <span className="text-xl font-bold gradient-text">
+                Research Rover
+              </span>
+            </Link>
+          </div>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-7">
             <NavLink to="/" active={location.pathname === '/'}>
               Home
             </NavLink>

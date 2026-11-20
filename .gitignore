@@ -1,8 +1,30 @@
+# Environment & secrets
 secrets.txt
 .env
-frontend/node_modules
+.env.*
+
+# Dependencies
+frontend/node_modules/
 backend/.venv/
+.venv/
+venv/
+
+# Python compiled bytecode & caches
 **/__pycache__/
 *.pyc
+*.pyo
+.pytest_cache/
+backend/.pytest_cache/
+
+# Frontend build outputs
+frontend/dist/
+
+# Logs & telemetry
+logs/
+*.log
 backend/logs/
-data/
+**/edge_profile/
+
+# Temporary & backup datasets
+*.backup
+*.tmp

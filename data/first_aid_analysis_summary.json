@@ -1,0 +1,2676 @@
+{
+  "filename": "first_aid.csv",
+  "source_file": "first_aid.csv",
+  "total_papers": 100,
+  "papers_with_keywords": 87,
+  "papers_with_country_data": 96,
+  "unique_countries": 40,
+  "unique_keywords": 406,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "first_aid_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "first_aid_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "first_aid_analysis_keyword_presence_matrix.csv",
+  "summary_file": "first_aid_analysis_summary.json",
+  "generated_at": 1790697264.5605533,
+  "keyword_frequency": [
+    {
+      "keyword": "first aid",
+      "frequency": 9,
+      "percentage": 9.0
+    },
+    {
+      "keyword": "mental health first aid",
+      "frequency": 8,
+      "percentage": 8.0
+    },
+    {
+      "keyword": "psychological first aid",
+      "frequency": 8,
+      "percentage": 8.0
+    },
+    {
+      "keyword": "mental health",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "knowledge",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "stigma",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "mental health literacy",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "attitudes",
+      "frequency": 4,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "ptsd",
+      "frequency": 4,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "emergency medicine",
+      "frequency": 4,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "cardiopulmonary resuscitation",
+      "frequency": 4,
+      "percentage": 4.0
+    },
+    {
+      "keyword": "peer support",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "basic life support",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "children",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "education",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "prevention",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "trauma",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "choking",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "emergency care",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "evidence‐based",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "prehospital",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "emergencies",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "artificial intelligence",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "child",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "health education",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "parents",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "primeros auxilios",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "soporte vital básico",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "training",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "stress",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "nursing students",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "quasi-experimental study",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "self-efficacy",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "automated external defibrillator",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "heat stroke",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "working dogs",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "clinical guidelines",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "seizure first aid",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "barriers",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "prehospital emergency care",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "mixed-methods study",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "pilot study",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "disaster preparedness",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "dental trauma",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "tooth avulsion",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "epilepsy",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "toothsos",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "anxiety",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "depression",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "natural disaster",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "qualitative research",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "cardiac arrest",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "quality of life",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "neonatal transport",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "burnout",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "imaging workforce",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "psychological safety",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "radiographer education",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "radiologic technology",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "healthcare",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "stress first aid",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "stress injuries",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "singapore resuscitation and first aid council",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "guideline",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "injuries",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "natural language processing",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "china",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "ethnic and racial minorities",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "latent class analysis",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "student health services",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "palestine",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "and practices",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "children under 5",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "cross-sectional study",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "home injuries",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "civil servants",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "health literacy",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "health promotion",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "knowledge, attitudes, and behaviors",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "public health",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "workplace prevention",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "educación",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "entrenamiento",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "niños",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "emotion-focused adolescents",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "hsn",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "interpersonal emotion regulation",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "suicidal behaviour",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "curriculum design & development",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "medical education",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "student partnership",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "alapszintű újraélesztés",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "automata külső defibrillátor",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "dispatcher-assisted cardiopulmonary resuscitation",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "elsősegélynyújtás",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "kórházon kívüli keringésmegállás",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "laikus újraélesztés",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "lay resuscitation",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "mentésirányítás",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "out-of-hospital cardiac arrest",
+      "frequency": 1,
+      "percentage": 1.0
+    }
+  ],
+  "matrix_keywords": [
+    "first aid",
+    "mental health first aid",
+    "psychological first aid",
+    "mental health",
+    "knowledge",
+    "stigma",
+    "mental health literacy",
+    "attitudes",
+    "ptsd",
+    "emergency medicine",
+    "cardiopulmonary resuscitation",
+    "peer support",
+    "basic life support",
+    "children",
+    "education",
+    "prevention",
+    "trauma",
+    "choking",
+    "emergency care",
+    "evidence‐based",
+    "prehospital",
+    "emergencies",
+    "artificial intelligence",
+    "child",
+    "health education",
+    "parents",
+    "primeros auxilios",
+    "soporte vital básico",
+    "training",
+    "stress",
+    "nursing students",
+    "quasi-experimental study",
+    "self-efficacy",
+    "automated external defibrillator",
+    "heat stroke",
+    "working dogs",
+    "clinical guidelines",
+    "seizure first aid",
+    "barriers",
+    "prehospital emergency care",
+    "mixed-methods study",
+    "pilot study",
+    "disaster preparedness",
+    "dental trauma",
+    "tooth avulsion",
+    "epilepsy",
+    "toothsos",
+    "anxiety",
+    "depression",
+    "natural disaster",
+    "qualitative research",
+    "cardiac arrest",
+    "quality of life",
+    "neonatal transport",
+    "burnout",
+    "imaging workforce",
+    "psychological safety",
+    "radiographer education",
+    "radiologic technology",
+    "healthcare",
+    "stress first aid",
+    "stress injuries",
+    "singapore resuscitation and first aid council",
+    "guideline",
+    "injuries",
+    "natural language processing",
+    "china",
+    "ethnic and racial minorities",
+    "latent class analysis",
+    "student health services",
+    "palestine",
+    "and practices",
+    "children under 5",
+    "cross-sectional study",
+    "home injuries",
+    "civil servants",
+    "health literacy",
+    "health promotion",
+    "knowledge, attitudes, and behaviors",
+    "public health",
+    "workplace prevention",
+    "educación",
+    "entrenamiento",
+    "niños",
+    "emotion-focused adolescents",
+    "hsn",
+    "interpersonal emotion regulation",
+    "suicidal behaviour",
+    "curriculum design & development",
+    "medical education",
+    "student partnership",
+    "alapszintű újraélesztés",
+    "automata külső defibrillátor",
+    "dispatcher-assisted cardiopulmonary resuscitation",
+    "elsősegélynyújtás",
+    "kórházon kívüli keringésmegállás",
+    "laikus újraélesztés",
+    "lay resuscitation",
+    "mentésirányítás",
+    "out-of-hospital cardiac arrest"
+  ],
+  "matrix_rows": 100,
+  "matrix_columns": 100,
+  "cooccurrence_edges": [
+    {
+      "source": "mental health first aid",
+      "target": "mental health literacy",
+      "weight": 4
+    },
+    {
+      "source": "attitudes",
+      "target": "knowledge",
+      "weight": 3
+    },
+    {
+      "source": "emergency care",
+      "target": "emergency medicine",
+      "weight": 3
+    },
+    {
+      "source": "emergency care",
+      "target": "evidence‐based",
+      "weight": 3
+    },
+    {
+      "source": "emergency care",
+      "target": "prehospital",
+      "weight": 3
+    },
+    {
+      "source": "emergency medicine",
+      "target": "evidence‐based",
+      "weight": 3
+    },
+    {
+      "source": "emergency medicine",
+      "target": "prehospital",
+      "weight": 3
+    },
+    {
+      "source": "evidence‐based",
+      "target": "prehospital",
+      "weight": 3
+    },
+    {
+      "source": "mental health",
+      "target": "mental health first aid",
+      "weight": 2
+    },
+    {
+      "source": "mental health first aid",
+      "target": "stigma",
+      "weight": 2
+    },
+    {
+      "source": "basic life support",
+      "target": "first aid",
+      "weight": 2
+    },
+    {
+      "source": "basic life support",
+      "target": "soporte vital básico",
+      "weight": 2
+    },
+    {
+      "source": "education",
+      "target": "first aid",
+      "weight": 2
+    },
+    {
+      "source": "first aid",
+      "target": "primeros auxilios",
+      "weight": 2
+    },
+    {
+      "source": "psychological first aid",
+      "target": "trauma",
+      "weight": 2
+    },
+    {
+      "source": "ptsd",
+      "target": "stress",
+      "weight": 2
+    },
+    {
+      "source": "mental health first aid",
+      "target": "nursing students",
+      "weight": 2
+    },
+    {
+      "source": "mental health first aid",
+      "target": "quasi-experimental study",
+      "weight": 2
+    },
+    {
+      "source": "mental health first aid",
+      "target": "self-efficacy",
+      "weight": 2
+    },
+    {
+      "source": "mental health literacy",
+      "target": "nursing students",
+      "weight": 2
+    },
+    {
+      "source": "mental health literacy",
+      "target": "quasi-experimental study",
+      "weight": 2
+    },
+    {
+      "source": "mental health literacy",
+      "target": "self-efficacy",
+      "weight": 2
+    },
+    {
+      "source": "nursing students",
+      "target": "quasi-experimental study",
+      "weight": 2
+    },
+    {
+      "source": "nursing students",
+      "target": "self-efficacy",
+      "weight": 2
+    },
+    {
+      "source": "quasi-experimental study",
+      "target": "self-efficacy",
+      "weight": 2
+    },
+    {
+      "source": "choking",
+      "target": "emergency care",
+      "weight": 2
+    },
+    {
+      "source": "choking",
+      "target": "emergency medicine",
+      "weight": 2
+    },
+    {
+      "source": "choking",
+      "target": "evidence‐based",
+      "weight": 2
+    },
+    {
+      "source": "choking",
+      "target": "heat stroke",
+      "weight": 2
+    },
+    {
+      "source": "choking",
+      "target": "prehospital",
+      "weight": 2
+    },
+    {
+      "source": "choking",
+      "target": "working dogs",
+      "weight": 2
+    },
+    {
+      "source": "emergency care",
+      "target": "heat stroke",
+      "weight": 2
+    },
+    {
+      "source": "emergency care",
+      "target": "working dogs",
+      "weight": 2
+    },
+    {
+      "source": "emergency medicine",
+      "target": "heat stroke",
+      "weight": 2
+    },
+    {
+      "source": "emergency medicine",
+      "target": "working dogs",
+      "weight": 2
+    },
+    {
+      "source": "evidence‐based",
+      "target": "heat stroke",
+      "weight": 2
+    },
+    {
+      "source": "evidence‐based",
+      "target": "working dogs",
+      "weight": 2
+    },
+    {
+      "source": "heat stroke",
+      "target": "prehospital",
+      "weight": 2
+    },
+    {
+      "source": "heat stroke",
+      "target": "working dogs",
+      "weight": 2
+    },
+    {
+      "source": "prehospital",
+      "target": "working dogs",
+      "weight": 2
+    },
+    {
+      "source": "clinical guidelines",
+      "target": "emergency care",
+      "weight": 2
+    },
+    {
+      "source": "clinical guidelines",
+      "target": "emergency medicine",
+      "weight": 2
+    },
+    {
+      "source": "clinical guidelines",
+      "target": "evidence‐based",
+      "weight": 2
+    },
+    {
+      "source": "clinical guidelines",
+      "target": "prehospital",
+      "weight": 2
+    },
+    {
+      "source": "dental trauma",
+      "target": "tooth avulsion",
+      "weight": 2
+    },
+    {
+      "source": "epilepsy",
+      "target": "knowledge",
+      "weight": 2
+    },
+    {
+      "source": "epilepsy",
+      "target": "stigma",
+      "weight": 2
+    },
+    {
+      "source": "knowledge",
+      "target": "stigma",
+      "weight": 2
+    },
+    {
+      "source": "anxiety",
+      "target": "depression",
+      "weight": 2
+    },
+    {
+      "source": "anxiety",
+      "target": "ptsd",
+      "weight": 2
+    },
+    {
+      "source": "depression",
+      "target": "ptsd",
+      "weight": 2
+    },
+    {
+      "source": "natural disaster",
+      "target": "ptsd",
+      "weight": 2
+    },
+    {
+      "source": "psychological first aid",
+      "target": "qualitative research",
+      "weight": 2
+    },
+    {
+      "source": "cardiac arrest",
+      "target": "cardiopulmonary resuscitation",
+      "weight": 2
+    },
+    {
+      "source": "burnout",
+      "target": "imaging workforce",
+      "weight": 1
+    },
+    {
+      "source": "burnout",
+      "target": "mental health first aid",
+      "weight": 1
+    },
+    {
+      "source": "burnout",
+      "target": "psychological safety",
+      "weight": 1
+    },
+    {
+      "source": "burnout",
+      "target": "radiographer education",
+      "weight": 1
+    },
+    {
+      "source": "burnout",
+      "target": "radiologic technology",
+      "weight": 1
+    },
+    {
+      "source": "imaging workforce",
+      "target": "mental health first aid",
+      "weight": 1
+    },
+    {
+      "source": "imaging workforce",
+      "target": "psychological safety",
+      "weight": 1
+    },
+    {
+      "source": "imaging workforce",
+      "target": "radiographer education",
+      "weight": 1
+    },
+    {
+      "source": "imaging workforce",
+      "target": "radiologic technology",
+      "weight": 1
+    },
+    {
+      "source": "mental health first aid",
+      "target": "psychological safety",
+      "weight": 1
+    },
+    {
+      "source": "mental health first aid",
+      "target": "radiographer education",
+      "weight": 1
+    },
+    {
+      "source": "mental health first aid",
+      "target": "radiologic technology",
+      "weight": 1
+    },
+    {
+      "source": "psychological safety",
+      "target": "radiographer education",
+      "weight": 1
+    },
+    {
+      "source": "psychological safety",
+      "target": "radiologic technology",
+      "weight": 1
+    },
+    {
+      "source": "radiographer education",
+      "target": "radiologic technology",
+      "weight": 1
+    },
+    {
+      "source": "healthcare",
+      "target": "peer support",
+      "weight": 1
+    },
+    {
+      "source": "healthcare",
+      "target": "psychological first aid",
+      "weight": 1
+    },
+    {
+      "source": "healthcare",
+      "target": "stress first aid",
+      "weight": 1
+    },
+    {
+      "source": "healthcare",
+      "target": "stress injuries",
+      "weight": 1
+    },
+    {
+      "source": "peer support",
+      "target": "psychological first aid",
+      "weight": 1
+    },
+    {
+      "source": "peer support",
+      "target": "stress first aid",
+      "weight": 1
+    },
+    {
+      "source": "peer support",
+      "target": "stress injuries",
+      "weight": 1
+    },
+    {
+      "source": "psychological first aid",
+      "target": "stress first aid",
+      "weight": 1
+    },
+    {
+      "source": "psychological first aid",
+      "target": "stress injuries",
+      "weight": 1
+    },
+    {
+      "source": "stress first aid",
+      "target": "stress injuries",
+      "weight": 1
+    },
+    {
+      "source": "emergencies",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "emergencies",
+      "target": "guideline",
+      "weight": 1
+    },
+    {
+      "source": "emergencies",
+      "target": "injuries",
+      "weight": 1
+    },
+    {
+      "source": "emergencies",
+      "target": "singapore resuscitation and first aid council",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "guideline",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "injuries",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "singapore resuscitation and first aid council",
+      "weight": 1
+    },
+    {
+      "source": "guideline",
+      "target": "injuries",
+      "weight": 1
+    },
+    {
+      "source": "guideline",
+      "target": "singapore resuscitation and first aid council",
+      "weight": 1
+    },
+    {
+      "source": "injuries",
+      "target": "singapore resuscitation and first aid council",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "child",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "natural language processing",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "natural language processing",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "natural language processing",
+      "weight": 1
+    },
+    {
+      "source": "china",
+      "target": "ethnic and racial minorities",
+      "weight": 1
+    },
+    {
+      "source": "china",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "china",
+      "target": "health education",
+      "weight": 1
+    },
+    {
+      "source": "china",
+      "target": "latent class analysis",
+      "weight": 1
+    },
+    {
+      "source": "china",
+      "target": "student health services",
+      "weight": 1
+    },
+    {
+      "source": "ethnic and racial minorities",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "ethnic and racial minorities",
+      "target": "health education",
+      "weight": 1
+    },
+    {
+      "source": "ethnic and racial minorities",
+      "target": "latent class analysis",
+      "weight": 1
+    },
+    {
+      "source": "ethnic and racial minorities",
+      "target": "student health services",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "health education",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "latent class analysis",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "student health services",
+      "weight": 1
+    },
+    {
+      "source": "health education",
+      "target": "latent class analysis",
+      "weight": 1
+    },
+    {
+      "source": "health education",
+      "target": "student health services",
+      "weight": 1
+    },
+    {
+      "source": "latent class analysis",
+      "target": "student health services",
+      "weight": 1
+    },
+    {
+      "source": "and practices",
+      "target": "attitudes",
+      "weight": 1
+    },
+    {
+      "source": "and practices",
+      "target": "children under 5",
+      "weight": 1
+    },
+    {
+      "source": "and practices",
+      "target": "cross-sectional study",
+      "weight": 1
+    },
+    {
+      "source": "and practices",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "and practices",
+      "target": "home injuries",
+      "weight": 1
+    },
+    {
+      "source": "and practices",
+      "target": "knowledge",
+      "weight": 1
+    },
+    {
+      "source": "and practices",
+      "target": "palestine",
+      "weight": 1
+    },
+    {
+      "source": "and practices",
+      "target": "parents",
+      "weight": 1
+    },
+    {
+      "source": "attitudes",
+      "target": "children under 5",
+      "weight": 1
+    },
+    {
+      "source": "attitudes",
+      "target": "cross-sectional study",
+      "weight": 1
+    },
+    {
+      "source": "attitudes",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "attitudes",
+      "target": "home injuries",
+      "weight": 1
+    },
+    {
+      "source": "attitudes",
+      "target": "palestine",
+      "weight": 1
+    },
+    {
+      "source": "attitudes",
+      "target": "parents",
+      "weight": 1
+    },
+    {
+      "source": "children under 5",
+      "target": "cross-sectional study",
+      "weight": 1
+    },
+    {
+      "source": "children under 5",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "children under 5",
+      "target": "home injuries",
+      "weight": 1
+    },
+    {
+      "source": "children under 5",
+      "target": "knowledge",
+      "weight": 1
+    },
+    {
+      "source": "children under 5",
+      "target": "palestine",
+      "weight": 1
+    },
+    {
+      "source": "children under 5",
+      "target": "parents",
+      "weight": 1
+    },
+    {
+      "source": "cross-sectional study",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "cross-sectional study",
+      "target": "home injuries",
+      "weight": 1
+    },
+    {
+      "source": "cross-sectional study",
+      "target": "knowledge",
+      "weight": 1
+    },
+    {
+      "source": "cross-sectional study",
+      "target": "palestine",
+      "weight": 1
+    },
+    {
+      "source": "cross-sectional study",
+      "target": "parents",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "home injuries",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "knowledge",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "palestine",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "parents",
+      "weight": 1
+    },
+    {
+      "source": "home injuries",
+      "target": "knowledge",
+      "weight": 1
+    },
+    {
+      "source": "home injuries",
+      "target": "palestine",
+      "weight": 1
+    },
+    {
+      "source": "home injuries",
+      "target": "parents",
+      "weight": 1
+    },
+    {
+      "source": "knowledge",
+      "target": "palestine",
+      "weight": 1
+    },
+    {
+      "source": "knowledge",
+      "target": "parents",
+      "weight": 1
+    },
+    {
+      "source": "palestine",
+      "target": "parents",
+      "weight": 1
+    },
+    {
+      "source": "civil servants",
+      "target": "health literacy",
+      "weight": 1
+    },
+    {
+      "source": "civil servants",
+      "target": "health promotion",
+      "weight": 1
+    },
+    {
+      "source": "civil servants",
+      "target": "knowledge, attitudes, and behaviors",
+      "weight": 1
+    },
+    {
+      "source": "civil servants",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "civil servants",
+      "target": "mental health first aid",
+      "weight": 1
+    },
+    {
+      "source": "civil servants",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "civil servants",
+      "target": "stigma",
+      "weight": 1
+    },
+    {
+      "source": "civil servants",
+      "target": "workplace prevention",
+      "weight": 1
+    },
+    {
+      "source": "health literacy",
+      "target": "health promotion",
+      "weight": 1
+    },
+    {
+      "source": "health literacy",
+      "target": "knowledge, attitudes, and behaviors",
+      "weight": 1
+    },
+    {
+      "source": "health literacy",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "health literacy",
+      "target": "mental health first aid",
+      "weight": 1
+    },
+    {
+      "source": "health literacy",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "health literacy",
+      "target": "stigma",
+      "weight": 1
+    },
+    {
+      "source": "health literacy",
+      "target": "workplace prevention",
+      "weight": 1
+    },
+    {
+      "source": "health promotion",
+      "target": "knowledge, attitudes, and behaviors",
+      "weight": 1
+    },
+    {
+      "source": "health promotion",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "health promotion",
+      "target": "mental health first aid",
+      "weight": 1
+    },
+    {
+      "source": "health promotion",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "health promotion",
+      "target": "stigma",
+      "weight": 1
+    },
+    {
+      "source": "health promotion",
+      "target": "workplace prevention",
+      "weight": 1
+    },
+    {
+      "source": "knowledge, attitudes, and behaviors",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "knowledge, attitudes, and behaviors",
+      "target": "mental health first aid",
+      "weight": 1
+    },
+    {
+      "source": "knowledge, attitudes, and behaviors",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "knowledge, attitudes, and behaviors",
+      "target": "stigma",
+      "weight": 1
+    },
+    {
+      "source": "knowledge, attitudes, and behaviors",
+      "target": "workplace prevention",
+      "weight": 1
+    },
+    {
+      "source": "mental health",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "mental health",
+      "target": "stigma",
+      "weight": 1
+    },
+    {
+      "source": "mental health",
+      "target": "workplace prevention",
+      "weight": 1
+    },
+    {
+      "source": "mental health first aid",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "mental health first aid",
+      "target": "workplace prevention",
+      "weight": 1
+    },
+    {
+      "source": "public health",
+      "target": "stigma",
+      "weight": 1
+    },
+    {
+      "source": "public health",
+      "target": "workplace prevention",
+      "weight": 1
+    },
+    {
+      "source": "stigma",
+      "target": "workplace prevention",
+      "weight": 1
+    },
+    {
+      "source": "basic life support",
+      "target": "children",
+      "weight": 1
+    },
+    {
+      "source": "basic life support",
+      "target": "educación",
+      "weight": 1
+    },
+    {
+      "source": "basic life support",
+      "target": "education",
+      "weight": 1
+    },
+    {
+      "source": "basic life support",
+      "target": "entrenamiento",
+      "weight": 1
+    },
+    {
+      "source": "basic life support",
+      "target": "niños",
+      "weight": 1
+    },
+    {
+      "source": "basic life support",
+      "target": "primeros auxilios",
+      "weight": 1
+    },
+    {
+      "source": "basic life support",
+      "target": "training",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "educación",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "education",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "entrenamiento",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "niños",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "primeros auxilios",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "soporte vital básico",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "training",
+      "weight": 1
+    },
+    {
+      "source": "educación",
+      "target": "education",
+      "weight": 1
+    },
+    {
+      "source": "educación",
+      "target": "entrenamiento",
+      "weight": 1
+    },
+    {
+      "source": "educación",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "educación",
+      "target": "niños",
+      "weight": 1
+    },
+    {
+      "source": "educación",
+      "target": "primeros auxilios",
+      "weight": 1
+    },
+    {
+      "source": "educación",
+      "target": "soporte vital básico",
+      "weight": 1
+    },
+    {
+      "source": "educación",
+      "target": "training",
+      "weight": 1
+    },
+    {
+      "source": "education",
+      "target": "entrenamiento",
+      "weight": 1
+    },
+    {
+      "source": "education",
+      "target": "niños",
+      "weight": 1
+    },
+    {
+      "source": "education",
+      "target": "primeros auxilios",
+      "weight": 1
+    },
+    {
+      "source": "education",
+      "target": "soporte vital básico",
+      "weight": 1
+    },
+    {
+      "source": "education",
+      "target": "training",
+      "weight": 1
+    },
+    {
+      "source": "entrenamiento",
+      "target": "first aid",
+      "weight": 1
+    },
+    {
+      "source": "entrenamiento",
+      "target": "niños",
+      "weight": 1
+    },
+    {
+      "source": "entrenamiento",
+      "target": "primeros auxilios",
+      "weight": 1
+    },
+    {
+      "source": "entrenamiento",
+      "target": "soporte vital básico",
+      "weight": 1
+    },
+    {
+      "source": "entrenamiento",
+      "target": "training",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "niños",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "soporte vital básico",
+      "weight": 1
+    },
+    {
+      "source": "first aid",
+      "target": "training",
+      "weight": 1
+    },
+    {
+      "source": "niños",
+      "target": "primeros auxilios",
+      "weight": 1
+    },
+    {
+      "source": "niños",
+      "target": "soporte vital básico",
+      "weight": 1
+    },
+    {
+      "source": "niños",
+      "target": "training",
+      "weight": 1
+    },
+    {
+      "source": "primeros auxilios",
+      "target": "soporte vital básico",
+      "weight": 1
+    },
+    {
+      "source": "primeros auxilios",
+      "target": "training",
+      "weight": 1
+    },
+    {
+      "source": "soporte vital básico",
+      "target": "training",
+      "weight": 1
+    },
+    {
+      "source": "emotion-focused adolescents",
+      "target": "hsn",
+      "weight": 1
+    },
+    {
+      "source": "emotion-focused adolescents",
+      "target": "interpersonal emotion regulation",
+      "weight": 1
+    },
+    {
+      "source": "emotion-focused adolescents",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "emotion-focused adolescents",
+      "target": "psychological first aid",
+      "weight": 1
+    },
+    {
+      "source": "emotion-focused adolescents",
+      "target": "suicidal behaviour",
+      "weight": 1
+    },
+    {
+      "source": "hsn",
+      "target": "interpersonal emotion regulation",
+      "weight": 1
+    },
+    {
+      "source": "hsn",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "hsn",
+      "target": "psychological first aid",
+      "weight": 1
+    },
+    {
+      "source": "hsn",
+      "target": "suicidal behaviour",
+      "weight": 1
+    },
+    {
+      "source": "interpersonal emotion regulation",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "interpersonal emotion regulation",
+      "target": "psychological first aid",
+      "weight": 1
+    },
+    {
+      "source": "interpersonal emotion regulation",
+      "target": "suicidal behaviour",
+      "weight": 1
+    },
+    {
+      "source": "mental health",
+      "target": "psychological first aid",
+      "weight": 1
+    },
+    {
+      "source": "mental health",
+      "target": "suicidal behaviour",
+      "weight": 1
+    },
+    {
+      "source": "psychological first aid",
+      "target": "suicidal behaviour",
+      "weight": 1
+    },
+    {
+      "source": "prevention",
+      "target": "psychological first aid",
+      "weight": 1
+    },
+    {
+      "source": "prevention",
+      "target": "ptsd",
+      "weight": 1
+    },
+    {
+      "source": "prevention",
+      "target": "stress",
+      "weight": 1
+    },
+    {
+      "source": "prevention",
+      "target": "trauma",
+      "weight": 1
+    },
+    {
+      "source": "psychological first aid",
+      "target": "ptsd",
+      "weight": 1
+    },
+    {
+      "source": "psychological first aid",
+      "target": "stress",
+      "weight": 1
+    },
+    {
+      "source": "ptsd",
+      "target": "trauma",
+      "weight": 1
+    },
+    {
+      "source": "stress",
+      "target": "trauma",
+      "weight": 1
+    },
+    {
+      "source": "curriculum design & development",
+      "target": "medical education",
+      "weight": 1
+    },
+    {
+      "source": "curriculum design & development",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "curriculum design & development",
+      "target": "mental health first aid",
+      "weight": 1
+    },
+    {
+      "source": "curriculum design & development",
+      "target": "student partnership",
+      "weight": 1
+    },
+    {
+      "source": "medical education",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "medical education",
+      "target": "mental health first aid",
+      "weight": 1
+    },
+    {
+      "source": "medical education",
+      "target": "student partnership",
+      "weight": 1
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "first aid",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.437974,
+      "betweenness_centrality": 0.59496,
+      "eigenvector_centrality": 0.413738,
+      "clustering_coefficient": 0.166113
+    },
+    {
+      "keyword": "mental health first aid",
+      "degree_centrality": 0.222222,
+      "closeness_centrality": 0.337023,
+      "betweenness_centrality": 0.176551,
+      "eigenvector_centrality": 0.006347,
+      "clustering_coefficient": 0.225108
+    },
+    {
+      "keyword": "mental health",
+      "degree_centrality": 0.222222,
+      "closeness_centrality": 0.343106,
+      "betweenness_centrality": 0.158714,
+      "eigenvector_centrality": 0.00519,
+      "clustering_coefficient": 0.242424
+    },
+    {
+      "keyword": "basic life support",
+      "degree_centrality": 0.191919,
+      "closeness_centrality": 0.323267,
+      "betweenness_centrality": 0.009225,
+      "eigenvector_centrality": 0.30135,
+      "clustering_coefficient": 0.532164
+    },
+    {
+      "keyword": "psychological first aid",
+      "degree_centrality": 0.161616,
+      "closeness_centrality": 0.32437,
+      "betweenness_centrality": 0.144296,
+      "eigenvector_centrality": 0.002772,
+      "clustering_coefficient": 0.241667
+    },
+    {
+      "keyword": "stigma",
+      "degree_centrality": 0.141414,
+      "closeness_centrality": 0.41143,
+      "betweenness_centrality": 0.403534,
+      "eigenvector_centrality": 0.018829,
+      "clustering_coefficient": 0.373626
+    },
+    {
+      "keyword": "attitudes",
+      "degree_centrality": 0.141414,
+      "closeness_centrality": 0.442048,
+      "betweenness_centrality": 0.263737,
+      "eigenvector_centrality": 0.087344,
+      "clustering_coefficient": 0.384615
+    },
+    {
+      "keyword": "knowledge",
+      "degree_centrality": 0.131313,
+      "closeness_centrality": 0.440002,
+      "betweenness_centrality": 0.244359,
+      "eigenvector_centrality": 0.086719,
+      "clustering_coefficient": 0.435897
+    },
+    {
+      "keyword": "automated external defibrillator",
+      "degree_centrality": 0.131313,
+      "closeness_centrality": 0.316801,
+      "betweenness_centrality": 0.002652,
+      "eigenvector_centrality": 0.227086,
+      "clustering_coefficient": 0.74359
+    },
+    {
+      "keyword": "primeros auxilios",
+      "degree_centrality": 0.121212,
+      "closeness_centrality": 0.316801,
+      "betweenness_centrality": 0.003065,
+      "eigenvector_centrality": 0.154787,
+      "clustering_coefficient": 0.636364
+    },
+    {
+      "keyword": "education",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.322171,
+      "betweenness_centrality": 0.025706,
+      "eigenvector_centrality": 0.143747,
+      "clustering_coefficient": 0.672727
+    },
+    {
+      "keyword": "alapszintű újraélesztés",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.215751,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "automata külső defibrillátor",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.215751,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "dispatcher-assisted cardiopulmonary resuscitation",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.215751,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "elsősegélynyújtás",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.215751,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "kórházon kívüli keringésmegállás",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.215751,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "laikus újraélesztés",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.215751,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "lay resuscitation",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.215751,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "mentésirányítás",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.215751,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "out-of-hospital cardiac arrest",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.215751,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "children",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.000928,
+      "eigenvector_centrality": 0.145994,
+      "clustering_coefficient": 0.822222
+    },
+    {
+      "keyword": "training",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.313665,
+      "betweenness_centrality": 0.000928,
+      "eigenvector_centrality": 0.143288,
+      "clustering_coefficient": 0.822222
+    },
+    {
+      "keyword": "emergency medicine",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.320001,
+      "betweenness_centrality": 0.11645,
+      "eigenvector_centrality": 0.050541,
+      "clustering_coefficient": 0.611111
+    },
+    {
+      "keyword": "parents",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.366951,
+      "betweenness_centrality": 0.005463,
+      "eigenvector_centrality": 0.092195,
+      "clustering_coefficient": 0.805556
+    },
+    {
+      "keyword": "soporte vital básico",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.312633,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.139096,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "educación",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.312633,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.139096,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "entrenamiento",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.312633,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.139096,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "niños",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.312633,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.139096,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "ptsd",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.264737,
+      "betweenness_centrality": 0.003747,
+      "eigenvector_centrality": 0.000956,
+      "clustering_coefficient": 0.571429
+    },
+    {
+      "keyword": "choking",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.24945,
+      "betweenness_centrality": 0.003608,
+      "eigenvector_centrality": 0.014543,
+      "clustering_coefficient": 0.75
+    },
+    {
+      "keyword": "palestine",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.36554,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.081273,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "and practices",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.36554,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.081273,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "children under 5",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.36554,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.081273,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cross-sectional study",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.36554,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.081273,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "home injuries",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.36554,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.081273,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "civil servants",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.320001,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.004128,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "health literacy",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.320001,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.004128,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "health promotion",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.320001,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.004128,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "knowledge, attitudes, and behaviors",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.320001,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.004128,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "public health",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.320001,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.004128,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "workplace prevention",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.320001,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.004128,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "trauma",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.264001,
+      "betweenness_centrality": 0.002998,
+      "eigenvector_centrality": 0.001013,
+      "clustering_coefficient": 0.52381
+    },
+    {
+      "keyword": "emergency care",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.246219,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.008835,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "evidence‐based",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.246219,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.008835,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "prehospital",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.246219,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.008835,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "heat stroke",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.246219,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.008835,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "working dogs",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.246219,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.008835,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "clinical guidelines",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.246219,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.008835,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cardiopulmonary resuscitation",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.315749,
+      "betweenness_centrality": 0.012097,
+      "eigenvector_centrality": 0.076299,
+      "clustering_coefficient": 0.533333
+    },
+    {
+      "keyword": "peer support",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.26327,
+      "betweenness_centrality": 0.005329,
+      "eigenvector_centrality": 0.000811,
+      "clustering_coefficient": 0.6
+    },
+    {
+      "keyword": "health education",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.308573,
+      "betweenness_centrality": 0.000412,
+      "eigenvector_centrality": 0.053157,
+      "clustering_coefficient": 0.733333
+    },
+    {
+      "keyword": "stress",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.24945,
+      "betweenness_centrality": 0.001045,
+      "eigenvector_centrality": 0.000522,
+      "clustering_coefficient": 0.6
+    },
+    {
+      "keyword": "mental health literacy",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.306582,
+      "betweenness_centrality": 0.013354,
+      "eigenvector_centrality": 0.002238,
+      "clustering_coefficient": 0.7
+    },
+    {
+      "keyword": "emergencies",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.307574,
+      "betweenness_centrality": 0.000309,
+      "eigenvector_centrality": 0.056034,
+      "clustering_coefficient": 0.7
+    },
+    {
+      "keyword": "pilot study",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.360002,
+      "betweenness_centrality": 0.071877,
+      "eigenvector_centrality": 0.015978,
+      "clustering_coefficient": 0.4
+    },
+    {
+      "keyword": "anxiety",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.258966,
+      "betweenness_centrality": 0.000794,
+      "eigenvector_centrality": 0.000641,
+      "clustering_coefficient": 0.8
+    },
+    {
+      "keyword": "depression",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.258966,
+      "betweenness_centrality": 0.000794,
+      "eigenvector_centrality": 0.000641,
+      "clustering_coefficient": 0.8
+    },
+    {
+      "keyword": "cardiac arrest",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.308573,
+      "betweenness_centrality": 0.00012,
+      "eigenvector_centrality": 0.075211,
+      "clustering_coefficient": 0.8
+    },
+    {
+      "keyword": "burnout",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.254119,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.00076,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "imaging workforce",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.254119,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.00076,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "psychological safety",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.254119,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.00076,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "radiographer education",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.254119,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.00076,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "radiologic technology",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.254119,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.00076,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "china",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.307574,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.049845,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "ethnic and racial minorities",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.307574,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.049845,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "latent class analysis",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.307574,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.049845,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "student health services",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.307574,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.049845,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "emotion-focused adolescents",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.262543,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000852,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "hsn",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.262543,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000852,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "interpersonal emotion regulation",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.262543,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000852,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "suicidal behaviour",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.262543,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000852,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "prevention",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.248147,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000426,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "child",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.306582,
+      "betweenness_centrality": 0.000206,
+      "eigenvector_centrality": 0.04427,
+      "clustering_coefficient": 0.666667
+    },
+    {
+      "keyword": "nursing students",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.253441,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000829,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "quasi-experimental study",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.253441,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000829,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "self-efficacy",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.253441,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000829,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "prehospital emergency care",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.307574,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.058223,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "natural disaster",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.258262,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000602,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "healthcare",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.246219,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000346,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "stress first aid",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.246219,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000346,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "stress injuries",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.246219,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000346,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "singapore resuscitation and first aid council",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.306582,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.045315,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "guideline",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.306582,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.045315,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "injuries",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.306582,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.045315,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "curriculum design & development",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.265476,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.001115,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "medical education",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.265476,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.001115,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "student partnership",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.265476,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.001115,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "artificial intelligence",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.305596,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.040293,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "barriers",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.322171,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.015367,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "epilepsy",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.352001,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.015598,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "qualitative research",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.304617,
+      "betweenness_centrality": 0.004027,
+      "eigenvector_centrality": 0.001829,
+      "clustering_coefficient": 0.666667
+    },
+    {
+      "keyword": "natural language processing",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.305596,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.040293,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "mixed-methods study",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.296076,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.001806,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "dental trauma",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.306582,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.007684,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "tooth avulsion",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.306582,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.007684,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "seizure first aid",
+      "degree_centrality": 0.010101,
+      "closeness_centrality": 0.24307,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.011623,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "disaster preparedness",
+      "degree_centrality": 0.010101,
+      "closeness_centrality": 0.24432,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000224,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "toothsos",
+      "degree_centrality": 0.010101,
+      "closeness_centrality": 0.304617,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.007012,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "quality of life",
+      "degree_centrality": 0.0,
+      "closeness_centrality": 0.0,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "neonatal transport",
+      "degree_centrality": 0.0,
+      "closeness_centrality": 0.0,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 0.0
+    }
+  ]
+}

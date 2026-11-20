@@ -21,9 +21,16 @@ logger = logging.getLogger("research_rover")
 _DATA_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "data"))
 
 
-def load_data(csv_path):
-    """Load a papers CSV into a DataFrame, guaranteeing the columns we read later."""
-    df = read_csv_to_dataframe(csv_path)
+def load_data(csv_path, exclude_duplicates: bool = True):
+    """
+    Load a papers CSV into a DataFrame, guaranteeing the columns we read later.
+    By default exclude_duplicates=True so duplicate papers are not redundantly embedded.
+    """
+    try:
+        from app.services.canonical_loader import CanonicalDataLoader
+        df = CanonicalDataLoader.load_canonical_dataframe(csv_path, exclude_duplicates=exclude_duplicates)
+    except Exception:
+        df = read_csv_to_dataframe(csv_path)
     for col in ("Download_URL", "Abstract", "Title"):
         if col not in df.columns:
             df[col] = ""

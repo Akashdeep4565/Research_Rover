@@ -1,0 +1,82 @@
+flowchart TD
+    %% Activity Diagram 5: AI Research Assistant (RAG Interaction Workflow)
+
+    subgraph SWIM_USER ["Researcher (User)"]
+        A1(["Start: Access AI Research Assistant"])
+        A2["Navigate to '/chat' Page"]
+        A3["Select Research Collection (CSV)"]
+        A4{"Are Vector Embeddings Created?"}
+        A5["Configure 'Scrape Full-Text' Toggle"]
+        A6["Click 'Create Embeddings'"]
+        A7["Enter Natural Language Research Question<br/>(e.g., 'What are the key ML algorithms used for clinical diagnosis?')"]
+        A8["Click Send or Press Enter"]
+        A9["Read AI-Generated Synthesized Answer"]
+        A10["Inspect Collapsible Cited Source Papers<br/>(Click Title / DOI to verify claims)"]
+        A11{"Ask Follow-Up Question?"}
+        A12(["End: Research Q&A Complete"])
+    end
+
+    subgraph SWIM_FRONTEND ["Frontend Chat UI (ChatPage.tsx & ChatContext)"]
+        B1["Query GET /api/v1/files/list"]
+        B2["Check GET /api/v1/embeddings/{file}/status"]
+        B3["Display Status Badge: 'Embeddings Active' vs 'No Embeddings'"]
+        B4["Dispatch POST /api/v1/embeddings/{file}"]
+        B5["Display EmbeddingProgressModal & Poll Progress"]
+        B6["Validate Message Input (Non-empty)"]
+        B7["Append User Message to UI Stream"]
+        B8["Dispatch POST /api/v1/chat/ (Streaming / JSON)"]
+        B9["Display Typing / Loading Indicator"]
+        B10["Render Markdown Stream & Source Citations Drawer"]
+    end
+
+    subgraph SWIM_EMBEDDING ["Embedding & Vector Pipeline (EmbeddingService & FAISS)"]
+        E1["Load Paper Metadata from CSV"]
+        E2{"Scrape Full-Text Enabled?"}
+        E3["Scrape Remote Paper URLs for Rich Content"]
+        E4["Fallback to Abstract Text Content"]
+        E5["Segment Text into Overlapping Semantic Chunks"]
+        E6["Generate Dense Vector Embeddings<br/>(SentenceTransformer: all-mpnet-base-v2, 768-dim)"]
+        E7["Build FAISS Vector Index (IndexFlatIP / IndexFlatL2)"]
+        E8["Persist Index & Metadata Artifacts to data/ Folder<br/>(*_paper_chunks_hdbscan.index, *_metadata.json)"]
+    end
+
+    subgraph SWIM_CHAT ["Chat & RAG Service (ChatService.py & Gemini LLM)"]
+        C1["Receive Chat Request (Query + Filename)"]
+        C2{"Do FAISS Index & Metadata Files Exist?"}
+        C3["Decompose Query into Sub-Queries<br/>(Multi-angle query expansion)"]
+        C4["Query FAISS Vector Store for Each Sub-Query<br/>(search_faiss(k=5))"]
+        C5["Deduplicate Retrieved Chunks<br/>(Chunk ID & content hash)"]
+        C6{"Were Relevant Context Chunks Found?"}
+        C7["Return Fallback: 'No relevant context found in dataset'"]
+        C8["Assemble Grounded Context String<br/>(Map chunks to Paper Titles, DOIs, URLs)"]
+        C9["Construct Grounded Prompt with Strict Citation Guidelines"]
+        C10["Call Google Gemini API<br/>(google.generativeai / gemini-pro)"]
+        C11["Generate General Response without Paper Grounding (Fallback)"]
+        C12["Package Synthesized Answer + Structured Sources"]
+        C13["Stream Response Back to Frontend"]
+    end
+
+    %% Flow Connections
+    A1 --> A2 --> B1 --> A3 --> B2 --> B3 --> A4
+    A4 -- "No" --> A5 --> A6 --> B4 --> B5 --> E1
+    E1 --> E2
+    E2 -- "Yes" --> E3 --> E5
+    E2 -- "No" --> E4 --> E5
+    E5 --> E6 --> E7 --> E8 --> B3
+
+    A4 -- "Yes" --> A7
+    B3 -- "Embeddings Ready" --> A7
+
+    A7 --> A8 --> B6 --> B7 --> B8 --> B9
+    B8 --> C1 --> C2
+
+    C2 -- "No" --> C11 --> C12
+    C2 -- "Yes" --> C3 --> C4 --> C5 --> C6
+
+    C6 -- "No Chunks Found" --> C7 --> C12
+    C6 -- "Relevant Chunks Found" --> C8 --> C9 --> C10 --> C12
+
+    C12 --> C13 --> B10 --> A9 --> A10 --> A11
+
+    A11 -- "Yes" --> A7
+    A11 -- "No" --> A12

@@ -1,0 +1,22 @@
+{
+  "filename": "openalex-group-by-20261004.csv",
+  "source_file": "openalex-group-by-20261004.csv",
+  "total_papers": 201,
+  "papers_with_keywords": 0,
+  "papers_with_country_data": 0,
+  "unique_countries": 0,
+  "unique_keywords": 0,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "openalex-group-by-20261004_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "openalex-group-by-20261004_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "openalex-group-by-20261004_analysis_keyword_presence_matrix.csv",
+  "summary_file": "openalex-group-by-20261004_analysis_summary.json",
+  "generated_at": 1791123625.5386937,
+  "keyword_frequency": [],
+  "matrix_keywords": [],
+  "matrix_rows": 201,
+  "matrix_columns": 0,
+  "cooccurrence_edges": [],
+  "centrality_scores": []
+}

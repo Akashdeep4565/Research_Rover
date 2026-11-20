@@ -1,0 +1,75 @@
+%% ====================================================================
+%% Project: Research Rover
+%% Diagram: Simple Application Workflow Block Diagram (Miro-Style)
+%% Standard: ISO/IEC 19505 / Mermaid v10+
+%% ====================================================================
+
+flowchart TD
+    %% Miro Pastel Theme Styling
+    classDef startEnd fill:#FFDA54,stroke:#1E1E1E,stroke-width:2px,color:#1E1E1E,font-weight:bold,rx:16,ry:16;
+    classDef process fill:#B3ACFF,stroke:#1E1E1E,stroke-width:2px,color:#1E1E1E,font-weight:600,rx:12,ry:12;
+    classDef decision fill:#82D2FD,stroke:#1E1E1E,stroke-width:2px,color:#1E1E1E,font-weight:bold;
+    classDef errorState fill:#FFB3B3,stroke:#1E1E1E,stroke-width:2px,color:#1E1E1E,font-weight:600,rx:12,ry:12;
+
+    %% Column 1: User Interaction & API Dispatch
+    Start(["Open Research Rover"]):::startEnd
+    EnterQuery["Enter Research Query"]:::process
+    ConfigOpts["Select Search Options\n(Unified, PubMed, OpenAlex)"]:::process
+    SubmitReq["Submit Search Request"]:::process
+    FastAPI["FastAPI Orchestrator\n(Async Background Job)"]:::process
+    QueryAPIs["Query Scholarly APIs\n(PubMed & OpenAlex)"]:::process
+    DecAPI{"API Request\nSuccessful?"}:::decision
+    ApiError["Display API Error\n& Prompt Retry"]:::errorState
+
+    %% Column 2: Data Collection & Cleaning
+    FetchRecs["Retrieve Papers\n& Raw Metadata"]:::process
+    DecPapers{"Research Papers\nFound?"}:::decision
+    NoPapers["Display No-Results\nMessage"]:::errorState
+    Dedup["Deduplicate & Merge Papers\n(Match DOI, PMID, Title)"]:::process
+    ExtractAffil["Extract Affiliations\n& Countries (ISO-3)"]:::process
+    SaveCSV["Save Standardized\nCorpus (CSV)"]:::process
+
+    %% Column 3: Bibliometrics & AI Processing
+    Analytics["Compute Bibliometrics\n(Keywords & Countries)"]:::process
+    BuildNet["Construct Networks\n(Co-occurrence & Collab)"]:::process
+    DecAnalysis{"Analysis\nSuccessful?"}:::decision
+    FallbackView["Fallback to Basic\nMetadata View"]:::errorState
+    AIChat["AI Research Assistant\n(Vector Q&A with Citations)"]:::process
+
+    %% Column 4: Visualization & Output
+    RenderViz["Render Visualizations\n(Word Cloud, Charts, Maps)"]:::process
+    ExploreCards["Explore Paper Cards\n(Abstracts, DOIs, OA Links)"]:::process
+    DownloadPDF["Download OA PDFs\n(Safe Proxy Stream)"]:::process
+    End(["Explore Insights\n& Export Data"]):::startEnd
+
+    %% Workflow Connections
+    Start --> EnterQuery
+    EnterQuery --> ConfigOpts
+    ConfigOpts --> SubmitReq
+    SubmitReq --> FastAPI
+    FastAPI --> QueryAPIs
+    QueryAPIs --> DecAPI
+
+    DecAPI -- No --> ApiError
+    ApiError -.-> EnterQuery
+    DecAPI -- Yes --> FetchRecs
+
+    FetchRecs --> DecPapers
+    DecPapers -- No --> NoPapers
+    NoPapers -.-> EnterQuery
+    DecPapers -- Yes --> Dedup
+
+    Dedup --> ExtractAffil
+    ExtractAffil --> SaveCSV
+    SaveCSV --> Analytics
+    Analytics --> BuildNet
+    BuildNet --> DecAnalysis
+
+    DecAnalysis -- No --> FallbackView
+    FallbackView --> RenderViz
+    DecAnalysis -- Yes --> RenderViz
+
+    RenderViz --> ExploreCards
+    ExploreCards --> DownloadPDF
+    DownloadPDF --> AIChat
+    AIChat --> End

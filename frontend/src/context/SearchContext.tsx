@@ -52,7 +52,7 @@ export function SearchProvider({ children }: { children: ReactNode }) {
   const [searchProgress, setSearchProgress] = useState<SearchProgress | null>(null)
   const [error, setError] = useState('')
   const [filters, setFilters] = useState<SearchFilters>({
-    source: 'pubmed',
+    source: 'unified',
     maxResults: 100,
     startDate: `${new Date().getFullYear()}-01-01`,
     sortMode: 'relevance',

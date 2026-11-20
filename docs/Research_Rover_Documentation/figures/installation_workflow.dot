@@ -1,0 +1,61 @@
+digraph InstallationWorkflow {
+    graph [rankdir=TB, splines=ortho, nodesep=0.4, ranksep=0.45, bgcolor=white, fontname="Times-Roman"];
+    node [shape=box, style="solid", color=black, fontcolor=black, fontname="Times-Roman", fontsize=10, margin="0.15,0.08"];
+    edge [color=black, fontcolor=black, fontname="Times-Roman", fontsize=9, arrowsize=0.7];
+
+    subgraph cluster_phase1 {
+        label = "Phase 1: Repository Retrieval";
+        style = "dashed";
+        color = black;
+        
+        step_clone [label="Clone Repository from GitHub\ngit clone https://github.com/Akashdeep4565/Research_Rover.git\ncd Research_Rover  (or download and extract ZIP archive)"];
+    }
+
+    subgraph cluster_phase2 {
+        label = "Phase 2: Backend Setup & Environment Configuration";
+        style = "dashed";
+        color = black;
+
+        step_b_venv [label="Create Python Virtual Environment (Python 3.11+)\ncd backend\npython -m venv .venv"];
+        step_b_act [label="Activate Virtual Environment\nWindows PowerShell: .venv\Scripts\Activate.ps1\nLinux/macOS: source .venv/bin/activate"];
+        step_b_req [label="Install Backend Dependencies\npip install -r requirements.txt (or uv pip install)"];
+        step_b_env [label="Configure Environment Variables\nCopy .env.example to .env\nSet GOOGLE_GENAI_API_KEY, EMAIL, optional PUBMED_API_KEY"];
+        
+        step_b_venv -> step_b_act -> step_b_req -> step_b_env;
+    }
+
+    subgraph cluster_phase3 {
+        label = "Phase 3: Frontend Dependency Installation";
+        style = "dashed";
+        color = black;
+
+        step_f_cd [label="Navigate to Frontend Directory\ncd ../frontend"];
+        step_f_npm [label="Install Node.js Dependencies (Node.js 18+)\nnpm install"];
+        
+        step_f_cd -> step_f_npm;
+    }
+
+    subgraph cluster_phase4 {
+        label = "Phase 4: Concurrent Application Execution";
+        style = "dashed";
+        color = black;
+
+        step_run_b [label="Terminal 1: Start FastAPI Backend Server\ncd backend\n.venv\Scripts\Activate.ps1\nuvicorn main:app --host 0.0.0.0 --port 8000 --reload"];
+        step_run_f [label="Terminal 2: Start Vite Frontend Server\ncd frontend\nnpm run dev\n(Vite dev server starts on http://localhost:3000)"];
+    }
+
+    subgraph cluster_phase5 {
+        label = "Phase 5: Application Verification & Access";
+        style = "dashed";
+        color = black;
+
+        step_access [label="Access Application Services in Web Browser\nFrontend Application: http://localhost:3000\nBackend REST API & Swagger UI: http://localhost:8000/docs\nSystem Health Check: http://localhost:8000/health"];
+    }
+
+    step_clone -> step_b_venv;
+    step_b_env -> step_f_cd;
+    step_f_npm -> step_run_b;
+    step_f_npm -> step_run_f;
+    step_run_b -> step_access;
+    step_run_f -> step_access;
+}

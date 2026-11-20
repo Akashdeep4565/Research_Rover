@@ -1,0 +1,2676 @@
+{
+  "filename": "works-2026-11-16T11-46-15.csv",
+  "source_file": "works-2026-11-16T11-46-15.csv",
+  "total_papers": 207,
+  "papers_with_keywords": 207,
+  "papers_with_country_data": 207,
+  "unique_countries": 82,
+  "unique_keywords": 3429,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "works-2026-11-16T11-46-15_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "works-2026-11-16T11-46-15_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "works-2026-11-16T11-46-15_analysis_keyword_presence_matrix.csv",
+  "summary_file": "works-2026-11-16T11-46-15_analysis_summary.json",
+  "generated_at": 1794830688.302206,
+  "keyword_frequency": [
+    {
+      "keyword": "medicine",
+      "frequency": 145,
+      "percentage": 70.05
+    },
+    {
+      "keyword": "medline",
+      "frequency": 96,
+      "percentage": 46.38
+    },
+    {
+      "keyword": "psychology",
+      "frequency": 63,
+      "percentage": 30.43
+    },
+    {
+      "keyword": "computer science",
+      "frequency": 43,
+      "percentage": 20.77
+    },
+    {
+      "keyword": "public health",
+      "frequency": 40,
+      "percentage": 19.32
+    },
+    {
+      "keyword": "health care",
+      "frequency": 37,
+      "percentage": 17.87
+    },
+    {
+      "keyword": "systematic review",
+      "frequency": 33,
+      "percentage": 15.94
+    },
+    {
+      "keyword": "internal medicine",
+      "frequency": 32,
+      "percentage": 15.46
+    },
+    {
+      "keyword": "screen time",
+      "frequency": 31,
+      "percentage": 14.98
+    },
+    {
+      "keyword": "psychological intervention",
+      "frequency": 31,
+      "percentage": 14.98
+    },
+    {
+      "keyword": "family medicine",
+      "frequency": 31,
+      "percentage": 14.98
+    },
+    {
+      "keyword": "intensive care medicine",
+      "frequency": 30,
+      "percentage": 14.49
+    },
+    {
+      "keyword": "nursing",
+      "frequency": 29,
+      "percentage": 14.01
+    },
+    {
+      "keyword": "clinical trial",
+      "frequency": 28,
+      "percentage": 13.53
+    },
+    {
+      "keyword": "mental health",
+      "frequency": 27,
+      "percentage": 13.04
+    },
+    {
+      "keyword": "artificial intelligence",
+      "frequency": 27,
+      "percentage": 13.04
+    },
+    {
+      "keyword": "population",
+      "frequency": 23,
+      "percentage": 11.11
+    },
+    {
+      "keyword": "randomized controlled trial",
+      "frequency": 22,
+      "percentage": 10.63
+    },
+    {
+      "keyword": "intervention",
+      "frequency": 22,
+      "percentage": 10.63
+    },
+    {
+      "keyword": "clinical psychology",
+      "frequency": 22,
+      "percentage": 10.63
+    },
+    {
+      "keyword": "pediatrics",
+      "frequency": 22,
+      "percentage": 10.63
+    },
+    {
+      "keyword": "gerontology",
+      "frequency": 21,
+      "percentage": 10.14
+    },
+    {
+      "keyword": "medical emergency",
+      "frequency": 21,
+      "percentage": 10.14
+    },
+    {
+      "keyword": "physical therapy",
+      "frequency": 20,
+      "percentage": 9.66
+    },
+    {
+      "keyword": "psychiatry",
+      "frequency": 20,
+      "percentage": 9.66
+    },
+    {
+      "keyword": "developmental psychology",
+      "frequency": 20,
+      "percentage": 9.66
+    },
+    {
+      "keyword": "environmental health",
+      "frequency": 20,
+      "percentage": 9.66
+    },
+    {
+      "keyword": "emergency medicine",
+      "frequency": 20,
+      "percentage": 9.66
+    },
+    {
+      "keyword": "cohort study",
+      "frequency": 19,
+      "percentage": 9.18
+    },
+    {
+      "keyword": "cohort",
+      "frequency": 19,
+      "percentage": 9.18
+    },
+    {
+      "keyword": "disease",
+      "frequency": 19,
+      "percentage": 9.18
+    },
+    {
+      "keyword": "epidemiology",
+      "frequency": 18,
+      "percentage": 8.7
+    },
+    {
+      "keyword": "primary care",
+      "frequency": 18,
+      "percentage": 8.7
+    },
+    {
+      "keyword": "digital health",
+      "frequency": 17,
+      "percentage": 8.21
+    },
+    {
+      "keyword": "patient safety",
+      "frequency": 17,
+      "percentage": 8.21
+    },
+    {
+      "keyword": "medical education",
+      "frequency": 16,
+      "percentage": 7.73
+    },
+    {
+      "keyword": "physical activity",
+      "frequency": 16,
+      "percentage": 7.73
+    },
+    {
+      "keyword": "applied psychology",
+      "frequency": 16,
+      "percentage": 7.73
+    },
+    {
+      "keyword": "qualitative research",
+      "frequency": 16,
+      "percentage": 7.73
+    },
+    {
+      "keyword": "surgery",
+      "frequency": 16,
+      "percentage": 7.73
+    },
+    {
+      "keyword": "depressive symptoms",
+      "frequency": 15,
+      "percentage": 7.25
+    },
+    {
+      "keyword": "depression",
+      "frequency": 15,
+      "percentage": 7.25
+    },
+    {
+      "keyword": "business",
+      "frequency": 15,
+      "percentage": 7.25
+    },
+    {
+      "keyword": "meta-analysis",
+      "frequency": 15,
+      "percentage": 7.25
+    },
+    {
+      "keyword": "quality of life",
+      "frequency": 15,
+      "percentage": 7.25
+    },
+    {
+      "keyword": "context",
+      "frequency": 14,
+      "percentage": 6.76
+    },
+    {
+      "keyword": "prospective cohort study",
+      "frequency": 14,
+      "percentage": 6.76
+    },
+    {
+      "keyword": "cancer",
+      "frequency": 14,
+      "percentage": 6.76
+    },
+    {
+      "keyword": "protocol",
+      "frequency": 13,
+      "percentage": 6.28
+    },
+    {
+      "keyword": "young adult",
+      "frequency": 13,
+      "percentage": 6.28
+    },
+    {
+      "keyword": "sociology",
+      "frequency": 13,
+      "percentage": 6.28
+    },
+    {
+      "keyword": "clinical practice",
+      "frequency": 13,
+      "percentage": 6.28
+    },
+    {
+      "keyword": "machine learning",
+      "frequency": 13,
+      "percentage": 6.28
+    },
+    {
+      "keyword": "telemedicine",
+      "frequency": 13,
+      "percentage": 6.28
+    },
+    {
+      "keyword": "multimedia",
+      "frequency": 12,
+      "percentage": 5.8
+    },
+    {
+      "keyword": "diagnostic accuracy",
+      "frequency": 12,
+      "percentage": 5.8
+    },
+    {
+      "keyword": "oncology",
+      "frequency": 12,
+      "percentage": 5.8
+    },
+    {
+      "keyword": "obstetrics",
+      "frequency": 12,
+      "percentage": 5.8
+    },
+    {
+      "keyword": "cancer screening",
+      "frequency": 12,
+      "percentage": 5.8
+    },
+    {
+      "keyword": "incidence",
+      "frequency": 12,
+      "percentage": 5.8
+    },
+    {
+      "keyword": "data collection",
+      "frequency": 12,
+      "percentage": 5.8
+    },
+    {
+      "keyword": "cognition",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "research design",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "association",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "narrative",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "public relations",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "internet privacy",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "risk assessment",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "biology",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "data science",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "pregnancy",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "inclusion",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "adverse effect",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "tuberculosis",
+      "frequency": 11,
+      "percentage": 5.31
+    },
+    {
+      "keyword": "impact of technology on adolescents",
+      "frequency": 10,
+      "percentage": 4.83
+    },
+    {
+      "keyword": "anxiety",
+      "frequency": 10,
+      "percentage": 4.83
+    },
+    {
+      "keyword": "health services research",
+      "frequency": 10,
+      "percentage": 4.83
+    },
+    {
+      "keyword": "gynecology",
+      "frequency": 10,
+      "percentage": 4.83
+    },
+    {
+      "keyword": "grey literature",
+      "frequency": 10,
+      "percentage": 4.83
+    },
+    {
+      "keyword": "eating disorders",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "political science",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "social media",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "alternative medicine",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "social psychology",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "government",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "human–computer interaction",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "evidence-based medicine",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "retrospective cohort study",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "health policy",
+      "frequency": 9,
+      "percentage": 4.35
+    },
+    {
+      "keyword": "demography",
+      "frequency": 8,
+      "percentage": 3.86
+    },
+    {
+      "keyword": "risk factor",
+      "frequency": 8,
+      "percentage": 3.86
+    },
+    {
+      "keyword": "key",
+      "frequency": 8,
+      "percentage": 3.86
+    },
+    {
+      "keyword": "quality",
+      "frequency": 8,
+      "percentage": 3.86
+    },
+    {
+      "keyword": "confidence interval",
+      "frequency": 8,
+      "percentage": 3.86
+    },
+    {
+      "keyword": "knowledge management",
+      "frequency": 8,
+      "percentage": 3.86
+    },
+    {
+      "keyword": "referral",
+      "frequency": 8,
+      "percentage": 3.86
+    },
+    {
+      "keyword": "sleep",
+      "frequency": 7,
+      "percentage": 3.38
+    },
+    {
+      "keyword": "longitudinal study",
+      "frequency": 7,
+      "percentage": 3.38
+    },
+    {
+      "keyword": "health professionals",
+      "frequency": 7,
+      "percentage": 3.38
+    },
+    {
+      "keyword": "set",
+      "frequency": 7,
+      "percentage": 3.38
+    }
+  ],
+  "matrix_keywords": [
+    "medicine",
+    "medline",
+    "psychology",
+    "computer science",
+    "public health",
+    "health care",
+    "systematic review",
+    "internal medicine",
+    "screen time",
+    "psychological intervention",
+    "family medicine",
+    "intensive care medicine",
+    "nursing",
+    "clinical trial",
+    "mental health",
+    "artificial intelligence",
+    "population",
+    "randomized controlled trial",
+    "intervention",
+    "clinical psychology",
+    "pediatrics",
+    "gerontology",
+    "medical emergency",
+    "physical therapy",
+    "psychiatry",
+    "developmental psychology",
+    "environmental health",
+    "emergency medicine",
+    "cohort study",
+    "cohort",
+    "disease",
+    "epidemiology",
+    "primary care",
+    "digital health",
+    "patient safety",
+    "medical education",
+    "physical activity",
+    "applied psychology",
+    "qualitative research",
+    "surgery",
+    "depressive symptoms",
+    "depression",
+    "business",
+    "meta-analysis",
+    "quality of life",
+    "context",
+    "prospective cohort study",
+    "cancer",
+    "protocol",
+    "young adult",
+    "sociology",
+    "clinical practice",
+    "machine learning",
+    "telemedicine",
+    "multimedia",
+    "diagnostic accuracy",
+    "oncology",
+    "obstetrics",
+    "cancer screening",
+    "incidence",
+    "data collection",
+    "cognition",
+    "research design",
+    "association",
+    "narrative",
+    "public relations",
+    "internet privacy",
+    "risk assessment",
+    "biology",
+    "data science",
+    "pregnancy",
+    "inclusion",
+    "adverse effect",
+    "tuberculosis",
+    "impact of technology on adolescents",
+    "anxiety",
+    "health services research",
+    "gynecology",
+    "grey literature",
+    "eating disorders",
+    "political science",
+    "social media",
+    "alternative medicine",
+    "social psychology",
+    "government",
+    "human–computer interaction",
+    "evidence-based medicine",
+    "retrospective cohort study",
+    "health policy",
+    "demography",
+    "risk factor",
+    "key",
+    "quality",
+    "confidence interval",
+    "knowledge management",
+    "referral",
+    "sleep",
+    "longitudinal study",
+    "health professionals",
+    "set"
+  ],
+  "matrix_rows": 207,
+  "matrix_columns": 100,
+  "cooccurrence_edges": [
+    {
+      "source": "medicine",
+      "target": "medline",
+      "weight": 95
+    },
+    {
+      "source": "medicine",
+      "target": "psychology",
+      "weight": 39
+    },
+    {
+      "source": "medicine",
+      "target": "public health",
+      "weight": 37
+    },
+    {
+      "source": "health care",
+      "target": "medicine",
+      "weight": 37
+    },
+    {
+      "source": "internal medicine",
+      "target": "medicine",
+      "weight": 32
+    },
+    {
+      "source": "health care",
+      "target": "medline",
+      "weight": 32
+    },
+    {
+      "source": "family medicine",
+      "target": "medicine",
+      "weight": 31
+    },
+    {
+      "source": "medicine",
+      "target": "systematic review",
+      "weight": 31
+    },
+    {
+      "source": "medline",
+      "target": "systematic review",
+      "weight": 31
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "medicine",
+      "weight": 30
+    },
+    {
+      "source": "medline",
+      "target": "public health",
+      "weight": 29
+    },
+    {
+      "source": "medicine",
+      "target": "nursing",
+      "weight": 29
+    },
+    {
+      "source": "clinical trial",
+      "target": "medicine",
+      "weight": 28
+    },
+    {
+      "source": "medicine",
+      "target": "psychological intervention",
+      "weight": 28
+    },
+    {
+      "source": "family medicine",
+      "target": "medline",
+      "weight": 27
+    },
+    {
+      "source": "medline",
+      "target": "psychology",
+      "weight": 24
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "medline",
+      "weight": 24
+    },
+    {
+      "source": "medline",
+      "target": "nursing",
+      "weight": 24
+    },
+    {
+      "source": "psychology",
+      "target": "screen time",
+      "weight": 23
+    },
+    {
+      "source": "medicine",
+      "target": "randomized controlled trial",
+      "weight": 22
+    },
+    {
+      "source": "medicine",
+      "target": "mental health",
+      "weight": 22
+    },
+    {
+      "source": "medicine",
+      "target": "population",
+      "weight": 22
+    },
+    {
+      "source": "medicine",
+      "target": "pediatrics",
+      "weight": 22
+    },
+    {
+      "source": "medline",
+      "target": "psychological intervention",
+      "weight": 22
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "computer science",
+      "weight": 21
+    },
+    {
+      "source": "medical emergency",
+      "target": "medicine",
+      "weight": 21
+    },
+    {
+      "source": "clinical trial",
+      "target": "randomized controlled trial",
+      "weight": 20
+    },
+    {
+      "source": "intervention",
+      "target": "medicine",
+      "weight": 20
+    },
+    {
+      "source": "medicine",
+      "target": "physical therapy",
+      "weight": 20
+    },
+    {
+      "source": "medicine",
+      "target": "screen time",
+      "weight": 20
+    },
+    {
+      "source": "environmental health",
+      "target": "medicine",
+      "weight": 20
+    },
+    {
+      "source": "emergency medicine",
+      "target": "medicine",
+      "weight": 20
+    },
+    {
+      "source": "developmental psychology",
+      "target": "psychology",
+      "weight": 19
+    },
+    {
+      "source": "gerontology",
+      "target": "medicine",
+      "weight": 19
+    },
+    {
+      "source": "mental health",
+      "target": "screen time",
+      "weight": 19
+    },
+    {
+      "source": "clinical trial",
+      "target": "medline",
+      "weight": 19
+    },
+    {
+      "source": "disease",
+      "target": "medicine",
+      "weight": 19
+    },
+    {
+      "source": "family medicine",
+      "target": "health care",
+      "weight": 19
+    },
+    {
+      "source": "health care",
+      "target": "nursing",
+      "weight": 19
+    },
+    {
+      "source": "clinical psychology",
+      "target": "psychology",
+      "weight": 18
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "screen time",
+      "weight": 18
+    },
+    {
+      "source": "mental health",
+      "target": "psychology",
+      "weight": 18
+    },
+    {
+      "source": "epidemiology",
+      "target": "medicine",
+      "weight": 18
+    },
+    {
+      "source": "medicine",
+      "target": "primary care",
+      "weight": 18
+    },
+    {
+      "source": "intervention",
+      "target": "psychological intervention",
+      "weight": 17
+    },
+    {
+      "source": "depression",
+      "target": "depressive symptoms",
+      "weight": 17
+    },
+    {
+      "source": "medicine",
+      "target": "psychiatry",
+      "weight": 17
+    },
+    {
+      "source": "mental health",
+      "target": "psychiatry",
+      "weight": 17
+    },
+    {
+      "source": "computer science",
+      "target": "medicine",
+      "weight": 17
+    },
+    {
+      "source": "computer science",
+      "target": "psychology",
+      "weight": 17
+    },
+    {
+      "source": "cohort",
+      "target": "cohort study",
+      "weight": 17
+    },
+    {
+      "source": "family medicine",
+      "target": "nursing",
+      "weight": 17
+    },
+    {
+      "source": "nursing",
+      "target": "psychology",
+      "weight": 17
+    },
+    {
+      "source": "medline",
+      "target": "pediatrics",
+      "weight": 17
+    },
+    {
+      "source": "clinical trial",
+      "target": "internal medicine",
+      "weight": 17
+    },
+    {
+      "source": "medical emergency",
+      "target": "medline",
+      "weight": 17
+    },
+    {
+      "source": "medicine",
+      "target": "patient safety",
+      "weight": 17
+    },
+    {
+      "source": "clinical psychology",
+      "target": "medicine",
+      "weight": 16
+    },
+    {
+      "source": "psychology",
+      "target": "public health",
+      "weight": 16
+    },
+    {
+      "source": "cohort",
+      "target": "medicine",
+      "weight": 16
+    },
+    {
+      "source": "cohort study",
+      "target": "medicine",
+      "weight": 16
+    },
+    {
+      "source": "intervention",
+      "target": "medline",
+      "weight": 16
+    },
+    {
+      "source": "medicine",
+      "target": "surgery",
+      "weight": 16
+    },
+    {
+      "source": "clinical psychology",
+      "target": "depressive symptoms",
+      "weight": 15
+    },
+    {
+      "source": "clinical psychology",
+      "target": "psychiatry",
+      "weight": 15
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "psychiatry",
+      "weight": 15
+    },
+    {
+      "source": "medical education",
+      "target": "medicine",
+      "weight": 15
+    },
+    {
+      "source": "medical education",
+      "target": "psychology",
+      "weight": 15
+    },
+    {
+      "source": "medline",
+      "target": "primary care",
+      "weight": 15
+    },
+    {
+      "source": "applied psychology",
+      "target": "psychology",
+      "weight": 15
+    },
+    {
+      "source": "health care",
+      "target": "public health",
+      "weight": 15
+    },
+    {
+      "source": "environmental health",
+      "target": "medline",
+      "weight": 15
+    },
+    {
+      "source": "medline",
+      "target": "population",
+      "weight": 15
+    },
+    {
+      "source": "emergency medicine",
+      "target": "medline",
+      "weight": 15
+    },
+    {
+      "source": "family medicine",
+      "target": "psychological intervention",
+      "weight": 15
+    },
+    {
+      "source": "medicine",
+      "target": "meta-analysis",
+      "weight": 15
+    },
+    {
+      "source": "psychological intervention",
+      "target": "psychology",
+      "weight": 14
+    },
+    {
+      "source": "clinical psychology",
+      "target": "screen time",
+      "weight": 14
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "mental health",
+      "weight": 14
+    },
+    {
+      "source": "gerontology",
+      "target": "mental health",
+      "weight": 14
+    },
+    {
+      "source": "psychiatry",
+      "target": "psychology",
+      "weight": 14
+    },
+    {
+      "source": "psychiatry",
+      "target": "screen time",
+      "weight": 14
+    },
+    {
+      "source": "medicine",
+      "target": "prospective cohort study",
+      "weight": 14
+    },
+    {
+      "source": "family medicine",
+      "target": "public health",
+      "weight": 14
+    },
+    {
+      "source": "medline",
+      "target": "physical therapy",
+      "weight": 14
+    },
+    {
+      "source": "cancer",
+      "target": "medicine",
+      "weight": 14
+    },
+    {
+      "source": "health care",
+      "target": "psychology",
+      "weight": 14
+    },
+    {
+      "source": "health care",
+      "target": "psychological intervention",
+      "weight": 14
+    },
+    {
+      "source": "health care",
+      "target": "systematic review",
+      "weight": 14
+    },
+    {
+      "source": "medline",
+      "target": "patient safety",
+      "weight": 14
+    },
+    {
+      "source": "medline",
+      "target": "meta-analysis",
+      "weight": 14
+    },
+    {
+      "source": "medicine",
+      "target": "quality of life",
+      "weight": 14
+    },
+    {
+      "source": "clinical trial",
+      "target": "physical therapy",
+      "weight": 13
+    },
+    {
+      "source": "physical therapy",
+      "target": "randomized controlled trial",
+      "weight": 13
+    },
+    {
+      "source": "clinical psychology",
+      "target": "developmental psychology",
+      "weight": 13
+    },
+    {
+      "source": "clinical psychology",
+      "target": "mental health",
+      "weight": 13
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "medicine",
+      "weight": 13
+    },
+    {
+      "source": "gerontology",
+      "target": "psychology",
+      "weight": 13
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "screen time",
+      "weight": 13
+    },
+    {
+      "source": "psychological intervention",
+      "target": "public health",
+      "weight": 13
+    },
+    {
+      "source": "computer science",
+      "target": "medline",
+      "weight": 13
+    },
+    {
+      "source": "medical education",
+      "target": "medline",
+      "weight": 13
+    },
+    {
+      "source": "environmental health",
+      "target": "public health",
+      "weight": 13
+    },
+    {
+      "source": "gerontology",
+      "target": "medline",
+      "weight": 13
+    },
+    {
+      "source": "physical activity",
+      "target": "screen time",
+      "weight": 13
+    },
+    {
+      "source": "clinical practice",
+      "target": "medicine",
+      "weight": 13
+    },
+    {
+      "source": "medicine",
+      "target": "qualitative research",
+      "weight": 13
+    },
+    {
+      "source": "internal medicine",
+      "target": "medline",
+      "weight": 13
+    },
+    {
+      "source": "nursing",
+      "target": "psychological intervention",
+      "weight": 13
+    },
+    {
+      "source": "medical emergency",
+      "target": "patient safety",
+      "weight": 13
+    },
+    {
+      "source": "psychology",
+      "target": "systematic review",
+      "weight": 13
+    },
+    {
+      "source": "medicine",
+      "target": "protocol",
+      "weight": 12
+    },
+    {
+      "source": "depression",
+      "target": "mental health",
+      "weight": 12
+    },
+    {
+      "source": "depression",
+      "target": "psychiatry",
+      "weight": 12
+    },
+    {
+      "source": "developmental psychology",
+      "target": "screen time",
+      "weight": 12
+    },
+    {
+      "source": "medline",
+      "target": "mental health",
+      "weight": 12
+    },
+    {
+      "source": "public health",
+      "target": "screen time",
+      "weight": 12
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "medicine",
+      "weight": 12
+    },
+    {
+      "source": "computer science",
+      "target": "multimedia",
+      "weight": 12
+    },
+    {
+      "source": "family medicine",
+      "target": "intervention",
+      "weight": 12
+    },
+    {
+      "source": "medline",
+      "target": "randomized controlled trial",
+      "weight": 12
+    },
+    {
+      "source": "diagnostic accuracy",
+      "target": "medicine",
+      "weight": 12
+    },
+    {
+      "source": "nursing",
+      "target": "qualitative research",
+      "weight": 12
+    },
+    {
+      "source": "internal medicine",
+      "target": "oncology",
+      "weight": 12
+    },
+    {
+      "source": "medicine",
+      "target": "obstetrics",
+      "weight": 12
+    },
+    {
+      "source": "medicine",
+      "target": "oncology",
+      "weight": 12
+    },
+    {
+      "source": "incidence",
+      "target": "medicine",
+      "weight": 12
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "internal medicine",
+      "weight": 12
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "machine learning",
+      "weight": 12
+    },
+    {
+      "source": "disease",
+      "target": "medline",
+      "weight": 12
+    },
+    {
+      "source": "medical education",
+      "target": "nursing",
+      "weight": 12
+    },
+    {
+      "source": "medicine",
+      "target": "telemedicine",
+      "weight": 12
+    },
+    {
+      "source": "health care",
+      "target": "medical emergency",
+      "weight": 12
+    },
+    {
+      "source": "medline",
+      "target": "quality of life",
+      "weight": 12
+    },
+    {
+      "source": "internal medicine",
+      "target": "randomized controlled trial",
+      "weight": 12
+    },
+    {
+      "source": "association",
+      "target": "depressive symptoms",
+      "weight": 11
+    },
+    {
+      "source": "association",
+      "target": "screen time",
+      "weight": 11
+    },
+    {
+      "source": "clinical psychology",
+      "target": "depression",
+      "weight": 11
+    },
+    {
+      "source": "depression",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "depression",
+      "target": "screen time",
+      "weight": 11
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "psychology",
+      "weight": 11
+    },
+    {
+      "source": "gerontology",
+      "target": "screen time",
+      "weight": 11
+    },
+    {
+      "source": "medicine",
+      "target": "young adult",
+      "weight": 11
+    },
+    {
+      "source": "mental health",
+      "target": "public health",
+      "weight": 11
+    },
+    {
+      "source": "mental health",
+      "target": "psychological intervention",
+      "weight": 11
+    },
+    {
+      "source": "digital health",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "clinical practice",
+      "target": "medline",
+      "weight": 11
+    },
+    {
+      "source": "medicine",
+      "target": "risk assessment",
+      "weight": 11
+    },
+    {
+      "source": "disease",
+      "target": "internal medicine",
+      "weight": 11
+    },
+    {
+      "source": "cancer screening",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "computer science",
+      "target": "machine learning",
+      "weight": 11
+    },
+    {
+      "source": "medicine",
+      "target": "pregnancy",
+      "weight": 11
+    },
+    {
+      "source": "inclusion",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "medline",
+      "target": "qualitative research",
+      "weight": 11
+    },
+    {
+      "source": "nursing",
+      "target": "patient safety",
+      "weight": 11
+    },
+    {
+      "source": "psychological intervention",
+      "target": "systematic review",
+      "weight": 11
+    },
+    {
+      "source": "public health",
+      "target": "systematic review",
+      "weight": 11
+    },
+    {
+      "source": "internal medicine",
+      "target": "surgery",
+      "weight": 11
+    },
+    {
+      "source": "adverse effect",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "medicine",
+      "target": "tuberculosis",
+      "weight": 11
+    },
+    {
+      "source": "medicine",
+      "target": "research design",
+      "weight": 10
+    },
+    {
+      "source": "screen time",
+      "target": "sleep",
+      "weight": 10
+    },
+    {
+      "source": "association",
+      "target": "psychology",
+      "weight": 10
+    },
+    {
+      "source": "depression",
+      "target": "psychology",
+      "weight": 10
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "impact of technology on adolescents",
+      "weight": 10
+    },
+    {
+      "source": "developmental psychology",
+      "target": "medicine",
+      "weight": 10
+    },
+    {
+      "source": "gerontology",
+      "target": "psychological intervention",
+      "weight": 10
+    },
+    {
+      "source": "gerontology",
+      "target": "public health",
+      "weight": 10
+    },
+    {
+      "source": "population",
+      "target": "public health",
+      "weight": 10
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "psychology",
+      "weight": 10
+    },
+    {
+      "source": "digital health",
+      "target": "psychology",
+      "weight": 10
+    },
+    {
+      "source": "cohort study",
+      "target": "prospective cohort study",
+      "weight": 10
+    },
+    {
+      "source": "health services research",
+      "target": "medicine",
+      "weight": 10
+    },
+    {
+      "source": "health services research",
+      "target": "medline",
+      "weight": 10
+    },
+    {
+      "source": "cohort study",
+      "target": "medline",
+      "weight": 10
+    },
+    {
+      "source": "psychology",
+      "target": "qualitative research",
+      "weight": 10
+    },
+    {
+      "source": "gynecology",
+      "target": "medicine",
+      "weight": 10
+    },
+    {
+      "source": "computer science",
+      "target": "systematic review",
+      "weight": 10
+    },
+    {
+      "source": "medline",
+      "target": "pregnancy",
+      "weight": 10
+    },
+    {
+      "source": "clinical trial",
+      "target": "intensive care medicine",
+      "weight": 10
+    },
+    {
+      "source": "emergency medicine",
+      "target": "intensive care medicine",
+      "weight": 10
+    },
+    {
+      "source": "health care",
+      "target": "primary care",
+      "weight": 10
+    },
+    {
+      "source": "intervention",
+      "target": "nursing",
+      "weight": 10
+    },
+    {
+      "source": "health care",
+      "target": "patient safety",
+      "weight": 10
+    },
+    {
+      "source": "inclusion",
+      "target": "medline",
+      "weight": 10
+    },
+    {
+      "source": "epidemiology",
+      "target": "medline",
+      "weight": 10
+    },
+    {
+      "source": "grey literature",
+      "target": "medicine",
+      "weight": 10
+    },
+    {
+      "source": "grey literature",
+      "target": "medline",
+      "weight": 10
+    },
+    {
+      "source": "grey literature",
+      "target": "systematic review",
+      "weight": 10
+    },
+    {
+      "source": "medline",
+      "target": "protocol",
+      "weight": 10
+    },
+    {
+      "source": "cognition",
+      "target": "psychology",
+      "weight": 9
+    },
+    {
+      "source": "impact of technology on adolescents",
+      "target": "psychology",
+      "weight": 9
+    },
+    {
+      "source": "medline",
+      "target": "screen time",
+      "weight": 9
+    },
+    {
+      "source": "anxiety",
+      "target": "depression",
+      "weight": 9
+    },
+    {
+      "source": "anxiety",
+      "target": "mental health",
+      "weight": 9
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "medline",
+      "weight": 9
+    },
+    {
+      "source": "cohort",
+      "target": "prospective cohort study",
+      "weight": 9
+    },
+    {
+      "source": "environmental health",
+      "target": "gerontology",
+      "weight": 9
+    },
+    {
+      "source": "alternative medicine",
+      "target": "medicine",
+      "weight": 9
+    },
+    {
+      "source": "family medicine",
+      "target": "primary care",
+      "weight": 9
+    },
+    {
+      "source": "gerontology",
+      "target": "physical activity",
+      "weight": 9
+    },
+    {
+      "source": "medicine",
+      "target": "physical activity",
+      "weight": 9
+    },
+    {
+      "source": "physical activity",
+      "target": "public health",
+      "weight": 9
+    },
+    {
+      "source": "psychology",
+      "target": "social psychology",
+      "weight": 9
+    },
+    {
+      "source": "computer science",
+      "target": "data science",
+      "weight": 9
+    },
+    {
+      "source": "health care",
+      "target": "qualitative research",
+      "weight": 9
+    },
+    {
+      "source": "cancer",
+      "target": "internal medicine",
+      "weight": 9
+    },
+    {
+      "source": "nursing",
+      "target": "public health",
+      "weight": 9
+    },
+    {
+      "source": "cancer",
+      "target": "cancer screening",
+      "weight": 9
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "pediatrics",
+      "weight": 9
+    },
+    {
+      "source": "computer science",
+      "target": "human–computer interaction",
+      "weight": 9
+    },
+    {
+      "source": "applied psychology",
+      "target": "medicine",
+      "weight": 9
+    },
+    {
+      "source": "inclusion",
+      "target": "nursing",
+      "weight": 9
+    },
+    {
+      "source": "emergency medicine",
+      "target": "medical emergency",
+      "weight": 9
+    },
+    {
+      "source": "emergency medicine",
+      "target": "pediatrics",
+      "weight": 9
+    },
+    {
+      "source": "family medicine",
+      "target": "medical emergency",
+      "weight": 9
+    },
+    {
+      "source": "emergency medicine",
+      "target": "patient safety",
+      "weight": 9
+    },
+    {
+      "source": "evidence-based medicine",
+      "target": "medicine",
+      "weight": 9
+    },
+    {
+      "source": "evidence-based medicine",
+      "target": "medline",
+      "weight": 9
+    },
+    {
+      "source": "nursing",
+      "target": "systematic review",
+      "weight": 9
+    },
+    {
+      "source": "medicine",
+      "target": "retrospective cohort study",
+      "weight": 9
+    },
+    {
+      "source": "protocol",
+      "target": "systematic review",
+      "weight": 9
+    },
+    {
+      "source": "data collection",
+      "target": "medicine",
+      "weight": 9
+    },
+    {
+      "source": "meta-analysis",
+      "target": "systematic review",
+      "weight": 9
+    },
+    {
+      "source": "health care",
+      "target": "medical education",
+      "weight": 9
+    },
+    {
+      "source": "health policy",
+      "target": "medicine",
+      "weight": 9
+    },
+    {
+      "source": "intervention",
+      "target": "physical therapy",
+      "weight": 8
+    },
+    {
+      "source": "intervention",
+      "target": "randomized controlled trial",
+      "weight": 8
+    },
+    {
+      "source": "association",
+      "target": "clinical psychology",
+      "weight": 8
+    },
+    {
+      "source": "association",
+      "target": "medicine",
+      "weight": 8
+    },
+    {
+      "source": "association",
+      "target": "mental health",
+      "weight": 8
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "gerontology",
+      "weight": 8
+    },
+    {
+      "source": "developmental psychology",
+      "target": "psychiatry",
+      "weight": 8
+    },
+    {
+      "source": "medline",
+      "target": "psychiatry",
+      "weight": 8
+    },
+    {
+      "source": "depression",
+      "target": "psychological intervention",
+      "weight": 8
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "psychological intervention",
+      "weight": 8
+    },
+    {
+      "source": "psychology",
+      "target": "social media",
+      "weight": 8
+    },
+    {
+      "source": "alternative medicine",
+      "target": "medline",
+      "weight": 8
+    },
+    {
+      "source": "physical activity",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "risk factor",
+      "weight": 8
+    },
+    {
+      "source": "depressive symptoms",
+      "target": "longitudinal study",
+      "weight": 8
+    },
+    {
+      "source": "diagnostic accuracy",
+      "target": "medline",
+      "weight": 8
+    },
+    {
+      "source": "cohort",
+      "target": "medline",
+      "weight": 8
+    },
+    {
+      "source": "data science",
+      "target": "medicine",
+      "weight": 8
+    },
+    {
+      "source": "data science",
+      "target": "medline",
+      "weight": 8
+    },
+    {
+      "source": "family medicine",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "cancer",
+      "target": "oncology",
+      "weight": 8
+    },
+    {
+      "source": "cohort study",
+      "target": "epidemiology",
+      "weight": 8
+    },
+    {
+      "source": "confidence interval",
+      "target": "medicine",
+      "weight": 8
+    },
+    {
+      "source": "epidemiology",
+      "target": "prospective cohort study",
+      "weight": 8
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "medicine",
+      "degree_centrality": 1.0,
+      "closeness_centrality": 1.0,
+      "betweenness_centrality": 0.030755,
+      "eigenvector_centrality": 0.167397,
+      "clustering_coefficient": 0.509173
+    },
+    {
+      "keyword": "medline",
+      "degree_centrality": 1.0,
+      "closeness_centrality": 1.0,
+      "betweenness_centrality": 0.030755,
+      "eigenvector_centrality": 0.167397,
+      "clustering_coefficient": 0.509173
+    },
+    {
+      "keyword": "public health",
+      "degree_centrality": 0.929293,
+      "closeness_centrality": 0.933962,
+      "betweenness_centrality": 0.020233,
+      "eigenvector_centrality": 0.161139,
+      "clustering_coefficient": 0.546823
+    },
+    {
+      "keyword": "psychology",
+      "degree_centrality": 0.888889,
+      "closeness_centrality": 0.9,
+      "betweenness_centrality": 0.019737,
+      "eigenvector_centrality": 0.152723,
+      "clustering_coefficient": 0.541536
+    },
+    {
+      "keyword": "psychological intervention",
+      "degree_centrality": 0.868687,
+      "closeness_centrality": 0.868421,
+      "betweenness_centrality": 0.015055,
+      "eigenvector_centrality": 0.153176,
+      "clustering_coefficient": 0.571715
+    },
+    {
+      "keyword": "population",
+      "degree_centrality": 0.828283,
+      "closeness_centrality": 0.853448,
+      "betweenness_centrality": 0.017294,
+      "eigenvector_centrality": 0.14396,
+      "clustering_coefficient": 0.555857
+    },
+    {
+      "keyword": "health care",
+      "degree_centrality": 0.818182,
+      "closeness_centrality": 0.846154,
+      "betweenness_centrality": 0.012812,
+      "eigenvector_centrality": 0.146616,
+      "clustering_coefficient": 0.590123
+    },
+    {
+      "keyword": "digital health",
+      "degree_centrality": 0.818182,
+      "closeness_centrality": 0.831933,
+      "betweenness_centrality": 0.012387,
+      "eigenvector_centrality": 0.145007,
+      "clustering_coefficient": 0.590068
+    },
+    {
+      "keyword": "systematic review",
+      "degree_centrality": 0.767677,
+      "closeness_centrality": 0.811475,
+      "betweenness_centrality": 0.013033,
+      "eigenvector_centrality": 0.135568,
+      "clustering_coefficient": 0.578246
+    },
+    {
+      "keyword": "mental health",
+      "degree_centrality": 0.767677,
+      "closeness_centrality": 0.798387,
+      "betweenness_centrality": 0.011188,
+      "eigenvector_centrality": 0.134967,
+      "clustering_coefficient": 0.590892
+    },
+    {
+      "keyword": "family medicine",
+      "degree_centrality": 0.727273,
+      "closeness_centrality": 0.785714,
+      "betweenness_centrality": 0.008379,
+      "eigenvector_centrality": 0.134597,
+      "clustering_coefficient": 0.627543
+    },
+    {
+      "keyword": "intervention",
+      "degree_centrality": 0.69697,
+      "closeness_centrality": 0.767442,
+      "betweenness_centrality": 0.007105,
+      "eigenvector_centrality": 0.130179,
+      "clustering_coefficient": 0.64237
+    },
+    {
+      "keyword": "nursing",
+      "degree_centrality": 0.686869,
+      "closeness_centrality": 0.761538,
+      "betweenness_centrality": 0.007606,
+      "eigenvector_centrality": 0.125969,
+      "clustering_coefficient": 0.632572
+    },
+    {
+      "keyword": "randomized controlled trial",
+      "degree_centrality": 0.686869,
+      "closeness_centrality": 0.761538,
+      "betweenness_centrality": 0.007167,
+      "eigenvector_centrality": 0.127471,
+      "clustering_coefficient": 0.643108
+    },
+    {
+      "keyword": "primary care",
+      "degree_centrality": 0.686869,
+      "closeness_centrality": 0.75,
+      "betweenness_centrality": 0.007358,
+      "eigenvector_centrality": 0.125655,
+      "clustering_coefficient": 0.623776
+    },
+    {
+      "keyword": "screen time",
+      "degree_centrality": 0.676768,
+      "closeness_centrality": 0.744361,
+      "betweenness_centrality": 0.007954,
+      "eigenvector_centrality": 0.119599,
+      "clustering_coefficient": 0.611058
+    },
+    {
+      "keyword": "physical therapy",
+      "degree_centrality": 0.676768,
+      "closeness_centrality": 0.755725,
+      "betweenness_centrality": 0.006762,
+      "eigenvector_centrality": 0.126653,
+      "clustering_coefficient": 0.651289
+    },
+    {
+      "keyword": "disease",
+      "degree_centrality": 0.676768,
+      "closeness_centrality": 0.755725,
+      "betweenness_centrality": 0.009645,
+      "eigenvector_centrality": 0.12125,
+      "clustering_coefficient": 0.605608
+    },
+    {
+      "keyword": "intensive care medicine",
+      "degree_centrality": 0.646465,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.005521,
+      "eigenvector_centrality": 0.119888,
+      "clustering_coefficient": 0.671627
+    },
+    {
+      "keyword": "clinical trial",
+      "degree_centrality": 0.646465,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.005906,
+      "eigenvector_centrality": 0.120437,
+      "clustering_coefficient": 0.659226
+    },
+    {
+      "keyword": "gerontology",
+      "degree_centrality": 0.646465,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.006664,
+      "eigenvector_centrality": 0.119509,
+      "clustering_coefficient": 0.641865
+    },
+    {
+      "keyword": "context",
+      "degree_centrality": 0.646465,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.007102,
+      "eigenvector_centrality": 0.118503,
+      "clustering_coefficient": 0.638393
+    },
+    {
+      "keyword": "qualitative research",
+      "degree_centrality": 0.636364,
+      "closeness_centrality": 0.733333,
+      "betweenness_centrality": 0.007059,
+      "eigenvector_centrality": 0.115161,
+      "clustering_coefficient": 0.630312
+    },
+    {
+      "keyword": "computer science",
+      "degree_centrality": 0.626263,
+      "closeness_centrality": 0.727941,
+      "betweenness_centrality": 0.007701,
+      "eigenvector_centrality": 0.110378,
+      "clustering_coefficient": 0.610259
+    },
+    {
+      "keyword": "environmental health",
+      "degree_centrality": 0.616162,
+      "closeness_centrality": 0.722628,
+      "betweenness_centrality": 0.006354,
+      "eigenvector_centrality": 0.113606,
+      "clustering_coefficient": 0.628962
+    },
+    {
+      "keyword": "psychiatry",
+      "degree_centrality": 0.606061,
+      "closeness_centrality": 0.717391,
+      "betweenness_centrality": 0.00547,
+      "eigenvector_centrality": 0.112983,
+      "clustering_coefficient": 0.660452
+    },
+    {
+      "keyword": "protocol",
+      "degree_centrality": 0.606061,
+      "closeness_centrality": 0.717391,
+      "betweenness_centrality": 0.005554,
+      "eigenvector_centrality": 0.112133,
+      "clustering_coefficient": 0.656497
+    },
+    {
+      "keyword": "clinical practice",
+      "degree_centrality": 0.606061,
+      "closeness_centrality": 0.717391,
+      "betweenness_centrality": 0.006974,
+      "eigenvector_centrality": 0.111405,
+      "clustering_coefficient": 0.627684
+    },
+    {
+      "keyword": "cohort study",
+      "degree_centrality": 0.59596,
+      "closeness_centrality": 0.71223,
+      "betweenness_centrality": 0.005941,
+      "eigenvector_centrality": 0.107047,
+      "clustering_coefficient": 0.653419
+    },
+    {
+      "keyword": "medical emergency",
+      "degree_centrality": 0.585859,
+      "closeness_centrality": 0.707143,
+      "betweenness_centrality": 0.004587,
+      "eigenvector_centrality": 0.110038,
+      "clustering_coefficient": 0.678766
+    },
+    {
+      "keyword": "meta-analysis",
+      "degree_centrality": 0.585859,
+      "closeness_centrality": 0.707143,
+      "betweenness_centrality": 0.00505,
+      "eigenvector_centrality": 0.110715,
+      "clustering_coefficient": 0.666667
+    },
+    {
+      "keyword": "cohort",
+      "degree_centrality": 0.575758,
+      "closeness_centrality": 0.702128,
+      "betweenness_centrality": 0.005285,
+      "eigenvector_centrality": 0.103805,
+      "clustering_coefficient": 0.665414
+    },
+    {
+      "keyword": "telemedicine",
+      "degree_centrality": 0.575758,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.004076,
+      "eigenvector_centrality": 0.106613,
+      "clustering_coefficient": 0.693603
+    },
+    {
+      "keyword": "physical activity",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.004576,
+      "eigenvector_centrality": 0.101939,
+      "clustering_coefficient": 0.66457
+    },
+    {
+      "keyword": "depression",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.003963,
+      "eigenvector_centrality": 0.102696,
+      "clustering_coefficient": 0.689727
+    },
+    {
+      "keyword": "young adult",
+      "degree_centrality": 0.565657,
+      "closeness_centrality": 0.697183,
+      "betweenness_centrality": 0.004896,
+      "eigenvector_centrality": 0.105546,
+      "clustering_coefficient": 0.684416
+    },
+    {
+      "keyword": "artificial intelligence",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.00515,
+      "eigenvector_centrality": 0.102049,
+      "clustering_coefficient": 0.655892
+    },
+    {
+      "keyword": "pediatrics",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.003919,
+      "eigenvector_centrality": 0.103298,
+      "clustering_coefficient": 0.686869
+    },
+    {
+      "keyword": "emergency medicine",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.003852,
+      "eigenvector_centrality": 0.104472,
+      "clustering_coefficient": 0.694276
+    },
+    {
+      "keyword": "applied psychology",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.692308,
+      "betweenness_centrality": 0.005173,
+      "eigenvector_centrality": 0.102541,
+      "clustering_coefficient": 0.661953
+    },
+    {
+      "keyword": "quality of life",
+      "degree_centrality": 0.555556,
+      "closeness_centrality": 0.682759,
+      "betweenness_centrality": 0.00354,
+      "eigenvector_centrality": 0.105444,
+      "clustering_coefficient": 0.699565
+    },
+    {
+      "keyword": "clinical psychology",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.00387,
+      "eigenvector_centrality": 0.102636,
+      "clustering_coefficient": 0.694619
+    },
+    {
+      "keyword": "research design",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.003962,
+      "eigenvector_centrality": 0.103495,
+      "clustering_coefficient": 0.696017
+    },
+    {
+      "keyword": "medical education",
+      "degree_centrality": 0.535354,
+      "closeness_centrality": 0.682759,
+      "betweenness_centrality": 0.003153,
+      "eigenvector_centrality": 0.101031,
+      "clustering_coefficient": 0.727141
+    },
+    {
+      "keyword": "patient safety",
+      "degree_centrality": 0.525253,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.00367,
+      "eigenvector_centrality": 0.095412,
+      "clustering_coefficient": 0.705306
+    },
+    {
+      "keyword": "grey literature",
+      "degree_centrality": 0.525253,
+      "closeness_centrality": 0.678082,
+      "betweenness_centrality": 0.003603,
+      "eigenvector_centrality": 0.099154,
+      "clustering_coefficient": 0.705128
+    },
+    {
+      "keyword": "epidemiology",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.004816,
+      "eigenvector_centrality": 0.09137,
+      "clustering_coefficient": 0.647059
+    },
+    {
+      "keyword": "diagnostic accuracy",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.003099,
+      "eigenvector_centrality": 0.091782,
+      "clustering_coefficient": 0.695922
+    },
+    {
+      "keyword": "internal medicine",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.003612,
+      "eigenvector_centrality": 0.09017,
+      "clustering_coefficient": 0.702381
+    },
+    {
+      "keyword": "data collection",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.003237,
+      "eigenvector_centrality": 0.093387,
+      "clustering_coefficient": 0.709184
+    },
+    {
+      "keyword": "anxiety",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.003124,
+      "eigenvector_centrality": 0.091402,
+      "clustering_coefficient": 0.704082
+    },
+    {
+      "keyword": "cancer",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.00361,
+      "eigenvector_centrality": 0.090938,
+      "clustering_coefficient": 0.693262
+    },
+    {
+      "keyword": "cancer screening",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.003748,
+      "eigenvector_centrality": 0.089426,
+      "clustering_coefficient": 0.684058
+    },
+    {
+      "keyword": "prospective cohort study",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.002616,
+      "eigenvector_centrality": 0.086289,
+      "clustering_coefficient": 0.716004
+    },
+    {
+      "keyword": "incidence",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.002022,
+      "eigenvector_centrality": 0.088815,
+      "clustering_coefficient": 0.754857
+    },
+    {
+      "keyword": "risk assessment",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.002415,
+      "eigenvector_centrality": 0.089948,
+      "clustering_coefficient": 0.725254
+    },
+    {
+      "keyword": "data science",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.003546,
+      "eigenvector_centrality": 0.085636,
+      "clustering_coefficient": 0.687327
+    },
+    {
+      "keyword": "evidence-based medicine",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.002592,
+      "eigenvector_centrality": 0.092153,
+      "clustering_coefficient": 0.73913
+    },
+    {
+      "keyword": "obstetrics",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.002757,
+      "eigenvector_centrality": 0.084819,
+      "clustering_coefficient": 0.728283
+    },
+    {
+      "keyword": "health services research",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.001969,
+      "eigenvector_centrality": 0.08936,
+      "clustering_coefficient": 0.748485
+    },
+    {
+      "keyword": "business",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.002545,
+      "eigenvector_centrality": 0.081645,
+      "clustering_coefficient": 0.708245
+    },
+    {
+      "keyword": "social media",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.002281,
+      "eigenvector_centrality": 0.078564,
+      "clustering_coefficient": 0.71777
+    },
+    {
+      "keyword": "cognition",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.002264,
+      "eigenvector_centrality": 0.085643,
+      "clustering_coefficient": 0.734219
+    },
+    {
+      "keyword": "narrative",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.002976,
+      "eigenvector_centrality": 0.081867,
+      "clustering_coefficient": 0.6866
+    },
+    {
+      "keyword": "pregnancy",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.002048,
+      "eigenvector_centrality": 0.084614,
+      "clustering_coefficient": 0.736434
+    },
+    {
+      "keyword": "inclusion",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.001425,
+      "eigenvector_centrality": 0.087536,
+      "clustering_coefficient": 0.799557
+    },
+    {
+      "keyword": "alternative medicine",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.002071,
+      "eigenvector_centrality": 0.08388,
+      "clustering_coefficient": 0.735327
+    },
+    {
+      "keyword": "key",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.002439,
+      "eigenvector_centrality": 0.078901,
+      "clustering_coefficient": 0.728682
+    },
+    {
+      "keyword": "developmental psychology",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.002445,
+      "eigenvector_centrality": 0.077105,
+      "clustering_coefficient": 0.707317
+    },
+    {
+      "keyword": "public relations",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.001794,
+      "eigenvector_centrality": 0.078823,
+      "clustering_coefficient": 0.753775
+    },
+    {
+      "keyword": "adverse effect",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.001858,
+      "eigenvector_centrality": 0.083973,
+      "clustering_coefficient": 0.747967
+    },
+    {
+      "keyword": "health policy",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.001362,
+      "eigenvector_centrality": 0.080607,
+      "clustering_coefficient": 0.784615
+    },
+    {
+      "keyword": "demography",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.002658,
+      "eigenvector_centrality": 0.078246,
+      "clustering_coefficient": 0.737515
+    },
+    {
+      "keyword": "risk factor",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.002313,
+      "eigenvector_centrality": 0.077647,
+      "clustering_coefficient": 0.738676
+    },
+    {
+      "keyword": "government",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.001285,
+      "eigenvector_centrality": 0.07985,
+      "clustering_coefficient": 0.785897
+    },
+    {
+      "keyword": "health professionals",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.00121,
+      "eigenvector_centrality": 0.082058,
+      "clustering_coefficient": 0.780769
+    },
+    {
+      "keyword": "surgery",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.001307,
+      "eigenvector_centrality": 0.073558,
+      "clustering_coefficient": 0.761134
+    },
+    {
+      "keyword": "depressive symptoms",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.000809,
+      "eigenvector_centrality": 0.075251,
+      "clustering_coefficient": 0.837838
+    },
+    {
+      "keyword": "association",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.002232,
+      "eigenvector_centrality": 0.071001,
+      "clustering_coefficient": 0.753036
+    },
+    {
+      "keyword": "internet privacy",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.001638,
+      "eigenvector_centrality": 0.071526,
+      "clustering_coefficient": 0.757085
+    },
+    {
+      "keyword": "quality",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.001601,
+      "eigenvector_centrality": 0.076013,
+      "clustering_coefficient": 0.748988
+    },
+    {
+      "keyword": "referral",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.001634,
+      "eigenvector_centrality": 0.077264,
+      "clustering_coefficient": 0.738192
+    },
+    {
+      "keyword": "impact of technology on adolescents",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.00168,
+      "eigenvector_centrality": 0.06876,
+      "clustering_coefficient": 0.765292
+    },
+    {
+      "keyword": "confidence interval",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.001166,
+      "eigenvector_centrality": 0.072458,
+      "clustering_coefficient": 0.792319
+    },
+    {
+      "keyword": "sleep",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001515,
+      "eigenvector_centrality": 0.068151,
+      "clustering_coefficient": 0.733333
+    },
+    {
+      "keyword": "sociology",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.001381,
+      "eigenvector_centrality": 0.067365,
+      "clustering_coefficient": 0.765766
+    },
+    {
+      "keyword": "retrospective cohort study",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001071,
+      "eigenvector_centrality": 0.066348,
+      "clustering_coefficient": 0.78254
+    },
+    {
+      "keyword": "longitudinal study",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001197,
+      "eigenvector_centrality": 0.067483,
+      "clustering_coefficient": 0.798413
+    },
+    {
+      "keyword": "gynecology",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.001171,
+      "eigenvector_centrality": 0.065212,
+      "clustering_coefficient": 0.808403
+    },
+    {
+      "keyword": "political science",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.001066,
+      "eigenvector_centrality": 0.063395,
+      "clustering_coefficient": 0.780749
+    },
+    {
+      "keyword": "social psychology",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.001457,
+      "eigenvector_centrality": 0.060611,
+      "clustering_coefficient": 0.745098
+    },
+    {
+      "keyword": "knowledge management",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.000675,
+      "eigenvector_centrality": 0.065477,
+      "clustering_coefficient": 0.850267
+    },
+    {
+      "keyword": "oncology",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.000793,
+      "eigenvector_centrality": 0.060663,
+      "clustering_coefficient": 0.806818
+    },
+    {
+      "keyword": "tuberculosis",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.001076,
+      "eigenvector_centrality": 0.056964,
+      "clustering_coefficient": 0.747126
+    },
+    {
+      "keyword": "machine learning",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.585799,
+      "betweenness_centrality": 0.001257,
+      "eigenvector_centrality": 0.054704,
+      "clustering_coefficient": 0.706897
+    },
+    {
+      "keyword": "multimedia",
+      "degree_centrality": 0.292929,
+      "closeness_centrality": 0.585799,
+      "betweenness_centrality": 0.001064,
+      "eigenvector_centrality": 0.050173,
+      "clustering_coefficient": 0.761084
+    },
+    {
+      "keyword": "eating disorders",
+      "degree_centrality": 0.272727,
+      "closeness_centrality": 0.572254,
+      "betweenness_centrality": 0.000217,
+      "eigenvector_centrality": 0.054078,
+      "clustering_coefficient": 0.886667
+    },
+    {
+      "keyword": "set",
+      "degree_centrality": 0.272727,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.00059,
+      "eigenvector_centrality": 0.054682,
+      "clustering_coefficient": 0.811966
+    },
+    {
+      "keyword": "human–computer interaction",
+      "degree_centrality": 0.181818,
+      "closeness_centrality": 0.55,
+      "betweenness_centrality": 0.000234,
+      "eigenvector_centrality": 0.033452,
+      "clustering_coefficient": 0.849673
+    },
+    {
+      "keyword": "biology",
+      "degree_centrality": 0.131313,
+      "closeness_centrality": 0.535135,
+      "betweenness_centrality": 7e-05,
+      "eigenvector_centrality": 0.024042,
+      "clustering_coefficient": 0.897436
+    }
+  ]
+}

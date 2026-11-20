@@ -1,0 +1,33 @@
+\section{Introduction}
+\label{sec:introduction}
+
+\subsection{Overview of Research Rover}
+\textbf{Research Rover} is a modern, full-stack, artificial intelligence-assisted research discovery, bibliometric analytics, and literature synthesis platform. Developed to address the escalating complexity of scientific literature exploration, the platform bridges the gap between multi-source bibliographic retrieval, high-dimensional textual analytics, dense vector semantic search, and interactive conversational artificial intelligence.
+
+In contemporary data science and academic research, scholars routinely navigate thousands of published manuscripts across fragmented repositories. Research Rover establishes a consolidated operational workflow wherein users can query biomedical and multidisciplinary digital libraries, extract rich metadata, visualize keyword associations and international research networks, generate dense semantic representations, and interrogate document corpora via retrieval-augmented generation (RAG).
+
+\subsection{Purpose and Core Capabilities}
+The primary objective of Research Rover is to provide an end-to-end analytical pipeline that minimizes the friction between literature collection and thematic knowledge synthesis. The platform delivers seven primary capabilities:
+
+\begin{enumerate}
+    \item \textbf{Intelligent Multi-Source Paper Discovery:} Federated retrieval interfacing with the National Center for Biotechnology Information (NCBI) PubMed database via E-utilities \cite{sayers2022eutilities} and the OpenAlex scholarly catalog \cite{priem2022openalex}, featuring automated abbreviation expansion, typographical error correction, and neural semantic re-ranking via MedCPT \cite{jin2023medcpt}.
+    \item \textbf{Automated Full-Text Extraction:} Robust web scraping utilizing Crawl4AI and BeautifulSoup4 to extract full-text manuscript content from publisher digital object identifier (DOI) landing pages, with graceful fallback to comprehensive abstract content.
+    \item \textbf{Dense Vector Semantic Search:} High-performance vector indexing using the 768-dimensional Sentence Transformers model (\texttt{all-mpnet-base-v2}) \cite{reimers2019sentence} coupled with Facebook AI Similarity Search (FAISS) \cite{johnson2019billion} for sub-millisecond context retrieval.
+    \item \textbf{Conversational Research Synthesis:} An intelligent retrieval-augmented generation (RAG) assistant powered by Google Gemini (\texttt{gemini-2.5-flash}) supporting query decomposition, context deduplication, and verifiable manuscript citations.
+    \item \textbf{Bibliometric Network Analytics:} Quantitative text mining modules calculating keyword frequency distributions, co-occurrence presence matrices, and interactive two-dimensional and three-dimensional international co-authorship collaboration graphs.
+    \item \textbf{Universal Dataset Ingestion and Normalization:} An intelligent data processing layer that standardizes heterogeneous research-paper CSV files from arbitrary academic databases into a 20-field canonical schema.
+    \item \textbf{Dataset Quality and Feature Readiness Evaluation:} An automated assessment engine computing multi-attribute quality scores (0--100) and deterministically evaluating system readiness across seven analytical features.
+\end{enumerate}
+
+\subsection{Intended Audience}
+Research Rover is designed for postgraduate researchers, academic faculty, data scientists, research laboratory teams, and literature review specialists. The technical documentation presented herein is intended for software engineers, systems administrators, and academic developers tasked with downloading, configuring, deploying, maintaining, or extending the Research Rover codebase.
+
+\subsection{Technology Stack Summary}
+The application employs a decoupled client-server architecture built upon modern web and data engineering technologies:
+
+\begin{itemize}
+    \item \textbf{Backend Core:} Python 3.11+ asynchronous runtime; FastAPI \cite{fastapi2020} for high-performance RESTful APIs; Uvicorn Asynchronous Server Gateway Interface (ASGI); Pydantic v2 for data validation and schema serialization.
+    \item \textbf{Machine Learning \& NLP:} PyTorch, Hugging Face Transformers, Sentence Transformers (\texttt{all-mpnet-base-v2}), MedCPT Query/Article Encoders (\texttt{ncbi/MedCPT-Query-Encoder}, \texttt{ncbi/MedCPT-Article-Encoder}), and FAISS-CPU for dense vector clustering and nearest-neighbor search.
+    \item \textbf{Frontend User Interface:} React 19 single-page application (SPA); Vite 6 build engine; TypeScript 5.7; Tailwind CSS 3.4 for utility-first responsive styling; Radix UI primitives; Framer Motion 12 for transition dynamics; Three.js and React Force Graph (2D/3D) for network graph visualization.
+    \item \textbf{Data Ingestion \& Storage:} Pandas and NumPy for tabular data operations; JSON metadata sidecars; disk-persisted CSV files and serialized FAISS vector indexes.
+\end{itemize}

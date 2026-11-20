@@ -1,0 +1,2676 @@
+{
+  "filename": "speaker_identification.csv",
+  "source_file": "speaker_identification.csv",
+  "total_papers": 2999,
+  "papers_with_keywords": 2273,
+  "papers_with_country_data": 45,
+  "unique_countries": 16,
+  "unique_keywords": 7860,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "speaker_identification_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "speaker_identification_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "speaker_identification_analysis_keyword_presence_matrix.csv",
+  "summary_file": "speaker_identification_analysis_summary.json",
+  "generated_at": 1790618211.50134,
+  "keyword_frequency": [
+    {
+      "keyword": "biomarkers",
+      "frequency": 79,
+      "percentage": 2.63
+    },
+    {
+      "keyword": "machine learning",
+      "frequency": 76,
+      "percentage": 2.53
+    },
+    {
+      "keyword": "immunotherapy",
+      "frequency": 64,
+      "percentage": 2.13
+    },
+    {
+      "keyword": "artificial intelligence",
+      "frequency": 58,
+      "percentage": 1.93
+    },
+    {
+      "keyword": "multiple sclerosis",
+      "frequency": 50,
+      "percentage": 1.67
+    },
+    {
+      "keyword": "biomarker",
+      "frequency": 42,
+      "percentage": 1.4
+    },
+    {
+      "keyword": "heart failure",
+      "frequency": 40,
+      "percentage": 1.33
+    },
+    {
+      "keyword": "depression",
+      "frequency": 38,
+      "percentage": 1.27
+    },
+    {
+      "keyword": "screening",
+      "frequency": 33,
+      "percentage": 1.1
+    },
+    {
+      "keyword": "breast cancer",
+      "frequency": 32,
+      "percentage": 1.07
+    },
+    {
+      "keyword": "diagnosis",
+      "frequency": 31,
+      "percentage": 1.03
+    },
+    {
+      "keyword": "prognosis",
+      "frequency": 30,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "precision medicine",
+      "frequency": 30,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "covid-19",
+      "frequency": 30,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "primary care",
+      "frequency": 29,
+      "percentage": 0.97
+    },
+    {
+      "keyword": "asthma",
+      "frequency": 29,
+      "percentage": 0.97
+    },
+    {
+      "keyword": "inflammation",
+      "frequency": 27,
+      "percentage": 0.9
+    },
+    {
+      "keyword": "stroke",
+      "frequency": 27,
+      "percentage": 0.9
+    },
+    {
+      "keyword": "epidemiology",
+      "frequency": 27,
+      "percentage": 0.9
+    },
+    {
+      "keyword": "atrial fibrillation",
+      "frequency": 27,
+      "percentage": 0.9
+    },
+    {
+      "keyword": "deep learning",
+      "frequency": 25,
+      "percentage": 0.83
+    },
+    {
+      "keyword": "risk factors",
+      "frequency": 25,
+      "percentage": 0.83
+    },
+    {
+      "keyword": "treatment",
+      "frequency": 25,
+      "percentage": 0.83
+    },
+    {
+      "keyword": "quality of life",
+      "frequency": 22,
+      "percentage": 0.73
+    },
+    {
+      "keyword": "obesity",
+      "frequency": 21,
+      "percentage": 0.7
+    },
+    {
+      "keyword": "next-generation sequencing",
+      "frequency": 21,
+      "percentage": 0.7
+    },
+    {
+      "keyword": "proteomics",
+      "frequency": 20,
+      "percentage": 0.67
+    },
+    {
+      "keyword": "inflammatory bowel disease",
+      "frequency": 20,
+      "percentage": 0.67
+    },
+    {
+      "keyword": "bipolar disorder",
+      "frequency": 19,
+      "percentage": 0.63
+    },
+    {
+      "keyword": "cancer",
+      "frequency": 19,
+      "percentage": 0.63
+    },
+    {
+      "keyword": "liquid biopsy",
+      "frequency": 18,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "schizophrenia",
+      "frequency": 18,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "mental health",
+      "frequency": 18,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "chronic kidney disease",
+      "frequency": 18,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "mortality",
+      "frequency": 18,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "melanoma",
+      "frequency": 18,
+      "percentage": 0.6
+    },
+    {
+      "keyword": "speech perception",
+      "frequency": 17,
+      "percentage": 0.57
+    },
+    {
+      "keyword": "consensus",
+      "frequency": 17,
+      "percentage": 0.57
+    },
+    {
+      "keyword": "magnetic resonance imaging",
+      "frequency": 16,
+      "percentage": 0.53
+    },
+    {
+      "keyword": "osteoporosis",
+      "frequency": 16,
+      "percentage": 0.53
+    },
+    {
+      "keyword": "clinical trials",
+      "frequency": 16,
+      "percentage": 0.53
+    },
+    {
+      "keyword": "alzheimer’s disease",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "ulcerative colitis",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "echocardiography",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "children",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "prostate cancer",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "psoriasis",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "targeted therapy",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "mri",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "natural language processing",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "coronary artery disease",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "immune checkpoint inhibitors",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "dementia",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "genetics",
+      "frequency": 15,
+      "percentage": 0.5
+    },
+    {
+      "keyword": "risk stratification",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "rheumatoid arthritis",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "major depressive disorder",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "sars-cov-2",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "real-world data",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "cardiovascular disease",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "meta-analysis",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "colorectal cancer",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "cognition",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "non-small cell lung cancer",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "copd",
+      "frequency": 14,
+      "percentage": 0.47
+    },
+    {
+      "keyword": "anxiety",
+      "frequency": 13,
+      "percentage": 0.43
+    },
+    {
+      "keyword": "systematic review",
+      "frequency": 13,
+      "percentage": 0.43
+    },
+    {
+      "keyword": "type 1 diabetes",
+      "frequency": 13,
+      "percentage": 0.43
+    },
+    {
+      "keyword": "nsclc",
+      "frequency": 13,
+      "percentage": 0.43
+    },
+    {
+      "keyword": "computed tomography",
+      "frequency": 13,
+      "percentage": 0.43
+    },
+    {
+      "keyword": "circulating tumor dna",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "diabetes",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "psoriatic arthritis",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "speaker identification",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "cardiovascular diseases",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "chronic obstructive pulmonary disease",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "education",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "hepatocellular carcinoma",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "safety",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "survival",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "immune checkpoint inhibitor",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "lung cancer",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "genetic testing",
+      "frequency": 12,
+      "percentage": 0.4
+    },
+    {
+      "keyword": "type 2 diabetes",
+      "frequency": 11,
+      "percentage": 0.37
+    },
+    {
+      "keyword": "cirrhosis",
+      "frequency": 11,
+      "percentage": 0.37
+    },
+    {
+      "keyword": "real-world evidence",
+      "frequency": 11,
+      "percentage": 0.37
+    },
+    {
+      "keyword": "prevention",
+      "frequency": 11,
+      "percentage": 0.37
+    },
+    {
+      "keyword": "tumor microenvironment",
+      "frequency": 11,
+      "percentage": 0.37
+    },
+    {
+      "keyword": "randomized controlled trial",
+      "frequency": 11,
+      "percentage": 0.37
+    },
+    {
+      "keyword": "catheter ablation",
+      "frequency": 11,
+      "percentage": 0.37
+    },
+    {
+      "keyword": "neuroimaging",
+      "frequency": 11,
+      "percentage": 0.37
+    },
+    {
+      "keyword": "autism spectrum disorder",
+      "frequency": 11,
+      "percentage": 0.37
+    },
+    {
+      "keyword": "phenotype",
+      "frequency": 10,
+      "percentage": 0.33
+    },
+    {
+      "keyword": "hypertension",
+      "frequency": 10,
+      "percentage": 0.33
+    },
+    {
+      "keyword": "comorbidity",
+      "frequency": 10,
+      "percentage": 0.33
+    },
+    {
+      "keyword": "diabetes mellitus",
+      "frequency": 10,
+      "percentage": 0.33
+    },
+    {
+      "keyword": "biologics",
+      "frequency": 10,
+      "percentage": 0.33
+    },
+    {
+      "keyword": "validation",
+      "frequency": 10,
+      "percentage": 0.33
+    },
+    {
+      "keyword": "imaging",
+      "frequency": 10,
+      "percentage": 0.33
+    },
+    {
+      "keyword": "epilepsy",
+      "frequency": 10,
+      "percentage": 0.33
+    }
+  ],
+  "matrix_keywords": [
+    "biomarkers",
+    "machine learning",
+    "immunotherapy",
+    "artificial intelligence",
+    "multiple sclerosis",
+    "biomarker",
+    "heart failure",
+    "depression",
+    "screening",
+    "breast cancer",
+    "diagnosis",
+    "prognosis",
+    "precision medicine",
+    "covid-19",
+    "primary care",
+    "asthma",
+    "inflammation",
+    "stroke",
+    "epidemiology",
+    "atrial fibrillation",
+    "deep learning",
+    "risk factors",
+    "treatment",
+    "quality of life",
+    "obesity",
+    "next-generation sequencing",
+    "proteomics",
+    "inflammatory bowel disease",
+    "bipolar disorder",
+    "cancer",
+    "liquid biopsy",
+    "schizophrenia",
+    "mental health",
+    "chronic kidney disease",
+    "mortality",
+    "melanoma",
+    "speech perception",
+    "consensus",
+    "magnetic resonance imaging",
+    "osteoporosis",
+    "clinical trials",
+    "alzheimer’s disease",
+    "ulcerative colitis",
+    "echocardiography",
+    "children",
+    "prostate cancer",
+    "psoriasis",
+    "targeted therapy",
+    "mri",
+    "natural language processing",
+    "coronary artery disease",
+    "immune checkpoint inhibitors",
+    "dementia",
+    "genetics",
+    "risk stratification",
+    "rheumatoid arthritis",
+    "major depressive disorder",
+    "sars-cov-2",
+    "real-world data",
+    "cardiovascular disease",
+    "meta-analysis",
+    "colorectal cancer",
+    "cognition",
+    "non-small cell lung cancer",
+    "copd",
+    "anxiety",
+    "systematic review",
+    "type 1 diabetes",
+    "nsclc",
+    "computed tomography",
+    "circulating tumor dna",
+    "diabetes",
+    "psoriatic arthritis",
+    "speaker identification",
+    "cardiovascular diseases",
+    "chronic obstructive pulmonary disease",
+    "education",
+    "hepatocellular carcinoma",
+    "safety",
+    "survival",
+    "immune checkpoint inhibitor",
+    "lung cancer",
+    "genetic testing",
+    "type 2 diabetes",
+    "cirrhosis",
+    "real-world evidence",
+    "prevention",
+    "tumor microenvironment",
+    "randomized controlled trial",
+    "catheter ablation",
+    "neuroimaging",
+    "autism spectrum disorder",
+    "phenotype",
+    "hypertension",
+    "comorbidity",
+    "diabetes mellitus",
+    "biologics",
+    "validation",
+    "imaging",
+    "epilepsy"
+  ],
+  "matrix_rows": 2999,
+  "matrix_columns": 100,
+  "cooccurrence_edges": [
+    {
+      "source": "artificial intelligence",
+      "target": "machine learning",
+      "weight": 17
+    },
+    {
+      "source": "anxiety",
+      "target": "depression",
+      "weight": 9
+    },
+    {
+      "source": "deep learning",
+      "target": "machine learning",
+      "weight": 7
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "deep learning",
+      "weight": 7
+    },
+    {
+      "source": "biomarkers",
+      "target": "immunotherapy",
+      "weight": 7
+    },
+    {
+      "source": "covid-19",
+      "target": "sars-cov-2",
+      "weight": 7
+    },
+    {
+      "source": "biomarkers",
+      "target": "breast cancer",
+      "weight": 6
+    },
+    {
+      "source": "atrial fibrillation",
+      "target": "heart failure",
+      "weight": 6
+    },
+    {
+      "source": "immune checkpoint inhibitor",
+      "target": "immunotherapy",
+      "weight": 6
+    },
+    {
+      "source": "atrial fibrillation",
+      "target": "stroke",
+      "weight": 6
+    },
+    {
+      "source": "psoriasis",
+      "target": "psoriatic arthritis",
+      "weight": 5
+    },
+    {
+      "source": "bipolar disorder",
+      "target": "major depressive disorder",
+      "weight": 5
+    },
+    {
+      "source": "depression",
+      "target": "mental health",
+      "weight": 5
+    },
+    {
+      "source": "atrial fibrillation",
+      "target": "catheter ablation",
+      "weight": 5
+    },
+    {
+      "source": "biomarker",
+      "target": "immunotherapy",
+      "weight": 5
+    },
+    {
+      "source": "immune checkpoint inhibitors",
+      "target": "immunotherapy",
+      "weight": 5
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "biomarkers",
+      "weight": 5
+    },
+    {
+      "source": "immunotherapy",
+      "target": "melanoma",
+      "weight": 5
+    },
+    {
+      "source": "diagnosis",
+      "target": "treatment",
+      "weight": 5
+    },
+    {
+      "source": "copd",
+      "target": "treatment",
+      "weight": 5
+    },
+    {
+      "source": "immunotherapy",
+      "target": "non-small cell lung cancer",
+      "weight": 5
+    },
+    {
+      "source": "depression",
+      "target": "inflammation",
+      "weight": 4
+    },
+    {
+      "source": "biomarker",
+      "target": "liquid biopsy",
+      "weight": 4
+    },
+    {
+      "source": "hypertension",
+      "target": "obesity",
+      "weight": 4
+    },
+    {
+      "source": "heart failure",
+      "target": "primary care",
+      "weight": 4
+    },
+    {
+      "source": "bipolar disorder",
+      "target": "schizophrenia",
+      "weight": 4
+    },
+    {
+      "source": "epidemiology",
+      "target": "osteoporosis",
+      "weight": 4
+    },
+    {
+      "source": "inflammatory bowel disease",
+      "target": "ulcerative colitis",
+      "weight": 4
+    },
+    {
+      "source": "biomarkers",
+      "target": "proteomics",
+      "weight": 4
+    },
+    {
+      "source": "biomarkers",
+      "target": "heart failure",
+      "weight": 4
+    },
+    {
+      "source": "biomarkers",
+      "target": "prognosis",
+      "weight": 4
+    },
+    {
+      "source": "immunotherapy",
+      "target": "tumor microenvironment",
+      "weight": 4
+    },
+    {
+      "source": "cancer",
+      "target": "immunotherapy",
+      "weight": 4
+    },
+    {
+      "source": "biomarkers",
+      "target": "precision medicine",
+      "weight": 4
+    },
+    {
+      "source": "bipolar disorder",
+      "target": "depression",
+      "weight": 4
+    },
+    {
+      "source": "multiple sclerosis",
+      "target": "quality of life",
+      "weight": 4
+    },
+    {
+      "source": "biomarker",
+      "target": "immune checkpoint inhibitor",
+      "weight": 4
+    },
+    {
+      "source": "depression",
+      "target": "schizophrenia",
+      "weight": 4
+    },
+    {
+      "source": "biomarker",
+      "target": "circulating tumor dna",
+      "weight": 3
+    },
+    {
+      "source": "circulating tumor dna",
+      "target": "liquid biopsy",
+      "weight": 3
+    },
+    {
+      "source": "diabetes",
+      "target": "obesity",
+      "weight": 3
+    },
+    {
+      "source": "heart failure",
+      "target": "type 2 diabetes",
+      "weight": 3
+    },
+    {
+      "source": "primary care",
+      "target": "type 2 diabetes",
+      "weight": 3
+    },
+    {
+      "source": "cardiovascular disease",
+      "target": "hypertension",
+      "weight": 3
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "inflammatory bowel disease",
+      "weight": 3
+    },
+    {
+      "source": "biomarker",
+      "target": "multiple sclerosis",
+      "weight": 3
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "atrial fibrillation",
+      "weight": 3
+    },
+    {
+      "source": "biomarkers",
+      "target": "epidemiology",
+      "weight": 3
+    },
+    {
+      "source": "dementia",
+      "target": "machine learning",
+      "weight": 3
+    },
+    {
+      "source": "cardiovascular disease",
+      "target": "chronic obstructive pulmonary disease",
+      "weight": 3
+    },
+    {
+      "source": "biomarkers",
+      "target": "inflammation",
+      "weight": 3
+    },
+    {
+      "source": "biomarkers",
+      "target": "deep learning",
+      "weight": 3
+    },
+    {
+      "source": "echocardiography",
+      "target": "heart failure",
+      "weight": 3
+    },
+    {
+      "source": "heart failure",
+      "target": "screening",
+      "weight": 3
+    },
+    {
+      "source": "chronic kidney disease",
+      "target": "diagnosis",
+      "weight": 3
+    },
+    {
+      "source": "diagnosis",
+      "target": "screening",
+      "weight": 3
+    },
+    {
+      "source": "prognosis",
+      "target": "risk stratification",
+      "weight": 3
+    },
+    {
+      "source": "heart failure",
+      "target": "risk stratification",
+      "weight": 3
+    },
+    {
+      "source": "biomarkers",
+      "target": "liquid biopsy",
+      "weight": 3
+    },
+    {
+      "source": "immune checkpoint inhibitors",
+      "target": "melanoma",
+      "weight": 3
+    },
+    {
+      "source": "next-generation sequencing",
+      "target": "targeted therapy",
+      "weight": 3
+    },
+    {
+      "source": "precision medicine",
+      "target": "targeted therapy",
+      "weight": 3
+    },
+    {
+      "source": "biomarkers",
+      "target": "next-generation sequencing",
+      "weight": 3
+    },
+    {
+      "source": "genetic testing",
+      "target": "next-generation sequencing",
+      "weight": 3
+    },
+    {
+      "source": "asthma",
+      "target": "biologics",
+      "weight": 3
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "breast cancer",
+      "weight": 3
+    },
+    {
+      "source": "bipolar disorder",
+      "target": "risk factors",
+      "weight": 3
+    },
+    {
+      "source": "cognition",
+      "target": "schizophrenia",
+      "weight": 3
+    },
+    {
+      "source": "heart failure",
+      "target": "stroke",
+      "weight": 3
+    },
+    {
+      "source": "asthma",
+      "target": "copd",
+      "weight": 3
+    },
+    {
+      "source": "liquid biopsy",
+      "target": "next-generation sequencing",
+      "weight": 3
+    },
+    {
+      "source": "biomarker",
+      "target": "breast cancer",
+      "weight": 3
+    },
+    {
+      "source": "depression",
+      "target": "major depressive disorder",
+      "weight": 3
+    },
+    {
+      "source": "biomarker",
+      "target": "non-small cell lung cancer",
+      "weight": 3
+    },
+    {
+      "source": "immune checkpoint inhibitor",
+      "target": "non-small cell lung cancer",
+      "weight": 3
+    },
+    {
+      "source": "children",
+      "target": "systematic review",
+      "weight": 2
+    },
+    {
+      "source": "screening",
+      "target": "type 1 diabetes",
+      "weight": 2
+    },
+    {
+      "source": "obesity",
+      "target": "sars-cov-2",
+      "weight": 2
+    },
+    {
+      "source": "diabetes",
+      "target": "hypertension",
+      "weight": 2
+    },
+    {
+      "source": "heart failure",
+      "target": "machine learning",
+      "weight": 2
+    },
+    {
+      "source": "comorbidity",
+      "target": "heart failure",
+      "weight": 2
+    },
+    {
+      "source": "machine learning",
+      "target": "risk stratification",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "psoriasis",
+      "weight": 2
+    },
+    {
+      "source": "cardiovascular disease",
+      "target": "obesity",
+      "weight": 2
+    },
+    {
+      "source": "major depressive disorder",
+      "target": "schizophrenia",
+      "weight": 2
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "prognosis",
+      "weight": 2
+    },
+    {
+      "source": "biologics",
+      "target": "psoriatic arthritis",
+      "weight": 2
+    },
+    {
+      "source": "mental health",
+      "target": "psoriasis",
+      "weight": 2
+    },
+    {
+      "source": "real-world data",
+      "target": "safety",
+      "weight": 2
+    },
+    {
+      "source": "cognition",
+      "target": "quality of life",
+      "weight": 2
+    },
+    {
+      "source": "quality of life",
+      "target": "randomized controlled trial",
+      "weight": 2
+    },
+    {
+      "source": "immune checkpoint inhibitors",
+      "target": "targeted therapy",
+      "weight": 2
+    },
+    {
+      "source": "dementia",
+      "target": "stroke",
+      "weight": 2
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "heart failure",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "machine learning",
+      "weight": 2
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "catheter ablation",
+      "weight": 2
+    },
+    {
+      "source": "machine learning",
+      "target": "rheumatoid arthritis",
+      "weight": 2
+    },
+    {
+      "source": "depression",
+      "target": "obesity",
+      "weight": 2
+    },
+    {
+      "source": "risk factors",
+      "target": "stroke",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "magnetic resonance imaging",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "neuroimaging",
+      "weight": 2
+    },
+    {
+      "source": "magnetic resonance imaging",
+      "target": "neuroimaging",
+      "weight": 2
+    },
+    {
+      "source": "alzheimer’s disease",
+      "target": "validation",
+      "weight": 2
+    },
+    {
+      "source": "cancer",
+      "target": "depression",
+      "weight": 2
+    },
+    {
+      "source": "chronic kidney disease",
+      "target": "obesity",
+      "weight": 2
+    },
+    {
+      "source": "liquid biopsy",
+      "target": "nsclc",
+      "weight": 2
+    },
+    {
+      "source": "asthma",
+      "target": "real-world data",
+      "weight": 2
+    },
+    {
+      "source": "melanoma",
+      "target": "survival",
+      "weight": 2
+    },
+    {
+      "source": "atrial fibrillation",
+      "target": "screening",
+      "weight": 2
+    },
+    {
+      "source": "chronic obstructive pulmonary disease",
+      "target": "primary care",
+      "weight": 2
+    },
+    {
+      "source": "copd",
+      "target": "primary care",
+      "weight": 2
+    },
+    {
+      "source": "cardiovascular disease",
+      "target": "primary care",
+      "weight": 2
+    },
+    {
+      "source": "diabetes",
+      "target": "heart failure",
+      "weight": 2
+    },
+    {
+      "source": "heart failure",
+      "target": "obesity",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "multiple sclerosis",
+      "weight": 2
+    },
+    {
+      "source": "multiple sclerosis",
+      "target": "prognosis",
+      "weight": 2
+    },
+    {
+      "source": "machine learning",
+      "target": "natural language processing",
+      "weight": 2
+    },
+    {
+      "source": "children",
+      "target": "comorbidity",
+      "weight": 2
+    },
+    {
+      "source": "inflammatory bowel disease",
+      "target": "machine learning",
+      "weight": 2
+    },
+    {
+      "source": "immune checkpoint inhibitor",
+      "target": "melanoma",
+      "weight": 2
+    },
+    {
+      "source": "catheter ablation",
+      "target": "heart failure",
+      "weight": 2
+    },
+    {
+      "source": "machine learning",
+      "target": "screening",
+      "weight": 2
+    },
+    {
+      "source": "chronic kidney disease",
+      "target": "primary care",
+      "weight": 2
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "clinical trials",
+      "weight": 2
+    },
+    {
+      "source": "liquid biopsy",
+      "target": "precision medicine",
+      "weight": 2
+    },
+    {
+      "source": "alzheimer’s disease",
+      "target": "screening",
+      "weight": 2
+    },
+    {
+      "source": "clinical trials",
+      "target": "inflammatory bowel disease",
+      "weight": 2
+    },
+    {
+      "source": "epidemiology",
+      "target": "risk factors",
+      "weight": 2
+    },
+    {
+      "source": "meta-analysis",
+      "target": "osteoporosis",
+      "weight": 2
+    },
+    {
+      "source": "osteoporosis",
+      "target": "risk factors",
+      "weight": 2
+    },
+    {
+      "source": "diagnosis",
+      "target": "multiple sclerosis",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "ulcerative colitis",
+      "weight": 2
+    },
+    {
+      "source": "heart failure",
+      "target": "hypertension",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "genetic testing",
+      "weight": 2
+    },
+    {
+      "source": "precision medicine",
+      "target": "rheumatoid arthritis",
+      "weight": 2
+    },
+    {
+      "source": "inflammatory bowel disease",
+      "target": "precision medicine",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "targeted therapy",
+      "weight": 2
+    },
+    {
+      "source": "biomarker",
+      "target": "inflammation",
+      "weight": 2
+    },
+    {
+      "source": "alzheimer’s disease",
+      "target": "multiple sclerosis",
+      "weight": 2
+    },
+    {
+      "source": "machine learning",
+      "target": "real-world data",
+      "weight": 2
+    },
+    {
+      "source": "inflammation",
+      "target": "precision medicine",
+      "weight": 2
+    },
+    {
+      "source": "asthma",
+      "target": "biomarkers",
+      "weight": 2
+    },
+    {
+      "source": "diagnosis",
+      "target": "prognosis",
+      "weight": 2
+    },
+    {
+      "source": "prevention",
+      "target": "risk factors",
+      "weight": 2
+    },
+    {
+      "source": "biomarker",
+      "target": "lung cancer",
+      "weight": 2
+    },
+    {
+      "source": "prognosis",
+      "target": "risk factors",
+      "weight": 2
+    },
+    {
+      "source": "speaker identification",
+      "target": "validation",
+      "weight": 2
+    },
+    {
+      "source": "chronic obstructive pulmonary disease",
+      "target": "mortality",
+      "weight": 2
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "stroke",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "dementia",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "screening",
+      "weight": 2
+    },
+    {
+      "source": "dementia",
+      "target": "screening",
+      "weight": 2
+    },
+    {
+      "source": "liquid biopsy",
+      "target": "non-small cell lung cancer",
+      "weight": 2
+    },
+    {
+      "source": "covid-19",
+      "target": "multiple sclerosis",
+      "weight": 2
+    },
+    {
+      "source": "nsclc",
+      "target": "targeted therapy",
+      "weight": 2
+    },
+    {
+      "source": "epidemiology",
+      "target": "mortality",
+      "weight": 2
+    },
+    {
+      "source": "immunotherapy",
+      "target": "liquid biopsy",
+      "weight": 2
+    },
+    {
+      "source": "immune checkpoint inhibitors",
+      "target": "tumor microenvironment",
+      "weight": 2
+    },
+    {
+      "source": "melanoma",
+      "target": "tumor microenvironment",
+      "weight": 2
+    },
+    {
+      "source": "cognition",
+      "target": "multiple sclerosis",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "nsclc",
+      "weight": 2
+    },
+    {
+      "source": "consensus",
+      "target": "multiple sclerosis",
+      "weight": 2
+    },
+    {
+      "source": "copd",
+      "target": "diagnosis",
+      "weight": 2
+    },
+    {
+      "source": "next-generation sequencing",
+      "target": "precision medicine",
+      "weight": 2
+    },
+    {
+      "source": "machine learning",
+      "target": "speaker identification",
+      "weight": 2
+    },
+    {
+      "source": "machine learning",
+      "target": "stroke",
+      "weight": 2
+    },
+    {
+      "source": "asthma",
+      "target": "epidemiology",
+      "weight": 2
+    },
+    {
+      "source": "immune checkpoint inhibitors",
+      "target": "nsclc",
+      "weight": 2
+    },
+    {
+      "source": "immunotherapy",
+      "target": "nsclc",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "diabetes",
+      "weight": 2
+    },
+    {
+      "source": "bipolar disorder",
+      "target": "machine learning",
+      "weight": 2
+    },
+    {
+      "source": "deep learning",
+      "target": "depression",
+      "weight": 2
+    },
+    {
+      "source": "deep learning",
+      "target": "major depressive disorder",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "diagnosis",
+      "weight": 2
+    },
+    {
+      "source": "inflammation",
+      "target": "treatment",
+      "weight": 2
+    },
+    {
+      "source": "machine learning",
+      "target": "precision medicine",
+      "weight": 2
+    },
+    {
+      "source": "heart failure",
+      "target": "risk factors",
+      "weight": 2
+    },
+    {
+      "source": "breast cancer",
+      "target": "machine learning",
+      "weight": 2
+    },
+    {
+      "source": "asthma",
+      "target": "treatment",
+      "weight": 2
+    },
+    {
+      "source": "biomarkers",
+      "target": "treatment",
+      "weight": 2
+    },
+    {
+      "source": "immunotherapy",
+      "target": "lung cancer",
+      "weight": 2
+    },
+    {
+      "source": "circulating tumor dna",
+      "target": "next-generation sequencing",
+      "weight": 2
+    },
+    {
+      "source": "prognosis",
+      "target": "treatment",
+      "weight": 2
+    },
+    {
+      "source": "hepatocellular carcinoma",
+      "target": "survival",
+      "weight": 2
+    },
+    {
+      "source": "biomarker",
+      "target": "melanoma",
+      "weight": 2
+    },
+    {
+      "source": "melanoma",
+      "target": "non-small cell lung cancer",
+      "weight": 2
+    },
+    {
+      "source": "proteomics",
+      "target": "risk stratification",
+      "weight": 1
+    },
+    {
+      "source": "anxiety",
+      "target": "inflammation",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "screening",
+      "weight": 1
+    },
+    {
+      "source": "children",
+      "target": "type 1 diabetes",
+      "weight": 1
+    },
+    {
+      "source": "screening",
+      "target": "systematic review",
+      "weight": 1
+    },
+    {
+      "source": "systematic review",
+      "target": "type 1 diabetes",
+      "weight": 1
+    },
+    {
+      "source": "biomarker",
+      "target": "prostate cancer",
+      "weight": 1
+    },
+    {
+      "source": "circulating tumor dna",
+      "target": "prostate cancer",
+      "weight": 1
+    },
+    {
+      "source": "liquid biopsy",
+      "target": "prostate cancer",
+      "weight": 1
+    },
+    {
+      "source": "obesity",
+      "target": "psoriasis",
+      "weight": 1
+    },
+    {
+      "source": "obesity",
+      "target": "psoriatic arthritis",
+      "weight": 1
+    },
+    {
+      "source": "comorbidity",
+      "target": "primary care",
+      "weight": 1
+    },
+    {
+      "source": "comorbidity",
+      "target": "type 2 diabetes",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "type 1 diabetes",
+      "weight": 1
+    },
+    {
+      "source": "risk stratification",
+      "target": "type 1 diabetes",
+      "weight": 1
+    },
+    {
+      "source": "cardiovascular diseases",
+      "target": "chronic obstructive pulmonary disease",
+      "weight": 1
+    },
+    {
+      "source": "cardiovascular diseases",
+      "target": "comorbidity",
+      "weight": 1
+    },
+    {
+      "source": "chronic obstructive pulmonary disease",
+      "target": "comorbidity",
+      "weight": 1
+    },
+    {
+      "source": "biomarkers",
+      "target": "psoriatic arthritis",
+      "weight": 1
+    },
+    {
+      "source": "biomarkers",
+      "target": "risk factors",
+      "weight": 1
+    },
+    {
+      "source": "psoriasis",
+      "target": "risk factors",
+      "weight": 1
+    },
+    {
+      "source": "psoriatic arthritis",
+      "target": "risk factors",
+      "weight": 1
+    },
+    {
+      "source": "cardiovascular disease",
+      "target": "diabetes",
+      "weight": 1
+    },
+    {
+      "source": "biomarkers",
+      "target": "circulating tumor dna",
+      "weight": 1
+    },
+    {
+      "source": "breast cancer",
+      "target": "circulating tumor dna",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "hepatocellular carcinoma",
+      "weight": 1
+    },
+    {
+      "source": "hepatocellular carcinoma",
+      "target": "prognosis",
+      "weight": 1
+    },
+    {
+      "source": "cirrhosis",
+      "target": "consensus",
+      "weight": 1
+    },
+    {
+      "source": "biologics",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "biologics",
+      "target": "psoriasis",
+      "weight": 1
+    },
+    {
+      "source": "mental health",
+      "target": "psoriatic arthritis",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "inflammation",
+      "target": "phenotype",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "mri",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "computed tomography",
+      "weight": 1
+    },
+    {
+      "source": "chronic obstructive pulmonary disease",
+      "target": "phenotype",
+      "weight": 1
+    },
+    {
+      "source": "biomarker",
+      "target": "colorectal cancer",
+      "weight": 1
+    },
+    {
+      "source": "circulating tumor dna",
+      "target": "colorectal cancer",
+      "weight": 1
+    },
+    {
+      "source": "epidemiology",
+      "target": "real-world evidence",
+      "weight": 1
+    },
+    {
+      "source": "imaging",
+      "target": "inflammation",
+      "weight": 1
+    },
+    {
+      "source": "osteoporosis",
+      "target": "prevention",
+      "weight": 1
+    },
+    {
+      "source": "bipolar disorder",
+      "target": "meta-analysis",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "mental health",
+      "weight": 1
+    },
+    {
+      "source": "depression",
+      "target": "randomized controlled trial",
+      "weight": 1
+    },
+    {
+      "source": "mental health",
+      "target": "randomized controlled trial",
+      "weight": 1
+    },
+    {
+      "source": "hepatocellular carcinoma",
+      "target": "immune checkpoint inhibitors",
+      "weight": 1
+    },
+    {
+      "source": "cognition",
+      "target": "randomized controlled trial",
+      "weight": 1
+    },
+    {
+      "source": "genetics",
+      "target": "imaging",
+      "weight": 1
+    },
+    {
+      "source": "computed tomography",
+      "target": "risk stratification",
+      "weight": 1
+    },
+    {
+      "source": "epidemiology",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "dementia",
+      "weight": 1
+    },
+    {
+      "source": "anxiety",
+      "target": "screening",
+      "weight": 1
+    },
+    {
+      "source": "depression",
+      "target": "screening",
+      "weight": 1
+    },
+    {
+      "source": "hypertension",
+      "target": "risk factors",
+      "weight": 1
+    },
+    {
+      "source": "chronic kidney disease",
+      "target": "type 2 diabetes",
+      "weight": 1
+    },
+    {
+      "source": "biomarkers",
+      "target": "cardiovascular diseases",
+      "weight": 1
+    },
+    {
+      "source": "biomarkers",
+      "target": "hypertension",
+      "weight": 1
+    },
+    {
+      "source": "cardiovascular diseases",
+      "target": "hypertension",
+      "weight": 1
+    },
+    {
+      "source": "cardiovascular diseases",
+      "target": "education",
+      "weight": 1
+    },
+    {
+      "source": "cardiovascular diseases",
+      "target": "epidemiology",
+      "weight": 1
+    },
+    {
+      "source": "education",
+      "target": "epidemiology",
+      "weight": 1
+    },
+    {
+      "source": "biomarkers",
+      "target": "depression",
+      "weight": 1
+    },
+    {
+      "source": "biomarkers",
+      "target": "obesity",
+      "weight": 1
+    },
+    {
+      "source": "inflammation",
+      "target": "obesity",
+      "weight": 1
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "biomarkers",
+      "degree_centrality": 0.626263,
+      "closeness_centrality": 0.727941,
+      "betweenness_centrality": 0.231969,
+      "eigenvector_centrality": 0.349365,
+      "clustering_coefficient": 0.154944
+    },
+    {
+      "keyword": "machine learning",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.075818,
+      "eigenvector_centrality": 0.217336,
+      "clustering_coefficient": 0.2
+    },
+    {
+      "keyword": "artificial intelligence",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.056403,
+      "eigenvector_centrality": 0.197784,
+      "clustering_coefficient": 0.210227
+    },
+    {
+      "keyword": "biomarker",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.04927,
+      "eigenvector_centrality": 0.183193,
+      "clustering_coefficient": 0.185484
+    },
+    {
+      "keyword": "precision medicine",
+      "degree_centrality": 0.272727,
+      "closeness_centrality": 0.55618,
+      "betweenness_centrality": 0.0363,
+      "eigenvector_centrality": 0.15691,
+      "clustering_coefficient": 0.25641
+    },
+    {
+      "keyword": "screening",
+      "degree_centrality": 0.262626,
+      "closeness_centrality": 0.565714,
+      "betweenness_centrality": 0.028931,
+      "eigenvector_centrality": 0.170293,
+      "clustering_coefficient": 0.267692
+    },
+    {
+      "keyword": "immunotherapy",
+      "degree_centrality": 0.252525,
+      "closeness_centrality": 0.540984,
+      "betweenness_centrality": 0.021024,
+      "eigenvector_centrality": 0.155148,
+      "clustering_coefficient": 0.313333
+    },
+    {
+      "keyword": "heart failure",
+      "degree_centrality": 0.252525,
+      "closeness_centrality": 0.559322,
+      "betweenness_centrality": 0.019514,
+      "eigenvector_centrality": 0.171326,
+      "clustering_coefficient": 0.306667
+    },
+    {
+      "keyword": "depression",
+      "degree_centrality": 0.242424,
+      "closeness_centrality": 0.559322,
+      "betweenness_centrality": 0.041336,
+      "eigenvector_centrality": 0.136795,
+      "clustering_coefficient": 0.242754
+    },
+    {
+      "keyword": "prognosis",
+      "degree_centrality": 0.242424,
+      "closeness_centrality": 0.559322,
+      "betweenness_centrality": 0.018811,
+      "eigenvector_centrality": 0.170846,
+      "clustering_coefficient": 0.278986
+    },
+    {
+      "keyword": "multiple sclerosis",
+      "degree_centrality": 0.222222,
+      "closeness_centrality": 0.553073,
+      "betweenness_centrality": 0.032553,
+      "eigenvector_centrality": 0.134127,
+      "clustering_coefficient": 0.21645
+    },
+    {
+      "keyword": "epidemiology",
+      "degree_centrality": 0.222222,
+      "closeness_centrality": 0.540984,
+      "betweenness_centrality": 0.019095,
+      "eigenvector_centrality": 0.146075,
+      "clustering_coefficient": 0.277056
+    },
+    {
+      "keyword": "asthma",
+      "degree_centrality": 0.212121,
+      "closeness_centrality": 0.543956,
+      "betweenness_centrality": 0.015894,
+      "eigenvector_centrality": 0.147136,
+      "clustering_coefficient": 0.32381
+    },
+    {
+      "keyword": "treatment",
+      "degree_centrality": 0.212121,
+      "closeness_centrality": 0.543956,
+      "betweenness_centrality": 0.017818,
+      "eigenvector_centrality": 0.140014,
+      "clustering_coefficient": 0.266667
+    },
+    {
+      "keyword": "breast cancer",
+      "degree_centrality": 0.20202,
+      "closeness_centrality": 0.538043,
+      "betweenness_centrality": 0.015468,
+      "eigenvector_centrality": 0.145994,
+      "clustering_coefficient": 0.289474
+    },
+    {
+      "keyword": "diagnosis",
+      "degree_centrality": 0.20202,
+      "closeness_centrality": 0.540984,
+      "betweenness_centrality": 0.012721,
+      "eigenvector_centrality": 0.150425,
+      "clustering_coefficient": 0.336842
+    },
+    {
+      "keyword": "primary care",
+      "degree_centrality": 0.20202,
+      "closeness_centrality": 0.512953,
+      "betweenness_centrality": 0.023012,
+      "eigenvector_centrality": 0.10684,
+      "clustering_coefficient": 0.226316
+    },
+    {
+      "keyword": "inflammation",
+      "degree_centrality": 0.20202,
+      "closeness_centrality": 0.543956,
+      "betweenness_centrality": 0.019049,
+      "eigenvector_centrality": 0.12532,
+      "clustering_coefficient": 0.252632
+    },
+    {
+      "keyword": "risk factors",
+      "degree_centrality": 0.20202,
+      "closeness_centrality": 0.532258,
+      "betweenness_centrality": 0.011241,
+      "eigenvector_centrality": 0.139851,
+      "clustering_coefficient": 0.3
+    },
+    {
+      "keyword": "stroke",
+      "degree_centrality": 0.191919,
+      "closeness_centrality": 0.540984,
+      "betweenness_centrality": 0.014922,
+      "eigenvector_centrality": 0.137622,
+      "clustering_coefficient": 0.321637
+    },
+    {
+      "keyword": "clinical trials",
+      "degree_centrality": 0.181818,
+      "closeness_centrality": 0.538043,
+      "betweenness_centrality": 0.012821,
+      "eigenvector_centrality": 0.121124,
+      "clustering_coefficient": 0.300654
+    },
+    {
+      "keyword": "obesity",
+      "degree_centrality": 0.171717,
+      "closeness_centrality": 0.521053,
+      "betweenness_centrality": 0.015372,
+      "eigenvector_centrality": 0.101544,
+      "clustering_coefficient": 0.316176
+    },
+    {
+      "keyword": "children",
+      "degree_centrality": 0.161616,
+      "closeness_centrality": 0.492537,
+      "betweenness_centrality": 0.015012,
+      "eigenvector_centrality": 0.080677,
+      "clustering_coefficient": 0.216667
+    },
+    {
+      "keyword": "prostate cancer",
+      "degree_centrality": 0.161616,
+      "closeness_centrality": 0.510309,
+      "betweenness_centrality": 0.011864,
+      "eigenvector_centrality": 0.10178,
+      "clustering_coefficient": 0.258333
+    },
+    {
+      "keyword": "atrial fibrillation",
+      "degree_centrality": 0.151515,
+      "closeness_centrality": 0.518325,
+      "betweenness_centrality": 0.003273,
+      "eigenvector_centrality": 0.12314,
+      "clustering_coefficient": 0.485714
+    },
+    {
+      "keyword": "deep learning",
+      "degree_centrality": 0.151515,
+      "closeness_centrality": 0.526596,
+      "betweenness_centrality": 0.011737,
+      "eigenvector_centrality": 0.096747,
+      "clustering_coefficient": 0.32381
+    },
+    {
+      "keyword": "mortality",
+      "degree_centrality": 0.151515,
+      "closeness_centrality": 0.518325,
+      "betweenness_centrality": 0.006462,
+      "eigenvector_centrality": 0.116753,
+      "clustering_coefficient": 0.380952
+    },
+    {
+      "keyword": "comorbidity",
+      "degree_centrality": 0.151515,
+      "closeness_centrality": 0.497487,
+      "betweenness_centrality": 0.007459,
+      "eigenvector_centrality": 0.090073,
+      "clustering_coefficient": 0.32381
+    },
+    {
+      "keyword": "inflammatory bowel disease",
+      "degree_centrality": 0.141414,
+      "closeness_centrality": 0.507692,
+      "betweenness_centrality": 0.0093,
+      "eigenvector_centrality": 0.081593,
+      "clustering_coefficient": 0.252747
+    },
+    {
+      "keyword": "dementia",
+      "degree_centrality": 0.141414,
+      "closeness_centrality": 0.518325,
+      "betweenness_centrality": 0.005048,
+      "eigenvector_centrality": 0.114339,
+      "clustering_coefficient": 0.461538
+    },
+    {
+      "keyword": "diabetes",
+      "degree_centrality": 0.141414,
+      "closeness_centrality": 0.507692,
+      "betweenness_centrality": 0.005222,
+      "eigenvector_centrality": 0.108009,
+      "clustering_coefficient": 0.395604
+    },
+    {
+      "keyword": "cardiovascular diseases",
+      "degree_centrality": 0.141414,
+      "closeness_centrality": 0.518325,
+      "betweenness_centrality": 0.012371,
+      "eigenvector_centrality": 0.094633,
+      "clustering_coefficient": 0.296703
+    },
+    {
+      "keyword": "survival",
+      "degree_centrality": 0.141414,
+      "closeness_centrality": 0.5,
+      "betweenness_centrality": 0.004678,
+      "eigenvector_centrality": 0.100963,
+      "clustering_coefficient": 0.428571
+    },
+    {
+      "keyword": "bipolar disorder",
+      "degree_centrality": 0.131313,
+      "closeness_centrality": 0.475962,
+      "betweenness_centrality": 0.008094,
+      "eigenvector_centrality": 0.071822,
+      "clustering_coefficient": 0.269231
+    },
+    {
+      "keyword": "chronic kidney disease",
+      "degree_centrality": 0.131313,
+      "closeness_centrality": 0.5,
+      "betweenness_centrality": 0.005965,
+      "eigenvector_centrality": 0.091721,
+      "clustering_coefficient": 0.358974
+    },
+    {
+      "keyword": "melanoma",
+      "degree_centrality": 0.131313,
+      "closeness_centrality": 0.456221,
+      "betweenness_centrality": 0.003328,
+      "eigenvector_centrality": 0.076217,
+      "clustering_coefficient": 0.423077
+    },
+    {
+      "keyword": "copd",
+      "degree_centrality": 0.131313,
+      "closeness_centrality": 0.512953,
+      "betweenness_centrality": 0.004024,
+      "eigenvector_centrality": 0.107015,
+      "clustering_coefficient": 0.448718
+    },
+    {
+      "keyword": "lung cancer",
+      "degree_centrality": 0.131313,
+      "closeness_centrality": 0.478261,
+      "betweenness_centrality": 0.002083,
+      "eigenvector_centrality": 0.093475,
+      "clustering_coefficient": 0.525641
+    },
+    {
+      "keyword": "proteomics",
+      "degree_centrality": 0.121212,
+      "closeness_centrality": 0.507692,
+      "betweenness_centrality": 0.005224,
+      "eigenvector_centrality": 0.093356,
+      "clustering_coefficient": 0.30303
+    },
+    {
+      "keyword": "targeted therapy",
+      "degree_centrality": 0.121212,
+      "closeness_centrality": 0.475962,
+      "betweenness_centrality": 0.004592,
+      "eigenvector_centrality": 0.079037,
+      "clustering_coefficient": 0.393939
+    },
+    {
+      "keyword": "genetics",
+      "degree_centrality": 0.121212,
+      "closeness_centrality": 0.505102,
+      "betweenness_centrality": 0.005258,
+      "eigenvector_centrality": 0.090731,
+      "clustering_coefficient": 0.409091
+    },
+    {
+      "keyword": "rheumatoid arthritis",
+      "degree_centrality": 0.121212,
+      "closeness_centrality": 0.505102,
+      "betweenness_centrality": 0.003506,
+      "eigenvector_centrality": 0.088213,
+      "clustering_coefficient": 0.348485
+    },
+    {
+      "keyword": "real-world data",
+      "degree_centrality": 0.121212,
+      "closeness_centrality": 0.487685,
+      "betweenness_centrality": 0.005342,
+      "eigenvector_centrality": 0.075823,
+      "clustering_coefficient": 0.30303
+    },
+    {
+      "keyword": "nsclc",
+      "degree_centrality": 0.121212,
+      "closeness_centrality": 0.473684,
+      "betweenness_centrality": 0.002839,
+      "eigenvector_centrality": 0.083264,
+      "clustering_coefficient": 0.484848
+    },
+    {
+      "keyword": "prevention",
+      "degree_centrality": 0.121212,
+      "closeness_centrality": 0.502538,
+      "betweenness_centrality": 0.005552,
+      "eigenvector_centrality": 0.08695,
+      "clustering_coefficient": 0.257576
+    },
+    {
+      "keyword": "covid-19",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.495,
+      "betweenness_centrality": 0.006822,
+      "eigenvector_centrality": 0.072922,
+      "clustering_coefficient": 0.236364
+    },
+    {
+      "keyword": "cancer",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.505102,
+      "betweenness_centrality": 0.012981,
+      "eigenvector_centrality": 0.088011,
+      "clustering_coefficient": 0.436364
+    },
+    {
+      "keyword": "liquid biopsy",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.475962,
+      "betweenness_centrality": 0.001534,
+      "eigenvector_centrality": 0.077019,
+      "clustering_coefficient": 0.6
+    },
+    {
+      "keyword": "magnetic resonance imaging",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.507692,
+      "betweenness_centrality": 0.005186,
+      "eigenvector_centrality": 0.079732,
+      "clustering_coefficient": 0.309091
+    },
+    {
+      "keyword": "osteoporosis",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.478261,
+      "betweenness_centrality": 0.002324,
+      "eigenvector_centrality": 0.08125,
+      "clustering_coefficient": 0.345455
+    },
+    {
+      "keyword": "risk stratification",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.5,
+      "betweenness_centrality": 0.002702,
+      "eigenvector_centrality": 0.090735,
+      "clustering_coefficient": 0.527273
+    },
+    {
+      "keyword": "meta-analysis",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.495,
+      "betweenness_centrality": 0.005065,
+      "eigenvector_centrality": 0.080869,
+      "clustering_coefficient": 0.309091
+    },
+    {
+      "keyword": "anxiety",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.469194,
+      "betweenness_centrality": 0.002994,
+      "eigenvector_centrality": 0.062811,
+      "clustering_coefficient": 0.454545
+    },
+    {
+      "keyword": "systematic review",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.458333,
+      "betweenness_centrality": 0.003443,
+      "eigenvector_centrality": 0.065281,
+      "clustering_coefficient": 0.290909
+    },
+    {
+      "keyword": "hepatocellular carcinoma",
+      "degree_centrality": 0.111111,
+      "closeness_centrality": 0.487685,
+      "betweenness_centrality": 0.003126,
+      "eigenvector_centrality": 0.091209,
+      "clustering_coefficient": 0.454545
+    },
+    {
+      "keyword": "mental health",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.458333,
+      "betweenness_centrality": 0.003843,
+      "eigenvector_centrality": 0.061488,
+      "clustering_coefficient": 0.311111
+    },
+    {
+      "keyword": "psoriasis",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.480583,
+      "betweenness_centrality": 0.003061,
+      "eigenvector_centrality": 0.066301,
+      "clustering_coefficient": 0.377778
+    },
+    {
+      "keyword": "cardiovascular disease",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.423077,
+      "betweenness_centrality": 0.002993,
+      "eigenvector_centrality": 0.049313,
+      "clustering_coefficient": 0.311111
+    },
+    {
+      "keyword": "colorectal cancer",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.475962,
+      "betweenness_centrality": 0.002173,
+      "eigenvector_centrality": 0.072114,
+      "clustering_coefficient": 0.4
+    },
+    {
+      "keyword": "psoriatic arthritis",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.478261,
+      "betweenness_centrality": 0.003039,
+      "eigenvector_centrality": 0.063847,
+      "clustering_coefficient": 0.377778
+    },
+    {
+      "keyword": "biologics",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.492537,
+      "betweenness_centrality": 0.002785,
+      "eigenvector_centrality": 0.070645,
+      "clustering_coefficient": 0.422222
+    },
+    {
+      "keyword": "next-generation sequencing",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.471429,
+      "betweenness_centrality": 0.00152,
+      "eigenvector_centrality": 0.065283,
+      "clustering_coefficient": 0.5
+    },
+    {
+      "keyword": "consensus",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.487685,
+      "betweenness_centrality": 0.006958,
+      "eigenvector_centrality": 0.062922,
+      "clustering_coefficient": 0.277778
+    },
+    {
+      "keyword": "immune checkpoint inhibitors",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.428571,
+      "betweenness_centrality": 0.001976,
+      "eigenvector_centrality": 0.05025,
+      "clustering_coefficient": 0.444444
+    },
+    {
+      "keyword": "cognition",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.456221,
+      "betweenness_centrality": 0.003462,
+      "eigenvector_centrality": 0.046121,
+      "clustering_coefficient": 0.25
+    },
+    {
+      "keyword": "non-small cell lung cancer",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.434211,
+      "betweenness_centrality": 0.001912,
+      "eigenvector_centrality": 0.054485,
+      "clustering_coefficient": 0.527778
+    },
+    {
+      "keyword": "chronic obstructive pulmonary disease",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.424893,
+      "betweenness_centrality": 0.002984,
+      "eigenvector_centrality": 0.05141,
+      "clustering_coefficient": 0.388889
+    },
+    {
+      "keyword": "genetic testing",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.482927,
+      "betweenness_centrality": 0.001662,
+      "eigenvector_centrality": 0.066302,
+      "clustering_coefficient": 0.444444
+    },
+    {
+      "keyword": "type 2 diabetes",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.447964,
+      "betweenness_centrality": 0.003077,
+      "eigenvector_centrality": 0.050439,
+      "clustering_coefficient": 0.25
+    },
+    {
+      "keyword": "quality of life",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.482927,
+      "betweenness_centrality": 0.002568,
+      "eigenvector_centrality": 0.060376,
+      "clustering_coefficient": 0.464286
+    },
+    {
+      "keyword": "schizophrenia",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.44,
+      "betweenness_centrality": 0.002167,
+      "eigenvector_centrality": 0.042069,
+      "clustering_coefficient": 0.428571
+    },
+    {
+      "keyword": "alzheimer’s disease",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.492537,
+      "betweenness_centrality": 0.0087,
+      "eigenvector_centrality": 0.061477,
+      "clustering_coefficient": 0.357143
+    },
+    {
+      "keyword": "mri",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.478261,
+      "betweenness_centrality": 0.001528,
+      "eigenvector_centrality": 0.062915,
+      "clustering_coefficient": 0.392857
+    },
+    {
+      "keyword": "natural language processing",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.45,
+      "betweenness_centrality": 0.002965,
+      "eigenvector_centrality": 0.048811,
+      "clustering_coefficient": 0.357143
+    },
+    {
+      "keyword": "type 1 diabetes",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.454128,
+      "betweenness_centrality": 0.001998,
+      "eigenvector_centrality": 0.049278,
+      "clustering_coefficient": 0.357143
+    },
+    {
+      "keyword": "circulating tumor dna",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.466981,
+      "betweenness_centrality": 0.000415,
+      "eigenvector_centrality": 0.064862,
+      "clustering_coefficient": 0.678571
+    },
+    {
+      "keyword": "safety",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.44,
+      "betweenness_centrality": 0.002306,
+      "eigenvector_centrality": 0.045418,
+      "clustering_coefficient": 0.214286
+    },
+    {
+      "keyword": "immune checkpoint inhibitor",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.458333,
+      "betweenness_centrality": 0.000736,
+      "eigenvector_centrality": 0.059757,
+      "clustering_coefficient": 0.642857
+    },
+    {
+      "keyword": "phenotype",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.487685,
+      "betweenness_centrality": 0.022885,
+      "eigenvector_centrality": 0.054981,
+      "clustering_coefficient": 0.178571
+    },
+    {
+      "keyword": "hypertension",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.480583,
+      "betweenness_centrality": 0.001239,
+      "eigenvector_centrality": 0.063128,
+      "clustering_coefficient": 0.535714
+    },
+    {
+      "keyword": "echocardiography",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.480583,
+      "betweenness_centrality": 0.000392,
+      "eigenvector_centrality": 0.068158,
+      "clustering_coefficient": 0.714286
+    },
+    {
+      "keyword": "major depressive disorder",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.44,
+      "betweenness_centrality": 0.001489,
+      "eigenvector_centrality": 0.040023,
+      "clustering_coefficient": 0.52381
+    },
+    {
+      "keyword": "computed tomography",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.452055,
+      "betweenness_centrality": 0.000497,
+      "eigenvector_centrality": 0.056112,
+      "clustering_coefficient": 0.571429
+    },
+    {
+      "keyword": "education",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.44,
+      "betweenness_centrality": 0.001211,
+      "eigenvector_centrality": 0.047743,
+      "clustering_coefficient": 0.333333
+    },
+    {
+      "keyword": "tumor microenvironment",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.454128,
+      "betweenness_centrality": 0.000956,
+      "eigenvector_centrality": 0.054122,
+      "clustering_coefficient": 0.619048
+    },
+    {
+      "keyword": "randomized controlled trial",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.436123,
+      "betweenness_centrality": 0.002334,
+      "eigenvector_centrality": 0.039031,
+      "clustering_coefficient": 0.238095
+    },
+    {
+      "keyword": "catheter ablation",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.480583,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.071181,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "neuroimaging",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.482927,
+      "betweenness_centrality": 0.002281,
+      "eigenvector_centrality": 0.046221,
+      "clustering_coefficient": 0.333333
+    },
+    {
+      "keyword": "coronary artery disease",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.473684,
+      "betweenness_centrality": 0.000581,
+      "eigenvector_centrality": 0.0523,
+      "clustering_coefficient": 0.533333
+    },
+    {
+      "keyword": "diabetes mellitus",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.456221,
+      "betweenness_centrality": 0.002132,
+      "eigenvector_centrality": 0.039441,
+      "clustering_coefficient": 0.466667
+    },
+    {
+      "keyword": "ulcerative colitis",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.45,
+      "betweenness_centrality": 0.000717,
+      "eigenvector_centrality": 0.038548,
+      "clustering_coefficient": 0.5
+    },
+    {
+      "keyword": "real-world evidence",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.428571,
+      "betweenness_centrality": 0.000763,
+      "eigenvector_centrality": 0.031638,
+      "clustering_coefficient": 0.2
+    },
+    {
+      "keyword": "autism spectrum disorder",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.478261,
+      "betweenness_centrality": 0.003655,
+      "eigenvector_centrality": 0.040071,
+      "clustering_coefficient": 0.2
+    },
+    {
+      "keyword": "imaging",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.452055,
+      "betweenness_centrality": 0.000174,
+      "eigenvector_centrality": 0.045462,
+      "clustering_coefficient": 0.7
+    },
+    {
+      "keyword": "cirrhosis",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.396,
+      "betweenness_centrality": 0.000347,
+      "eigenvector_centrality": 0.019487,
+      "clustering_coefficient": 0.666667
+    },
+    {
+      "keyword": "sars-cov-2",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.385214,
+      "betweenness_centrality": 6.7e-05,
+      "eigenvector_centrality": 0.01738,
+      "clustering_coefficient": 0.666667
+    },
+    {
+      "keyword": "speaker identification",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.389764,
+      "betweenness_centrality": 0.001908,
+      "eigenvector_centrality": 0.018221,
+      "clustering_coefficient": 0.333333
+    },
+    {
+      "keyword": "validation",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.354839,
+      "betweenness_centrality": 0.000549,
+      "eigenvector_centrality": 0.009445,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "epilepsy",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.380769,
+      "betweenness_centrality": 0.000218,
+      "eigenvector_centrality": 0.015291,
+      "clustering_coefficient": 0.333333
+    },
+    {
+      "keyword": "speech perception",
+      "degree_centrality": 0.010101,
+      "closeness_centrality": 0.328904,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.003097,
+      "clustering_coefficient": 0.0
+    }
+  ]
+}

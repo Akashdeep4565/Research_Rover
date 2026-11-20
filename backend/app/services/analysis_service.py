@@ -26,6 +26,7 @@ import networkx as nx
 
 from app.core.config import Settings
 from app.utils.csv_loader import read_csv_to_dataframe, CSVLoadError
+from app.services.country_service import CountryService
 
 logger = logging.getLogger("research_rover")
 
@@ -148,14 +149,44 @@ class AnalysisService:
 
     def _load_dataframe(self, csv_path: str) -> pd.DataFrame:
         df = read_csv_to_dataframe(csv_path)
-        for column in ("Title", "Abstract", "Source", "Journal/Book", "Year_Published", "Publication Year", "Authors", "Keywords", "DOI", "Doi", "PMID", "Download_URL"):
+        for column in ("Title", "Abstract", "Source", "Journal/Book", "Year_Published", "Publication Year", "Authors", "Affiliations", "Keywords", "DOI", "Doi", "PMID", "Download_URL"):
             if column not in df.columns:
                 df[column] = ""
         return df
 
-    def normalize_metadata(self, csv_path: str) -> List[Dict[str, Any]]:
+    def normalize_metadata(self, csv_path: str, exclude_duplicates: bool = True) -> List[Dict[str, Any]]:
+        try:
+            from app.services.canonical_loader import CanonicalDataLoader
+            canonical_records = CanonicalDataLoader.load_canonical_records(
+                csv_path, exclude_duplicates=exclude_duplicates
+            )
+            records: List[Dict[str, Any]] = []
+            for rec in canonical_records:
+                records.append(
+                    {
+                        "paper_id": rec.paper_id,
+                        "title": rec.title,
+                        "source": rec.journal or "Unknown",
+                        "year": str(rec.publication_year) if rec.publication_year else None,
+                        "doi": rec.doi,
+                        "authors": rec.authors,
+                        "affiliations": "; ".join(rec.affiliations) if rec.affiliations else None,
+                        "keywords": [self._normalize_keyword(k) for k in rec.keywords],
+                        "abstract": rec.abstract,
+                        "download_url": rec.download_url,
+                        "is_duplicate": rec.is_duplicate,
+                        "duplicate_of": rec.duplicate_of,
+                    }
+                )
+            if records:
+                return records
+        except Exception as e:
+            logger.warning("Canonical loader fallback in AnalysisService.normalize_metadata: %s", e)
+
+        # Fallback to manual column loading for backward compatibility
         df = self._load_dataframe(csv_path)
         records: List[Dict[str, Any]] = []
+        seen_ids = set()
 
         for index, row in df.iterrows():
             source = self._normalize_text(row.get("Source") or row.get("Journal/Book") or "Unknown") or "Unknown"
@@ -163,8 +194,13 @@ class AnalysisService:
             year = self._normalize_text(row.get("Year_Published") or row.get("Publication Year")) or None
             doi = self._normalize_text(row.get("DOI") or row.get("Doi")) or None
             paper_id = self._paper_id_from_row(row, index)
+
+            if exclude_duplicates and paper_id in seen_ids:
+                continue
+            seen_ids.add(paper_id)
             keywords = self._parse_keywords(row.get("Keywords"))
             authors = self._parse_authors(row.get("Authors"))
+            affiliations = self._normalize_text(row.get("Affiliations") or row.get("affiliations") or row.get("Address")) or None
             abstract = self._normalize_text(row.get("Abstract")) or None
             download_url = self._normalize_text(row.get("Download_URL")) or None
 
@@ -176,6 +212,7 @@ class AnalysisService:
                     "year": year,
                     "doi": doi,
                     "authors": authors,
+                    "affiliations": affiliations,
                     "keywords": keywords,
                     "abstract": abstract,
                     "download_url": download_url,
@@ -199,6 +236,14 @@ class AnalysisService:
 
         records = self.normalize_metadata(csv_path)
         total_papers = len(records)
+
+        # Pre-warm CountryService cache for this exact CSV file
+        country_analysis: Dict[str, Any] = {}
+        try:
+            country_service = CountryService()
+            country_analysis = country_service.analyze_csv(csv_path)
+        except Exception as e:
+            logger.warning("Unable to pre-compute country analysis for %s: %s", filename, e)
 
         keyword_counter: Counter[str] = Counter()
         for record in records:
@@ -265,6 +310,8 @@ class AnalysisService:
             "source_file": os.path.basename(csv_path),
             "total_papers": total_papers,
             "papers_with_keywords": sum(1 for record in records if record["keywords"]),
+            "papers_with_country_data": country_analysis.get("papers_with_country_data", 0),
+            "unique_countries": country_analysis.get("unique_countries", 0),
             "unique_keywords": len(keyword_counter),
             "top_keywords_limit": top_keywords,
             "minimum_frequency": minimum_frequency,
@@ -351,15 +398,30 @@ class AnalysisService:
         if not os.path.exists(paths["keyword_presence_matrix_file"]):
             raise FileNotFoundError(f"Keyword matrix not found for {filename}")
 
-        df = read_csv_to_dataframe(paths["keyword_presence_matrix_file"])
+        # Read only the requested preview rows for ultra-fast response time
+        df_preview = read_csv_to_dataframe(paths["keyword_presence_matrix_file"], nrows=preview_rows)
         matrix_keywords = [
             column
-            for column in df.columns
+            for column in df_preview.columns
             if column not in {"paper_id", "title", "source", "year", "keywords"}
         ]
 
+        # Determine total rows efficiently without loading entire matrix into pandas
+        total_rows = 0
+        if os.path.exists(paths["summary_file"]):
+            try:
+                with open(paths["summary_file"], "r", encoding="utf-8") as f:
+                    summary_data = json.load(f)
+                    total_rows = summary_data.get("matrix_rows") or summary_data.get("total_papers", 0)
+            except Exception:
+                pass
+        
+        if not total_rows:
+            with open(paths["keyword_presence_matrix_file"], "r", encoding="utf-8") as f:
+                total_rows = max(0, sum(1 for _ in f) - 1)
+
         rows = []
-        for _, row in df.head(preview_rows).iterrows():
+        for _, row in df_preview.iterrows():
             values = {keyword: int(row.get(keyword, 0)) for keyword in matrix_keywords}
             present_keywords = [keyword for keyword in matrix_keywords if values.get(keyword, 0) == 1]
             rows.append(
@@ -377,9 +439,9 @@ class AnalysisService:
             "filename": os.path.basename(filename),
             "matrix_keywords": matrix_keywords,
             "rows": rows,
-            "total_rows": len(df),
+            "total_rows": total_rows,
             "total_columns": len(matrix_keywords),
-            "truncated": len(df) > preview_rows,
+            "truncated": total_rows > preview_rows,
         }
 
     def list_analysis_sources(self) -> List[Dict[str, Any]]:

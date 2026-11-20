@@ -15,9 +15,13 @@ from app.models.schemas import (
     AnalysisSourceInfo,
     AnalysisSummary,
     KeywordMatrixResponse,
+    CountryCollaborationGraphResponse,
+    CountryFrequencyItem,
+    CountryStatisticsResponse,
     SuccessResponse,
 )
 from app.services.analysis_service import AnalysisService
+from app.services.country_service import CountryService
 from app.utils.csv_loader import CSVLoadError
 
 router = APIRouter()
@@ -107,6 +111,89 @@ async def get_keyword_matrix(
     except Exception as e:
         logger.error("Error loading keyword matrix for %s: %s", filename, e)
         raise HTTPException(status_code=500, detail="Failed to load keyword matrix")
+
+
+@router.get("/{filename}/country-collaboration", response_model=CountryCollaborationGraphResponse)
+async def get_country_collaboration(
+    filename: str,
+    settings=Depends(get_settings),
+):
+    """Return country collaboration graph data (nodes and links) for a CSV file."""
+    try:
+        filename = os.path.basename(filename)
+        csv_path = os.path.join(settings.DATA_FOLDER, filename)
+        if not os.path.exists(csv_path):
+            raise HTTPException(status_code=404, detail=f"CSV file not found: {filename}")
+
+        country_service = CountryService()
+        result = country_service.get_collaboration_graph_from_csv(csv_path)
+        return CountryCollaborationGraphResponse(**result)
+    except HTTPException:
+        raise
+    except (CSVLoadError, UnicodeDecodeError, ValueError) as e:
+        logger.error("Invalid CSV file for country collaboration %s: %s", filename, e)
+        raise HTTPException(status_code=400, detail=f"Invalid or unreadable CSV file: {e}")
+    except Exception as e:
+        logger.error("Error generating country collaboration for %s: %s", filename, e)
+        raise HTTPException(status_code=500, detail="Failed to generate country collaboration analysis")
+
+
+@router.get("/{filename}/countries", response_model=CountryStatisticsResponse)
+async def get_country_statistics(
+    filename: str,
+    settings=Depends(get_settings),
+):
+    """Return country frequency and publication statistics for a CSV file."""
+    try:
+        filename = os.path.basename(filename)
+        csv_path = os.path.join(settings.DATA_FOLDER, filename)
+        if not os.path.exists(csv_path):
+            raise HTTPException(status_code=404, detail=f"CSV file not found: {filename}")
+
+        country_service = CountryService()
+        raw_result = country_service.analyze_csv(csv_path)
+
+        country_items = [
+            CountryFrequencyItem(
+                country=item["country"],
+                iso_a3=item.get("iso_a3"),
+                frequency=item["frequency"],
+                percentage=item["percentage"],
+            )
+            for item in raw_result.get("country_frequency", [])
+        ]
+
+        unassigned_items = [
+            {
+                "paper_id": item["paper_id"],
+                "title": item["title"],
+                "authors": item.get("authors"),
+                "source": item.get("source"),
+                "year": item.get("year"),
+            }
+            for item in raw_result.get("unassigned_papers", [])
+        ]
+
+        return CountryStatisticsResponse(
+            filename=filename,
+            total_papers=raw_result.get("total_papers", 0),
+            papers_with_country_data=raw_result.get("papers_with_country_data", 0),
+            papers_without_country_data=raw_result.get("papers_without_country_data", 0),
+            unique_countries=raw_result.get("unique_countries", 0),
+            international_papers=raw_result.get("international_papers", 0),
+            country_coverage_percentage=raw_result.get("country_coverage_percentage", 0.0),
+            countries=country_items,
+            unassigned_papers=unassigned_items,
+        )
+    except HTTPException:
+        raise
+    except (CSVLoadError, UnicodeDecodeError, ValueError) as e:
+        logger.error("Invalid CSV file for country statistics %s: %s", filename, e)
+        raise HTTPException(status_code=400, detail=f"Invalid or unreadable CSV file: {e}")
+    except Exception as e:
+        logger.error("Error generating country statistics for %s: %s", filename, e)
+        raise HTTPException(status_code=500, detail="Failed to generate country statistics")
+
 
 
 @router.post("/{filename}/regenerate", response_model=SuccessResponse)

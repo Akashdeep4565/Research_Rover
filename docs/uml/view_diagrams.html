@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Research Rover - UML Diagrams Viewer (M.Tech Presentation Suite)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .diagram-container svg {
+      width: 100%;
+      height: auto;
+      max-height: 82vh;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+      background: white;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen">
+  <header class="bg-slate-900 text-white border-b border-slate-800 sticky top-0 z-50 shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+      <div>
+        <div class="flex items-center gap-2">
+          <span class="px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider bg-blue-500/20 text-blue-400 border border-blue-500/30">M.Tech Defense Suite</span>
+          <span class="text-xs text-slate-400 font-mono">v2.0 Verified</span>
+        </div>
+        <h1 class="text-xl font-bold text-white tracking-tight">Research Rover: UML Architectural Models &amp; Workflows</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <a id="downloadPngBtn" href="use_case_diagram.png" download="use_case_diagram_300dpi.png" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-600 hover:bg-emerald-500 text-white transition shadow-sm flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Download 300 DPI PNG
+        </a>
+        <a id="downloadSvgBtn" href="use_case_diagram.svg" download="use_case_diagram.svg" class="px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-blue-600 hover:bg-blue-500 text-white transition shadow-sm flex items-center gap-1.5">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+          Download Vector SVG
+        </a>
+        <a href="use_case_diagram.puml" download="use_case_diagram.puml" class="px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition flex items-center gap-1.5">
+          PlantUML Source
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <div class="max-w-7xl mx-auto px-4 py-6">
+    <!-- Tab Controls -->
+    <div class="flex flex-wrap gap-2 mb-6 border-b border-slate-200 pb-3" id="tabList">
+      <button onclick="switchTab('use_case')" id="tab_use_case" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-blue-600 text-white shadow-sm">
+        Use Case Diagram
+      </button>
+      <button onclick="switchTab('act1')" id="tab_act1" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+        Act 1: Research Search
+      </button>
+      <button onclick="switchTab('act2')" id="tab_act2" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+        Act 2: Upload &amp; Analysis
+      </button>
+      <button onclick="switchTab('act3')" id="tab_act3" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+        Act 3: Keyword Analytics
+      </button>
+      <button onclick="switchTab('act4')" id="tab_act4" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+        Act 4: Country Analysis
+      </button>
+      <button onclick="switchTab('act5')" id="tab_act5" class="tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200">
+        Act 5: AI Assistant (RAG)
+      </button>
+    </div>
+
+    <!-- Info Banner -->
+    <div class="bg-white p-4 rounded-2xl border border-slate-200 shadow-sm mb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+      <div>
+        <h2 id="diagTitle" class="text-base font-bold text-slate-900">UML Use Case Diagram: Comprehensive Functional Capabilities</h2>
+        <p id="diagDesc" class="text-xs text-slate-500 mt-0.5">Captures all user interactions across Search, Dataset Management, Keyword Analytics, Country Analysis, and AI Assistance with external actor boundaries.</p>
+      </div>
+      <div class="flex items-center gap-2 text-xs font-mono text-slate-500 bg-slate-50 px-3 py-1.5 rounded-lg border border-slate-200">
+        <span>File: <strong id="fileNameDisplay" class="text-slate-800">use_case_diagram.svg</strong></span>
+      </div>
+    </div>
+
+    <!-- Viewer Frame -->
+    <div class="diagram-container bg-white p-3 rounded-2xl border border-slate-200 shadow-md">
+      <iframe id="svgFrame" src="use_case_diagram.svg" class="w-full h-[78vh] rounded-xl border-0" title="Diagram Viewer"></iframe>
+    </div>
+  </div>
+
+  <script>
+    const diagrams = {
+      use_case: {
+        file: 'use_case_diagram.svg',
+        title: 'UML 2.5 Use Case Diagram: Research Rover Functional Model',
+        desc: 'Captures primary researcher use cases, mandatory <<include>> processes, optional <<extend>> features, and interactions with external actors (NCBI, OpenAlex, Publishers, Google Gemini).'
+      },
+      act1: {
+        file: 'activity_diagram_1_search.svg',
+        title: 'Activity Diagram 1: Research Paper Search & Retrieval Workflow',
+        desc: 'End-to-end paper discovery workflow across 4 swimlanes, illustrating input validation, query normalisation, multi-source query execution, MedCPT semantic re-ranking, and SSRF-safe PDF streaming.'
+      },
+      act2: {
+        file: 'activity_diagram_2_upload_analysis.svg',
+        title: 'Activity Diagram 2: Dataset Upload & Multi-Perspective Analysis Workflow',
+        desc: 'Data ingestion and validation workflow demonstrating CSV file checking, encoding detection (UTF-8-BOM / Latin-1), cache invalidation, and perspective switching between Keyword and Country analytics.'
+      },
+      act3: {
+        file: 'activity_diagram_3_keyword_analytics.svg',
+        title: 'Activity Diagram 3: Keyword Bibliometrics & NetworkX Analytics Algorithm',
+        desc: '5-phase computational pipeline detailing ast keyword parsing, domain alias mapping (iot, ml, dl, ai), pairwise co-occurrence generation, and NetworkX graph centralities (degree, closeness, betweenness, eigenvector, clustering).'
+      },
+      act4: {
+        file: 'activity_diagram_4_country_analysis.svg',
+        title: 'Activity Diagram 4: Bibliometric Country Analysis & Co-Authorship Network',
+        desc: 'Institutional affiliation parsing via regex and ISO-3166-1 mappings, tracking unassigned papers without geographic guesswork, and building international co-authorship networks (2D D3 and 3D Three.js).'
+      },
+      act5: {
+        file: 'activity_diagram_5_ai_assistant.svg',
+        title: 'Activity Diagram 5: AI Research Assistant (Conversational RAG Workflow)',
+        desc: 'Vector embedding generation (all-mpnet-base-v2), full-text URL scraping toggle, FAISS similarity search, sub-query decomposition, and grounded prompt synthesis with Google Gemini and verified source citations.'
+      }
+    };
+
+    function switchTab(key) {
+      const d = diagrams[key];
+      if (!d) return;
+
+      document.getElementById('svgFrame').src = d.file;
+      document.getElementById('diagTitle').innerText = d.title;
+      document.getElementById('diagDesc').innerText = d.desc;
+      document.getElementById('fileNameDisplay').innerText = d.file;
+      document.getElementById('downloadSvgBtn').href = d.file;
+      document.getElementById('downloadSvgBtn').download = d.file;
+
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.className = 'tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-white text-slate-600 hover:bg-slate-100 border border-slate-200';
+      });
+
+      const activeBtn = document.getElementById('tab_' + key);
+      if (activeBtn) {
+        activeBtn.className = 'tab-btn px-4 py-2 rounded-xl text-xs sm:text-sm font-semibold transition bg-blue-600 text-white shadow-sm';
+      }
+    }
+  </script>
+</body>
+</html>

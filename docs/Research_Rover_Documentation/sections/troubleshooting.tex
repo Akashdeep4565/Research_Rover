@@ -1,0 +1,68 @@
+\section{Troubleshooting and Diagnostic Procedures}
+\label{sec:troubleshooting}
+
+This section details practical diagnostic workflows and verified technical solutions for common configuration, installation, and runtime issues.
+
+\subsection{Python Virtual Environment and Execution Policy Errors}
+\textbf{Symptom:} Windows PowerShell displays \texttt{File .venv\textbackslash Scripts\textbackslash Activate.ps1 cannot be loaded because running scripts is disabled on this system.}\\
+\textbf{Root Cause:} Windows PowerShell execution policy restricts execution of unsigned local scripts by default.\\
+\textbf{Solution:} Open PowerShell as CurrentUser and enable script execution:
+\begin{lstlisting}[language=powershell]
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+\end{lstlisting}
+
+\subsection{Dependency Installation and Wheel Compilation Failures}
+\textbf{Symptom:} \texttt{pip install -r requirements.txt} fails while compiling \texttt{faiss-cpu}, \texttt{hdbscan}, or \texttt{Crawl4AI} with \texttt{Microsoft Visual C++ 14.0 or greater is required.}\\
+\textbf{Root Cause:} The host machine lacks pre-built binary wheels for the local Python version, prompting \texttt{pip} to build from C++ source.\\
+\textbf{Solution:} 
+\begin{enumerate}
+    \item Verify that Python 3.11.x 64-bit is being used. Pre-compiled wheels exist on PyPI for 64-bit Python 3.11 on Windows, macOS, and Linux.
+    \item Upgrade packaging utilities: \texttt{python -m pip install --upgrade pip setuptools wheel}.
+    \item If compiling from source is necessary, install the \textit{Visual Studio C++ Build Tools} from Microsoft.
+\end{enumerate}
+
+\subsection{Port Collisions and Binding Failures}
+\textbf{Symptom:} Uvicorn fails to start with \texttt{ERROR: [Errno 10048] error while attempting to bind on address ('0.0.0.0', 8000): only one usage of each socket address is normally permitted.}\\
+\textbf{Root Cause:} A previous instance of Uvicorn or another local application is occupying TCP port 8000.\\
+\textbf{Solution:} Identify and terminate the occupying process in PowerShell:
+\begin{lstlisting}[language=powershell]
+# Locate process ID (PID) occupying port 8000
+Get-NetTCPConnection -LocalPort 8000 | Select-Object OwningProcess
+
+# Terminate process by PID (e.g., PID 14220)
+Stop-Process -Id 14220 -Force
+\end{lstlisting}
+\noindent Repeat for port 3000 if the Vite development server reports a port collision.
+
+\subsection{Frontend API Proxy and CORS Connectivity Issues}
+\textbf{Symptom:} Frontend UI reports \texttt{Network Error} or browser console displays \texttt{ERR\_CONNECTION\_REFUSED} when searching or uploading datasets.\\
+\textbf{Root Cause:} The FastAPI backend server is not running on port 8000, or the Vite proxy is misconfigured.\\
+\textbf{Solution:}
+\begin{enumerate}
+    \item Confirm that Uvicorn is active in Terminal 1 and responds to \url{http://localhost:8000/health}.
+    \item Verify that \texttt{frontend/vite.config.ts} contains the active proxy block forwarding \texttt{/api} to \texttt{http://localhost:8000}.
+    \item If accessing across a local area network, configure \texttt{VITE\_API\_BASE_URL} explicitly in \texttt{frontend/.env}.
+\end{enumerate}
+
+\subsection{Missing API Key or Authentication Failures}
+\textbf{Symptom:} Chat queries return \texttt{500 Internal Server Error} with backend logs displaying \texttt{GoogleGenerativeAIError: API key not valid.}\\
+\textbf{Root Cause:} The \texttt{GOOGLE\_GENAI\_API\_KEY} variable in \texttt{backend/.env} is blank or invalid.\\
+\textbf{Solution:}
+\begin{enumerate}
+    \item Visit Google AI Studio (\url{https://aistudio.google.com/apikey}) and generate a valid API key.
+    \item Open \texttt{backend/.env} and ensure the key is placed without quotation errors:
+    \begin{lstlisting}
+    GOOGLE_GENAI_API_KEY="AIzaSyYourKeyHere"
+    \end{lstlisting}
+    \item Restart Uvicorn to ensure environment variables are reloaded.
+\end{enumerate}
+
+\subsection{FAISS Missing-Index Warning (Partially Ready Status)}
+\textbf{Symptom:} The Dataset Quality Modal displays an amber warning stating \texttt{FAISS vector index missing} and classifies Semantic Search as \textit{Partially Ready}.\\
+\textbf{Root Cause:} By design, Research Rover decouples dataset upload from computationally heavy vector embedding generation.\\
+\textbf{Solution:} This is normal behavior, not a system defect. In the UI, click \textbf{Generate Embeddings} (or issue \texttt{POST /api/v1/embeddings/\{filename\}}). Once the Sentence Transformer finishes encoding, the status automatically transitions to \textbf{Ready}.
+
+\subsection{CSV Encoding and Parsing Problems}
+\textbf{Symptom:} Dataset upload fails with \texttt{UnicodeDecodeError: 'utf-8' codec can't decode byte...}\\
+\textbf{Root Cause:} The uploaded CSV file was exported using Windows-1252, ISO-8859-1 (Latin-1), or UTF-16 with a Byte Order Mark (BOM).\\
+\textbf{Solution:} Research Rover's \texttt{dataset\_normalizer.py} automatically attempts Latin-1 decoding if UTF-8 fails. If a corrupted file persists, open the CSV in Microsoft Excel or VS Code and re-save using \textbf{CSV UTF-8 (Comma delimited) (*.csv)}.

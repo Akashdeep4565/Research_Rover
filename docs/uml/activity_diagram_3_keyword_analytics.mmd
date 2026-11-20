@@ -1,0 +1,60 @@
+flowchart TD
+    %% Activity Diagram 3: Keyword Analytics Workflow
+
+    subgraph SWIM_INPUT ["1. Input & Metadata Ingestion"]
+        K1(["Start: Trigger Keyword Analysis"])
+        K2["Read CSV File via Centralized Loader<br/>(utils/csv_loader.py - UTF-8-BOM / Latin-1)"]
+        K3["Ensure Schema Uniformity<br/>(Title, Abstract, Keywords, Authors, Year, DOI, PMID)"]
+        K4["Iterate Paper Records & Extract Keywords Field"]
+    end
+
+    subgraph SWIM_NORMALIZATION ["2. Keyword Parsing & Normalization"]
+        K5{"Keywords Field Format?"}
+        K6["Parse List Literal with ast.literal_eval()"]
+        K7["Split by Semicolon (;) or Comma (,) Delimiters"]
+        K8["Strip Parenthetical Annotations via Regex<br/>(re.sub(r'\(.*?\)', '', word))"]
+        K9["Normalize Whitespace & Convert to Lowercase"]
+        K10["Apply Domain Synonym / Alias Mapping<br/>('iot' -> 'internet of things', 'ml' -> 'machine learning',<br/>'ai' -> 'artificial intelligence', 'dl' -> 'deep learning',<br/>'block chain' -> 'blockchain', 'digital twins' -> 'digital twin')"]
+        K11["Deduplicate Keywords per Paper<br/>(Prevent self-co-occurrence skew)"]
+    end
+
+    subgraph SWIM_METRICS ["3. Statistical & Network Computation"]
+        K12["Count Keyword Frequency across Corpus<br/>(collections.Counter)"]
+        K13["Calculate Publication Coverage Percentage<br/>((count / total_papers) * 100)"]
+        K14["Filter by Min Frequency & Select Top-N Limit<br/>(top_keywords = 100, min_freq = 1)"]
+        K15["Generate Pairwise Co-occurrences<br/>(itertools.combinations(sorted(keywords), 2))"]
+        K16["Build NetworkX Undirected Graph: G = nx.Graph()<br/>(Add nodes from Top-N; add weighted edges)"]
+        K17["Calculate Network Centrality Metrics:<br/>• Degree Centrality (nx.degree_centrality)<br/>• Closeness Centrality (nx.closeness_centrality)<br/>• Betweenness Centrality (nx.betweenness_centrality)<br/>• Eigenvector Centrality (nx.eigenvector_centrality)<br/>• Clustering Coefficient (nx.clustering)"]
+        K18["Construct Binary Keyword Presence Matrix<br/>(Paper Rows vs Keyword Columns: 0/1 binary flags)"]
+    end
+
+    subgraph SWIM_STORAGE ["4. Persistence & Artifact Caching"]
+        K19["Save Normalized Metadata JSON<br/>(data/{base}_analysis_normalized_metadata.json)"]
+        K20["Save Keyword Frequency CSV<br/>(data/{base}_analysis_keyword_frequency.csv)"]
+        K21["Save Binary Presence Matrix CSV<br/>(data/{base}_analysis_keyword_presence_matrix.csv)"]
+        K22["Save Complete Analysis Summary JSON<br/>(data/{base}_analysis_summary.json)"]
+    end
+
+    subgraph SWIM_VISUAL ["5. Visual Presentation & Export"]
+        K23["Render Summary KPI Cards<br/>(Total Papers, Papers with Keywords, Unique Keywords, Matrix Columns)"]
+        K24["Render Keyword Frequency Distribution Progress Bars"]
+        K25["Render Interactive SVG Word Cloud<br/>(Dynamic font-size scaling, zoom, pan)"]
+        K26["Render 3D-Sphere / Force Co-occurrence Network Graph<br/>(Node size ~ frequency; Edge width ~ co-occurrence)"]
+        K27["Render NetworkX Centrality Scores Table<br/>(Searchable, column sortable, CSV export)"]
+        K28["Render Binary Presence Matrix Preview<br/>(Row pagination, paper search, CSV export)"]
+        K29(["End: User Explores Insights & Downloads Artifacts"])
+    end
+
+    %% Flow Connections
+    K1 --> K2 --> K3 --> K4 --> K5
+    K5 -- "Bracketed String [..]" --> K6 --> K8
+    K5 -- "Delimited String" --> K7 --> K8
+    K8 --> K9 --> K10 --> K11
+
+    K11 --> K12 --> K13 --> K14
+    K14 --> K15 --> K16 --> K17
+    K14 --> K18
+
+    K17 & K18 --> K19 --> K20 --> K21 --> K22
+
+    K22 --> K23 --> K24 --> K25 --> K26 --> K27 --> K28 --> K29

@@ -1,0 +1,77 @@
+flowchart TD
+    %% Activity Diagram 4: Country Analysis Workflow
+
+    subgraph SWIM_INGEST ["1. Dataset Ingestion & Cache Check"]
+        C1(["Start: Request Country Analysis"])
+        C2["Check In-Memory Cache<br/>(Cache Key: abs_path, mtime, size)"]
+        C3{"Is Dataset Cached in Memory?"}
+        C4["Return Cached Country & Collaboration Payloads"]
+        C5["Read CSV Records via read_csv_to_records()"]
+        C6["Initialize Counters & Tracking Lists<br/>(papers_with_country=0, international_papers=0,<br/>country_paper_counts=Counter(), collaboration_counts=Counter(),<br/>unassigned_papers=[])"]
+    end
+
+    subgraph SWIM_EXTRACTION ["2. Affiliation & Country Extraction"]
+        C7["Iterate Each Paper Record"]
+        C8["Inspect Explicit Affiliation Keys<br/>('Affiliations', 'affiliations', 'Affiliation', 'Address')"]
+        C9{"Were Affiliation Strings Found?"}
+        C10["Apply Regex & Canonical Country Mapping<br/>(utils/country_extractor.py)"]
+        C11["Inspect Author Fields as Secondary Fallback"]
+        C12{"Were Any Countries Successfully Identified?"}
+        C13["Deduplicate Extracted Countries for Current Paper"]
+        C14["Append Paper to Unassigned Papers List<br/>(Capture PMID, Title, Authors, Source, Year - NO Guesswork)"]
+    end
+
+    subgraph SWIM_AGGREGATION ["3. Country Aggregation & Network Modeling"]
+        C15["Increment papers_with_country_data Counter"]
+        C16["Increment Publication Volume for Each Detected Country"]
+        C17{"Are There >= 2 Distinct Countries on This Paper?"}
+        C18["Increment international_papers Counter"]
+        C19["Generate Unique Country Pairs:<br/>combinations(unique_countries, 2)"]
+        C20["Increment Co-Authorship Collaboration Weight<br/>(collaboration_counts[(source, target)] += 1)"]
+        C21["All Papers Processed in Loop?"]
+        C22["Calculate Coverage Metrics:<br/>• papers_without_country = total_papers - papers_with_country<br/>• country_coverage_percentage = (papers_with_country / total) * 100"]
+        C23["Construct Graph Data Structure:<br/>• Nodes: {id, name, paperCount, iso_a3}<br/>• Links: {source, target, weight}"]
+        C24["Store Results in In-Memory Cache"]
+    end
+
+    subgraph SWIM_FRONTEND ["4. Visualization & User Interaction"]
+        C25["Render Summary KPI Cards<br/>(Total Papers, With Country, Without Country, Nations, International, Coverage %)"]
+        C26["Render Metadata Coverage Split Bar"]
+        C27{"Are There Unassigned Papers?"}
+        C28["Render Alert & 'View Unassigned Papers' Modal Button"]
+        C29["Render Interactive TopoJSON World Map (WorldMap.tsx)<br/>(Volume choropleth shading, ISO-3166-1 matching, hover tooltips)"]
+        C30["Render Top Countries Publication Bar Chart"]
+        C31["Render Complete Country Publication Ranking Table<br/>(Search filter, rank index, paper volume, percentage)"]
+        C32["Render 2D Force-Directed Collaboration Network (D3)<br/>(Filter strength: All/Medium/Strong, country search, zoom/pan)"]
+        C33["Render 3D Force-Directed Space Network (Three.js)<br/>(Orbit controls, 3D sphere nodes, animated particle links)"]
+        C34{"Export Country Assets?"}
+        C35["Download Country Ranking CSV or Collaboration Links CSV"]
+        C36(["End: Geographic Exploration Complete"])
+    end
+
+    %% Flow Connections
+    C1 --> C2 --> C3
+    C3 -- "Yes" --> C4 --> C25
+    C3 -- "No" --> C5 --> C6 --> C7
+
+    C7 --> C8 --> C9
+    C9 -- "Yes" --> C10
+    C9 -- "No" --> C11 --> C10
+
+    C10 --> C12
+    C12 -- "Yes" --> C13 --> C15 --> C16 --> C17
+    C12 -- "No" --> C14 --> C21
+
+    C17 -- "Yes (International >= 2)" --> C18 --> C19 --> C20 --> C21
+    C17 -- "No (Single Nation)" --> C21
+
+    C21 -- "Next Paper" --> C7
+    C21 -- "Corpus Complete" --> C22 --> C23 --> C24 --> C25
+
+    C25 --> C26 --> C27
+    C27 -- "Yes (> 0)" --> C28 --> C29
+    C27 -- "No (100% Coverage)" --> C29
+
+    C29 --> C30 --> C31 --> C32 --> C33 --> C34
+    C34 -- "Yes" --> C35 --> C36
+    C34 -- "No" --> C36

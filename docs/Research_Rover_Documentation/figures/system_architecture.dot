@@ -1,0 +1,97 @@
+digraph OverallArchitecture {
+    graph [rankdir=TB, splines=polyline, nodesep=0.4, ranksep=0.5, bgcolor=white, fontname="Times-Roman"];
+    node [shape=box, style="solid", color=black, fontcolor=black, fontname="Times-Roman", fontsize=10, margin="0.15,0.08"];
+    edge [color=black, fontcolor=black, fontname="Times-Roman", fontsize=9, arrowsize=0.7];
+
+    subgraph cluster_presentation {
+        label = "Presentation Layer (React 19 / TypeScript / Vite - Port 3000)";
+        style = "dashed";
+        color = black;
+        
+        ui_pages [label="Application Pages\nSearchPage | AnalyticsPage | ChatPage | UseCasesPage"];
+        ui_components [label="Interactive Analytics & Telemetry Components\nDatasetQualityModal | DatasetFeatureReadinessBanner\nCountryCollaboration2D / 3D | WorldMap"];
+        ui_client [label="API Client Layer (services/api.ts)\nAxios Instance | Vite Reverse Proxy (/api -> :8000)"];
+
+        ui_pages -> ui_components [dir=both, style=solid];
+        ui_components -> ui_client;
+    }
+
+    subgraph cluster_backend {
+        label = "Backend Application Layer (FastAPI / Uvicorn ASGI - Port 8000)";
+        style = "dashed";
+        color = black;
+
+        main_app [label="FastAPI Application Entry Point (main.py)\nLifespan Manager | CORS Middleware | Background Model Init | /health"];
+        
+        subgraph cluster_routes {
+            label = "API Routing Layer (app/api/routes/)";
+            style = "dotted";
+            color = black;
+            
+            r_search [label="/api/v1/search\nSearch & Progress"];
+            r_files [label="/api/v1/files\nUpload, Quality, CSV"];
+            r_analysis [label="/api/v1/analysis\nKeywords & Countries"];
+            r_embeddings [label="/api/v1/embeddings\nFAISS Indexing"];
+            r_chat [label="/api/v1/chat\nGemini RAG Chat"];
+        }
+
+        subgraph cluster_services {
+            label = "Service & Core Logic Layer (app/services/ & app/core/)";
+            style = "dotted";
+            color = black;
+
+            s_search [label="Search & Ranking Services\npubmed_service.py | openalex_service.py\nunified_search_service.py | reranker_service.py (MedCPT)"];
+            s_ingestion [label="Universal Ingestion & Quality Subsystem\ndataset_normalizer.py (20 Canonical Fields)\ndataset_quality.py (Quality & 7-Feature Readiness)\ncanonical_loader.py (Unified Data Dispatch)"];
+            s_analysis [label="Bibliometric Analysis Services\nanalysis_service.py (Keywords & Co-occurrence)\ncountry_service.py (Collaboration Graphs)"];
+            s_ai [label="AI & Vector Services\nembedding_service.py (Scraping & FAISS Indexing)\nchat_service.py (Gemini LLM Synthesis)"];
+        }
+
+        main_app -> r_search;
+        main_app -> r_files;
+        main_app -> r_analysis;
+        main_app -> r_embeddings;
+        main_app -> r_chat;
+
+        r_search -> s_search;
+        r_files -> s_ingestion;
+        r_analysis -> s_analysis;
+        r_embeddings -> s_ai;
+        r_chat -> s_ai;
+
+        s_ingestion -> s_analysis [label="feeds normalized data", style=dashed];
+        s_ingestion -> s_ai [label="feeds text data", style=dashed];
+    }
+
+    subgraph cluster_storage {
+        label = "Data & Model Storage Layer (data/ & Models)";
+        style = "dashed";
+        color = black;
+
+        d_csv [label="Bibliographic CSV Datasets\nRaw Uploads & PubMed Searches"];
+        d_meta [label="Metadata Sidecars\n{filename}_canonical_metadata.json"];
+        d_faiss [label="Dense Vector Indices & Chunks\n{filename}_paper_chunks_hdbscan.index"];
+        d_models [label="Machine Learning Models\nall-mpnet-base-v2 | MedCPT Query/Article Encoders"];
+    }
+
+    subgraph cluster_external {
+        label = "External Scientific & AI APIs";
+        style = "dashed";
+        color = black;
+
+        ext_pubmed [label="NCBI PubMed API\n(E-utilities: ESearch, EFetch)"];
+        ext_openalex [label="OpenAlex REST API\n(Scholarly Works Catalog)"];
+        ext_gemini [label="Google AI Studio\n(Gemini 2.5 Flash API)"];
+    }
+
+    ui_client -> main_app [label="REST API & SSE\nHTTP Requests", dir=both];
+    
+    s_search -> ext_pubmed [dir=both];
+    s_search -> ext_openalex [dir=both];
+    s_ai -> ext_gemini [dir=both];
+
+    s_ingestion -> d_csv [dir=both];
+    s_ingestion -> d_meta [dir=both];
+    s_ai -> d_faiss [dir=both];
+    s_search -> d_models;
+    s_ai -> d_models;
+}

@@ -531,9 +531,50 @@ class PubMedService:
                 except Exception as e:
                     logger.warning(f"Error parsing article: {e}")
                     continue
+
+            # Batch enrich PMC IDs for any papers missing PMCID in XML
+            if papers:
+                self._enrich_pmc_ids(papers)
         except Exception as e:
             logger.error(f"Error parsing XML: {e}")
         return papers
+
+    def _enrich_pmc_ids(self, papers: List[Dict[str, Any]]) -> None:
+        """Enrich papers missing PMCID using official NCBI PMC ID Converter API."""
+        missing_pmids = [
+            str(p['PMID']).strip() for p in papers
+            if p.get('PMID') and not p.get('PMCID')
+        ]
+        if not missing_pmids:
+            return
+        try:
+            for i in range(0, len(missing_pmids), 100):
+                chunk = missing_pmids[i:i + 100]
+                url = (
+                    f"https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/"
+                    f"?ids={','.join(chunk)}&format=json&tool=ResearchRover&email={self.email}"
+                )
+                resp = requests.get(url, timeout=10)
+                if resp.status_code == 200:
+                    data = resp.json()
+                    for rec in data.get('records', []):
+                        pmid = str(rec.get('pmid') or '').strip()
+                        pmcid = rec.get('pmcid')
+                        if pmid and pmcid:
+                            clean_pmc = str(pmcid).strip()
+                            if not clean_pmc.upper().startswith("PMC"):
+                                clean_pmc = f"PMC{clean_pmc}"
+                            for p in papers:
+                                if str(p.get('PMID', '')).strip() == pmid:
+                                    p['PMCID'] = clean_pmc
+                                    p['pmcid'] = clean_pmc
+                                    p['PDF_URL'] = f"https://pmc.ncbi.nlm.nih.gov/articles/{clean_pmc}/pdf/"
+                                    p['pdf_url'] = p['PDF_URL']
+                                    p['Is_OA'] = True
+                                    p['is_oa'] = True
+                                    break
+        except Exception as e:
+            logger.warning(f"Failed to batch-enrich PMC IDs via NCBI idconv: {e}")
 
     def _extract_paper_info(
         self,
@@ -601,6 +642,14 @@ class PubMedService:
                         authors.append(full)
             first_author = authors[0] if authors else ""
 
+            # Extract Author and Article Affiliations from XML
+            affiliations = []
+            for aff_elem in article.findall('.//AffiliationInfo/Affiliation'):
+                if aff_elem is not None:
+                    aff_text = "".join(aff_elem.itertext()).strip()
+                    if aff_text and aff_text not in affiliations:
+                        affiliations.append(aff_text)
+
             keywords = [
                 kw.text.strip()
                 for kw in article.findall('.//Keyword')
@@ -619,6 +668,13 @@ class PubMedService:
             citation = self._build_citation(article, journal, publication_year, doi)
             reference = citation or f"{title}. {journal}. {publication_year}."
 
+            clean_pmc = pmcid.strip() if pmcid else ""
+            if clean_pmc and not clean_pmc.upper().startswith("PMC"):
+                clean_pmc = f"PMC{clean_pmc}"
+
+            pdf_url = f"https://pmc.ncbi.nlm.nih.gov/articles/{clean_pmc}/pdf/" if clean_pmc else None
+            is_oa = True if clean_pmc else False
+
             return {
                 'Title':            title,
                 'Abstract':         abstract,
@@ -630,13 +686,17 @@ class PubMedService:
                 'Download_URL':     download_url,
                 'Keywords':         keywords,
                 'MeSH_Terms':       mesh_terms,
-                # FIX: Authors is already a proper list — search_service.py
-                # should read this directly instead of parsing Reference
                 'Authors':          authors,
+                'Affiliations':     affiliations,
                 'PMID':             pmid,
                 'Citation':         citation,
                 'Create Date':      create_date,
-                'PMCID':            pmcid,
+                'PMCID':            clean_pmc or None,
+                'pmcid':            clean_pmc or None,
+                'PDF_URL':          pdf_url,
+                'pdf_url':          pdf_url,
+                'Is_OA':            is_oa,
+                'is_oa':            is_oa,
                 'NIHMS ID':         nihms_id,
                 'First Author':     first_author,
                 'Reference':        reference,

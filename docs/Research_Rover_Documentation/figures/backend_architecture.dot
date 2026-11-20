@@ -1,0 +1,69 @@
+digraph BackendArchitecture {
+    graph [rankdir=TB, splines=polyline, nodesep=0.4, ranksep=0.45, bgcolor=white, fontname="Times-Roman"];
+    node [shape=box, style="solid", color=black, fontcolor=black, fontname="Times-Roman", fontsize=10, margin="0.15,0.08"];
+    edge [color=black, fontcolor=black, fontname="Times-Roman", fontsize=9, arrowsize=0.7];
+
+    subgraph cluster_entry {
+        label = "FastAPI Application Core (backend/main.py)";
+        style = "dashed";
+        color = black;
+        
+        main_py [label="FastAPI Entry Point (main.py)\nApplication Lifespan Context Manager\nCORS Middleware Configuration\nHealth Check Routes: GET / and GET /health"];
+        config_py [label="Application Settings (app/core/config.py)\nPydantic BaseSettings | .env Environment Variable Loader\nDirectories, Model Names, Concurrency & Politeness Controls"];
+        model_mgr [label="Model Manager (app/core/model_manager.py)\nAsynchronous Background Initialization of Transformers\nRuntime Status Reporting for Embedding & Re-ranking Models"];
+        
+        main_py -> config_py;
+        main_py -> model_mgr;
+    }
+
+    subgraph cluster_routes {
+        label = "API Routing Layer (backend/app/api/routes/)";
+        style = "dashed";
+        color = black;
+
+        r_files [label="files.py\nPOST /upload\nGET /{filename}/quality\nGET /csv/{filename}/data\nGET /download/{filename}\nDELETE /{filename}"];
+        r_search [label="search.py\nPOST / (search dispatch)\nGET /progress (SSE)\nPOST /cancel\nGET /results"];
+        r_analysis [label="analysis.py\nPOST /generate\nGET /{filename}/summary\nGET /{filename}/matrix\nGET /{filename}/countries"];
+        r_embeddings [label="embeddings.py\nPOST /{filename}\nGET /progress\nPOST /cancel\nGET /{filename}/status"];
+        r_chat [label="chat.py\nPOST / (RAG query)\nPOST /{filename}\nContext synthesis"];
+        r_system [label="system.py\nGET /status\nRuntime model states"];
+    }
+
+    subgraph cluster_services {
+        label = "Business Logic & Service Layer (backend/app/services/)";
+        style = "dashed";
+        color = black;
+
+        s_ingest [label="Ingestion & Normalization\ndataset_normalizer.py\ndataset_quality.py\ncanonical_loader.py"];
+        s_search [label="Literature Search Services\npubmed_service.py\nopenalex_service.py\nunified_search_service.py\nreranker_service.py"];
+        s_analytics [label="Bibliometric Analytics\nanalysis_service.py\ncountry_service.py\nutils/country_extractor.py"];
+        s_vector [label="Embedding & Chat Services\nembedding_service.py\nchat_service.py\nfeatures/embedding_and_indexing.py"];
+    }
+
+    subgraph cluster_data {
+        label = "Persistence Layer (data/)";
+        style = "dashed";
+        color = black;
+
+        csv_files [label="CSV Datasets & Sidecars\n*.csv | *_canonical_metadata.json"];
+        faiss_files [label="Vector Indices & Text Mappings\n*_paper_chunks_hdbscan.index\n*_full_text_mapping.json"];
+    }
+
+    main_py -> r_files;
+    main_py -> r_search;
+    main_py -> r_analysis;
+    main_py -> r_embeddings;
+    main_py -> r_chat;
+    main_py -> r_system;
+
+    r_files -> s_ingest;
+    r_search -> s_search;
+    r_analysis -> s_analytics;
+    r_embeddings -> s_vector;
+    r_chat -> s_vector;
+
+    s_ingest -> csv_files [dir=both];
+    s_search -> csv_files [dir=both];
+    s_analytics -> csv_files [dir=both];
+    s_vector -> faiss_files [dir=both];
+}

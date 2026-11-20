@@ -1,25 +1,36 @@
 import React, { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import {
   PaperAirplaneIcon,
-  UserIcon,
   CpuChipIcon,
   DocumentTextIcon,
   ArrowUpTrayIcon,
-  ArrowTopRightOnSquareIcon,
   ChevronDownIcon,
-  ChevronUpIcon,
-  SparklesIcon,
   XMarkIcon,
+  ShieldCheckIcon,
+  StopIcon,
+  TrashIcon,
+  ArrowDownCircleIcon,
+  LightBulbIcon,
 } from '@heroicons/react/24/outline'
-import type { ChatMessage } from '@/types'
+import type { ExtendedFileUploadResponse, DatasetQualityReport } from '@/types'
 import { filesApi } from '@/services/api'
 import { useChat } from '@/context/ChatContext'
 import { useEmbedding } from '@/context/EmbeddingContext'
 import { useTheme } from '@/components/theme-provider'
 import { EmbeddingProgressModal } from '@/components/EmbeddingProgressModal'
+import { DatasetQualityModal } from '@/components/DatasetQualityModal'
+import { DatasetFeatureReadinessBanner } from '@/components/DatasetFeatureReadinessBanner'
+import { ChatMessageItem } from '@/components/chat/ChatMessageItem'
+import { ChatLoadingIndicator } from '@/components/chat/ChatLoadingIndicator'
 
-// ─── ChatPage ─────────────────────────────────────────────────────────────────
+const QUICK_PROMPTS = [
+  'Summarize the core methodologies across these papers',
+  'What key limitations or open challenges are discussed?',
+  'Explain any mathematical models or formulas used',
+  'Compare key findings between the most cited works',
+]
+
 export function ChatPage() {
   const { theme } = useTheme()
   const {
@@ -35,20 +46,34 @@ export function ChatPage() {
     setError,
     hasEmbeddings,
     sendMessage,
+    stopGeneration,
+    regenerateResponse,
+    clearConversation,
   } = useChat()
+
   const {
     isCreating: isCreatingEmbeddings,
     startEmbeddings,
     scrapeFullText,
     setScrapeFullText,
   } = useEmbedding()
+
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const fileInputRef = useRef<HTMLInputElement>(null)
-  const [uploading, setUploading] = useState(false)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
 
+  const [uploading, setUploading] = useState(false)
+  const [isQualityModalOpen, setIsQualityModalOpen] = useState(false)
+  const [selectedQualityData, setSelectedQualityData] = useState<
+    ExtendedFileUploadResponse | DatasetQualityReport | null
+  >(null)
+  const [isScrolledUp, setIsScrolledUp] = useState(false)
+
+  // Upload handler
   const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
-    e.target.value = '' // allow re-selecting the same file
+    e.target.value = ''
     if (!file) return
     if (!file.name.toLowerCase().endsWith('.csv')) {
       setError('Please upload a .csv file')
@@ -57,23 +82,55 @@ export function ChatPage() {
     setError('')
     setUploading(true)
     try {
-      const { filename } = await filesApi.upload(file)
-      addAvailableFile(filename)
+      const res = await filesApi.upload(file)
+      addAvailableFile(res.filename)
+      setSelectedQualityData(res)
+      setIsQualityModalOpen(true)
     } catch (err: any) {
-      setError(err?.error || 'Failed to upload file')
+      setError(err?.error || err?.detail || 'Failed to upload file')
     } finally {
       setUploading(false)
     }
   }
 
+  // Auto-scroll when new messages arrive, unless user has scrolled up to inspect earlier content
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
-  }, [messages, isLoading])
+    if (!isScrolledUp) {
+      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    }
+  }, [messages, isLoading, isScrolledUp])
 
-  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+  // Track scroll position to prevent forcing scroll when user is reading history
+  const handleScroll = () => {
+    if (!scrollContainerRef.current) return
+    const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current
+    const distanceFromBottom = scrollHeight - scrollTop - clientHeight
+    setIsScrolledUp(distanceFromBottom > 140)
+  }
+
+  const scrollToBottom = () => {
+    setIsScrolledUp(false)
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
+  // Auto-resize textarea
+  useEffect(() => {
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto'
+      textareaRef.current.style.height = `${Math.min(
+        textareaRef.current.scrollHeight,
+        180
+      )}px`
+    }
+  }, [inputMessage])
+
+  // Key down for textarea: Enter sends, Shift+Enter adds newline
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === 'Enter' && !e.shiftKey) {
       e.preventDefault()
-      sendMessage()
+      if (!sendDisabled) {
+        sendMessage()
+      }
     }
   }
 
@@ -83,18 +140,27 @@ export function ChatPage() {
   const inputPlaceholder = isCreatingEmbeddings
     ? 'Building embeddings, please wait…'
     : !selectedFile
-    ? 'Select a collection to begin…'
+    ? 'Select a collection to begin, or ask a general query…'
     : !hasEmbeddings
-    ? 'Ask away — create embeddings for richer answers…'
-    : 'Ask about your research papers…'
+    ? 'Ask away — create embeddings for paper-grounded answers…'
+    : 'Ask about your research papers (Markdown, LaTeX, & Diagrams supported)…'
+
+  // Identify last assistant message index for regenerate button
+  let lastAssistantIndex = -1
+  for (let i = messages.length - 1; i >= 0; i--) {
+    if (messages[i].type === 'assistant') {
+      lastAssistantIndex = i
+      break
+    }
+  }
 
   return (
     <div className="space-y-6 pb-12">
-      {/* ── Hero ── */}
+      {/* ── Hero Banner ── */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
-        className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-slate-800/60 px-8 py-10 shadow-sm dark:shadow-2xl"
+        className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-slate-800/60 px-8 py-9 shadow-sm dark:shadow-2xl"
         style={{
           background:
             theme === 'dark'
@@ -123,47 +189,65 @@ export function ChatPage() {
         />
         <div className="relative z-10 text-center">
           <span className="inline-flex items-center gap-2 rounded-full border border-sky-500/20 bg-sky-500/10 px-3.5 py-1 text-[11px] font-bold uppercase tracking-[0.3em] text-sky-400">
-            <span className="h-1.5 w-1.5 rounded-full bg-sky-400" />
-            Research assistant
+            <span className="h-1.5 w-1.5 rounded-full bg-sky-400 animate-pulse" />
+            AI Research Assistant
           </span>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight text-gray-900 dark:text-slate-50 md:text-5xl">
-            Chat with your papers
+          <h1 className="mt-3 text-3xl font-bold tracking-tight text-gray-900 dark:text-slate-50 md:text-5xl">
+            Chat with Your Papers
           </h1>
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-slate-400">
-            Ask contextual questions across your selected research collection — answers grounded in the source papers you indexed.
+          <p className="mx-auto mt-2.5 max-w-2xl text-sm leading-relaxed text-gray-600 dark:text-slate-400">
+            Deep academic exploration grounded in your indexed literature. Features full Markdown formatting, KaTeX mathematical equations, syntax-highlighted code blocks, and visual Mermaid diagrams.
           </p>
         </div>
       </motion.div>
 
-      {/* ── Collection Panel ── */}
+      {/* ── Collection & Setup Panel ── */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.1 }}
       >
-        <div className="rounded-2xl border border-gray-200 dark:border-slate-800/60 bg-white dark:bg-slate-900 p-6 shadow-sm">
-          <div className="mb-5 flex items-center gap-2">
-            <div className="h-1 w-5 rounded-full bg-sky-500" />
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-gray-500 dark:text-slate-500">
-              Collection
-            </span>
+        <div className="rounded-2xl border border-gray-200 dark:border-slate-800/60 bg-white dark:bg-slate-900 p-5 shadow-sm">
+          <div className="mb-4 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="h-1 w-5 rounded-full bg-sky-500" />
+              <span className="text-xs font-bold uppercase tracking-[0.22em] text-gray-500 dark:text-slate-500">
+                Active Research Collection
+              </span>
+            </div>
+            {selectedFile && (
+              <span
+                className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-semibold ${
+                  hasEmbeddings
+                    ? 'border border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300'
+                    : 'border border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300'
+                }`}
+              >
+                <span
+                  className={`h-1.5 w-1.5 rounded-full ${
+                    hasEmbeddings ? 'bg-emerald-500' : 'bg-amber-500'
+                  } ${isCreatingEmbeddings ? 'animate-pulse' : ''}`}
+                />
+                {isCreatingEmbeddings
+                  ? 'Indexing…'
+                  : hasEmbeddings
+                  ? 'Embeddings active'
+                  : 'Needs embeddings'}
+              </span>
+            )}
           </div>
 
-          {/* File row */}
+          {/* File Row */}
           <div className="flex flex-col gap-1.5">
-            <label className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-slate-500">
-              <DocumentTextIcon className="h-3.5 w-3.5 text-sky-500/80 dark:text-sky-400/80" />
-              Research CSV
-            </label>
-            <div className="flex flex-wrap items-stretch gap-2">
+            <div className="flex flex-wrap items-stretch gap-2.5">
               <div className="group relative min-w-[220px] flex-1">
                 <select
                   value={selectedFile || ''}
                   onChange={(e) => setSelectedFile(e.target.value)}
                   disabled={isCreatingEmbeddings}
-                  className="relative w-full appearance-none rounded-xl border border-gray-300 bg-gradient-to-b from-white to-gray-50/70 px-4 py-3 pr-12 text-sm font-medium text-gray-800 shadow-sm outline-none transition-all duration-200 hover:border-sky-400/70 hover:shadow-md hover:shadow-sky-500/5 focus:border-sky-500 focus:shadow-[0_0_0_3px_rgba(56,189,248,0.18)] disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700/80 dark:from-slate-900 dark:to-slate-900/40 dark:text-slate-100 dark:hover:border-sky-500/50"
+                  className="relative w-full appearance-none rounded-xl border border-gray-300 bg-gradient-to-b from-white to-gray-50/70 px-4 py-2.5 pr-12 text-sm font-medium text-gray-800 shadow-sm outline-none transition-all duration-200 hover:border-sky-400/70 hover:shadow-md hover:shadow-sky-500/5 focus:border-sky-500 focus:shadow-[0_0_0_3px_rgba(56,189,248,0.18)] disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700/80 dark:from-slate-900 dark:to-slate-900/40 dark:text-slate-100 dark:hover:border-sky-500/50"
                 >
-                  <option value="">Choose a collection…</option>
+                  <option value="">Choose a research collection…</option>
                   {availableFiles.map((f) => (
                     <option key={f} value={f}>
                       {f}
@@ -187,10 +271,24 @@ export function ChatPage() {
                 onClick={() => fileInputRef.current?.click()}
                 disabled={uploading || isCreatingEmbeddings}
                 title="Upload a CSV"
-                className="flex shrink-0 items-center gap-1.5 rounded-xl border border-gray-300 bg-gradient-to-b from-white to-gray-50/70 px-3.5 py-3 text-sm font-medium text-gray-700 shadow-sm transition hover:border-sky-400/70 hover:text-gray-900 hover:shadow-md hover:shadow-sky-500/5 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700/80 dark:from-slate-900 dark:to-slate-900/40 dark:text-slate-300 dark:hover:border-sky-500/50 dark:hover:text-slate-100"
+                className="flex shrink-0 items-center gap-1.5 rounded-xl border border-gray-300 bg-gradient-to-b from-white to-gray-50/70 px-3.5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition hover:border-sky-400/70 hover:text-gray-900 hover:shadow-md hover:shadow-sky-500/5 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700/80 dark:from-slate-900 dark:to-slate-900/40 dark:text-slate-300 dark:hover:border-sky-500/50 dark:hover:text-slate-100"
               >
                 <ArrowUpTrayIcon className={`h-4 w-4 ${uploading ? 'animate-pulse' : ''}`} />
                 <span className="hidden sm:inline">{uploading ? 'Uploading…' : 'Upload'}</span>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedQualityData(null)
+                  setIsQualityModalOpen(true)
+                }}
+                disabled={!selectedFile}
+                title="View dataset quality, column mappings and feature readiness"
+                className="flex shrink-0 items-center gap-1.5 rounded-xl border border-sky-300 dark:border-sky-700/80 bg-sky-50/70 dark:bg-sky-950/40 px-3.5 py-2.5 text-sm font-semibold text-sky-700 dark:text-sky-300 shadow-sm transition hover:bg-sky-100 hover:border-sky-400 dark:hover:bg-sky-900/50 disabled:cursor-not-allowed disabled:opacity-50"
+              >
+                <ShieldCheckIcon className="h-4 w-4" />
+                <span className="hidden sm:inline">Quality & Schema</span>
               </button>
 
               {selectedFile && (
@@ -198,75 +296,73 @@ export function ChatPage() {
                   type="button"
                   onClick={() => startEmbeddings(selectedFile, hasEmbeddings)}
                   disabled={isCreatingEmbeddings}
-                  title={hasEmbeddings ? 'Rebuild this index with the current scraping setting' : 'Build the FAISS index for this collection'}
-                  className="flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-500 px-3.5 py-3 text-sm font-semibold text-white shadow-md shadow-sky-500/25 transition hover:from-sky-400 hover:to-indigo-400 hover:shadow-lg hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-60"
+                  title={
+                    hasEmbeddings
+                      ? 'Rebuild this index with current settings'
+                      : 'Build the semantic FAISS index for this collection'
+                  }
+                  className="flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-md shadow-sky-500/25 transition hover:from-sky-400 hover:to-indigo-400 hover:shadow-lg hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   <CpuChipIcon className={`h-4 w-4 ${isCreatingEmbeddings ? 'animate-spin' : ''}`} />
                   <span className="hidden sm:inline">
-                    {isCreatingEmbeddings ? 'Building…' : hasEmbeddings ? 'Recreate embeddings' : 'Create embeddings'}
+                    {isCreatingEmbeddings
+                      ? 'Building…'
+                      : hasEmbeddings
+                      ? 'Recreate embeddings'
+                      : 'Create embeddings'}
                   </span>
                 </button>
               )}
             </div>
           </div>
 
-          {/* Toggles + status row */}
-          <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <label className="flex cursor-pointer items-center gap-2.5 text-sm text-gray-600 dark:text-slate-400">
-              <div className="relative">
-                <input
-                  type="checkbox"
-                  checked={scrapeFullText}
-                  onChange={(e) => setScrapeFullText(e.target.checked)}
-                  disabled={isCreatingEmbeddings}
-                  className="peer h-4 w-4 cursor-pointer appearance-none rounded border border-gray-300 bg-white checked:border-sky-500 checked:bg-sky-500 disabled:opacity-50 dark:border-slate-700 dark:bg-slate-900"
-                />
-                <svg
-                  className="pointer-events-none absolute inset-0 hidden h-4 w-4 peer-checked:block"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                >
-                  <path
-                    d="M3 8l3.5 3.5L13 5"
-                    stroke="white"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </div>
-              Scrape full text from paper URLs
-              <span className="text-xs text-gray-400 dark:text-slate-600">
-                {scrapeFullText ? '(richer, slower)' : '(abstracts only, fast)'}
+          {selectedFile && (
+            <DatasetFeatureReadinessBanner
+              filename={selectedFile}
+              onOpenModal={() => {
+                setSelectedQualityData(null)
+                setIsQualityModalOpen(true)
+              }}
+              className="mt-3.5"
+            />
+          )}
+
+          {/* Settings Row */}
+          <div className="mt-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between text-xs text-gray-500 dark:text-slate-400">
+            <label className="flex cursor-pointer items-center gap-2">
+              <input
+                type="checkbox"
+                checked={scrapeFullText}
+                onChange={(e) => setScrapeFullText(e.target.checked)}
+                disabled={isCreatingEmbeddings}
+                className="h-3.5 w-3.5 rounded border-gray-300 text-sky-600 focus:ring-sky-500 dark:border-slate-700 dark:bg-slate-900"
+              />
+              <span>Scrape full text from paper URLs</span>
+              <span className="text-[11px] text-gray-400 dark:text-slate-500">
+                {scrapeFullText ? '(richer full-text context)' : '(abstracts only, faster)'}
               </span>
             </label>
 
             {selectedFile && (
-              <span
-                className={`inline-flex items-center gap-2 rounded-lg border px-3 py-1 text-xs ${
-                  hasEmbeddings
-                    ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300'
-                    : 'border-amber-500/30 bg-amber-500/10 text-amber-700 dark:text-amber-300'
-                }`}
-              >
-                <span
-                  className={`h-1.5 w-1.5 rounded-full ${
-                    hasEmbeddings ? 'bg-emerald-500' : 'bg-amber-500'
-                  } ${isCreatingEmbeddings ? 'animate-pulse' : ''}`}
-                />
-                {isCreatingEmbeddings
-                  ? `Creating embeddings for ${selectedFile}…`
-                  : hasEmbeddings
-                  ? `Embeddings active — ${selectedFile}`
-                  : `No embeddings — create them for richer responses`}
+              <span className="text-[11px]">
+                {hasEmbeddings ? (
+                  <span className="text-emerald-600 dark:text-emerald-400 font-medium">
+                    ✓ Document chunks indexed in FAISS
+                  </span>
+                ) : (
+                  <span className="text-amber-600 dark:text-amber-400">
+                    Embeddings not built — queries will fallback to general AI knowledge
+                  </span>
+                )}
               </span>
             )}
           </div>
 
+          {/* Error Banner */}
           {error && (
-            <div className="mt-4 flex items-start gap-3 rounded-xl border border-rose-500/25 bg-rose-50 p-4 text-sm text-rose-700 dark:bg-rose-500/10 dark:text-rose-300">
-              <XMarkIcon className="mt-0.5 h-4 w-4 shrink-0 text-rose-500 dark:text-rose-400" />
-              <span className="flex-1">{error}</span>
+            <div className="mt-3.5 flex items-start gap-2.5 rounded-xl border border-rose-500/25 bg-rose-50 p-3 text-xs text-rose-700 dark:bg-rose-500/10 dark:text-rose-300">
+              <XMarkIcon className="mt-0.5 h-4 w-4 shrink-0 text-rose-500" />
+              <span className="flex-1 font-medium">{error}</span>
               <button
                 onClick={() => setError('')}
                 className="text-rose-400 hover:text-rose-600 dark:hover:text-rose-200"
@@ -278,208 +374,164 @@ export function ChatPage() {
         </div>
       </motion.div>
 
-      {/* ── Chat Panel ── */}
+      {/* ── Main Chat Conversation Panel ── */}
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
       >
-        <div className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm dark:border-slate-800/60 dark:bg-slate-900">
-          <div className="flex items-center gap-2 border-b border-gray-100 px-6 py-4 dark:border-slate-800/60">
-            <div className="h-1 w-5 rounded-full bg-sky-500" />
-            <span className="text-xs font-bold uppercase tracking-[0.22em] text-gray-500 dark:text-slate-500">
-              Conversation
-            </span>
+        <div className="relative flex flex-col rounded-2xl border border-gray-200 dark:border-slate-800/60 bg-white dark:bg-slate-900 shadow-sm overflow-hidden">
+          {/* Header */}
+          <div className="flex items-center justify-between border-b border-gray-100 dark:border-slate-800/80 px-6 py-3.5 bg-gray-50/60 dark:bg-slate-950/40">
+            <div className="flex items-center gap-2">
+              <div className="h-1 w-5 rounded-full bg-sky-500" />
+              <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 dark:text-slate-400">
+                Conversation
+              </span>
+              {selectedFile && (
+                <span className="ml-2 hidden sm:inline-flex items-center gap-1 rounded-md bg-gray-200/60 dark:bg-slate-800 px-2 py-0.5 text-[11px] font-medium text-gray-700 dark:text-slate-300 font-mono">
+                  <DocumentTextIcon className="h-3 w-3 text-sky-500" />
+                  {selectedFile}
+                </span>
+              )}
+            </div>
+
+            <div className="flex items-center gap-2">
+              {messages.length > 1 && (
+                <button
+                  type="button"
+                  onClick={clearConversation}
+                  disabled={isLoading}
+                  title="Clear conversation history"
+                  className="flex items-center gap-1 rounded-lg px-2.5 py-1 text-xs font-medium text-gray-500 hover:bg-gray-200/60 dark:hover:bg-slate-800 hover:text-rose-600 dark:hover:text-rose-400 transition"
+                >
+                  <TrashIcon className="h-3.5 w-3.5" />
+                  <span className="hidden sm:inline">Clear chat</span>
+                </button>
+              )}
+            </div>
           </div>
 
-          {/* Messages */}
-          <div className="flex max-h-[600px] min-h-[420px] flex-col gap-4 overflow-y-auto p-6">
-            {messages.length === 0 ? (
-              <div className="flex flex-1 flex-col items-center justify-center gap-2 py-16 text-center text-gray-400 dark:text-slate-600">
-                <SparklesIcon className="h-8 w-8 opacity-50" />
-                <p className="text-sm">
-                  {selectedFile && hasEmbeddings
-                    ? 'No messages yet — ask your first question.'
-                    : 'Select a collection and create embeddings to begin.'}
-                </p>
-              </div>
-            ) : (
-              messages.map((msg) => <MessageBubble key={msg.id} message={msg} />)
-            )}
+          {/* Messages Scroll Area */}
+          <div
+            ref={scrollContainerRef}
+            onScroll={handleScroll}
+            className="flex flex-col min-h-[460px] max-h-[640px] overflow-y-auto p-6 space-y-4"
+          >
+            {/* Messages list */}
+            {messages.map((msg, index) => (
+              <ChatMessageItem
+                key={msg.id || index}
+                message={msg}
+                isLastAssistantMessage={index === lastAssistantIndex}
+                onRegenerate={regenerateResponse}
+                disabled={isLoading}
+              />
+            ))}
 
-            {isLoading && (
-              <div className="flex items-start gap-3">
-                <Avatar type="ai" />
-                <div className="flex items-center gap-1 rounded-2xl border border-gray-200 bg-gray-50 px-3.5 py-2.5 dark:border-slate-800/60 dark:bg-slate-950/40">
-                  {[0, 1, 2].map((i) => (
-                    <span
+            {/* Quick prompt suggestions when only the initial greeting is present */}
+            {messages.length <= 1 && (
+              <div className="my-6 rounded-2xl border border-sky-100 dark:border-slate-800/80 bg-sky-50/40 dark:bg-slate-950/40 p-5">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-3">
+                  <LightBulbIcon className="h-4 w-4" />
+                  <span>Suggested Research Inquiries</span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                  {QUICK_PROMPTS.map((promptText, i) => (
+                    <button
                       key={i}
-                      className="h-1 w-1 animate-bounce rounded-full bg-sky-500/70"
-                      style={{ animationDelay: `${i * 150}ms` }}
-                    />
+                      type="button"
+                      onClick={() => sendMessage(promptText)}
+                      disabled={inputDisabled}
+                      className="text-left rounded-xl border border-gray-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 text-xs text-gray-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-600 dark:hover:text-sky-300 hover:shadow-sm transition disabled:opacity-50"
+                    >
+                      {promptText} →
+                    </button>
                   ))}
                 </div>
               </div>
             )}
 
+            {/* Live Loading Indicator */}
+            {isLoading && (
+              <ChatLoadingIndicator
+                onStop={stopGeneration}
+                statusMessage="Research Rover is searching paper embeddings & generating answer…"
+              />
+            )}
+
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Input */}
-          <div className="border-t border-gray-100 px-6 py-4 dark:border-slate-800/60">
-            <div className="flex items-center gap-2.5">
-              <input
-                type="text"
+          {/* Floating Scroll To Bottom Button */}
+          {isScrolledUp && (
+            <button
+              type="button"
+              onClick={scrollToBottom}
+              className="absolute bottom-24 right-8 z-20 flex items-center gap-1 rounded-full bg-sky-600 text-white px-3 py-1.5 text-xs font-semibold shadow-lg hover:bg-sky-500 transition animate-bounce"
+            >
+              <ArrowDownCircleIcon className="h-4 w-4" />
+              <span>Scroll to latest</span>
+            </button>
+          )}
+
+          {/* Composer / Input Area */}
+          <div className="border-t border-gray-100 dark:border-slate-800/80 bg-gray-50/50 dark:bg-slate-950/40 p-4">
+            <div className="relative flex items-end gap-2.5 rounded-2xl border border-gray-300 dark:border-slate-700/80 bg-white dark:bg-slate-900 p-2 shadow-sm focus-within:border-sky-500 focus-within:ring-2 focus-within:ring-sky-500/20 transition">
+              <textarea
+                ref={textareaRef}
+                rows={1}
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyDown={handleKeyDown}
                 disabled={inputDisabled}
                 placeholder={inputPlaceholder}
-                className="flex-1 rounded-xl border border-gray-300 bg-gradient-to-b from-white to-gray-50/70 px-4 py-3 text-sm font-medium text-gray-800 placeholder:text-gray-400 shadow-sm outline-none transition-all duration-200 hover:border-sky-400/70 hover:shadow-md hover:shadow-sky-500/5 focus:border-sky-500 focus:shadow-[0_0_0_3px_rgba(56,189,248,0.18)] disabled:cursor-not-allowed disabled:opacity-50 dark:border-slate-700/80 dark:from-slate-900 dark:to-slate-900/40 dark:text-slate-100 dark:placeholder:text-slate-600 dark:hover:border-sky-500/50"
+                className="flex-1 max-h-[180px] min-h-[44px] resize-none border-0 bg-transparent px-3 py-2 text-sm leading-relaxed text-gray-800 placeholder:text-gray-400 outline-none dark:text-slate-100 dark:placeholder:text-slate-500 disabled:cursor-not-allowed disabled:opacity-50"
               />
-              <button
-                onClick={sendMessage}
-                disabled={sendDisabled}
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-indigo-500 text-white shadow-md shadow-sky-500/25 transition hover:from-sky-400 hover:to-indigo-400 hover:shadow-lg hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <PaperAirplaneIcon className="h-4 w-4" />
-              </button>
+
+              {/* Action Button: Send or Stop */}
+              {isLoading ? (
+                <button
+                  type="button"
+                  onClick={stopGeneration}
+                  title="Stop generating response"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-rose-600 hover:bg-rose-500 text-white shadow-md shadow-rose-500/25 transition active:scale-95"
+                >
+                  <StopIcon className="h-5 w-5 stroke-[2.5]" />
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => sendMessage()}
+                  disabled={sendDisabled}
+                  title="Send message (Enter)"
+                  className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-indigo-600 text-white shadow-md shadow-sky-500/25 transition hover:from-sky-400 hover:to-indigo-500 hover:shadow-lg disabled:cursor-not-allowed disabled:opacity-40 active:scale-95"
+                >
+                  <PaperAirplaneIcon className="h-4 w-4 -rotate-45 -translate-y-0.5 translate-x-0.5" />
+                </button>
+              )}
             </div>
-            {isCreatingEmbeddings && (
-              <p className="mt-2 text-xs text-sky-600 dark:text-sky-300">
-                Chat will be available once embeddings finish building.
-              </p>
-            )}
+
+            {/* Hint row */}
+            <div className="mt-2 flex items-center justify-between px-2 text-[11px] text-gray-400 dark:text-slate-500">
+              <span>
+                Tip: Press <kbd className="font-mono font-semibold">Enter</kbd> to send,{' '}
+                <kbd className="font-mono font-semibold">Shift + Enter</kbd> for a new line
+              </span>
+              <span>RAG Knowledge Grounding</span>
+            </div>
           </div>
         </div>
       </motion.div>
 
+      {/* Modals */}
       <EmbeddingProgressModal />
+      <DatasetQualityModal
+        isOpen={isQualityModalOpen}
+        onClose={() => setIsQualityModalOpen(false)}
+        filename={selectedFile}
+        initialData={selectedQualityData}
+      />
     </div>
-  )
-}
-
-// ─── Avatar ───────────────────────────────────────────────────────────────────
-function Avatar({ type }: { type: 'user' | 'ai' }) {
-  if (type === 'user') {
-    return (
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500 to-indigo-500 shadow-md shadow-sky-500/20">
-        <UserIcon className="h-4 w-4 text-white" />
-      </div>
-    )
-  }
-  return (
-    <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl border border-gray-200 bg-gray-50 dark:border-slate-700/80 dark:bg-slate-950/40">
-      <CpuChipIcon className="h-4 w-4 text-sky-500 dark:text-sky-400" />
-    </div>
-  )
-}
-
-// ─── MessageBubble ────────────────────────────────────────────────────────────
-interface MessageBubbleProps {
-  message: ChatMessage
-}
-
-function MessageBubble({ message }: MessageBubbleProps) {
-  const isUser = message.type === 'user'
-  const [sourcesOpen, setSourcesOpen] = useState(false)
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 8 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.18 }}
-      className={`flex items-start gap-3 ${isUser ? 'flex-row-reverse' : ''}`}
-    >
-      <Avatar type={isUser ? 'user' : 'ai'} />
-
-      <div className={`flex max-w-[78%] flex-col gap-1.5 ${isUser ? 'items-end' : 'items-start'}`}>
-        {/* Bubble */}
-        <div
-          className={`whitespace-pre-wrap rounded-2xl px-4 py-2.5 text-sm leading-relaxed shadow-sm ${
-            isUser
-              ? 'bg-gradient-to-br from-sky-500 to-indigo-500 text-white shadow-sky-500/20'
-              : 'border border-gray-200 bg-gray-50 text-gray-900 dark:border-slate-800/60 dark:bg-slate-950/40 dark:text-slate-100'
-          }`}
-        >
-          {message.content}
-        </div>
-
-        {/* Sources */}
-        {!isUser && message.sources && message.sources.length > 0 && (
-          <div className="w-full">
-            <button
-              onClick={() => setSourcesOpen((v) => !v)}
-              className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-[0.16em] text-gray-500 transition-colors hover:text-sky-600 dark:text-slate-500 dark:hover:text-sky-300"
-            >
-              <DocumentTextIcon className="h-3 w-3" />
-              {message.sources.length} source{message.sources.length > 1 ? 's' : ''}
-              {sourcesOpen ? <ChevronUpIcon className="h-3 w-3" /> : <ChevronDownIcon className="h-3 w-3" />}
-            </button>
-
-            <AnimatePresence>
-              {sourcesOpen && (
-                <motion.div
-                  initial={{ opacity: 0, height: 0 }}
-                  animate={{ opacity: 1, height: 'auto' }}
-                  exit={{ opacity: 0, height: 0 }}
-                  transition={{ duration: 0.2 }}
-                  className="mt-2 flex flex-col gap-2 overflow-hidden"
-                >
-                  {message.sources.map((source, index) => {
-                    const url = source.url || (source.doi ? `https://doi.org/${source.doi}` : null)
-                    return (
-                      <div
-                        key={source.id}
-                        className="flex flex-col gap-1.5 rounded-xl border border-gray-200 bg-white px-3.5 py-3 dark:border-slate-800/60 dark:bg-slate-950/40"
-                      >
-                        <div className="flex items-center gap-2">
-                          <span className="flex h-5 w-5 items-center justify-center rounded-md border border-sky-500/30 bg-sky-500/15 text-[10px] font-bold text-sky-600 dark:text-sky-300">
-                            {index + 1}
-                          </span>
-                          <span className="text-[10px] font-bold uppercase tracking-[0.18em] text-gray-400 dark:text-slate-500">
-                            Source
-                          </span>
-                        </div>
-
-                        {source.title && (
-                          <p className="line-clamp-2 text-sm font-semibold leading-snug text-gray-900 dark:text-slate-100">
-                            {source.title}
-                          </p>
-                        )}
-
-                        <p className="line-clamp-2 text-xs leading-relaxed text-gray-500 dark:text-slate-400">
-                          {source.content_preview}
-                        </p>
-
-                        {url && (
-                          <a
-                            href={url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex w-fit items-center gap-1 rounded-md bg-sky-500/10 px-2 py-1 text-xs font-medium text-sky-600 transition-colors hover:bg-sky-500/15 dark:text-sky-300"
-                          >
-                            <ArrowTopRightOnSquareIcon className="h-3 w-3" />
-                            View paper
-                          </a>
-                        )}
-                      </div>
-                    )
-                  })}
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-        )}
-
-        {/* Timestamp */}
-        <span className="text-[11px] tabular-nums text-gray-400 dark:text-slate-600">
-          {new Date(message.timestamp).toLocaleTimeString([], {
-            hour: '2-digit',
-            minute: '2-digit',
-          })}
-        </span>
-      </div>
-    </motion.div>
   )
 }

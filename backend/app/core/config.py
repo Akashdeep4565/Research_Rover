@@ -39,6 +39,7 @@ class Settings(BaseSettings):
     GOOGLE_GENAI_API_KEY: str = ""
     EMAIL: str = "user@example.com"
     PUBMED_API_KEY: str = ""
+    OPENALEX_API_KEY: str = ""
     
     # Search Configuration
     DEFAULT_MAX_RESULTS: int = 10

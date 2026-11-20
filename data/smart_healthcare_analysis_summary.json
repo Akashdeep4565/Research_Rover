@@ -1,0 +1,2676 @@
+{
+  "filename": "smart_healthcare.csv",
+  "source_file": "smart_healthcare.csv",
+  "total_papers": 100,
+  "papers_with_keywords": 89,
+  "papers_with_country_data": 0,
+  "unique_countries": 0,
+  "unique_keywords": 478,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "smart_healthcare_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "smart_healthcare_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "smart_healthcare_analysis_keyword_presence_matrix.csv",
+  "summary_file": "smart_healthcare_analysis_summary.json",
+  "generated_at": 1790606466.9503803,
+  "keyword_frequency": [
+    {
+      "keyword": "artificial intelligence",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "machine learning",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "older adults",
+      "frequency": 6,
+      "percentage": 6.0
+    },
+    {
+      "keyword": "blockchain",
+      "frequency": 5,
+      "percentage": 5.0
+    },
+    {
+      "keyword": "healthcare",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "mhealth",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "implementation science",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "digital health",
+      "frequency": 3,
+      "percentage": 3.0
+    },
+    {
+      "keyword": "smart contracts",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "federated learning",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "assistive technology",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "decentralization",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "privacy",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "bioprinting",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "smart biomaterials",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "tissue engineering",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "smart healthcare",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "3d printing",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "total knee arthroplasty",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "qualitative research",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "immunity",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "tumor microenvironment",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "cancer",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "deep learning",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "telehealth",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "prognosis",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "republic of korea",
+      "frequency": 2,
+      "percentage": 2.0
+    },
+    {
+      "keyword": "autoimmune condition",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "degenerative disorder",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "inflammation",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "pain",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "treatment",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "hl7 fhir interoperability",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "audit trail",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "clinical data management",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "consent management",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "anomaly detection",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "edge computing",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "energy-aware client selection",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "iot-based smart healthcare",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "privacy-preserving data analytics",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "climate change",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "climate health",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "climate-smart healthcare",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "planetary health",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "sustainability",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "sustainable health education",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "cardiovascular disease",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "mortality",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "self-management",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "wearable electronic devices",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "deep eutectic solvents",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "neuromuscular signaling inhibition",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "self-assembled polypeptides",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "transdermal delivery",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "fetal growth restriction",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "iron supplementation",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "maternal anemia",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "postpartum hemorrhage",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "pregnancy outcomes",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "transfusion management",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "β-thalassemia minor",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "3d printed hydrogel",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "carbon nanomaterials",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "conductive hydrogel",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "force sensor",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "hydrogel architecture",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "multifunctional sensor",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "polymer",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "cross-platform standardization",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "edge-cloud collaboration",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "embedded artificial intelligence",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "embodied intelligence",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "federated edge learning",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "full on-device training",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "in-memory computing",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "model lightweighting",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "neuromorphic computing",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "diabetes mellitus",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "diabetic foot syndrome",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "negative pressure therapy",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "ozone treatment",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "south-west romania",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "disease severity",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "healthcare access",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "measles",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "public health",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "random forest",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "socioeconomic determinants",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "surveillance",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "vaccination coverage",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "lda topic modeling",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "medical-preventive integration",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "policy instrument",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "structural imbalance",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "bioengineering",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "neuromotor disorder",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "rehabilitation",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "stakeholder engagement",
+      "frequency": 1,
+      "percentage": 1.0
+    },
+    {
+      "keyword": "rosenberg self-esteem scale",
+      "frequency": 1,
+      "percentage": 1.0
+    }
+  ],
+  "matrix_keywords": [
+    "artificial intelligence",
+    "machine learning",
+    "older adults",
+    "blockchain",
+    "healthcare",
+    "mhealth",
+    "implementation science",
+    "digital health",
+    "smart contracts",
+    "federated learning",
+    "assistive technology",
+    "decentralization",
+    "privacy",
+    "bioprinting",
+    "smart biomaterials",
+    "tissue engineering",
+    "smart healthcare",
+    "3d printing",
+    "total knee arthroplasty",
+    "qualitative research",
+    "immunity",
+    "tumor microenvironment",
+    "cancer",
+    "deep learning",
+    "telehealth",
+    "prognosis",
+    "republic of korea",
+    "autoimmune condition",
+    "degenerative disorder",
+    "inflammation",
+    "pain",
+    "treatment",
+    "hl7 fhir interoperability",
+    "audit trail",
+    "clinical data management",
+    "consent management",
+    "anomaly detection",
+    "edge computing",
+    "energy-aware client selection",
+    "iot-based smart healthcare",
+    "privacy-preserving data analytics",
+    "climate change",
+    "climate health",
+    "climate-smart healthcare",
+    "planetary health",
+    "sustainability",
+    "sustainable health education",
+    "cardiovascular disease",
+    "mortality",
+    "self-management",
+    "wearable electronic devices",
+    "deep eutectic solvents",
+    "neuromuscular signaling inhibition",
+    "self-assembled polypeptides",
+    "transdermal delivery",
+    "fetal growth restriction",
+    "iron supplementation",
+    "maternal anemia",
+    "postpartum hemorrhage",
+    "pregnancy outcomes",
+    "transfusion management",
+    "β-thalassemia minor",
+    "3d printed hydrogel",
+    "carbon nanomaterials",
+    "conductive hydrogel",
+    "force sensor",
+    "hydrogel architecture",
+    "multifunctional sensor",
+    "polymer",
+    "cross-platform standardization",
+    "edge-cloud collaboration",
+    "embedded artificial intelligence",
+    "embodied intelligence",
+    "federated edge learning",
+    "full on-device training",
+    "in-memory computing",
+    "model lightweighting",
+    "neuromorphic computing",
+    "diabetes mellitus",
+    "diabetic foot syndrome",
+    "negative pressure therapy",
+    "ozone treatment",
+    "south-west romania",
+    "disease severity",
+    "healthcare access",
+    "measles",
+    "public health",
+    "random forest",
+    "socioeconomic determinants",
+    "surveillance",
+    "vaccination coverage",
+    "lda topic modeling",
+    "medical-preventive integration",
+    "policy instrument",
+    "structural imbalance",
+    "bioengineering",
+    "neuromotor disorder",
+    "rehabilitation",
+    "stakeholder engagement",
+    "rosenberg self-esteem scale"
+  ],
+  "matrix_rows": 100,
+  "matrix_columns": 100,
+  "cooccurrence_edges": [
+    {
+      "source": "blockchain",
+      "target": "smart contracts",
+      "weight": 2
+    },
+    {
+      "source": "blockchain",
+      "target": "decentralization",
+      "weight": 2
+    },
+    {
+      "source": "blockchain",
+      "target": "privacy",
+      "weight": 2
+    },
+    {
+      "source": "decentralization",
+      "target": "privacy",
+      "weight": 2
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "machine learning",
+      "weight": 2
+    },
+    {
+      "source": "autoimmune condition",
+      "target": "degenerative disorder",
+      "weight": 1
+    },
+    {
+      "source": "autoimmune condition",
+      "target": "inflammation",
+      "weight": 1
+    },
+    {
+      "source": "autoimmune condition",
+      "target": "pain",
+      "weight": 1
+    },
+    {
+      "source": "autoimmune condition",
+      "target": "treatment",
+      "weight": 1
+    },
+    {
+      "source": "degenerative disorder",
+      "target": "inflammation",
+      "weight": 1
+    },
+    {
+      "source": "degenerative disorder",
+      "target": "pain",
+      "weight": 1
+    },
+    {
+      "source": "degenerative disorder",
+      "target": "treatment",
+      "weight": 1
+    },
+    {
+      "source": "inflammation",
+      "target": "pain",
+      "weight": 1
+    },
+    {
+      "source": "inflammation",
+      "target": "treatment",
+      "weight": 1
+    },
+    {
+      "source": "pain",
+      "target": "treatment",
+      "weight": 1
+    },
+    {
+      "source": "audit trail",
+      "target": "blockchain",
+      "weight": 1
+    },
+    {
+      "source": "audit trail",
+      "target": "clinical data management",
+      "weight": 1
+    },
+    {
+      "source": "audit trail",
+      "target": "consent management",
+      "weight": 1
+    },
+    {
+      "source": "audit trail",
+      "target": "healthcare",
+      "weight": 1
+    },
+    {
+      "source": "audit trail",
+      "target": "hl7 fhir interoperability",
+      "weight": 1
+    },
+    {
+      "source": "audit trail",
+      "target": "smart contracts",
+      "weight": 1
+    },
+    {
+      "source": "blockchain",
+      "target": "clinical data management",
+      "weight": 1
+    },
+    {
+      "source": "blockchain",
+      "target": "consent management",
+      "weight": 1
+    },
+    {
+      "source": "blockchain",
+      "target": "healthcare",
+      "weight": 1
+    },
+    {
+      "source": "blockchain",
+      "target": "hl7 fhir interoperability",
+      "weight": 1
+    },
+    {
+      "source": "clinical data management",
+      "target": "consent management",
+      "weight": 1
+    },
+    {
+      "source": "clinical data management",
+      "target": "healthcare",
+      "weight": 1
+    },
+    {
+      "source": "clinical data management",
+      "target": "hl7 fhir interoperability",
+      "weight": 1
+    },
+    {
+      "source": "clinical data management",
+      "target": "smart contracts",
+      "weight": 1
+    },
+    {
+      "source": "consent management",
+      "target": "healthcare",
+      "weight": 1
+    },
+    {
+      "source": "consent management",
+      "target": "hl7 fhir interoperability",
+      "weight": 1
+    },
+    {
+      "source": "consent management",
+      "target": "smart contracts",
+      "weight": 1
+    },
+    {
+      "source": "healthcare",
+      "target": "hl7 fhir interoperability",
+      "weight": 1
+    },
+    {
+      "source": "healthcare",
+      "target": "smart contracts",
+      "weight": 1
+    },
+    {
+      "source": "hl7 fhir interoperability",
+      "target": "smart contracts",
+      "weight": 1
+    },
+    {
+      "source": "anomaly detection",
+      "target": "edge computing",
+      "weight": 1
+    },
+    {
+      "source": "anomaly detection",
+      "target": "energy-aware client selection",
+      "weight": 1
+    },
+    {
+      "source": "anomaly detection",
+      "target": "federated learning",
+      "weight": 1
+    },
+    {
+      "source": "anomaly detection",
+      "target": "iot-based smart healthcare",
+      "weight": 1
+    },
+    {
+      "source": "anomaly detection",
+      "target": "privacy-preserving data analytics",
+      "weight": 1
+    },
+    {
+      "source": "edge computing",
+      "target": "energy-aware client selection",
+      "weight": 1
+    },
+    {
+      "source": "edge computing",
+      "target": "federated learning",
+      "weight": 1
+    },
+    {
+      "source": "edge computing",
+      "target": "iot-based smart healthcare",
+      "weight": 1
+    },
+    {
+      "source": "edge computing",
+      "target": "privacy-preserving data analytics",
+      "weight": 1
+    },
+    {
+      "source": "energy-aware client selection",
+      "target": "federated learning",
+      "weight": 1
+    },
+    {
+      "source": "energy-aware client selection",
+      "target": "iot-based smart healthcare",
+      "weight": 1
+    },
+    {
+      "source": "energy-aware client selection",
+      "target": "privacy-preserving data analytics",
+      "weight": 1
+    },
+    {
+      "source": "federated learning",
+      "target": "iot-based smart healthcare",
+      "weight": 1
+    },
+    {
+      "source": "federated learning",
+      "target": "privacy-preserving data analytics",
+      "weight": 1
+    },
+    {
+      "source": "iot-based smart healthcare",
+      "target": "privacy-preserving data analytics",
+      "weight": 1
+    },
+    {
+      "source": "climate change",
+      "target": "climate health",
+      "weight": 1
+    },
+    {
+      "source": "climate change",
+      "target": "climate-smart healthcare",
+      "weight": 1
+    },
+    {
+      "source": "climate change",
+      "target": "planetary health",
+      "weight": 1
+    },
+    {
+      "source": "climate change",
+      "target": "sustainability",
+      "weight": 1
+    },
+    {
+      "source": "climate change",
+      "target": "sustainable health education",
+      "weight": 1
+    },
+    {
+      "source": "climate health",
+      "target": "climate-smart healthcare",
+      "weight": 1
+    },
+    {
+      "source": "climate health",
+      "target": "planetary health",
+      "weight": 1
+    },
+    {
+      "source": "climate health",
+      "target": "sustainability",
+      "weight": 1
+    },
+    {
+      "source": "climate health",
+      "target": "sustainable health education",
+      "weight": 1
+    },
+    {
+      "source": "climate-smart healthcare",
+      "target": "planetary health",
+      "weight": 1
+    },
+    {
+      "source": "climate-smart healthcare",
+      "target": "sustainability",
+      "weight": 1
+    },
+    {
+      "source": "climate-smart healthcare",
+      "target": "sustainable health education",
+      "weight": 1
+    },
+    {
+      "source": "planetary health",
+      "target": "sustainability",
+      "weight": 1
+    },
+    {
+      "source": "planetary health",
+      "target": "sustainable health education",
+      "weight": 1
+    },
+    {
+      "source": "sustainability",
+      "target": "sustainable health education",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "cardiovascular disease",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "mortality",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "self-management",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "wearable electronic devices",
+      "weight": 1
+    },
+    {
+      "source": "cardiovascular disease",
+      "target": "mortality",
+      "weight": 1
+    },
+    {
+      "source": "cardiovascular disease",
+      "target": "self-management",
+      "weight": 1
+    },
+    {
+      "source": "cardiovascular disease",
+      "target": "wearable electronic devices",
+      "weight": 1
+    },
+    {
+      "source": "mortality",
+      "target": "self-management",
+      "weight": 1
+    },
+    {
+      "source": "mortality",
+      "target": "wearable electronic devices",
+      "weight": 1
+    },
+    {
+      "source": "self-management",
+      "target": "wearable electronic devices",
+      "weight": 1
+    },
+    {
+      "source": "deep eutectic solvents",
+      "target": "neuromuscular signaling inhibition",
+      "weight": 1
+    },
+    {
+      "source": "deep eutectic solvents",
+      "target": "self-assembled polypeptides",
+      "weight": 1
+    },
+    {
+      "source": "deep eutectic solvents",
+      "target": "transdermal delivery",
+      "weight": 1
+    },
+    {
+      "source": "neuromuscular signaling inhibition",
+      "target": "self-assembled polypeptides",
+      "weight": 1
+    },
+    {
+      "source": "neuromuscular signaling inhibition",
+      "target": "transdermal delivery",
+      "weight": 1
+    },
+    {
+      "source": "self-assembled polypeptides",
+      "target": "transdermal delivery",
+      "weight": 1
+    },
+    {
+      "source": "fetal growth restriction",
+      "target": "iron supplementation",
+      "weight": 1
+    },
+    {
+      "source": "fetal growth restriction",
+      "target": "maternal anemia",
+      "weight": 1
+    },
+    {
+      "source": "fetal growth restriction",
+      "target": "postpartum hemorrhage",
+      "weight": 1
+    },
+    {
+      "source": "fetal growth restriction",
+      "target": "pregnancy outcomes",
+      "weight": 1
+    },
+    {
+      "source": "fetal growth restriction",
+      "target": "transfusion management",
+      "weight": 1
+    },
+    {
+      "source": "fetal growth restriction",
+      "target": "β-thalassemia minor",
+      "weight": 1
+    },
+    {
+      "source": "iron supplementation",
+      "target": "maternal anemia",
+      "weight": 1
+    },
+    {
+      "source": "iron supplementation",
+      "target": "postpartum hemorrhage",
+      "weight": 1
+    },
+    {
+      "source": "iron supplementation",
+      "target": "pregnancy outcomes",
+      "weight": 1
+    },
+    {
+      "source": "iron supplementation",
+      "target": "transfusion management",
+      "weight": 1
+    },
+    {
+      "source": "iron supplementation",
+      "target": "β-thalassemia minor",
+      "weight": 1
+    },
+    {
+      "source": "maternal anemia",
+      "target": "postpartum hemorrhage",
+      "weight": 1
+    },
+    {
+      "source": "maternal anemia",
+      "target": "pregnancy outcomes",
+      "weight": 1
+    },
+    {
+      "source": "maternal anemia",
+      "target": "transfusion management",
+      "weight": 1
+    },
+    {
+      "source": "maternal anemia",
+      "target": "β-thalassemia minor",
+      "weight": 1
+    },
+    {
+      "source": "postpartum hemorrhage",
+      "target": "pregnancy outcomes",
+      "weight": 1
+    },
+    {
+      "source": "postpartum hemorrhage",
+      "target": "transfusion management",
+      "weight": 1
+    },
+    {
+      "source": "postpartum hemorrhage",
+      "target": "β-thalassemia minor",
+      "weight": 1
+    },
+    {
+      "source": "pregnancy outcomes",
+      "target": "transfusion management",
+      "weight": 1
+    },
+    {
+      "source": "pregnancy outcomes",
+      "target": "β-thalassemia minor",
+      "weight": 1
+    },
+    {
+      "source": "transfusion management",
+      "target": "β-thalassemia minor",
+      "weight": 1
+    },
+    {
+      "source": "3d printed hydrogel",
+      "target": "carbon nanomaterials",
+      "weight": 1
+    },
+    {
+      "source": "3d printed hydrogel",
+      "target": "conductive hydrogel",
+      "weight": 1
+    },
+    {
+      "source": "3d printed hydrogel",
+      "target": "force sensor",
+      "weight": 1
+    },
+    {
+      "source": "3d printed hydrogel",
+      "target": "hydrogel architecture",
+      "weight": 1
+    },
+    {
+      "source": "3d printed hydrogel",
+      "target": "multifunctional sensor",
+      "weight": 1
+    },
+    {
+      "source": "3d printed hydrogel",
+      "target": "polymer",
+      "weight": 1
+    },
+    {
+      "source": "carbon nanomaterials",
+      "target": "conductive hydrogel",
+      "weight": 1
+    },
+    {
+      "source": "carbon nanomaterials",
+      "target": "force sensor",
+      "weight": 1
+    },
+    {
+      "source": "carbon nanomaterials",
+      "target": "hydrogel architecture",
+      "weight": 1
+    },
+    {
+      "source": "carbon nanomaterials",
+      "target": "multifunctional sensor",
+      "weight": 1
+    },
+    {
+      "source": "carbon nanomaterials",
+      "target": "polymer",
+      "weight": 1
+    },
+    {
+      "source": "conductive hydrogel",
+      "target": "force sensor",
+      "weight": 1
+    },
+    {
+      "source": "conductive hydrogel",
+      "target": "hydrogel architecture",
+      "weight": 1
+    },
+    {
+      "source": "conductive hydrogel",
+      "target": "multifunctional sensor",
+      "weight": 1
+    },
+    {
+      "source": "conductive hydrogel",
+      "target": "polymer",
+      "weight": 1
+    },
+    {
+      "source": "force sensor",
+      "target": "hydrogel architecture",
+      "weight": 1
+    },
+    {
+      "source": "force sensor",
+      "target": "multifunctional sensor",
+      "weight": 1
+    },
+    {
+      "source": "force sensor",
+      "target": "polymer",
+      "weight": 1
+    },
+    {
+      "source": "hydrogel architecture",
+      "target": "multifunctional sensor",
+      "weight": 1
+    },
+    {
+      "source": "hydrogel architecture",
+      "target": "polymer",
+      "weight": 1
+    },
+    {
+      "source": "multifunctional sensor",
+      "target": "polymer",
+      "weight": 1
+    },
+    {
+      "source": "cross-platform standardization",
+      "target": "edge-cloud collaboration",
+      "weight": 1
+    },
+    {
+      "source": "cross-platform standardization",
+      "target": "embedded artificial intelligence",
+      "weight": 1
+    },
+    {
+      "source": "cross-platform standardization",
+      "target": "embodied intelligence",
+      "weight": 1
+    },
+    {
+      "source": "cross-platform standardization",
+      "target": "federated edge learning",
+      "weight": 1
+    },
+    {
+      "source": "cross-platform standardization",
+      "target": "full on-device training",
+      "weight": 1
+    },
+    {
+      "source": "cross-platform standardization",
+      "target": "in-memory computing",
+      "weight": 1
+    },
+    {
+      "source": "cross-platform standardization",
+      "target": "model lightweighting",
+      "weight": 1
+    },
+    {
+      "source": "cross-platform standardization",
+      "target": "neuromorphic computing",
+      "weight": 1
+    },
+    {
+      "source": "edge-cloud collaboration",
+      "target": "embedded artificial intelligence",
+      "weight": 1
+    },
+    {
+      "source": "edge-cloud collaboration",
+      "target": "embodied intelligence",
+      "weight": 1
+    },
+    {
+      "source": "edge-cloud collaboration",
+      "target": "federated edge learning",
+      "weight": 1
+    },
+    {
+      "source": "edge-cloud collaboration",
+      "target": "full on-device training",
+      "weight": 1
+    },
+    {
+      "source": "edge-cloud collaboration",
+      "target": "in-memory computing",
+      "weight": 1
+    },
+    {
+      "source": "edge-cloud collaboration",
+      "target": "model lightweighting",
+      "weight": 1
+    },
+    {
+      "source": "edge-cloud collaboration",
+      "target": "neuromorphic computing",
+      "weight": 1
+    },
+    {
+      "source": "embedded artificial intelligence",
+      "target": "embodied intelligence",
+      "weight": 1
+    },
+    {
+      "source": "embedded artificial intelligence",
+      "target": "federated edge learning",
+      "weight": 1
+    },
+    {
+      "source": "embedded artificial intelligence",
+      "target": "full on-device training",
+      "weight": 1
+    },
+    {
+      "source": "embedded artificial intelligence",
+      "target": "in-memory computing",
+      "weight": 1
+    },
+    {
+      "source": "embedded artificial intelligence",
+      "target": "model lightweighting",
+      "weight": 1
+    },
+    {
+      "source": "embedded artificial intelligence",
+      "target": "neuromorphic computing",
+      "weight": 1
+    },
+    {
+      "source": "embodied intelligence",
+      "target": "federated edge learning",
+      "weight": 1
+    },
+    {
+      "source": "embodied intelligence",
+      "target": "full on-device training",
+      "weight": 1
+    },
+    {
+      "source": "embodied intelligence",
+      "target": "in-memory computing",
+      "weight": 1
+    },
+    {
+      "source": "embodied intelligence",
+      "target": "model lightweighting",
+      "weight": 1
+    },
+    {
+      "source": "embodied intelligence",
+      "target": "neuromorphic computing",
+      "weight": 1
+    },
+    {
+      "source": "federated edge learning",
+      "target": "full on-device training",
+      "weight": 1
+    },
+    {
+      "source": "federated edge learning",
+      "target": "in-memory computing",
+      "weight": 1
+    },
+    {
+      "source": "federated edge learning",
+      "target": "model lightweighting",
+      "weight": 1
+    },
+    {
+      "source": "federated edge learning",
+      "target": "neuromorphic computing",
+      "weight": 1
+    },
+    {
+      "source": "full on-device training",
+      "target": "in-memory computing",
+      "weight": 1
+    },
+    {
+      "source": "full on-device training",
+      "target": "model lightweighting",
+      "weight": 1
+    },
+    {
+      "source": "full on-device training",
+      "target": "neuromorphic computing",
+      "weight": 1
+    },
+    {
+      "source": "in-memory computing",
+      "target": "model lightweighting",
+      "weight": 1
+    },
+    {
+      "source": "in-memory computing",
+      "target": "neuromorphic computing",
+      "weight": 1
+    },
+    {
+      "source": "model lightweighting",
+      "target": "neuromorphic computing",
+      "weight": 1
+    },
+    {
+      "source": "diabetes mellitus",
+      "target": "diabetic foot syndrome",
+      "weight": 1
+    },
+    {
+      "source": "diabetes mellitus",
+      "target": "negative pressure therapy",
+      "weight": 1
+    },
+    {
+      "source": "diabetes mellitus",
+      "target": "ozone treatment",
+      "weight": 1
+    },
+    {
+      "source": "diabetic foot syndrome",
+      "target": "negative pressure therapy",
+      "weight": 1
+    },
+    {
+      "source": "diabetic foot syndrome",
+      "target": "ozone treatment",
+      "weight": 1
+    },
+    {
+      "source": "negative pressure therapy",
+      "target": "ozone treatment",
+      "weight": 1
+    },
+    {
+      "source": "disease severity",
+      "target": "healthcare access",
+      "weight": 1
+    },
+    {
+      "source": "disease severity",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "disease severity",
+      "target": "measles",
+      "weight": 1
+    },
+    {
+      "source": "disease severity",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "disease severity",
+      "target": "random forest",
+      "weight": 1
+    },
+    {
+      "source": "disease severity",
+      "target": "socioeconomic determinants",
+      "weight": 1
+    },
+    {
+      "source": "disease severity",
+      "target": "south-west romania",
+      "weight": 1
+    },
+    {
+      "source": "disease severity",
+      "target": "surveillance",
+      "weight": 1
+    },
+    {
+      "source": "disease severity",
+      "target": "vaccination coverage",
+      "weight": 1
+    },
+    {
+      "source": "healthcare access",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "healthcare access",
+      "target": "measles",
+      "weight": 1
+    },
+    {
+      "source": "healthcare access",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "healthcare access",
+      "target": "random forest",
+      "weight": 1
+    },
+    {
+      "source": "healthcare access",
+      "target": "socioeconomic determinants",
+      "weight": 1
+    },
+    {
+      "source": "healthcare access",
+      "target": "south-west romania",
+      "weight": 1
+    },
+    {
+      "source": "healthcare access",
+      "target": "surveillance",
+      "weight": 1
+    },
+    {
+      "source": "healthcare access",
+      "target": "vaccination coverage",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "measles",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "random forest",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "socioeconomic determinants",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "south-west romania",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "surveillance",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "vaccination coverage",
+      "weight": 1
+    },
+    {
+      "source": "measles",
+      "target": "public health",
+      "weight": 1
+    },
+    {
+      "source": "measles",
+      "target": "random forest",
+      "weight": 1
+    },
+    {
+      "source": "measles",
+      "target": "socioeconomic determinants",
+      "weight": 1
+    },
+    {
+      "source": "measles",
+      "target": "south-west romania",
+      "weight": 1
+    },
+    {
+      "source": "measles",
+      "target": "surveillance",
+      "weight": 1
+    },
+    {
+      "source": "measles",
+      "target": "vaccination coverage",
+      "weight": 1
+    },
+    {
+      "source": "public health",
+      "target": "random forest",
+      "weight": 1
+    },
+    {
+      "source": "public health",
+      "target": "socioeconomic determinants",
+      "weight": 1
+    },
+    {
+      "source": "public health",
+      "target": "south-west romania",
+      "weight": 1
+    },
+    {
+      "source": "public health",
+      "target": "surveillance",
+      "weight": 1
+    },
+    {
+      "source": "public health",
+      "target": "vaccination coverage",
+      "weight": 1
+    },
+    {
+      "source": "random forest",
+      "target": "socioeconomic determinants",
+      "weight": 1
+    },
+    {
+      "source": "random forest",
+      "target": "south-west romania",
+      "weight": 1
+    },
+    {
+      "source": "random forest",
+      "target": "surveillance",
+      "weight": 1
+    },
+    {
+      "source": "random forest",
+      "target": "vaccination coverage",
+      "weight": 1
+    },
+    {
+      "source": "socioeconomic determinants",
+      "target": "south-west romania",
+      "weight": 1
+    },
+    {
+      "source": "socioeconomic determinants",
+      "target": "surveillance",
+      "weight": 1
+    },
+    {
+      "source": "socioeconomic determinants",
+      "target": "vaccination coverage",
+      "weight": 1
+    },
+    {
+      "source": "south-west romania",
+      "target": "surveillance",
+      "weight": 1
+    },
+    {
+      "source": "south-west romania",
+      "target": "vaccination coverage",
+      "weight": 1
+    },
+    {
+      "source": "surveillance",
+      "target": "vaccination coverage",
+      "weight": 1
+    },
+    {
+      "source": "lda topic modeling",
+      "target": "medical-preventive integration",
+      "weight": 1
+    },
+    {
+      "source": "lda topic modeling",
+      "target": "policy instrument",
+      "weight": 1
+    },
+    {
+      "source": "lda topic modeling",
+      "target": "structural imbalance",
+      "weight": 1
+    },
+    {
+      "source": "medical-preventive integration",
+      "target": "policy instrument",
+      "weight": 1
+    },
+    {
+      "source": "medical-preventive integration",
+      "target": "structural imbalance",
+      "weight": 1
+    },
+    {
+      "source": "policy instrument",
+      "target": "structural imbalance",
+      "weight": 1
+    },
+    {
+      "source": "assistive technology",
+      "target": "bioengineering",
+      "weight": 1
+    },
+    {
+      "source": "assistive technology",
+      "target": "neuromotor disorder",
+      "weight": 1
+    },
+    {
+      "source": "assistive technology",
+      "target": "rehabilitation",
+      "weight": 1
+    },
+    {
+      "source": "assistive technology",
+      "target": "stakeholder engagement",
+      "weight": 1
+    },
+    {
+      "source": "bioengineering",
+      "target": "neuromotor disorder",
+      "weight": 1
+    },
+    {
+      "source": "bioengineering",
+      "target": "rehabilitation",
+      "weight": 1
+    },
+    {
+      "source": "bioengineering",
+      "target": "stakeholder engagement",
+      "weight": 1
+    },
+    {
+      "source": "neuromotor disorder",
+      "target": "rehabilitation",
+      "weight": 1
+    },
+    {
+      "source": "neuromotor disorder",
+      "target": "stakeholder engagement",
+      "weight": 1
+    },
+    {
+      "source": "rehabilitation",
+      "target": "stakeholder engagement",
+      "weight": 1
+    },
+    {
+      "source": "bioprinting",
+      "target": "smart biomaterials",
+      "weight": 1
+    },
+    {
+      "source": "bioprinting",
+      "target": "tissue engineering",
+      "weight": 1
+    },
+    {
+      "source": "smart biomaterials",
+      "target": "tissue engineering",
+      "weight": 1
+    },
+    {
+      "source": "3d printing",
+      "target": "artificial intelligence",
+      "weight": 1
+    },
+    {
+      "source": "3d printing",
+      "target": "bioprinting",
+      "weight": 1
+    },
+    {
+      "source": "3d printing",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "bioprinting",
+      "weight": 1
+    },
+    {
+      "source": "bioprinting",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "implementation science",
+      "target": "qualitative research",
+      "weight": 1
+    },
+    {
+      "source": "healthcare",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "cancer",
+      "target": "immunity",
+      "weight": 1
+    },
+    {
+      "source": "cancer",
+      "target": "tumor microenvironment",
+      "weight": 1
+    },
+    {
+      "source": "immunity",
+      "target": "tumor microenvironment",
+      "weight": 1
+    },
+    {
+      "source": "blockchain",
+      "target": "deep learning",
+      "weight": 1
+    },
+    {
+      "source": "blockchain",
+      "target": "federated learning",
+      "weight": 1
+    },
+    {
+      "source": "decentralization",
+      "target": "deep learning",
+      "weight": 1
+    },
+    {
+      "source": "decentralization",
+      "target": "federated learning",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "federated learning",
+      "weight": 1
+    },
+    {
+      "source": "deep learning",
+      "target": "privacy",
+      "weight": 1
+    },
+    {
+      "source": "federated learning",
+      "target": "privacy",
+      "weight": 1
+    },
+    {
+      "source": "digital health",
+      "target": "mhealth",
+      "weight": 1
+    },
+    {
+      "source": "digital health",
+      "target": "telehealth",
+      "weight": 1
+    },
+    {
+      "source": "mhealth",
+      "target": "telehealth",
+      "weight": 1
+    },
+    {
+      "source": "older adults",
+      "target": "smart healthcare",
+      "weight": 1
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "machine learning",
+      "degree_centrality": 0.141414,
+      "closeness_centrality": 0.208534,
+      "betweenness_centrality": 0.157906,
+      "eigenvector_centrality": 0.334962,
+      "clustering_coefficient": 0.428571
+    },
+    {
+      "keyword": "blockchain",
+      "degree_centrality": 0.10101,
+      "closeness_centrality": 0.15283,
+      "betweenness_centrality": 0.070501,
+      "eigenvector_centrality": 0.011895,
+      "clustering_coefficient": 0.466667
+    },
+    {
+      "keyword": "artificial intelligence",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.181408,
+      "betweenness_centrality": 0.098743,
+      "eigenvector_centrality": 0.052842,
+      "clustering_coefficient": 0.25
+    },
+    {
+      "keyword": "federated learning",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.124654,
+      "betweenness_centrality": 0.04329,
+      "eigenvector_centrality": 0.00221,
+      "clustering_coefficient": 0.444444
+    },
+    {
+      "keyword": "south-west romania",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.153884,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.311918,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "disease severity",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.153884,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.311918,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "healthcare access",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.153884,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.311918,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "measles",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.153884,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.311918,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "public health",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.153884,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.311918,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "random forest",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.153884,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.311918,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "socioeconomic determinants",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.153884,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.311918,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "surveillance",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.153884,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.311918,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "vaccination coverage",
+      "degree_centrality": 0.090909,
+      "closeness_centrality": 0.153884,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.311918,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cross-platform standardization",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.080808,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 8.5e-05,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "edge-cloud collaboration",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.080808,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 8.5e-05,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "embedded artificial intelligence",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.080808,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 8.5e-05,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "embodied intelligence",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.080808,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 8.5e-05,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "federated edge learning",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.080808,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 8.5e-05,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "full on-device training",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.080808,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 8.5e-05,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "in-memory computing",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.080808,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 8.5e-05,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "model lightweighting",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.080808,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 8.5e-05,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "neuromorphic computing",
+      "degree_centrality": 0.080808,
+      "closeness_centrality": 0.080808,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 8.5e-05,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "healthcare",
+      "degree_centrality": 0.070707,
+      "closeness_centrality": 0.181408,
+      "betweenness_centrality": 0.098949,
+      "eigenvector_centrality": 0.044332,
+      "clustering_coefficient": 0.714286
+    },
+    {
+      "keyword": "smart contracts",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.143956,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.011082,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "assistive technology",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.116823,
+      "betweenness_centrality": 0.035457,
+      "eigenvector_centrality": 0.000902,
+      "clustering_coefficient": 0.466667
+    },
+    {
+      "keyword": "hl7 fhir interoperability",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.143956,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.011082,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "audit trail",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.143956,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.011082,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "clinical data management",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.143956,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.011082,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "consent management",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.143956,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.011082,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "fetal growth restriction",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "iron supplementation",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "maternal anemia",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "postpartum hemorrhage",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "pregnancy outcomes",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "transfusion management",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "β-thalassemia minor",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "3d printed hydrogel",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "carbon nanomaterials",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "conductive hydrogel",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "force sensor",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "hydrogel architecture",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "multifunctional sensor",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "polymer",
+      "degree_centrality": 0.060606,
+      "closeness_centrality": 0.060606,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "bioprinting",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.166516,
+      "betweenness_centrality": 0.018553,
+      "eigenvector_centrality": 0.049397,
+      "clustering_coefficient": 0.4
+    },
+    {
+      "keyword": "anomaly detection",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.100964,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000436,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "edge computing",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.100964,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000436,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "energy-aware client selection",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.100964,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000436,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "iot-based smart healthcare",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.100964,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000436,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "privacy-preserving data analytics",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.100964,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000436,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "climate change",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.050505,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "climate health",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.050505,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "climate-smart healthcare",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.050505,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "planetary health",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.050505,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "sustainability",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.050505,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "sustainable health education",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.050505,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "older adults",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.143956,
+      "betweenness_centrality": 0.0537,
+      "eigenvector_centrality": 0.006156,
+      "clustering_coefficient": 0.166667
+    },
+    {
+      "keyword": "decentralization",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.121267,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.001994,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "privacy",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.121267,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.001994,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "deep learning",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.121267,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.001994,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "autoimmune condition",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.040404,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "degenerative disorder",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.040404,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "inflammation",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.040404,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "pain",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.040404,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "treatment",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.040404,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cardiovascular disease",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.134416,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0087,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "mortality",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.134416,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0087,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "self-management",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.134416,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0087,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "wearable electronic devices",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.134416,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0087,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "bioengineering",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.095355,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000149,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "neuromotor disorder",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.095355,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000149,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "rehabilitation",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.095355,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000149,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "stakeholder engagement",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.095355,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000149,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "digital health",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.000412,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 0.333333
+    },
+    {
+      "keyword": "3d printing",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.164067,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.048182,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "qualitative research",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.115016,
+      "betweenness_centrality": 0.001237,
+      "eigenvector_centrality": 0.001437,
+      "clustering_coefficient": 0.333333
+    },
+    {
+      "keyword": "immunity",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.118059,
+      "betweenness_centrality": 0.018553,
+      "eigenvector_centrality": 0.004235,
+      "clustering_coefficient": 0.333333
+    },
+    {
+      "keyword": "deep eutectic solvents",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "neuromuscular signaling inhibition",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "self-assembled polypeptides",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "transdermal delivery",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "diabetes mellitus",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "diabetic foot syndrome",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "negative pressure therapy",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "ozone treatment",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "lda topic modeling",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "medical-preventive integration",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "policy instrument",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "structural imbalance",
+      "degree_centrality": 0.030303,
+      "closeness_centrality": 0.030303,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "mhealth",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.022727,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "implementation science",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.137735,
+      "betweenness_centrality": 0.00402,
+      "eigenvector_centrality": 0.005982,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "smart biomaterials",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.124654,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.006118,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "tissue engineering",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.124654,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.006118,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "tumor microenvironment",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.095355,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000525,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cancer",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.095355,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000525,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "telehealth",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.022727,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "prognosis",
+      "degree_centrality": 0.020202,
+      "closeness_centrality": 0.15179,
+      "betweenness_centrality": 0.027211,
+      "eigenvector_centrality": 0.037382,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "smart healthcare",
+      "degree_centrality": 0.010101,
+      "closeness_centrality": 0.111011,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.000678,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "republic of korea",
+      "degree_centrality": 0.010101,
+      "closeness_centrality": 0.018182,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "total knee arthroplasty",
+      "degree_centrality": 0.0,
+      "closeness_centrality": 0.0,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 0.0
+    },
+    {
+      "keyword": "rosenberg self-esteem scale",
+      "degree_centrality": 0.0,
+      "closeness_centrality": 0.0,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 0.0
+    }
+  ]
+}

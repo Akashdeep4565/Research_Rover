@@ -1,0 +1,211 @@
+[
+  {
+    "paper_id":"10.2174\/0113816128454701260402055611",
+    "title":"Multifaceted Modulation of Tumor Microenvironment Dynamics: Emerging Cross-Disciplinary Paradigms in Precision Drug Delivery.",
+    "source":"Current pharmaceutical design",
+    "year":"2026",
+    "doi":"10.2174\/0113816128454701260402055611",
+    "authors":[
+      "Sakshi Soni",
+      "Sunny Rathee",
+      "Umesh K Patil"
+    ],
+    "affiliations":"Department of Pharmaceutical Sciences, Dr. Harisingh Gour Vishwavidyalaya, (A Central University), Sagar, Madhya Pradesh, 470003, India.; Centre of Excellence in Medical Devices, National Institute of Pharmaceutical Education and Research-Ahmedabad (NIPER-A), Opposite Air Force Station, Palaj, Gandhinagar, 382055, Gujarat, India.",
+    "keywords":[
+      "artificial intelligence",
+      "cancer diagnosis",
+      "machine learning",
+      "medical imaging",
+      "oncology"
+    ],
+    "abstract":"Cancer is one of the leading global public health challenges, thus creating a pressing need to develop novel therapies that combine concepts from various scientific disciplines. In this review, we have evaluated how advancements in artificial intelligence, cancer research, and materials science have collectively influenced modern cancer therapies. Cancer research, in particular, is focusing on the tumor microenvironment (TME), which is a highly complex, dynamic, and heterogeneous environment consisting of cancer cells, stromal components, immune cells, and paracrine factors that collectively orchestrate cancer development, progression, metastasis, and drug resistance. Modern analytical tools, including artificial intelligence, have been developed to integrate various omics data, medical images, and clinical information to understand TME, detect potential drug targets, and accurately predict drug response in cancer therapy. Simultaneously, advancements in materials science have led to the development of targeted drug delivery systems, including smart drug delivery systems that can be programmed to release drugs in response to tumor-specific stimuli, including enzymatic activity, acidic pH, temperature, or external stimuli, including light, ultrasound, or magnetic fields. The integration of AI modeling with these precision delivery methods is further advancing the strategies aimed at improving the accumulation of anticancer therapeutics at the tumor site while minimizing the systemic toxicity of the treatment. The review also highlights the recent advances of various ligand-mediated targeting strategies that include antibodies, peptides, aptamers, proteins, and small molecule ligands, as well as the application of AI modeling for improving the nanoparticle-based treatment regimens. Overall, these advances are further propelling the development of highly personalized treatment strategies that are effective against cancer. The further integration of these computer modeling tools with the cutting-edge biomaterials technology is expected to show great promise for improving the treatment of cancer while bypassing the TME-mediated barriers.",
+    "download_url":"https:\/\/pubmed.ncbi.nlm.nih.gov\/42152634\/"
+  },
+  {
+    "paper_id":"10.1148\/ryai.220286",
+    "title":"Use of a Deep Learning Algorithm for Detection and Triage of Cancer-associated Incidental Pulmonary Embolism.",
+    "source":"Radiology. Artificial intelligence",
+    "year":"2023",
+    "doi":"10.1148\/ryai.220286",
+    "authors":[
+      "Peder Wiklund",
+      "Koshiar Medson"
+    ],
+    "affiliations":"From the Department of Radiology, Region Halland, Lasarettsvägen 6, 30233 Halmstad, Sweden (P.W.); Department of Radiology and Functional Imaging, Karolinska University Hospital, Stockholm, Sweden (K.M.); and Department of Physiology and Pharmacology, Karolinska Institutet, Solna, Sweden (K.M.).",
+    "keywords":[
+      "artificial intelligence",
+      "ct imaging",
+      "cancer",
+      "cancer-associated incidental pulmonary embolism",
+      "pulmonary embolism"
+    ],
+    "abstract":"Incidental pulmonary embolism (iPE) is a common complication in patients with cancer, and there is often a delay in reporting these studies and a delay between the finalized report and time to treatment. In addition, unreported iPE is common. This retrospective single-center cross-sectional study evaluated the effect of an artificial intelligence (AI) algorithm on the report turnaround time, time to treatment, and detection rate in patients with cancer-associated iPE. Adult patients with cancer were included either before (July 1, 2018, to June 30, 2019) or after (November 1, 2020, to April 30, 2021) implementation of an AI algorithm for iPE detection and triage. The results demonstrated that reported iPE prevalence was significantly higher in the period after AI implementation (2.5% [26 of 1036 studies] vs 0.8% [16 of 1892 studies],",
+    "download_url":"https:\/\/pubmed.ncbi.nlm.nih.gov\/38074784\/"
+  },
+  {
+    "paper_id":"10.3390\/jcm14155346",
+    "title":"Transforming Cancer Care: A Narrative Review on Leveraging Artificial Intelligence to Advance Immunotherapy in Underserved Communities.",
+    "source":"Journal of clinical medicine",
+    "year":"2025",
+    "doi":"10.3390\/jcm14155346",
+    "authors":[
+      "Victor M Vasquez",
+      "Molly McCabe",
+      "Jack C McKee",
+      "Sharon Siby",
+      "Usman Hussain",
+      "Farah Faizuddin",
+      "Aadil Sheikh",
+      "Thien Nguyen",
+      "Ghislaine Mayer",
+      "Jennifer Grier",
+      "Subramanian Dhandayuthapani",
+      "Shrikanth S Gadad",
+      "Jessica Chacon"
+    ],
+    "affiliations":"Foster School of Medicine, Texas Tech University Health Sciences Center El Paso, El Paso, TX 79905, USA.; School of Medicine Greenville, University of South Carolina, Greenville, SC 29605, USA.; Center of Emphasis in Infectious Diseases, L. Frederick Francis Graduate School of Biomedical Sciences, Texas Tech University Health Sciences Center El Paso, El Paso, TX 79905, USA.; South Texas Center of Excellence in Cancer Research, Department of Medicine and Oncology, The University of Texas Rio Grande Valley School of Medicine, McAllen, TX 78504, USA.; Center of Emphasis in Cancer, Department of Molecular and Translational Medicine, Texas Tech University Health Sciences Center El Paso, El Paso, TX 79905, USA.",
+    "keywords":[
+      "predictive modeling",
+      "artificial intelligence",
+      "cancer immunotherapy",
+      "health disparities",
+      "social determinants of health"
+    ],
+    "abstract":null,
+    "download_url":"https:\/\/pubmed.ncbi.nlm.nih.gov\/40806968\/"
+  },
+  {
+    "paper_id":"10.1111\/jan.70690",
+    "title":"Artificial Intelligence, Cancer Nursing, and Sexual Health: Reassembling Care Networks in Digital Care.",
+    "source":"Journal of advanced nursing",
+    "year":"2026",
+    "doi":"10.1111\/jan.70690",
+    "authors":[
+      "Mats Christiansen",
+      "Lena Wettergren"
+    ],
+    "affiliations":"Department of Public Health and Caring Sciences, Uppsala University, Uppsala, Sweden.; Department of Natural and Health Sciences, The Faculty of Science and Engineering, Åbo Akademi University, Vaasa, Finland.; Department of Women's and Children's Health, Karolinska Institutet, Stockholm, Sweden.",
+    "keywords":[
+      "fundamentals of care",
+      "actor–network theory",
+      "artificial intelligence",
+      "cancer nursing",
+      "care networks",
+      "sexual health"
+    ],
+    "abstract":"To examine how artificial intelligence (AI) reconfigures the conditions under which sexual health is recognized, articulated, and addressed in cancer nursing, thereby providing new conceptual insights into relational care, responsibility, and the organization of care networks.",
+    "download_url":"https:\/\/pubmed.ncbi.nlm.nih.gov\/42497346\/"
+  },
+  {
+    "paper_id":"10.1038\/s41467-025-62589-x",
+    "title":"AI-assisted cervical cytology precancerous screening for high-risk population in resource-limited regions using a compact microscope.",
+    "source":"Nature communications",
+    "year":"2025",
+    "doi":"10.1038\/s41467-025-62589-x",
+    "authors":[
+      "Jiaxin Bai",
+      "Ning Li",
+      "Hua Ye",
+      "Xu Li",
+      "Li Chen",
+      "Junbo Hu",
+      "Baochuan Pang",
+      "Xiaodong Chen",
+      "Gong Rao",
+      "Qinglei Hu",
+      "Shijie Liu",
+      "Si Sun",
+      "Cheng Li",
+      "Xiaohua Lv",
+      "Shaoqun Zeng",
+      "Jing Cai",
+      "Shenghua Cheng",
+      "Xiuli Liu"
+    ],
+    "affiliations":"MOE Key Laboratory for Biomedical Photonics, Wuhan National Laboratory for Optoelectronics, Huazhong University of Science and Technology, Wuhan, China.; School of Biomedical Engineering and Guangdong Provincial Key Laboratory of Medical Image Processing, Southern Medical University, Guangzhou, China.; Department of Clinical Laboratory, Tongji Hospital, Tongji Medical College, Huazhong University of Science and Technology, Wuhan, China.; Department of Pathology, Maternal and Child Hospital of Hubei Province, Tongji Medical College, Huazhong University of Science and Technology, Wuhan, China.; Wuhan Landing Institute for Artificial Intelligence Cancer Diagnosis Industry Development, Wuhan, Hubei, China.; Duodao People's Hospital, Jingmen, China.; Tinyphoton (Wuhan) Technology Co., Ltd., Wuhan, China.; Department of Obstetrics and Gynecology, Union Hospital, Tongji Medical College, Huazhong University of Science and Technology, Wuhan, China.; Department of Obstetrics and Gynecology, Union Hospital, Tongji Medical College, Huazhong University of Science and Technology, Wuhan, China. jingcai@hust.edu.cn.; School of Biomedical Engineering and Guangdong Provincial Key Laboratory of Medical Image Processing, Southern Medical University, Guangzhou, China. chengsh2023@smu.edu.cn.; MOE Key Laboratory for Biomedical Photonics, Wuhan National Laboratory for Optoelectronics, Huazhong University of Science and Technology, Wuhan, China. xlliu@mail.hust.edu.cn.",
+    "keywords":[
+
+    ],
+    "abstract":"Insufficient coverage of cervical cytology screening in resource-limited areas remains a major bottleneck for women's health, as traditional centralized methods require significant investment and many qualified pathologists. Using consumer-grade electronic hardware and aspherical lenses, we design an ultra-low-cost and compact microscope. Given the microscope's low resolution, which hinders accurate identification of lesion cells in cervical samples, we train a coarse instance classifier to screen and extract feature sequences of the top 200 instances containing potential lesions from a slide. We further develop Att-Transformer to focus on and integrate the sparse lesion information from these sequences, enabling slide grading. Our model is trained and validated using 3510 low-resolution slides from female patients at four hospitals, and subsequently evaluated on four independent datasets. The system achieves area under the receiver operating characteristic curve values of 0.87 and 0.89 for detecting squamous intraepithelial lesions on 364 slides from female patients at two external primary hospitals, 0.89 on 391 newly collected slides from female patients at the original four hospitals, and 0.85 on 570 human papillomavirus positive slides from female patients. These findings demonstrate the feasibility of our AI-assisted approach for effective detection of high-risk cervical precancer among women in resource-limited regions.",
+    "download_url":"https:\/\/pubmed.ncbi.nlm.nih.gov\/40790302\/"
+  },
+  {
+    "paper_id":"10.1016\/j.compbiomed.2023.106672",
+    "title":"An omics-to-omics joint knowledge association subtensor model for radiogenomics cross-modal modules from genomics and ultrasonic images of breast cancers.",
+    "source":"Computers in biology and medicine",
+    "year":"2023",
+    "doi":"10.1016\/j.compbiomed.2023.106672",
+    "authors":[
+      "Jianing Xi",
+      "Donghui Sun",
+      "Cai Chang",
+      "Shichong Zhou",
+      "Qinghua Huang"
+    ],
+    "affiliations":"School of Artificial Intelligence, Optics and Electronics (iOPEN), Northwestern Polytechnical University, Xi'an, 710072, China. Electronic address: xjn@gzhmu.edu.cn.; School of Artificial Intelligence, Optics and Electronics (iOPEN), Northwestern Polytechnical University, Xi'an, 710072, China. Electronic address: meissdh@163.com.; Department of Ultrasound, Fudan University Shanghai Cancer Center, Department of Oncology, Shanghai Medical College, Fudan University, Shanghai, 200032, China. Electronic address: changc61@163.com.; Department of Ultrasound, Fudan University Shanghai Cancer Center, Department of Oncology, Shanghai Medical College, Fudan University, Shanghai, 200032, China. Electronic address: sczhou@hotmail.com.; School of Artificial Intelligence, Optics and Electronics (iOPEN), Northwestern Polytechnical University, Xi'an, 710072, China. Electronic address: qhhuang@nwpu.edu.cn.",
+    "keywords":[
+      "genomics",
+      "multi-omics",
+      "radiogenomics",
+      "subtensor",
+      "ultrasonic image"
+    ],
+    "abstract":"The radiogenomics analysis can provide the connections between genomics and radiomics, which can infer the genomic features of tumors from their radiogenomic associations through the low-cost and non-invasiveness screening ultrasonic images. Although there are a number of pioneer approaches exploring the connections between genomic aberrations and ultrasonic features, these studies mainly focus on the relationship between ultrasonic features and only the most popular cancer genes, confronting two difficulties: missing many-to-many relationships as omics-to-omics view, and confounding group-specific associations with whole sample associations. To overcome the difficulty of omics-to-omics view and the issue of tumor heterogeneity, we propose an omics-to-omics joint knowledge association subtensor model. Specifically, the subtensor factorization framework can successfully discover the joint cross-modal module via an omics-to-omics view, while the sparse weight sample indication strategy can mine sample subgroups from the multi-omic data with tumor heterogeneity. The experimental evaluation result shows the jointness of the discovered modules across omics, their association with tumorigenesis contribution, and their relation for cancer related functions. In summary, our proposed omics-to-omics joint knowledge association subtensor model can serve as an efficient tool for radiogenomic knowledge associations, promoting the cross-modal knowledge graph construction of in explainable artificial intelligence cancer diagnosis.",
+    "download_url":"https:\/\/pubmed.ncbi.nlm.nih.gov\/36805226\/"
+  },
+  {
+    "paper_id":"10.2196\/52454",
+    "title":"Establishing the Need for Anticipatory Symptom Guidance and Networked Models of Disease in Adaptive Family Management Among Children With Medical Complexity: Qualitative Study.",
+    "source":"JMIR formative research",
+    "year":"2023",
+    "doi":"10.2196\/52454",
+    "authors":[
+      "Jessica Keim-Malpass",
+      "Christopher Lunsford",
+      "Lisa C Letzkus",
+      "Eleanore Scheer",
+      "Rupa S Valdez"
+    ],
+    "affiliations":"Division of Pediatric Hematology-Oncology, Department of Pediatrics, University of Virginia School of Medicine, Charlottesville, VA, United States.; Department of Physical Medicine and Rehabilitation, Duke University School of Medicine, Durham, NC, United States.; Division of Developmental Pediatrics, Department of Pediatrics, University of Virginia School of Medicine, Charlottesville, VA, United States.; Department of Systems and Information Engineering, University of Virginia School of Engineering and Applied Sciences, Charlottesville, VA, United States.; Department of Public Health Sciences, University of Virginia School of Medicine, Charlottesville, VA, United States.",
+    "keywords":[
+      "anticipatory symptom management",
+      "care coordination",
+      "caregiver",
+      "caregivers",
+      "caregiving",
+      "child",
+      "children",
+      "children with medical complexity",
+      "conceptual",
+      "constructivist",
+      "coordinated care",
+      "disability",
+      "disease progression models",
+      "family",
+      "family management",
+      "grounded theory",
+      "informal care",
+      "interview",
+      "interviews",
+      "mobile phone",
+      "model",
+      "networked models of disease",
+      "pediatric",
+      "pediatrics",
+      "precision",
+      "precision health",
+      "qualitative",
+      "self-management",
+      "situational analysis",
+      "social network",
+      "social networking",
+      "social networks",
+      "social support",
+      "symptom management",
+      "web-based network",
+      "web-based networks"
+    ],
+    "abstract":"Caregivers of children with medical complexity navigate complex family management tasks for their child both in the hospital and home-based setting. The roles and relationships of members of their social network and the dynamic evolution of these family management tasks have been underexamined.",
+    "download_url":"https:\/\/pubmed.ncbi.nlm.nih.gov\/37801346\/"
+  }
+]

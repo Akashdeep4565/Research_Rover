@@ -5,6 +5,11 @@ import type {
   AnalysisSummary,
   AnalysisSourceInfo,
   KeywordMatrixResponse,
+  CountryCollaborationGraphResponse,
+  CountryStatisticsResponse,
+  SystemStatusResponse,
+  ExtendedFileUploadResponse,
+  DatasetQualityReport,
 } from '@/types'
 
 // API Request/Response types
@@ -15,7 +20,7 @@ export interface SearchRequest {
   max_results?: number
   start_date?: string
   end_date?: string
-  search_source?: 'core' | 'pubmed'
+  search_source?: 'unified' | 'pubmed' | 'openalex'
   use_raw_query?: boolean
   sort_mode?: 'relevance' | 'recency'
 }
@@ -103,10 +108,24 @@ api.interceptors.request.use(
 // Response interceptor
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
+    let errorMessage = error.response?.data?.error || error.response?.data?.detail || error.message || 'An error occurred'
+    let errorDetail = error.response?.data?.detail
+
+    if (error.response?.data instanceof Blob) {
+      try {
+        const text = await error.response.data.text()
+        const parsed = JSON.parse(text)
+        errorMessage = parsed.error || parsed.detail || errorMessage
+        errorDetail = parsed.detail
+      } catch {
+        // Blob wasn't JSON formatted
+      }
+    }
+
     const apiError: ApiError = {
-      error: error.response?.data?.error || error.message || 'An error occurred',
-      detail: error.response?.data?.detail,
+      error: errorMessage,
+      detail: errorDetail,
       code: error.response?.status?.toString(),
     }
     return Promise.reject(apiError)
@@ -145,12 +164,19 @@ export const searchApi = {
 
 // Files API
 export const filesApi = {
-  upload: async (file: File): Promise<{ message: string; filename: string }> => {
+  upload: async (file: File): Promise<ExtendedFileUploadResponse> => {
     const formData = new FormData()
     formData.append('file', file)
-    const response = await api.post('/files/upload', formData, {
+    const response: AxiosResponse<ExtendedFileUploadResponse> = await api.post('/files/upload', formData, {
       headers: { 'Content-Type': 'multipart/form-data' },
     })
+    return response.data
+  },
+
+  getQuality: async (filename: string): Promise<DatasetQualityReport> => {
+    const response: AxiosResponse<DatasetQualityReport> = await api.get(
+      `/files/${encodeURIComponent(filename)}/quality`
+    )
     return response.data
   },
 
@@ -159,6 +185,32 @@ export const filesApi = {
       responseType: 'blob',
     })
     return response.data
+  },
+
+  downloadPdf: async (
+    url: string,
+    title?: string,
+    doi?: string,
+    pmid?: string
+  ): Promise<{ blob: Blob; filename: string }> => {
+    const response = await api.get('/files/download-pdf', {
+      params: { url, title, doi, pmid },
+      responseType: 'blob',
+    })
+
+    let filename = ''
+    const disposition = response.headers['content-disposition']
+    if (disposition) {
+      const match = disposition.match(/filename="?([^";]+)"?/i)
+      if (match && match[1]) {
+        filename = match[1]
+      }
+    }
+    if (!filename) {
+      const safeTitle = (title || 'research_paper').replace(/[^a-zA-Z0-9_\- ]/g, '').replace(/\s+/g, '_').slice(0, 80)
+      filename = `${safeTitle || 'research_paper'}.pdf`
+    }
+    return { blob: response.data, filename }
   },
 
   getCsvData: async (filename: string): Promise<Paper[]> => {
@@ -196,13 +248,24 @@ export const filesApi = {
 
 // Chat API
 export const chatApi = {
-  sendMessage: async (filename: string, request: ChatRequest): Promise<ChatResponse> => {
-    const response: AxiosResponse<ChatResponse> = await api.post(`/chat/${filename}`, request)
+  sendMessage: async (
+    filename: string,
+    request: ChatRequest,
+    signal?: AbortSignal
+  ): Promise<ChatResponse> => {
+    const response: AxiosResponse<ChatResponse> = await api.post(`/chat/${filename}`, request, {
+      signal,
+    })
     return response.data
   },
 
-  sendMessageBody: async (request: ChatRequest): Promise<ChatResponse> => {
-    const response: AxiosResponse<ChatResponse> = await api.post('/chat/', request)
+  sendMessageBody: async (
+    request: ChatRequest,
+    signal?: AbortSignal
+  ): Promise<ChatResponse> => {
+    const response: AxiosResponse<ChatResponse> = await api.post('/chat/', request, {
+      signal,
+    })
     return response.data
   },
 }
@@ -277,18 +340,34 @@ export const analysisApi = {
     )
     return response.data
   },
+  getCountryCollaboration: async (filename: string): Promise<CountryCollaborationGraphResponse> => {
+    const response: AxiosResponse<CountryCollaborationGraphResponse> = await api.get(
+      `/analysis/${encodeURIComponent(filename)}/country-collaboration`
+    )
+    return response.data
+  },
+  getCountryStatistics: async (filename: string): Promise<CountryStatisticsResponse> => {
+    const response: AxiosResponse<CountryStatisticsResponse> = await api.get(
+      `/analysis/${encodeURIComponent(filename)}/countries`
+    )
+    return response.data
+  },
 }
 
-// Health check
+// System and Health check API
+export const systemApi = {
+  getStatus: async (signal?: AbortSignal): Promise<SystemStatusResponse> => {
+    const response: AxiosResponse<SystemStatusResponse> = await api.get('/system/status', {
+      timeout: 5000,
+      signal,
+    })
+    return response.data
+  },
+}
+
 export const healthApi = {
-  check: async (): Promise<{
-    status: string
-    version: string
-    services: Record<string, string>
-  }> => {
-    // Health endpoint is at root level, not under /api/v1
-    const healthResponse = await axios.get(`${getBaseURL().replace('/api/v1', '')}/health`)
-    return healthResponse.data
+  check: async (signal?: AbortSignal): Promise<SystemStatusResponse> => {
+    return systemApi.getStatus(signal)
   },
 }
 

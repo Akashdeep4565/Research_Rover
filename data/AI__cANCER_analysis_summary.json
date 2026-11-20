@@ -1,0 +1,2102 @@
+{
+  "filename": "AI__cANCER.csv",
+  "source_file": "AI__cANCER.csv",
+  "total_papers": 7,
+  "papers_with_keywords": 6,
+  "papers_with_country_data": 7,
+  "unique_countries": 5,
+  "unique_keywords": 59,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "AI__cANCER_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "AI__cANCER_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "AI__cANCER_analysis_keyword_presence_matrix.csv",
+  "summary_file": "AI__cANCER_analysis_summary.json",
+  "generated_at": 1790697260.7192945,
+  "keyword_frequency": [
+    {
+      "keyword": "artificial intelligence",
+      "frequency": 4,
+      "percentage": 57.14
+    },
+    {
+      "keyword": "cancer diagnosis",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "machine learning",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "medical imaging",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "oncology",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "ct imaging",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "cancer",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "cancer-associated incidental pulmonary embolism",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "pulmonary embolism",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "predictive modeling",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "cancer immunotherapy",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "health disparities",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "social determinants of health",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "fundamentals of care",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "actor–network theory",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "cancer nursing",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "care networks",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "sexual health",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "genomics",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "multi-omics",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "radiogenomics",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "subtensor",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "ultrasonic image",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "anticipatory symptom management",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "care coordination",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "caregiver",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "caregivers",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "caregiving",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "child",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "children",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "children with medical complexity",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "conceptual",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "constructivist",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "coordinated care",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "disability",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "disease progression models",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "family",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "family management",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "grounded theory",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "informal care",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "interview",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "interviews",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "mobile phone",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "model",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "networked models of disease",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "pediatric",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "pediatrics",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "precision",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "precision health",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "qualitative",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "self-management",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "situational analysis",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "social network",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "social networking",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "social networks",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "social support",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "symptom management",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "web-based network",
+      "frequency": 1,
+      "percentage": 14.29
+    },
+    {
+      "keyword": "web-based networks",
+      "frequency": 1,
+      "percentage": 14.29
+    }
+  ],
+  "matrix_keywords": [
+    "artificial intelligence",
+    "cancer diagnosis",
+    "machine learning",
+    "medical imaging",
+    "oncology",
+    "ct imaging",
+    "cancer",
+    "cancer-associated incidental pulmonary embolism",
+    "pulmonary embolism",
+    "predictive modeling",
+    "cancer immunotherapy",
+    "health disparities",
+    "social determinants of health",
+    "fundamentals of care",
+    "actor–network theory",
+    "cancer nursing",
+    "care networks",
+    "sexual health",
+    "genomics",
+    "multi-omics",
+    "radiogenomics",
+    "subtensor",
+    "ultrasonic image",
+    "anticipatory symptom management",
+    "care coordination",
+    "caregiver",
+    "caregivers",
+    "caregiving",
+    "child",
+    "children",
+    "children with medical complexity",
+    "conceptual",
+    "constructivist",
+    "coordinated care",
+    "disability",
+    "disease progression models",
+    "family",
+    "family management",
+    "grounded theory",
+    "informal care",
+    "interview",
+    "interviews",
+    "mobile phone",
+    "model",
+    "networked models of disease",
+    "pediatric",
+    "pediatrics",
+    "precision",
+    "precision health",
+    "qualitative",
+    "self-management",
+    "situational analysis",
+    "social network",
+    "social networking",
+    "social networks",
+    "social support",
+    "symptom management",
+    "web-based network",
+    "web-based networks"
+  ],
+  "matrix_rows": 7,
+  "matrix_columns": 59,
+  "cooccurrence_edges": [
+    {
+      "source": "artificial intelligence",
+      "target": "cancer diagnosis",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "medical imaging",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "oncology",
+      "weight": 1
+    },
+    {
+      "source": "cancer diagnosis",
+      "target": "machine learning",
+      "weight": 1
+    },
+    {
+      "source": "cancer diagnosis",
+      "target": "medical imaging",
+      "weight": 1
+    },
+    {
+      "source": "cancer diagnosis",
+      "target": "oncology",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "medical imaging",
+      "weight": 1
+    },
+    {
+      "source": "machine learning",
+      "target": "oncology",
+      "weight": 1
+    },
+    {
+      "source": "medical imaging",
+      "target": "oncology",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "cancer",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "cancer-associated incidental pulmonary embolism",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "ct imaging",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "pulmonary embolism",
+      "weight": 1
+    },
+    {
+      "source": "cancer",
+      "target": "cancer-associated incidental pulmonary embolism",
+      "weight": 1
+    },
+    {
+      "source": "cancer",
+      "target": "ct imaging",
+      "weight": 1
+    },
+    {
+      "source": "cancer",
+      "target": "pulmonary embolism",
+      "weight": 1
+    },
+    {
+      "source": "cancer-associated incidental pulmonary embolism",
+      "target": "ct imaging",
+      "weight": 1
+    },
+    {
+      "source": "cancer-associated incidental pulmonary embolism",
+      "target": "pulmonary embolism",
+      "weight": 1
+    },
+    {
+      "source": "ct imaging",
+      "target": "pulmonary embolism",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "cancer immunotherapy",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "health disparities",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "predictive modeling",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "social determinants of health",
+      "weight": 1
+    },
+    {
+      "source": "cancer immunotherapy",
+      "target": "health disparities",
+      "weight": 1
+    },
+    {
+      "source": "cancer immunotherapy",
+      "target": "predictive modeling",
+      "weight": 1
+    },
+    {
+      "source": "cancer immunotherapy",
+      "target": "social determinants of health",
+      "weight": 1
+    },
+    {
+      "source": "health disparities",
+      "target": "predictive modeling",
+      "weight": 1
+    },
+    {
+      "source": "health disparities",
+      "target": "social determinants of health",
+      "weight": 1
+    },
+    {
+      "source": "predictive modeling",
+      "target": "social determinants of health",
+      "weight": 1
+    },
+    {
+      "source": "actor–network theory",
+      "target": "artificial intelligence",
+      "weight": 1
+    },
+    {
+      "source": "actor–network theory",
+      "target": "cancer nursing",
+      "weight": 1
+    },
+    {
+      "source": "actor–network theory",
+      "target": "care networks",
+      "weight": 1
+    },
+    {
+      "source": "actor–network theory",
+      "target": "fundamentals of care",
+      "weight": 1
+    },
+    {
+      "source": "actor–network theory",
+      "target": "sexual health",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "cancer nursing",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "care networks",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "fundamentals of care",
+      "weight": 1
+    },
+    {
+      "source": "artificial intelligence",
+      "target": "sexual health",
+      "weight": 1
+    },
+    {
+      "source": "cancer nursing",
+      "target": "care networks",
+      "weight": 1
+    },
+    {
+      "source": "cancer nursing",
+      "target": "fundamentals of care",
+      "weight": 1
+    },
+    {
+      "source": "cancer nursing",
+      "target": "sexual health",
+      "weight": 1
+    },
+    {
+      "source": "care networks",
+      "target": "fundamentals of care",
+      "weight": 1
+    },
+    {
+      "source": "care networks",
+      "target": "sexual health",
+      "weight": 1
+    },
+    {
+      "source": "fundamentals of care",
+      "target": "sexual health",
+      "weight": 1
+    },
+    {
+      "source": "genomics",
+      "target": "multi-omics",
+      "weight": 1
+    },
+    {
+      "source": "genomics",
+      "target": "radiogenomics",
+      "weight": 1
+    },
+    {
+      "source": "genomics",
+      "target": "subtensor",
+      "weight": 1
+    },
+    {
+      "source": "genomics",
+      "target": "ultrasonic image",
+      "weight": 1
+    },
+    {
+      "source": "multi-omics",
+      "target": "radiogenomics",
+      "weight": 1
+    },
+    {
+      "source": "multi-omics",
+      "target": "subtensor",
+      "weight": 1
+    },
+    {
+      "source": "multi-omics",
+      "target": "ultrasonic image",
+      "weight": 1
+    },
+    {
+      "source": "radiogenomics",
+      "target": "subtensor",
+      "weight": 1
+    },
+    {
+      "source": "radiogenomics",
+      "target": "ultrasonic image",
+      "weight": 1
+    },
+    {
+      "source": "subtensor",
+      "target": "ultrasonic image",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "care coordination",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "caregiver",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "caregivers",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "caregiving",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "child",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "children",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "children with medical complexity",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "conceptual",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "constructivist",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "coordinated care",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "disability",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "disease progression models",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "family",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "family management",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "grounded theory",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "informal care",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "interview",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "interviews",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "mobile phone",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "model",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "networked models of disease",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "pediatric",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "pediatrics",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "precision",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "precision health",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "qualitative",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "self-management",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "situational analysis",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "social network",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "social networking",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "social networks",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "social support",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "symptom management",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "web-based network",
+      "weight": 1
+    },
+    {
+      "source": "anticipatory symptom management",
+      "target": "web-based networks",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "caregiver",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "caregivers",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "caregiving",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "child",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "children",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "children with medical complexity",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "conceptual",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "constructivist",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "coordinated care",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "disability",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "disease progression models",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "family",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "family management",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "grounded theory",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "informal care",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "interview",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "interviews",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "mobile phone",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "model",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "networked models of disease",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "pediatric",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "pediatrics",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "precision",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "precision health",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "qualitative",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "self-management",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "situational analysis",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "social network",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "social networking",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "social networks",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "social support",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "symptom management",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "web-based network",
+      "weight": 1
+    },
+    {
+      "source": "care coordination",
+      "target": "web-based networks",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "caregivers",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "caregiving",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "child",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "children",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "children with medical complexity",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "conceptual",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "constructivist",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "coordinated care",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "disability",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "disease progression models",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "family",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "family management",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "grounded theory",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "informal care",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "interview",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "interviews",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "mobile phone",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "model",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "networked models of disease",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "pediatric",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "pediatrics",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "precision",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "precision health",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "qualitative",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "self-management",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "situational analysis",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "social network",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "social networking",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "social networks",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "social support",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "symptom management",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "web-based network",
+      "weight": 1
+    },
+    {
+      "source": "caregiver",
+      "target": "web-based networks",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "caregiving",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "child",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "children",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "children with medical complexity",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "conceptual",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "constructivist",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "coordinated care",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "disability",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "disease progression models",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "family",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "family management",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "grounded theory",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "informal care",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "interview",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "interviews",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "mobile phone",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "model",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "networked models of disease",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "pediatric",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "pediatrics",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "precision",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "precision health",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "qualitative",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "self-management",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "situational analysis",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "social network",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "social networking",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "social networks",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "social support",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "symptom management",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "web-based network",
+      "weight": 1
+    },
+    {
+      "source": "caregivers",
+      "target": "web-based networks",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "child",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "children",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "children with medical complexity",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "conceptual",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "constructivist",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "coordinated care",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "disability",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "disease progression models",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "family",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "family management",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "grounded theory",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "informal care",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "interview",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "interviews",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "mobile phone",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "model",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "networked models of disease",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "pediatric",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "pediatrics",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "precision",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "precision health",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "qualitative",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "self-management",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "situational analysis",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "social network",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "social networking",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "social networks",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "social support",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "symptom management",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "web-based network",
+      "weight": 1
+    },
+    {
+      "source": "caregiving",
+      "target": "web-based networks",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "children",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "children with medical complexity",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "conceptual",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "constructivist",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "coordinated care",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "disability",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "disease progression models",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "family",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "family management",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "grounded theory",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "informal care",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "interview",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "interviews",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "mobile phone",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "model",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "networked models of disease",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "pediatric",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "pediatrics",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "precision",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "precision health",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "qualitative",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "self-management",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "situational analysis",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "social network",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "social networking",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "social networks",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "social support",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "symptom management",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "web-based network",
+      "weight": 1
+    },
+    {
+      "source": "child",
+      "target": "web-based networks",
+      "weight": 1
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "anticipatory symptom management",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "care coordination",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "caregiver",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "caregivers",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "caregiving",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "child",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "children",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "children with medical complexity",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "conceptual",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "constructivist",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "coordinated care",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "disability",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "disease progression models",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "family",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "family management",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "grounded theory",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "informal care",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "interview",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "interviews",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "mobile phone",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "model",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "networked models of disease",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "pediatric",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "pediatrics",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "precision",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "precision health",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "qualitative",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "self-management",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "situational analysis",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "social network",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "social networking",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "social networks",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "social support",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "symptom management",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "web-based network",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "web-based networks",
+      "degree_centrality": 0.603448,
+      "closeness_centrality": 0.603448,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.166667,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "artificial intelligence",
+      "degree_centrality": 0.293103,
+      "closeness_centrality": 0.293103,
+      "betweenness_centrality": 0.065336,
+      "eigenvector_centrality": 1e-06,
+      "clustering_coefficient": 0.205882
+    },
+    {
+      "keyword": "fundamentals of care",
+      "degree_centrality": 0.086207,
+      "closeness_centrality": 0.171819,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "actor–network theory",
+      "degree_centrality": 0.086207,
+      "closeness_centrality": 0.171819,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cancer nursing",
+      "degree_centrality": 0.086207,
+      "closeness_centrality": 0.171819,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "care networks",
+      "degree_centrality": 0.086207,
+      "closeness_centrality": 0.171819,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "sexual health",
+      "degree_centrality": 0.086207,
+      "closeness_centrality": 0.171819,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cancer diagnosis",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "machine learning",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "medical imaging",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "oncology",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "ct imaging",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cancer",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cancer-associated incidental pulmonary embolism",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "pulmonary embolism",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "predictive modeling",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "cancer immunotherapy",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "health disparities",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "social determinants of health",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.166092,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "genomics",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.068966,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "multi-omics",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.068966,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "radiogenomics",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.068966,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "subtensor",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.068966,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    },
+    {
+      "keyword": "ultrasonic image",
+      "degree_centrality": 0.068966,
+      "closeness_centrality": 0.068966,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.0,
+      "clustering_coefficient": 1.0
+    }
+  ]
+}

@@ -1,0 +1,2676 @@
+{
+  "filename": "cough_syrup.csv",
+  "source_file": "cough_syrup.csv",
+  "total_papers": 107,
+  "papers_with_keywords": 107,
+  "papers_with_country_data": 61,
+  "unique_countries": 22,
+  "unique_keywords": 884,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "cough_syrup_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "cough_syrup_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "cough_syrup_analysis_keyword_presence_matrix.csv",
+  "summary_file": "cough_syrup_analysis_summary.json",
+  "generated_at": 1794828394.6995213,
+  "keyword_frequency": [
+    {
+      "keyword": "medicine",
+      "frequency": 78,
+      "percentage": 72.9
+    },
+    {
+      "keyword": "traditional medicine",
+      "frequency": 45,
+      "percentage": 42.06
+    },
+    {
+      "keyword": "respiratory and cough-related research",
+      "frequency": 33,
+      "percentage": 30.84
+    },
+    {
+      "keyword": "medicinal plant research",
+      "frequency": 33,
+      "percentage": 30.84
+    },
+    {
+      "keyword": "intensive care medicine",
+      "frequency": 30,
+      "percentage": 28.04
+    },
+    {
+      "keyword": "chemistry",
+      "frequency": 29,
+      "percentage": 27.1
+    },
+    {
+      "keyword": "public health",
+      "frequency": 26,
+      "percentage": 24.3
+    },
+    {
+      "keyword": "phytochemicals and medicinal plants",
+      "frequency": 24,
+      "percentage": 22.43
+    },
+    {
+      "keyword": "environmental health",
+      "frequency": 23,
+      "percentage": 21.5
+    },
+    {
+      "keyword": "medline",
+      "frequency": 23,
+      "percentage": 21.5
+    },
+    {
+      "keyword": "pharmaceutical quality and counterfeiting",
+      "frequency": 20,
+      "percentage": 18.69
+    },
+    {
+      "keyword": "drug",
+      "frequency": 20,
+      "percentage": 18.69
+    },
+    {
+      "keyword": "family medicine",
+      "frequency": 18,
+      "percentage": 16.82
+    },
+    {
+      "keyword": "alternative medicine",
+      "frequency": 18,
+      "percentage": 16.82
+    },
+    {
+      "keyword": "pharmacology",
+      "frequency": 18,
+      "percentage": 16.82
+    },
+    {
+      "keyword": "chromatography",
+      "frequency": 17,
+      "percentage": 15.89
+    },
+    {
+      "keyword": "food science",
+      "frequency": 17,
+      "percentage": 15.89
+    },
+    {
+      "keyword": "analytical methods in pharmaceuticals",
+      "frequency": 16,
+      "percentage": 14.95
+    },
+    {
+      "keyword": "antimicrobial",
+      "frequency": 14,
+      "percentage": 13.08
+    },
+    {
+      "keyword": "folk medicine",
+      "frequency": 14,
+      "percentage": 13.08
+    },
+    {
+      "keyword": "medicinal plants",
+      "frequency": 14,
+      "percentage": 13.08
+    },
+    {
+      "keyword": "diethylene glycol",
+      "frequency": 13,
+      "percentage": 12.15
+    },
+    {
+      "keyword": "medical emergency",
+      "frequency": 12,
+      "percentage": 11.21
+    },
+    {
+      "keyword": "respiratory system",
+      "frequency": 12,
+      "percentage": 11.21
+    },
+    {
+      "keyword": "phytochemical",
+      "frequency": 12,
+      "percentage": 11.21
+    },
+    {
+      "keyword": "dosage form",
+      "frequency": 12,
+      "percentage": 11.21
+    },
+    {
+      "keyword": "organoleptic",
+      "frequency": 11,
+      "percentage": 10.28
+    },
+    {
+      "keyword": "psychiatry",
+      "frequency": 10,
+      "percentage": 9.35
+    },
+    {
+      "keyword": "pediatrics",
+      "frequency": 10,
+      "percentage": 9.35
+    },
+    {
+      "keyword": "health care",
+      "frequency": 10,
+      "percentage": 9.35
+    },
+    {
+      "keyword": "pharmacy and medical practices",
+      "frequency": 10,
+      "percentage": 9.35
+    },
+    {
+      "keyword": "chronic cough",
+      "frequency": 10,
+      "percentage": 9.35
+    },
+    {
+      "keyword": "quality",
+      "frequency": 9,
+      "percentage": 8.41
+    },
+    {
+      "keyword": "occupational safety and health",
+      "frequency": 9,
+      "percentage": 8.41
+    },
+    {
+      "keyword": "forensic toxicology and drug analysis",
+      "frequency": 9,
+      "percentage": 8.41
+    },
+    {
+      "keyword": "anesthesia",
+      "frequency": 9,
+      "percentage": 8.41
+    },
+    {
+      "keyword": "expectorant",
+      "frequency": 9,
+      "percentage": 8.41
+    },
+    {
+      "keyword": "active ingredient",
+      "frequency": 9,
+      "percentage": 8.41
+    },
+    {
+      "keyword": "biology",
+      "frequency": 9,
+      "percentage": 8.41
+    },
+    {
+      "keyword": "pharmacy",
+      "frequency": 8,
+      "percentage": 7.48
+    },
+    {
+      "keyword": "substance abuse",
+      "frequency": 8,
+      "percentage": 7.48
+    },
+    {
+      "keyword": "poison control",
+      "frequency": 8,
+      "percentage": 7.48
+    },
+    {
+      "keyword": "psychology",
+      "frequency": 8,
+      "percentage": 7.48
+    },
+    {
+      "keyword": "substance abuse treatment and outcomes",
+      "frequency": 8,
+      "percentage": 7.48
+    },
+    {
+      "keyword": "phytochemistry medicinal plant applications",
+      "frequency": 8,
+      "percentage": 7.48
+    },
+    {
+      "keyword": "detection limit",
+      "frequency": 8,
+      "percentage": 7.48
+    },
+    {
+      "keyword": "adverse effect",
+      "frequency": 8,
+      "percentage": 7.48
+    },
+    {
+      "keyword": "quality of life",
+      "frequency": 7,
+      "percentage": 6.54
+    },
+    {
+      "keyword": "pharmaceutical studies and practices",
+      "frequency": 7,
+      "percentage": 6.54
+    },
+    {
+      "keyword": "descriptive statistics",
+      "frequency": 7,
+      "percentage": 6.54
+    },
+    {
+      "keyword": "biotechnology",
+      "frequency": 7,
+      "percentage": 6.54
+    },
+    {
+      "keyword": "codeine",
+      "frequency": 7,
+      "percentage": 6.54
+    },
+    {
+      "keyword": "business",
+      "frequency": 7,
+      "percentage": 6.54
+    },
+    {
+      "keyword": "dry cough",
+      "frequency": 7,
+      "percentage": 6.54
+    },
+    {
+      "keyword": "medical prescription",
+      "frequency": 7,
+      "percentage": 6.54
+    },
+    {
+      "keyword": "substance use",
+      "frequency": 6,
+      "percentage": 5.61
+    },
+    {
+      "keyword": "ingredient",
+      "frequency": 6,
+      "percentage": 5.61
+    },
+    {
+      "keyword": "antioxidant",
+      "frequency": 6,
+      "percentage": 5.61
+    },
+    {
+      "keyword": "pharmacovigilance",
+      "frequency": 6,
+      "percentage": 5.61
+    },
+    {
+      "keyword": "clinical trial",
+      "frequency": 6,
+      "percentage": 5.61
+    },
+    {
+      "keyword": "herbal extracts",
+      "frequency": 6,
+      "percentage": 5.61
+    },
+    {
+      "keyword": "common cold",
+      "frequency": 6,
+      "percentage": 5.61
+    },
+    {
+      "keyword": "gas chromatography",
+      "frequency": 6,
+      "percentage": 5.61
+    },
+    {
+      "keyword": "analytical chemistry and chromatography",
+      "frequency": 6,
+      "percentage": 5.61
+    },
+    {
+      "keyword": "dextromethorphan",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "developing country",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "disease",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "humans",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "traditional chinese medicine analysis",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "youth, drugs, and violence",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "descriptive research",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "clinical psychology",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "self-medication",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "cough reflex",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "sugar",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "traditional chinese medicine",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "respiratory tract infections",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "pediatric health and respiratory diseases",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "medical research and treatments",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "flame ionization detector",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "ethylene glycol",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "complementary and alternative medicine studies",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "contamination",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "action",
+      "frequency": 5,
+      "percentage": 4.67
+    },
+    {
+      "keyword": "pharmaceutical economics and policy",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "emergency medicine",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "epidemiology",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "india",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "quantitative analysis",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "illicit drug",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "suicide prevention",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "injury prevention",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "nursing",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "psychological intervention",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "cross-sectional study",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "young adult",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "opioid use disorder treatment",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "medical education",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "pharmaceutical practices and patient outcomes",
+      "frequency": 4,
+      "percentage": 3.74
+    },
+    {
+      "keyword": "pharmacovigilance and adverse drug reactions",
+      "frequency": 4,
+      "percentage": 3.74
+    }
+  ],
+  "matrix_keywords": [
+    "medicine",
+    "traditional medicine",
+    "respiratory and cough-related research",
+    "medicinal plant research",
+    "intensive care medicine",
+    "chemistry",
+    "public health",
+    "phytochemicals and medicinal plants",
+    "environmental health",
+    "medline",
+    "pharmaceutical quality and counterfeiting",
+    "drug",
+    "family medicine",
+    "alternative medicine",
+    "pharmacology",
+    "chromatography",
+    "food science",
+    "analytical methods in pharmaceuticals",
+    "antimicrobial",
+    "folk medicine",
+    "medicinal plants",
+    "diethylene glycol",
+    "medical emergency",
+    "respiratory system",
+    "phytochemical",
+    "dosage form",
+    "organoleptic",
+    "psychiatry",
+    "pediatrics",
+    "health care",
+    "pharmacy and medical practices",
+    "chronic cough",
+    "quality",
+    "occupational safety and health",
+    "forensic toxicology and drug analysis",
+    "anesthesia",
+    "expectorant",
+    "active ingredient",
+    "biology",
+    "pharmacy",
+    "substance abuse",
+    "poison control",
+    "psychology",
+    "substance abuse treatment and outcomes",
+    "phytochemistry medicinal plant applications",
+    "detection limit",
+    "adverse effect",
+    "quality of life",
+    "pharmaceutical studies and practices",
+    "descriptive statistics",
+    "biotechnology",
+    "codeine",
+    "business",
+    "dry cough",
+    "medical prescription",
+    "substance use",
+    "ingredient",
+    "antioxidant",
+    "pharmacovigilance",
+    "clinical trial",
+    "herbal extracts",
+    "common cold",
+    "gas chromatography",
+    "analytical chemistry and chromatography",
+    "dextromethorphan",
+    "developing country",
+    "disease",
+    "humans",
+    "traditional chinese medicine analysis",
+    "youth, drugs, and violence",
+    "descriptive research",
+    "clinical psychology",
+    "self-medication",
+    "cough reflex",
+    "sugar",
+    "traditional chinese medicine",
+    "respiratory tract infections",
+    "pediatric health and respiratory diseases",
+    "medical research and treatments",
+    "flame ionization detector",
+    "ethylene glycol",
+    "complementary and alternative medicine studies",
+    "contamination",
+    "action",
+    "pharmaceutical economics and policy",
+    "emergency medicine",
+    "epidemiology",
+    "india",
+    "quantitative analysis",
+    "illicit drug",
+    "suicide prevention",
+    "injury prevention",
+    "nursing",
+    "psychological intervention",
+    "cross-sectional study",
+    "young adult",
+    "opioid use disorder treatment",
+    "medical education",
+    "pharmaceutical practices and patient outcomes",
+    "pharmacovigilance and adverse drug reactions"
+  ],
+  "matrix_rows": 107,
+  "matrix_columns": 100,
+  "cooccurrence_edges": [
+    {
+      "source": "medicine",
+      "target": "traditional medicine",
+      "weight": 40
+    },
+    {
+      "source": "medicine",
+      "target": "respiratory and cough-related research",
+      "weight": 32
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "traditional medicine",
+      "weight": 31
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "medicine",
+      "weight": 30
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "medicine",
+      "weight": 30
+    },
+    {
+      "source": "medicine",
+      "target": "public health",
+      "weight": 26
+    },
+    {
+      "source": "respiratory and cough-related research",
+      "target": "traditional medicine",
+      "weight": 26
+    },
+    {
+      "source": "phytochemicals and medicinal plants",
+      "target": "traditional medicine",
+      "weight": 24
+    },
+    {
+      "source": "environmental health",
+      "target": "medicine",
+      "weight": 23
+    },
+    {
+      "source": "medicine",
+      "target": "medline",
+      "weight": 23
+    },
+    {
+      "source": "medicine",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 23
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 22
+    },
+    {
+      "source": "environmental health",
+      "target": "public health",
+      "weight": 21
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "respiratory and cough-related research",
+      "weight": 21
+    },
+    {
+      "source": "drug",
+      "target": "medicine",
+      "weight": 20
+    },
+    {
+      "source": "alternative medicine",
+      "target": "medicine",
+      "weight": 18
+    },
+    {
+      "source": "family medicine",
+      "target": "medicine",
+      "weight": 18
+    },
+    {
+      "source": "chemistry",
+      "target": "chromatography",
+      "weight": 17
+    },
+    {
+      "source": "medicine",
+      "target": "pharmacology",
+      "weight": 17
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "medline",
+      "weight": 16
+    },
+    {
+      "source": "phytochemicals and medicinal plants",
+      "target": "respiratory and cough-related research",
+      "weight": 16
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "traditional medicine",
+      "weight": 15
+    },
+    {
+      "source": "food science",
+      "target": "traditional medicine",
+      "weight": 15
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "respiratory and cough-related research",
+      "weight": 15
+    },
+    {
+      "source": "analytical methods in pharmaceuticals",
+      "target": "chemistry",
+      "weight": 14
+    },
+    {
+      "source": "folk medicine",
+      "target": "traditional medicine",
+      "weight": 14
+    },
+    {
+      "source": "medicinal plants",
+      "target": "traditional medicine",
+      "weight": 14
+    },
+    {
+      "source": "medicine",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 13
+    },
+    {
+      "source": "family medicine",
+      "target": "public health",
+      "weight": 13
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "public health",
+      "weight": 13
+    },
+    {
+      "source": "medline",
+      "target": "public health",
+      "weight": 13
+    },
+    {
+      "source": "analytical methods in pharmaceuticals",
+      "target": "chromatography",
+      "weight": 13
+    },
+    {
+      "source": "food science",
+      "target": "medicinal plant research",
+      "weight": 13
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "pharmacology",
+      "weight": 13
+    },
+    {
+      "source": "pharmacology",
+      "target": "traditional medicine",
+      "weight": 13
+    },
+    {
+      "source": "antimicrobial",
+      "target": "medicinal plant research",
+      "weight": 13
+    },
+    {
+      "source": "antimicrobial",
+      "target": "traditional medicine",
+      "weight": 13
+    },
+    {
+      "source": "folk medicine",
+      "target": "medicine",
+      "weight": 13
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "medicinal plants",
+      "weight": 13
+    },
+    {
+      "source": "medicinal plants",
+      "target": "medicine",
+      "weight": 13
+    },
+    {
+      "source": "alternative medicine",
+      "target": "family medicine",
+      "weight": 12
+    },
+    {
+      "source": "environmental health",
+      "target": "medical emergency",
+      "weight": 12
+    },
+    {
+      "source": "environmental health",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 12
+    },
+    {
+      "source": "medical emergency",
+      "target": "medicine",
+      "weight": 12
+    },
+    {
+      "source": "pharmacology",
+      "target": "respiratory and cough-related research",
+      "weight": 12
+    },
+    {
+      "source": "phytochemical",
+      "target": "traditional medicine",
+      "weight": 12
+    },
+    {
+      "source": "folk medicine",
+      "target": "medicinal plant research",
+      "weight": 12
+    },
+    {
+      "source": "environmental health",
+      "target": "family medicine",
+      "weight": 11
+    },
+    {
+      "source": "environmental health",
+      "target": "intensive care medicine",
+      "weight": 11
+    },
+    {
+      "source": "medical emergency",
+      "target": "public health",
+      "weight": 11
+    },
+    {
+      "source": "pharmaceutical quality and counterfeiting",
+      "target": "public health",
+      "weight": 11
+    },
+    {
+      "source": "chemistry",
+      "target": "food science",
+      "weight": 11
+    },
+    {
+      "source": "chemistry",
+      "target": "traditional medicine",
+      "weight": 11
+    },
+    {
+      "source": "food science",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "medicine",
+      "target": "respiratory system",
+      "weight": 11
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "phytochemical",
+      "weight": 11
+    },
+    {
+      "source": "organoleptic",
+      "target": "traditional medicine",
+      "weight": 11
+    },
+    {
+      "source": "antimicrobial",
+      "target": "medicine",
+      "weight": 11
+    },
+    {
+      "source": "drug",
+      "target": "traditional medicine",
+      "weight": 11
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "medicinal plant research",
+      "weight": 11
+    },
+    {
+      "source": "medicinal plants",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 11
+    },
+    {
+      "source": "medicine",
+      "target": "pediatrics",
+      "weight": 10
+    },
+    {
+      "source": "medicine",
+      "target": "psychiatry",
+      "weight": 10
+    },
+    {
+      "source": "health care",
+      "target": "medicine",
+      "weight": 10
+    },
+    {
+      "source": "alternative medicine",
+      "target": "medline",
+      "weight": 10
+    },
+    {
+      "source": "chronic cough",
+      "target": "medicine",
+      "weight": 10
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "organoleptic",
+      "weight": 10
+    },
+    {
+      "source": "medicine",
+      "target": "phytochemical",
+      "weight": 10
+    },
+    {
+      "source": "medline",
+      "target": "respiratory and cough-related research",
+      "weight": 10
+    },
+    {
+      "source": "medical emergency",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 9
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "medical emergency",
+      "weight": 9
+    },
+    {
+      "source": "diethylene glycol",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 9
+    },
+    {
+      "source": "environmental health",
+      "target": "occupational safety and health",
+      "weight": 9
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 9
+    },
+    {
+      "source": "medicine",
+      "target": "occupational safety and health",
+      "weight": 9
+    },
+    {
+      "source": "occupational safety and health",
+      "target": "public health",
+      "weight": 9
+    },
+    {
+      "source": "environmental health",
+      "target": "medline",
+      "weight": 9
+    },
+    {
+      "source": "family medicine",
+      "target": "medline",
+      "weight": 9
+    },
+    {
+      "source": "medicine",
+      "target": "pharmacy and medical practices",
+      "weight": 9
+    },
+    {
+      "source": "chemistry",
+      "target": "medicine",
+      "weight": 9
+    },
+    {
+      "source": "chronic cough",
+      "target": "respiratory and cough-related research",
+      "weight": 9
+    },
+    {
+      "source": "food science",
+      "target": "respiratory and cough-related research",
+      "weight": 9
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "respiratory system",
+      "weight": 9
+    },
+    {
+      "source": "respiratory and cough-related research",
+      "target": "respiratory system",
+      "weight": 9
+    },
+    {
+      "source": "alternative medicine",
+      "target": "traditional medicine",
+      "weight": 9
+    },
+    {
+      "source": "antimicrobial",
+      "target": "respiratory and cough-related research",
+      "weight": 9
+    },
+    {
+      "source": "food science",
+      "target": "organoleptic",
+      "weight": 9
+    },
+    {
+      "source": "analytical methods in pharmaceuticals",
+      "target": "diethylene glycol",
+      "weight": 9
+    },
+    {
+      "source": "dosage form",
+      "target": "medicine",
+      "weight": 9
+    },
+    {
+      "source": "drug",
+      "target": "medicinal plant research",
+      "weight": 9
+    },
+    {
+      "source": "folk medicine",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 9
+    },
+    {
+      "source": "folk medicine",
+      "target": "respiratory and cough-related research",
+      "weight": 9
+    },
+    {
+      "source": "expectorant",
+      "target": "medicinal plant research",
+      "weight": 9
+    },
+    {
+      "source": "expectorant",
+      "target": "medicine",
+      "weight": 9
+    },
+    {
+      "source": "expectorant",
+      "target": "traditional medicine",
+      "weight": 9
+    },
+    {
+      "source": "medicine",
+      "target": "organoleptic",
+      "weight": 9
+    },
+    {
+      "source": "pharmacology",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 9
+    },
+    {
+      "source": "drug",
+      "target": "pharmacology",
+      "weight": 9
+    },
+    {
+      "source": "medicine",
+      "target": "quality",
+      "weight": 8
+    },
+    {
+      "source": "environmental health",
+      "target": "health care",
+      "weight": 8
+    },
+    {
+      "source": "health care",
+      "target": "public health",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "pharmacy",
+      "weight": 8
+    },
+    {
+      "source": "medline",
+      "target": "traditional medicine",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "poison control",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "psychology",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "substance abuse",
+      "weight": 8
+    },
+    {
+      "source": "medicine",
+      "target": "substance abuse treatment and outcomes",
+      "weight": 8
+    },
+    {
+      "source": "chemistry",
+      "target": "medicinal plant research",
+      "weight": 8
+    },
+    {
+      "source": "respiratory system",
+      "target": "traditional medicine",
+      "weight": 8
+    },
+    {
+      "source": "antimicrobial",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 8
+    },
+    {
+      "source": "organoleptic",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 8
+    },
+    {
+      "source": "organoleptic",
+      "target": "respiratory and cough-related research",
+      "weight": 8
+    },
+    {
+      "source": "phytochemical",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 8
+    },
+    {
+      "source": "analytical methods in pharmaceuticals",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 8
+    },
+    {
+      "source": "chronic cough",
+      "target": "intensive care medicine",
+      "weight": 8
+    },
+    {
+      "source": "dosage form",
+      "target": "medicinal plant research",
+      "weight": 8
+    },
+    {
+      "source": "dosage form",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 8
+    },
+    {
+      "source": "dosage form",
+      "target": "traditional medicine",
+      "weight": 8
+    },
+    {
+      "source": "drug",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 8
+    },
+    {
+      "source": "drug",
+      "target": "respiratory and cough-related research",
+      "weight": 8
+    },
+    {
+      "source": "medicinal plants",
+      "target": "phytochemical",
+      "weight": 8
+    },
+    {
+      "source": "phytochemistry medicinal plant applications",
+      "target": "traditional medicine",
+      "weight": 8
+    },
+    {
+      "source": "alternative medicine",
+      "target": "respiratory and cough-related research",
+      "weight": 8
+    },
+    {
+      "source": "analytical methods in pharmaceuticals",
+      "target": "detection limit",
+      "weight": 8
+    },
+    {
+      "source": "chemistry",
+      "target": "detection limit",
+      "weight": 8
+    },
+    {
+      "source": "chemistry",
+      "target": "diethylene glycol",
+      "weight": 8
+    },
+    {
+      "source": "chromatography",
+      "target": "detection limit",
+      "weight": 8
+    },
+    {
+      "source": "chromatography",
+      "target": "diethylene glycol",
+      "weight": 8
+    },
+    {
+      "source": "adverse effect",
+      "target": "medicine",
+      "weight": 8
+    },
+    {
+      "source": "family medicine",
+      "target": "pediatrics",
+      "weight": 7
+    },
+    {
+      "source": "family medicine",
+      "target": "psychiatry",
+      "weight": 7
+    },
+    {
+      "source": "medicine",
+      "target": "pharmaceutical studies and practices",
+      "weight": 7
+    },
+    {
+      "source": "medicine",
+      "target": "quality of life",
+      "weight": 7
+    },
+    {
+      "source": "descriptive statistics",
+      "target": "family medicine",
+      "weight": 7
+    },
+    {
+      "source": "descriptive statistics",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "pediatrics",
+      "weight": 7
+    },
+    {
+      "source": "pediatrics",
+      "target": "public health",
+      "weight": 7
+    },
+    {
+      "source": "biotechnology",
+      "target": "traditional medicine",
+      "weight": 7
+    },
+    {
+      "source": "diethylene glycol",
+      "target": "forensic toxicology and drug analysis",
+      "weight": 7
+    },
+    {
+      "source": "environmental health",
+      "target": "poison control",
+      "weight": 7
+    },
+    {
+      "source": "poison control",
+      "target": "public health",
+      "weight": 7
+    },
+    {
+      "source": "psychiatry",
+      "target": "public health",
+      "weight": 7
+    },
+    {
+      "source": "psychiatry",
+      "target": "substance abuse treatment and outcomes",
+      "weight": 7
+    },
+    {
+      "source": "substance abuse",
+      "target": "substance abuse treatment and outcomes",
+      "weight": 7
+    },
+    {
+      "source": "anesthesia",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "chronic cough",
+      "target": "medicinal plant research",
+      "weight": 7
+    },
+    {
+      "source": "chronic cough",
+      "target": "traditional medicine",
+      "weight": 7
+    },
+    {
+      "source": "pharmacology",
+      "target": "respiratory system",
+      "weight": 7
+    },
+    {
+      "source": "alternative medicine",
+      "target": "intensive care medicine",
+      "weight": 7
+    },
+    {
+      "source": "food science",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 7
+    },
+    {
+      "source": "analytical methods in pharmaceuticals",
+      "target": "forensic toxicology and drug analysis",
+      "weight": 7
+    },
+    {
+      "source": "dosage form",
+      "target": "respiratory and cough-related research",
+      "weight": 7
+    },
+    {
+      "source": "dry cough",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 7
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "respiratory system",
+      "weight": 7
+    },
+    {
+      "source": "active ingredient",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "expectorant",
+      "target": "phytochemicals and medicinal plants",
+      "weight": 7
+    },
+    {
+      "source": "folk medicine",
+      "target": "medicinal plants",
+      "weight": 7
+    },
+    {
+      "source": "medicinal plant research",
+      "target": "phytochemistry medicinal plant applications",
+      "weight": 7
+    },
+    {
+      "source": "medicine",
+      "target": "phytochemistry medicinal plant applications",
+      "weight": 7
+    },
+    {
+      "source": "medical prescription",
+      "target": "medicine",
+      "weight": 7
+    },
+    {
+      "source": "expectorant",
+      "target": "respiratory and cough-related research",
+      "weight": 7
+    },
+    {
+      "source": "detection limit",
+      "target": "diethylene glycol",
+      "weight": 7
+    },
+    {
+      "source": "chemistry",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 7
+    },
+    {
+      "source": "chromatography",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 7
+    },
+    {
+      "source": "biology",
+      "target": "traditional medicine",
+      "weight": 7
+    },
+    {
+      "source": "alternative medicine",
+      "target": "environmental health",
+      "weight": 6
+    },
+    {
+      "source": "alternative medicine",
+      "target": "psychiatry",
+      "weight": 6
+    },
+    {
+      "source": "environmental health",
+      "target": "pediatrics",
+      "weight": 6
+    },
+    {
+      "source": "environmental health",
+      "target": "pharmaceutical studies and practices",
+      "weight": 6
+    },
+    {
+      "source": "pharmaceutical quality and counterfeiting",
+      "target": "quality",
+      "weight": 6
+    },
+    {
+      "source": "family medicine",
+      "target": "health care",
+      "weight": 6
+    },
+    {
+      "source": "family medicine",
+      "target": "intensive care medicine",
+      "weight": 6
+    },
+    {
+      "source": "family medicine",
+      "target": "pharmacy",
+      "weight": 6
+    },
+    {
+      "source": "health care",
+      "target": "intensive care medicine",
+      "weight": 6
+    },
+    {
+      "source": "pharmacy",
+      "target": "public health",
+      "weight": 6
+    },
+    {
+      "source": "diethylene glycol",
+      "target": "medicine",
+      "weight": 6
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "occupational safety and health",
+      "weight": 6
+    },
+    {
+      "source": "medical emergency",
+      "target": "occupational safety and health",
+      "weight": 6
+    },
+    {
+      "source": "occupational safety and health",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 6
+    },
+    {
+      "source": "biotechnology",
+      "target": "medicine",
+      "weight": 6
+    },
+    {
+      "source": "medline",
+      "target": "pediatrics",
+      "weight": 6
+    },
+    {
+      "source": "medline",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 6
+    },
+    {
+      "source": "alternative medicine",
+      "target": "psychology",
+      "weight": 6
+    },
+    {
+      "source": "alternative medicine",
+      "target": "public health",
+      "weight": 6
+    },
+    {
+      "source": "family medicine",
+      "target": "psychology",
+      "weight": 6
+    },
+    {
+      "source": "medicine",
+      "target": "substance use",
+      "weight": 6
+    },
+    {
+      "source": "psychiatry",
+      "target": "psychology",
+      "weight": 6
+    },
+    {
+      "source": "psychiatry",
+      "target": "substance abuse",
+      "weight": 6
+    },
+    {
+      "source": "public health",
+      "target": "substance abuse",
+      "weight": 6
+    },
+    {
+      "source": "public health",
+      "target": "substance abuse treatment and outcomes",
+      "weight": 6
+    },
+    {
+      "source": "substance abuse",
+      "target": "substance use",
+      "weight": 6
+    },
+    {
+      "source": "substance abuse treatment and outcomes",
+      "target": "substance use",
+      "weight": 6
+    },
+    {
+      "source": "family medicine",
+      "target": "pharmacy and medical practices",
+      "weight": 6
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "pharmaceutical studies and practices",
+      "weight": 6
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "quality",
+      "weight": 6
+    },
+    {
+      "source": "antimicrobial",
+      "target": "food science",
+      "weight": 6
+    },
+    {
+      "source": "antimicrobial",
+      "target": "phytochemical",
+      "weight": 6
+    },
+    {
+      "source": "chemistry",
+      "target": "phytochemical",
+      "weight": 6
+    },
+    {
+      "source": "food science",
+      "target": "phytochemical",
+      "weight": 6
+    },
+    {
+      "source": "business",
+      "target": "environmental health",
+      "weight": 6
+    },
+    {
+      "source": "business",
+      "target": "medicine",
+      "weight": 6
+    },
+    {
+      "source": "business",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 6
+    },
+    {
+      "source": "business",
+      "target": "public health",
+      "weight": 6
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "pharmacovigilance",
+      "weight": 6
+    },
+    {
+      "source": "medicine",
+      "target": "pharmacovigilance",
+      "weight": 6
+    },
+    {
+      "source": "pharmacovigilance",
+      "target": "public health",
+      "weight": 6
+    },
+    {
+      "source": "dry cough",
+      "target": "respiratory and cough-related research",
+      "weight": 6
+    },
+    {
+      "source": "folk medicine",
+      "target": "intensive care medicine",
+      "weight": 6
+    },
+    {
+      "source": "phytochemicals and medicinal plants",
+      "target": "respiratory system",
+      "weight": 6
+    },
+    {
+      "source": "active ingredient",
+      "target": "medicinal plant research",
+      "weight": 6
+    },
+    {
+      "source": "active ingredient",
+      "target": "traditional medicine",
+      "weight": 6
+    },
+    {
+      "source": "medicinal plants",
+      "target": "respiratory and cough-related research",
+      "weight": 6
+    },
+    {
+      "source": "phytochemical",
+      "target": "phytochemistry medicinal plant applications",
+      "weight": 6
+    },
+    {
+      "source": "clinical trial",
+      "target": "medicine",
+      "weight": 6
+    },
+    {
+      "source": "herbal extracts",
+      "target": "medicinal plant research",
+      "weight": 6
+    },
+    {
+      "source": "herbal extracts",
+      "target": "medicine",
+      "weight": 6
+    },
+    {
+      "source": "herbal extracts",
+      "target": "traditional medicine",
+      "weight": 6
+    },
+    {
+      "source": "intensive care medicine",
+      "target": "pharmacology",
+      "weight": 6
+    },
+    {
+      "source": "common cold",
+      "target": "medicine",
+      "weight": 6
+    },
+    {
+      "source": "analytical chemistry and chromatography",
+      "target": "analytical methods in pharmaceuticals",
+      "weight": 6
+    },
+    {
+      "source": "analytical chemistry and chromatography",
+      "target": "chemistry",
+      "weight": 6
+    },
+    {
+      "source": "analytical chemistry and chromatography",
+      "target": "chromatography",
+      "weight": 6
+    },
+    {
+      "source": "analytical methods in pharmaceuticals",
+      "target": "gas chromatography",
+      "weight": 6
+    },
+    {
+      "source": "chemistry",
+      "target": "forensic toxicology and drug analysis",
+      "weight": 6
+    },
+    {
+      "source": "chemistry",
+      "target": "gas chromatography",
+      "weight": 6
+    },
+    {
+      "source": "chromatography",
+      "target": "forensic toxicology and drug analysis",
+      "weight": 6
+    },
+    {
+      "source": "chromatography",
+      "target": "gas chromatography",
+      "weight": 6
+    },
+    {
+      "source": "diethylene glycol",
+      "target": "gas chromatography",
+      "weight": 6
+    },
+    {
+      "source": "adverse effect",
+      "target": "respiratory and cough-related research",
+      "weight": 6
+    },
+    {
+      "source": "quality of life",
+      "target": "respiratory and cough-related research",
+      "weight": 6
+    },
+    {
+      "source": "detection limit",
+      "target": "pharmaceutical quality and counterfeiting",
+      "weight": 6
+    },
+    {
+      "source": "biology",
+      "target": "medicine",
+      "weight": 6
+    },
+    {
+      "source": "environmental health",
+      "target": "psychiatry",
+      "weight": 5
+    },
+    {
+      "source": "environmental health",
+      "target": "quality",
+      "weight": 5
+    },
+    {
+      "source": "medical emergency",
+      "target": "pediatrics",
+      "weight": 5
+    },
+    {
+      "source": "medical emergency",
+      "target": "pharmaceutical studies and practices",
+      "weight": 5
+    },
+    {
+      "source": "pharmaceutical quality and counterfeiting",
+      "target": "pharmaceutical studies and practices",
+      "weight": 5
+    },
+    {
+      "source": "descriptive statistics",
+      "target": "environmental health",
+      "weight": 5
+    },
+    {
+      "source": "descriptive statistics",
+      "target": "public health",
+      "weight": 5
+    },
+    {
+      "source": "environmental health",
+      "target": "pharmacy",
+      "weight": 5
+    },
+    {
+      "source": "health care",
+      "target": "medical emergency",
+      "weight": 5
+    },
+    {
+      "source": "medical emergency",
+      "target": "pharmacy",
+      "weight": 5
+    },
+    {
+      "source": "pediatrics",
+      "target": "pharmacy",
+      "weight": 5
+    },
+    {
+      "source": "developing country",
+      "target": "environmental health",
+      "weight": 5
+    },
+    {
+      "source": "developing country",
+      "target": "medicine",
+      "weight": 5
+    },
+    {
+      "source": "diethylene glycol",
+      "target": "public health",
+      "weight": 5
+    },
+    {
+      "source": "disease",
+      "target": "medicine",
+      "weight": 5
+    },
+    {
+      "source": "epidemiology",
+      "target": "public health",
+      "weight": 5
+    },
+    {
+      "source": "family medicine",
+      "target": "substance abuse treatment and outcomes",
+      "weight": 5
+    }
+  ],
+  "centrality_scores": [
+    {
+      "keyword": "medicine",
+      "degree_centrality": 0.979798,
+      "closeness_centrality": 0.980198,
+      "betweenness_centrality": 0.109722,
+      "eigenvector_centrality": 0.211162,
+      "clustering_coefficient": 0.373497
+    },
+    {
+      "keyword": "medline",
+      "degree_centrality": 0.777778,
+      "closeness_centrality": 0.818182,
+      "betweenness_centrality": 0.031881,
+      "eigenvector_centrality": 0.184366,
+      "clustering_coefficient": 0.457963
+    },
+    {
+      "keyword": "drug",
+      "degree_centrality": 0.737374,
+      "closeness_centrality": 0.792,
+      "betweenness_centrality": 0.032054,
+      "eigenvector_centrality": 0.173419,
+      "clustering_coefficient": 0.451294
+    },
+    {
+      "keyword": "alternative medicine",
+      "degree_centrality": 0.737374,
+      "closeness_centrality": 0.792,
+      "betweenness_centrality": 0.028674,
+      "eigenvector_centrality": 0.176692,
+      "clustering_coefficient": 0.471081
+    },
+    {
+      "keyword": "traditional medicine",
+      "degree_centrality": 0.69697,
+      "closeness_centrality": 0.767442,
+      "betweenness_centrality": 0.024953,
+      "eigenvector_centrality": 0.164923,
+      "clustering_coefficient": 0.477835
+    },
+    {
+      "keyword": "intensive care medicine",
+      "degree_centrality": 0.69697,
+      "closeness_centrality": 0.767442,
+      "betweenness_centrality": 0.023542,
+      "eigenvector_centrality": 0.168899,
+      "clustering_coefficient": 0.485081
+    },
+    {
+      "keyword": "public health",
+      "degree_centrality": 0.666667,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.015891,
+      "eigenvector_centrality": 0.160076,
+      "clustering_coefficient": 0.523313
+    },
+    {
+      "keyword": "family medicine",
+      "degree_centrality": 0.646465,
+      "closeness_centrality": 0.738806,
+      "betweenness_centrality": 0.014928,
+      "eigenvector_centrality": 0.160031,
+      "clustering_coefficient": 0.531746
+    },
+    {
+      "keyword": "respiratory and cough-related research",
+      "degree_centrality": 0.626263,
+      "closeness_centrality": 0.727941,
+      "betweenness_centrality": 0.017789,
+      "eigenvector_centrality": 0.152166,
+      "clustering_coefficient": 0.513485
+    },
+    {
+      "keyword": "environmental health",
+      "degree_centrality": 0.616162,
+      "closeness_centrality": 0.722628,
+      "betweenness_centrality": 0.014268,
+      "eigenvector_centrality": 0.149101,
+      "clustering_coefficient": 0.533333
+    },
+    {
+      "keyword": "adverse effect",
+      "degree_centrality": 0.545455,
+      "closeness_centrality": 0.6875,
+      "betweenness_centrality": 0.011328,
+      "eigenvector_centrality": 0.1416,
+      "clustering_coefficient": 0.561845
+    },
+    {
+      "keyword": "pharmaceutical quality and counterfeiting",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.019673,
+      "eigenvector_centrality": 0.11898,
+      "clustering_coefficient": 0.513725
+    },
+    {
+      "keyword": "pediatrics",
+      "degree_centrality": 0.515152,
+      "closeness_centrality": 0.673469,
+      "betweenness_centrality": 0.00756,
+      "eigenvector_centrality": 0.134792,
+      "clustering_coefficient": 0.585098
+    },
+    {
+      "keyword": "medical prescription",
+      "degree_centrality": 0.505051,
+      "closeness_centrality": 0.668919,
+      "betweenness_centrality": 0.007423,
+      "eigenvector_centrality": 0.130105,
+      "clustering_coefficient": 0.595918
+    },
+    {
+      "keyword": "pharmacology",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.007546,
+      "eigenvector_centrality": 0.118477,
+      "clustering_coefficient": 0.595238
+    },
+    {
+      "keyword": "respiratory system",
+      "degree_centrality": 0.494949,
+      "closeness_centrality": 0.66443,
+      "betweenness_centrality": 0.012451,
+      "eigenvector_centrality": 0.115491,
+      "clustering_coefficient": 0.564626
+    },
+    {
+      "keyword": "pharmacy",
+      "degree_centrality": 0.484848,
+      "closeness_centrality": 0.66,
+      "betweenness_centrality": 0.006971,
+      "eigenvector_centrality": 0.124053,
+      "clustering_coefficient": 0.599291
+    },
+    {
+      "keyword": "codeine",
+      "degree_centrality": 0.474747,
+      "closeness_centrality": 0.655629,
+      "betweenness_centrality": 0.010312,
+      "eigenvector_centrality": 0.121038,
+      "clustering_coefficient": 0.562442
+    },
+    {
+      "keyword": "chemistry",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.015158,
+      "eigenvector_centrality": 0.094109,
+      "clustering_coefficient": 0.50628
+    },
+    {
+      "keyword": "health care",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.005538,
+      "eigenvector_centrality": 0.120321,
+      "clustering_coefficient": 0.628019
+    },
+    {
+      "keyword": "anesthesia",
+      "degree_centrality": 0.464646,
+      "closeness_centrality": 0.651316,
+      "betweenness_centrality": 0.015362,
+      "eigenvector_centrality": 0.104564,
+      "clustering_coefficient": 0.486957
+    },
+    {
+      "keyword": "chronic cough",
+      "degree_centrality": 0.454545,
+      "closeness_centrality": 0.647059,
+      "betweenness_centrality": 0.004776,
+      "eigenvector_centrality": 0.117902,
+      "clustering_coefficient": 0.648485
+    },
+    {
+      "keyword": "diethylene glycol",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.017636,
+      "eigenvector_centrality": 0.097444,
+      "clustering_coefficient": 0.515856
+    },
+    {
+      "keyword": "psychiatry",
+      "degree_centrality": 0.444444,
+      "closeness_centrality": 0.642857,
+      "betweenness_centrality": 0.004194,
+      "eigenvector_centrality": 0.11187,
+      "clustering_coefficient": 0.662791
+    },
+    {
+      "keyword": "poison control",
+      "degree_centrality": 0.434343,
+      "closeness_centrality": 0.63871,
+      "betweenness_centrality": 0.004914,
+      "eigenvector_centrality": 0.110155,
+      "clustering_coefficient": 0.643411
+    },
+    {
+      "keyword": "medicinal plant research",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.003706,
+      "eigenvector_centrality": 0.101853,
+      "clustering_coefficient": 0.67712
+    },
+    {
+      "keyword": "occupational safety and health",
+      "degree_centrality": 0.424242,
+      "closeness_centrality": 0.634615,
+      "betweenness_centrality": 0.005108,
+      "eigenvector_centrality": 0.106522,
+      "clustering_coefficient": 0.624855
+    },
+    {
+      "keyword": "folk medicine",
+      "degree_centrality": 0.414141,
+      "closeness_centrality": 0.630573,
+      "betweenness_centrality": 0.004347,
+      "eigenvector_centrality": 0.10172,
+      "clustering_coefficient": 0.65122
+    },
+    {
+      "keyword": "medical emergency",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.626582,
+      "betweenness_centrality": 0.003385,
+      "eigenvector_centrality": 0.106488,
+      "clustering_coefficient": 0.678205
+    },
+    {
+      "keyword": "descriptive statistics",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.002748,
+      "eigenvector_centrality": 0.103824,
+      "clustering_coefficient": 0.711538
+    },
+    {
+      "keyword": "psychological intervention",
+      "degree_centrality": 0.40404,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.003366,
+      "eigenvector_centrality": 0.105161,
+      "clustering_coefficient": 0.685897
+    },
+    {
+      "keyword": "antimicrobial",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.002903,
+      "eigenvector_centrality": 0.095628,
+      "clustering_coefficient": 0.703104
+    },
+    {
+      "keyword": "pharmacy and medical practices",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.004758,
+      "eigenvector_centrality": 0.105922,
+      "clustering_coefficient": 0.636977
+    },
+    {
+      "keyword": "forensic toxicology and drug analysis",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.008686,
+      "eigenvector_centrality": 0.091297,
+      "clustering_coefficient": 0.560054
+    },
+    {
+      "keyword": "phytochemistry medicinal plant applications",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.003427,
+      "eigenvector_centrality": 0.099801,
+      "clustering_coefficient": 0.682861
+    },
+    {
+      "keyword": "pharmaceutical studies and practices",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.003285,
+      "eigenvector_centrality": 0.105779,
+      "clustering_coefficient": 0.672065
+    },
+    {
+      "keyword": "common cold",
+      "degree_centrality": 0.393939,
+      "closeness_centrality": 0.622642,
+      "betweenness_centrality": 0.003354,
+      "eigenvector_centrality": 0.109324,
+      "clustering_coefficient": 0.663968
+    },
+    {
+      "keyword": "quality",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.003918,
+      "eigenvector_centrality": 0.102375,
+      "clustering_coefficient": 0.634424
+    },
+    {
+      "keyword": "active ingredient",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.006132,
+      "eigenvector_centrality": 0.080003,
+      "clustering_coefficient": 0.628734
+    },
+    {
+      "keyword": "pharmacovigilance",
+      "degree_centrality": 0.383838,
+      "closeness_centrality": 0.61875,
+      "betweenness_centrality": 0.003151,
+      "eigenvector_centrality": 0.103281,
+      "clustering_coefficient": 0.671408
+    },
+    {
+      "keyword": "phytochemicals and medicinal plants",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.002154,
+      "eigenvector_centrality": 0.090852,
+      "clustering_coefficient": 0.74024
+    },
+    {
+      "keyword": "analytical methods in pharmaceuticals",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.006246,
+      "eigenvector_centrality": 0.082669,
+      "clustering_coefficient": 0.584084
+    },
+    {
+      "keyword": "psychology",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.002565,
+      "eigenvector_centrality": 0.096167,
+      "clustering_coefficient": 0.732733
+    },
+    {
+      "keyword": "quality of life",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.0033,
+      "eigenvector_centrality": 0.103107,
+      "clustering_coefficient": 0.668168
+    },
+    {
+      "keyword": "ingredient",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.614907,
+      "betweenness_centrality": 0.007358,
+      "eigenvector_centrality": 0.082768,
+      "clustering_coefficient": 0.554054
+    },
+    {
+      "keyword": "clinical trial",
+      "degree_centrality": 0.373737,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.002351,
+      "eigenvector_centrality": 0.103622,
+      "clustering_coefficient": 0.72973
+    },
+    {
+      "keyword": "medicinal plants",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.001892,
+      "eigenvector_centrality": 0.090766,
+      "clustering_coefficient": 0.750794
+    },
+    {
+      "keyword": "dosage form",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.005118,
+      "eigenvector_centrality": 0.077482,
+      "clustering_coefficient": 0.649206
+    },
+    {
+      "keyword": "biotechnology",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.003866,
+      "eigenvector_centrality": 0.094129,
+      "clustering_coefficient": 0.642857
+    },
+    {
+      "keyword": "dextromethorphan",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.007452,
+      "eigenvector_centrality": 0.08239,
+      "clustering_coefficient": 0.549206
+    },
+    {
+      "keyword": "descriptive research",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.001919,
+      "eigenvector_centrality": 0.09305,
+      "clustering_coefficient": 0.742857
+    },
+    {
+      "keyword": "respiratory tract infections",
+      "degree_centrality": 0.363636,
+      "closeness_centrality": 0.611111,
+      "betweenness_centrality": 0.002263,
+      "eigenvector_centrality": 0.099622,
+      "clustering_coefficient": 0.720635
+    },
+    {
+      "keyword": "chromatography",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.006135,
+      "eigenvector_centrality": 0.069132,
+      "clustering_coefficient": 0.586555
+    },
+    {
+      "keyword": "substance abuse",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.002501,
+      "eigenvector_centrality": 0.08894,
+      "clustering_coefficient": 0.719328
+    },
+    {
+      "keyword": "developing country",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.607362,
+      "betweenness_centrality": 0.002479,
+      "eigenvector_centrality": 0.093302,
+      "clustering_coefficient": 0.705882
+    },
+    {
+      "keyword": "self-medication",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.00151,
+      "eigenvector_centrality": 0.095497,
+      "clustering_coefficient": 0.771429
+    },
+    {
+      "keyword": "nursing",
+      "degree_centrality": 0.353535,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.001679,
+      "eigenvector_centrality": 0.090218,
+      "clustering_coefficient": 0.757983
+    },
+    {
+      "keyword": "phytochemical",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.001705,
+      "eigenvector_centrality": 0.083905,
+      "clustering_coefficient": 0.757576
+    },
+    {
+      "keyword": "substance abuse treatment and outcomes",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.001461,
+      "eigenvector_centrality": 0.087501,
+      "clustering_coefficient": 0.775401
+    },
+    {
+      "keyword": "pediatric health and respiratory diseases",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.002186,
+      "eigenvector_centrality": 0.095764,
+      "clustering_coefficient": 0.698752
+    },
+    {
+      "keyword": "action",
+      "degree_centrality": 0.343434,
+      "closeness_centrality": 0.603659,
+      "betweenness_centrality": 0.002775,
+      "eigenvector_centrality": 0.095552,
+      "clustering_coefficient": 0.666667
+    },
+    {
+      "keyword": "dry cough",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.001559,
+      "eigenvector_centrality": 0.084039,
+      "clustering_coefficient": 0.761364
+    },
+    {
+      "keyword": "disease",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.6,
+      "betweenness_centrality": 0.007148,
+      "eigenvector_centrality": 0.086106,
+      "clustering_coefficient": 0.594697
+    },
+    {
+      "keyword": "clinical psychology",
+      "degree_centrality": 0.333333,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.001116,
+      "eigenvector_centrality": 0.086008,
+      "clustering_coefficient": 0.801136
+    },
+    {
+      "keyword": "food science",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.596386,
+      "betweenness_centrality": 0.00155,
+      "eigenvector_centrality": 0.074977,
+      "clustering_coefficient": 0.766129
+    },
+    {
+      "keyword": "epidemiology",
+      "degree_centrality": 0.323232,
+      "closeness_centrality": 0.596386,
+      "betweenness_centrality": 0.002222,
+      "eigenvector_centrality": 0.085148,
+      "clustering_coefficient": 0.699597
+    },
+    {
+      "keyword": "contamination",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.004796,
+      "eigenvector_centrality": 0.070846,
+      "clustering_coefficient": 0.621505
+    },
+    {
+      "keyword": "suicide prevention",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.592814,
+      "betweenness_centrality": 0.001338,
+      "eigenvector_centrality": 0.081108,
+      "clustering_coefficient": 0.778495
+    },
+    {
+      "keyword": "cross-sectional study",
+      "degree_centrality": 0.313131,
+      "closeness_centrality": 0.585799,
+      "betweenness_centrality": 0.001456,
+      "eigenvector_centrality": 0.084311,
+      "clustering_coefficient": 0.748387
+    },
+    {
+      "keyword": "expectorant",
+      "degree_centrality": 0.30303,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.000866,
+      "eigenvector_centrality": 0.075433,
+      "clustering_coefficient": 0.825287
+    },
+    {
+      "keyword": "cough reflex",
+      "degree_centrality": 0.30303,
+      "closeness_centrality": 0.589286,
+      "betweenness_centrality": 0.000946,
+      "eigenvector_centrality": 0.080698,
+      "clustering_coefficient": 0.806897
+    },
+    {
+      "keyword": "complementary and alternative medicine studies",
+      "degree_centrality": 0.30303,
+      "closeness_centrality": 0.585799,
+      "betweenness_centrality": 0.001916,
+      "eigenvector_centrality": 0.08616,
+      "clustering_coefficient": 0.712644
+    },
+    {
+      "keyword": "substance use",
+      "degree_centrality": 0.292929,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.000724,
+      "eigenvector_centrality": 0.074164,
+      "clustering_coefficient": 0.832512
+    },
+    {
+      "keyword": "injury prevention",
+      "degree_centrality": 0.292929,
+      "closeness_centrality": 0.585799,
+      "betweenness_centrality": 0.001112,
+      "eigenvector_centrality": 0.077905,
+      "clustering_coefficient": 0.793103
+    },
+    {
+      "keyword": "herbal extracts",
+      "degree_centrality": 0.282828,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.000576,
+      "eigenvector_centrality": 0.074092,
+      "clustering_coefficient": 0.865079
+    },
+    {
+      "keyword": "youth, drugs, and violence",
+      "degree_centrality": 0.282828,
+      "closeness_centrality": 0.575581,
+      "betweenness_centrality": 0.000448,
+      "eigenvector_centrality": 0.073889,
+      "clustering_coefficient": 0.875661
+    },
+    {
+      "keyword": "opioid use disorder treatment",
+      "degree_centrality": 0.282828,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.00079,
+      "eigenvector_centrality": 0.075335,
+      "clustering_coefficient": 0.820106
+    },
+    {
+      "keyword": "medical education",
+      "degree_centrality": 0.282828,
+      "closeness_centrality": 0.575581,
+      "betweenness_centrality": 0.000603,
+      "eigenvector_centrality": 0.074141,
+      "clustering_coefficient": 0.84127
+    },
+    {
+      "keyword": "biology",
+      "degree_centrality": 0.272727,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.002605,
+      "eigenvector_centrality": 0.067428,
+      "clustering_coefficient": 0.60114
+    },
+    {
+      "keyword": "traditional chinese medicine",
+      "degree_centrality": 0.272727,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.000666,
+      "eigenvector_centrality": 0.072602,
+      "clustering_coefficient": 0.851852
+    },
+    {
+      "keyword": "medical research and treatments",
+      "degree_centrality": 0.272727,
+      "closeness_centrality": 0.578947,
+      "betweenness_centrality": 0.001173,
+      "eigenvector_centrality": 0.073514,
+      "clustering_coefficient": 0.737892
+    },
+    {
+      "keyword": "organoleptic",
+      "degree_centrality": 0.262626,
+      "closeness_centrality": 0.575581,
+      "betweenness_centrality": 0.000579,
+      "eigenvector_centrality": 0.060254,
+      "clustering_coefficient": 0.843077
+    },
+    {
+      "keyword": "illicit drug",
+      "degree_centrality": 0.262626,
+      "closeness_centrality": 0.575581,
+      "betweenness_centrality": 0.001861,
+      "eigenvector_centrality": 0.068933,
+      "clustering_coefficient": 0.809231
+    },
+    {
+      "keyword": "pharmaceutical practices and patient outcomes",
+      "degree_centrality": 0.262626,
+      "closeness_centrality": 0.575581,
+      "betweenness_centrality": 0.000907,
+      "eigenvector_centrality": 0.074657,
+      "clustering_coefficient": 0.812308
+    },
+    {
+      "keyword": "business",
+      "degree_centrality": 0.252525,
+      "closeness_centrality": 0.572254,
+      "betweenness_centrality": 0.000662,
+      "eigenvector_centrality": 0.070139,
+      "clustering_coefficient": 0.81
+    },
+    {
+      "keyword": "antioxidant",
+      "degree_centrality": 0.242424,
+      "closeness_centrality": 0.568966,
+      "betweenness_centrality": 0.000397,
+      "eigenvector_centrality": 0.05781,
+      "clustering_coefficient": 0.869565
+    },
+    {
+      "keyword": "traditional chinese medicine analysis",
+      "degree_centrality": 0.222222,
+      "closeness_centrality": 0.5625,
+      "betweenness_centrality": 0.002588,
+      "eigenvector_centrality": 0.051991,
+      "clustering_coefficient": 0.593074
+    },
+    {
+      "keyword": "pharmaceutical economics and policy",
+      "degree_centrality": 0.222222,
+      "closeness_centrality": 0.5625,
+      "betweenness_centrality": 0.000348,
+      "eigenvector_centrality": 0.066416,
+      "clustering_coefficient": 0.852814
+    },
+    {
+      "keyword": "emergency medicine",
+      "degree_centrality": 0.222222,
+      "closeness_centrality": 0.5625,
+      "betweenness_centrality": 0.000328,
+      "eigenvector_centrality": 0.063203,
+      "clustering_coefficient": 0.891775
+    },
+    {
+      "keyword": "young adult",
+      "degree_centrality": 0.222222,
+      "closeness_centrality": 0.559322,
+      "betweenness_centrality": 0.001766,
+      "eigenvector_centrality": 0.059151,
+      "clustering_coefficient": 0.792208
+    },
+    {
+      "keyword": "pharmacovigilance and adverse drug reactions",
+      "degree_centrality": 0.222222,
+      "closeness_centrality": 0.5625,
+      "betweenness_centrality": 0.000416,
+      "eigenvector_centrality": 0.063617,
+      "clustering_coefficient": 0.861472
+    },
+    {
+      "keyword": "detection limit",
+      "degree_centrality": 0.20202,
+      "closeness_centrality": 0.55618,
+      "betweenness_centrality": 0.000368,
+      "eigenvector_centrality": 0.037064,
+      "clustering_coefficient": 0.884211
+    },
+    {
+      "keyword": "gas chromatography",
+      "degree_centrality": 0.20202,
+      "closeness_centrality": 0.55618,
+      "betweenness_centrality": 0.000368,
+      "eigenvector_centrality": 0.037064,
+      "clustering_coefficient": 0.884211
+    },
+    {
+      "keyword": "ethylene glycol",
+      "degree_centrality": 0.20202,
+      "closeness_centrality": 0.55618,
+      "betweenness_centrality": 0.000368,
+      "eigenvector_centrality": 0.037064,
+      "clustering_coefficient": 0.884211
+    },
+    {
+      "keyword": "sugar",
+      "degree_centrality": 0.181818,
+      "closeness_centrality": 0.55,
+      "betweenness_centrality": 5.7e-05,
+      "eigenvector_centrality": 0.041705,
+      "clustering_coefficient": 0.960784
+    },
+    {
+      "keyword": "flame ionization detector",
+      "degree_centrality": 0.181818,
+      "closeness_centrality": 0.55,
+      "betweenness_centrality": 0.00028,
+      "eigenvector_centrality": 0.033305,
+      "clustering_coefficient": 0.901961
+    },
+    {
+      "keyword": "quantitative analysis",
+      "degree_centrality": 0.161616,
+      "closeness_centrality": 0.5,
+      "betweenness_centrality": 0.000108,
+      "eigenvector_centrality": 0.026635,
+      "clustering_coefficient": 0.933333
+    },
+    {
+      "keyword": "analytical chemistry and chromatography",
+      "degree_centrality": 0.151515,
+      "closeness_centrality": 0.512953,
+      "betweenness_centrality": 2e-05,
+      "eigenvector_centrality": 0.026972,
+      "clustering_coefficient": 0.980952
+    },
+    {
+      "keyword": "humans",
+      "degree_centrality": 0.050505,
+      "closeness_centrality": 0.512953,
+      "betweenness_centrality": 0.000139,
+      "eigenvector_centrality": 0.010791,
+      "clustering_coefficient": 0.7
+    },
+    {
+      "keyword": "india",
+      "degree_centrality": 0.040404,
+      "closeness_centrality": 0.510309,
+      "betweenness_centrality": 0.0,
+      "eigenvector_centrality": 0.009444,
+      "clustering_coefficient": 1.0
+    }
+  ]
+}

@@ -1,0 +1,97 @@
+[
+  {
+    "paper_id":"10.1000\/1",
+    "title":"Quantum Computing in Drug Discovery",
+    "source":"Unknown",
+    "year":"2024",
+    "doi":"10.1000\/1",
+    "authors":[
+      "Alice Smith",
+      "Bob Jones"
+    ],
+    "affiliations":"Department of Computer Science, Stanford University, USA; Harvard Medical School, USA",
+    "keywords":[
+
+    ],
+    "abstract":"A comprehensive study on quantum algorithms applied to molecular docking and drug design.",
+    "download_url":null,
+    "is_duplicate":false,
+    "duplicate_of":null
+  },
+  {
+    "paper_id":"10.1000\/2",
+    "title":"Deep Learning for Climate Modeling",
+    "source":"Unknown",
+    "year":"2023",
+    "doi":"10.1000\/2",
+    "authors":[
+      "Charlie Brown",
+      "David Miller"
+    ],
+    "affiliations":"MIT, Cambridge, MA, USA; Oxford University, UK",
+    "keywords":[
+
+    ],
+    "abstract":"Using neural networks to predict extreme weather events and climate patterns.",
+    "download_url":null,
+    "is_duplicate":false,
+    "duplicate_of":null
+  },
+  {
+    "paper_id":"10.1000\/3",
+    "title":"CRISPR Gene Editing Advances",
+    "source":"Unknown",
+    "year":"2022",
+    "doi":"10.1000\/3",
+    "authors":[
+      "Elena Rostova",
+      "Frank White"
+    ],
+    "affiliations":"Max Planck Institute, Germany; University of Tokyo, Japan",
+    "keywords":[
+
+    ],
+    "abstract":"Recent breakthroughs in CRISPR-Cas9 precision and off-target reduction techniques.",
+    "download_url":null,
+    "is_duplicate":false,
+    "duplicate_of":null
+  },
+  {
+    "paper_id":"10.1000\/4",
+    "title":"Autonomous Navigation in Robotics",
+    "source":"Unknown",
+    "year":"2024",
+    "doi":"10.1000\/4",
+    "authors":[
+      "George Clark",
+      "Helen Taylor"
+    ],
+    "affiliations":"Robotics Institute, Carnegie Mellon University, USA",
+    "keywords":[
+
+    ],
+    "abstract":"SLAM algorithms and sensor fusion for autonomous mobile robots in GPS-denied environments.",
+    "download_url":null,
+    "is_duplicate":false,
+    "duplicate_of":null
+  },
+  {
+    "paper_id":"10.1000\/5",
+    "title":"Blockchain for Supply Chain Transparency",
+    "source":"Unknown",
+    "year":"2021",
+    "doi":"10.1000\/5",
+    "authors":[
+      "Ian Wright",
+      "Julia Davis"
+    ],
+    "affiliations":"ETH Zurich, Switzerland; National University of Singapore, Singapore",
+    "keywords":[
+
+    ],
+    "abstract":"Decentralized ledger technology for provenance verification and counterfeit prevention.",
+    "download_url":null,
+    "is_duplicate":false,
+    "duplicate_of":null
+  }
+]

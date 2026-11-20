@@ -1,0 +1,24 @@
+digraph IngestionWorkflow {
+    graph [rankdir=TB, splines=ortho, nodesep=0.4, ranksep=0.45, bgcolor=white, fontname="Times-Roman"];
+    node [shape=box, style="solid", color=black, fontcolor=black, fontname="Times-Roman", fontsize=10, margin="0.15,0.08"];
+    edge [color=black, fontcolor=black, fontname="Times-Roman", fontsize=9, arrowsize=0.7];
+
+    step1 [label="Step 1: CSV Upload\nUser uploads research-paper CSV via UI or POST /api/v1/files/upload"];
+    step2 [label="Step 2: File Validation & Encoding Detection\nVerify .csv extension, enforce <=100MB limit, detect UTF-8 / Latin-1"];
+    step3 [label="Step 3: Canonical Schema Header Mapping Cascade\nStage 1: Curated Multi-Database Alias Dictionary Lookup\nStage 2: Normalized Header Transformation (lowercase, punctuation strip)\nStage 3: Token Set Containment & Prefix Matching\nStage 4: SequenceMatcher Fuzzy String Comparison (threshold >= 0.85)"];
+    step4 [label="Step 4: Record Normalization & Data Cleaning\nStrip HTML/tags, cast datatypes, unescape entities\nNon-destructive preservation of unmapped headers into 'raw_data' dictionary\nDuplicate record identification via exact DOI & title hash"];
+    step5 [label="Step 5: Dataset Quality Assessment Engine (0-100)\nEvaluate 7 completeness dimensions: Title (25), Abstract (20), Keywords (15),\nAffiliations (10), Authors (10), Year (10), Identifiers (10)\nApply duplicate penalty, invalid value penalty, small-sample damping factor\nAssign categorical quality grade: Excellent, Good, Fair, or Poor"];
+    step6 [label="Step 6: Seven-Feature Readiness Evaluation\nDeterministic verification of minimum data thresholds for:\nkeyword_analysis, cooccurrence_analysis, country_analysis,\nauthor_analysis, trend_analysis, semantic_search, ai_chat_rag"];
+    step7 [label="Step 7: Sidecar Persistence & Extended API Response\nSave canonical metadata to data/{filename}_canonical_metadata.json\nReturn ExtendedFileUploadResponse with complete quality & readiness telemetry"];
+    step8 [label="Step 8: Interactive UI Telemetry Presentation\nFrontend automatically opens DatasetQualityModal (Overview, Mappings, Readiness)\nMounts DatasetFeatureReadinessBanner across AnalyticsPage and ChatPage"];
+    step9 [label="Step 9: Downstream Dispatch & Decoupled FAISS Indexing\nCanonicalDataLoader loads standardized records for bibliometric analytics\nDense vector embedding generation remains an explicit separate user action"];
+
+    step1 -> step2;
+    step2 -> step3;
+    step3 -> step4;
+    step4 -> step5;
+    step5 -> step6;
+    step6 -> step7;
+    step7 -> step8;
+    step8 -> step9;
+}

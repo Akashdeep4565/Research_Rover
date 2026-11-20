@@ -1,0 +1,59 @@
+flowchart TD
+    %% =========================================================================
+    %% LAYER 3: BACKEND ROUTING & CONTROLLER LAYER (ORANGE)
+    %% Standalone Enlarged Flowchart with Boundary Connectors
+    %% =========================================================================
+
+    classDef orangeNode fill:#FFF7ED,stroke:#EA580C,stroke-width:2.5px,color:#9A3412,font-size:14px;
+    classDef decisionNode fill:#FFEDD5,stroke:#C2410C,stroke-width:3px,color:#7C2D12,font-weight:bold,font-size:14px;
+    classDef errorNode fill:#FEF2F2,stroke:#DC2626,stroke-width:2.5px,color:#991B1B,font-weight:bold,font-size:14px;
+    classDef boundaryIn fill:#EFF6FF,stroke:#2563EB,stroke-width:2px,stroke-dasharray: 5 5,color:#1E3A8A,font-size:13px;
+    classDef boundaryOutL4 fill:#ECFEFF,stroke:#0891B2,stroke-width:2px,stroke-dasharray: 5 5,color:#155E75,font-size:13px;
+    classDef boundaryOutL6 fill:#FAF5FF,stroke:#9333EA,stroke-width:2px,stroke-dasharray: 5 5,color:#581C87,font-size:13px;
+    classDef boundaryOutErr fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,stroke-dasharray: 5 5,color:#991B1B,font-size:13px;
+
+    subgraph IN_L2["INPUTS FROM LAYER 2 (API CLIENT)"]
+        IN_L2_SEARCH[["From Layer 2: POST /api/v1/search/query"]]:::boundaryIn
+        IN_L2_FILES[["From Layer 2: GET/POST /api/v1/files/*"]]:::boundaryIn
+        IN_L2_ANALYSIS[["From Layer 2: GET/POST /api/v1/analysis/*"]]:::boundaryIn
+        IN_L2_CHAT[["From Layer 2: POST /api/v1/chat/* & embeddings/*"]]:::boundaryIn
+    end
+
+    subgraph L3_CORE["LAYER 3: BACKEND ROUTING & CONTROLLER LAYER"]
+        ROUTE_SEARCH["Search Controller<br/>(api/routes/search.py)"]:::orangeNode
+        ROUTE_FILES["Files Controller<br/>(api/routes/files.py)"]:::orangeNode
+        ROUTE_ANALYSIS["Analysis Controller<br/>(api/routes/analysis.py)"]:::orangeNode
+        ROUTE_CHAT["Chat & Embedding Controller<br/>(api/routes/chat.py & embeddings.py)"]:::orangeNode
+        
+        VALIDATE{"Request Validation<br/>(models/schemas.py Pydantic)"}:::decisionNode
+        ERR_VALIDATION["Return HTTP 400 / 404 / 500<br/>Error Payload"]:::errorNode
+    end
+
+    OUT_L2_ERR[["To Layer 2: Axios Client (Error Payload)"]]:::boundaryOutErr
+
+    subgraph OUT_L4_L6["OUTPUTS TO SERVICES (LAYERS 4 & 6)"]
+        OUT_L4_SEARCH[["To Layer 4: Search Service Orchestrator<br/>(services/search_service.py)"]]:::boundaryOutL4
+        OUT_L6_KW[["To Layer 6: Analysis Service<br/>(services/analysis_service.py)"]]:::boundaryOutL6
+        OUT_L6_CTRY[["To Layer 6: Country Service<br/>(services/country_service.py)"]]:::boundaryOutL6
+        OUT_L6_EMBED[["To Layer 6: Embedding & Vector Service<br/>(services/embedding_service.py)"]]:::boundaryOutL6
+        OUT_L6_CHAT[["To Layer 6: RAG Chat Service<br/>(services/chat_service.py)"]]:::boundaryOutL6
+    end
+
+    %% Internal Connections
+    IN_L2_SEARCH --> ROUTE_SEARCH
+    IN_L2_FILES --> ROUTE_FILES
+    IN_L2_ANALYSIS --> ROUTE_ANALYSIS
+    IN_L2_CHAT --> ROUTE_CHAT
+
+    ROUTE_SEARCH --> VALIDATE
+    ROUTE_FILES --> VALIDATE
+    ROUTE_ANALYSIS --> VALIDATE
+    ROUTE_CHAT --> VALIDATE
+
+    VALIDATE -->|Invalid Request| ERR_VALIDATION --> OUT_L2_ERR
+    
+    VALIDATE -->|Valid: Search| OUT_L4_SEARCH
+    VALIDATE -->|Valid: Keyword Analysis| OUT_L6_KW
+    VALIDATE -->|Valid: Country Analysis| OUT_L6_CTRY
+    VALIDATE -->|Valid: Embeddings| OUT_L6_EMBED
+    VALIDATE -->|Valid: Chat Query| OUT_L6_CHAT

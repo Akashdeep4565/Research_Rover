@@ -62,9 +62,11 @@ export function EmbeddingProgressModal() {
                 ) : progress.stage === 3 ? (
                   <CheckCircleIcon className="w-6 h-6 text-green-500 flex-shrink-0" />
                 ) : (
-                  <div className="w-6 h-6 flex-shrink-0">
-                    <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-blue-500" />
-                  </div>
+                  <img
+                    src="/assets/research-rover-logo.png"
+                    alt="Research ROVER"
+                    className="w-7 h-auto object-contain animate-pulse flex-shrink-0"
+                  />
                 )}
                 <div>
                   <p className="text-sm font-medium">

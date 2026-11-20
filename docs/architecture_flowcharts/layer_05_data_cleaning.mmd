@@ -1,0 +1,47 @@
+flowchart TD
+    %% =========================================================================
+    %% LAYER 5: DATA CLEANING & ENRICHMENT (GREEN)
+    %% Standalone Enlarged Flowchart with Boundary Connectors
+    %% =========================================================================
+
+    classDef greenNode fill:#ECFDF5,stroke:#059669,stroke-width:2.5px,color:#064E3B,font-size:14px;
+    classDef storageNode fill:#D1FAE5,stroke:#047857,stroke-width:3px,color:#065F46,font-weight:bold,font-size:15px;
+    classDef boundaryInL4 fill:#ECFEFF,stroke:#0891B2,stroke-width:2px,stroke-dasharray: 5 5,color:#155E75,font-size:13px;
+    classDef boundaryOutL4 fill:#ECFEFF,stroke:#0891B2,stroke-width:2px,stroke-dasharray: 5 5,color:#155E75,font-size:13px;
+    classDef boundaryOutL6 fill:#FAF5FF,stroke:#9333EA,stroke-width:2px,stroke-dasharray: 5 5,color:#581C87,font-size:13px;
+
+    subgraph IN_L4["INPUTS FROM LAYER 4 (DATA COLLECTION)"]
+        IN_L4_XML[["From Layer 4: XML Parser<br/>(Extracted Raw Papers)"]]:::boundaryInL4
+        IN_L4_AFF[["From Layer 4: Affiliation Fallback<br/>(Enriched Metadata)"]]:::boundaryInL4
+    end
+
+    subgraph L5_CORE["LAYER 5: DATA CLEANING & ENRICHMENT"]
+        DEDUP["Deduplication Engine<br/>(Deduplicate by PMID, DOI, and Title)"]:::greenNode
+        EXTRACT_CTRY["Country Extractor Utility<br/>(utils/country_extractor.py - Regex & ISO 3166-1 Map)"]:::greenNode
+        CSV_LOADER["CSV Loader & Writer<br/>(utils/csv_loader.py - UTF-8-BOM / Latin-1 Fallbacks)"]:::greenNode
+        DATA_STORE[("Local CSV Data Storage<br/>data/*.csv")]:::storageNode
+    end
+
+    OUT_L4_RERANK[["To Layer 4: MedCPT Semantic Reranker<br/>(Deduplicated Records)"]]:::boundaryOutL4
+    IN_L4_RERANKED[["From Layer 4: MedCPT Semantic Reranker<br/>(Ranked Records)"]]:::boundaryInL4
+
+    subgraph OUT_L6["OUTPUTS TO LAYER 6 (ANALYSIS ENGINES)"]
+        OUT_L6_KW[["To Layer 6: Analysis Service<br/>(Keyword Analytics Dataset)"]]:::boundaryOutL6
+        OUT_L6_CTRY[["To Layer 6: Country Service<br/>(Country & Collaboration Dataset)"]]:::boundaryOutL6
+        OUT_L6_EMBED[["To Layer 6: Embedding Service<br/>(Full Text for FAISS Vector Index)"]]:::boundaryOutL6
+    end
+
+    %% Internal Connections
+    IN_L4_XML --> DEDUP
+    IN_L4_AFF --> DEDUP
+    
+    DEDUP --> OUT_L4_RERANK
+    IN_L4_RERANKED --> EXTRACT_CTRY
+    
+    EXTRACT_CTRY --> CSV_LOADER
+    CSV_LOADER --> DATA_STORE
+
+    %% External Outgoing Connections to Layer 6
+    DATA_STORE --> OUT_L6_KW
+    DATA_STORE --> OUT_L6_CTRY
+    DATA_STORE --> OUT_L6_EMBED

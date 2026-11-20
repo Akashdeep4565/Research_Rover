@@ -1,0 +1,94 @@
+\section{Running the Application}
+\label{sec:execution}
+
+\subsection{The Two-Terminal Execution Model}
+Research Rover operates as an asynchronous decoupled architecture. The backend API server and the frontend client interface must run concurrently in two separate terminal sessions.
+
+\begin{figure}[H]
+\centering
+\begin{minipage}{0.48\textwidth}
+\textbf{Terminal 1: FastAPI Backend}
+\begin{lstlisting}[language=bash]
+cd E:\Research_Rover\backend
+.venv\Scripts\Activate.ps1
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+\end{lstlisting}
+\end{minipage}
+\hfill
+\begin{minipage}{0.48\textwidth}
+\textbf{Terminal 2: Vite Frontend}
+\begin{lstlisting}[language=bash]
+cd E:\Research_Rover\frontend
+npm run dev
+\end{lstlisting}
+\end{minipage}
+\caption{Two-Terminal Execution Commands for Running Research Rover Locally}
+\label{fig:two_terminal_box}
+\end{figure}
+
+\subsection{Starting the Services}
+
+\subsubsection{Terminal 1: Start the Backend Server}
+In your first terminal, activate the Python virtual environment and launch Uvicorn:
+
+\begin{lstlisting}[language=bash, caption={Launching FastAPI Backend Server}]
+cd E:\Research_Rover\backend
+.venv\Scripts\Activate.ps1
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+\end{lstlisting}
+
+\noindent Upon successful startup, the terminal logs will display:
+\begin{lstlisting}
+INFO:     Started server process [pid]
+INFO:     Waiting for application startup.
+INFO:     Starting Research Rover API...
+INFO:     Research Rover API started successfully
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+\end{lstlisting}
+
+\noindent The application lifespan context manager initializes the data directory at \texttt{E:\textbackslash Research\_Rover\textbackslash data} and begins asynchronous background warm-up of transformer models without blocking incoming HTTP traffic.
+
+\subsubsection{Terminal 2: Start the Frontend Development Server}
+In your second terminal, navigate to the frontend directory and start Vite:
+
+\begin{lstlisting}[language=bash, caption={Launching Vite Frontend Server}]
+cd E:\Research_Rover\frontend
+npm run dev
+\end{lstlisting}
+
+\noindent The console output will confirm:
+\begin{lstlisting}
+  VITE v6.2.0  ready in 480 ms
+
+  ➜  Local:   http://localhost:3000/
+  ➜  Network: use --host to expose
+  ➜  press h + enter to show help
+\end{lstlisting}
+
+\subsection{Application Access URLs and Health Verification}
+Once both servers are operational, access the application and documentation interfaces via any standard web browser using the URLs listed in Table~\ref{tab:access_urls}.
+
+\begin{table}[H]
+\centering
+\caption{Research Rover Local Access URLs and Service Interfaces}
+\label{tab:access_urls}
+\begin{tabularx}{\textwidth}{l X l}
+\toprule
+\textbf{Interface} & \textbf{Network URL} & \textbf{Primary Purpose} \\
+\midrule
+Web Application UI & \url{http://localhost:3000} & Interactive research portal and dashboards \\
+Backend API Base & \url{http://localhost:8000} & Core REST API service \\
+OpenAPI Swagger UI & \url{http://localhost:8000/docs} & Interactive API testing and parameter explorer \\
+ReDoc Documentation & \url{http://localhost:8000/redoc} & Formal REST API specification documentation \\
+System Health Check & \url{http://localhost:8000/health} & Real-time model and runtime status telemetry \\
+Root Ping Endpoint & \url{http://localhost:8000/} & Lightweight health check (\texttt{\{"status": "healthy"\}}) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\subsection{Terminating the Application}
+To shut down the platform cleanly:
+\begin{enumerate}
+    \item Focus on Terminal 2 (Frontend) and press \texttt{Ctrl + C}. Confirm termination if prompted.
+    \item Focus on Terminal 1 (Backend) and press \texttt{Ctrl + C}. Uvicorn will execute the lifespan shutdown sequence and release bound network ports.
+\end{enumerate}

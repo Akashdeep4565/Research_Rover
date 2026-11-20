@@ -1,0 +1,76 @@
+digraph FeatureReadiness {
+    graph [rankdir=TB, splines=polyline, nodesep=0.4, ranksep=0.45, bgcolor=white, fontname="Times-Roman"];
+    node [shape=box, style="solid", color=black, fontcolor=black, fontname="Times-Roman", fontsize=10, margin="0.15,0.08"];
+    edge [color=black, fontcolor=black, fontname="Times-Roman", fontsize=9, arrowsize=0.7];
+
+    input_data [label="Uploaded Research Dataset Records (N) & Mapped Canonical Fields\ntitle, abstract, keywords, affiliations, authors, year, identifiers (doi/pmid)"];
+
+    subgraph cluster_hygiene {
+        label = "Dataset Quality & Completeness Evaluation";
+        style = "dashed";
+        color = black;
+
+        metric_calc [label="Calculate Field Completeness Metrics (%)\nCov(Title), Cov(Abstract), Cov(Keywords), Cov(Affil), Cov(Authors), Cov(Year)"];
+        index_probe [label="Probe File System for FAISS Dense Vector Index\nCheck existence of data/{filename}_paper_chunks_hdbscan.index"];
+    }
+
+    input_data -> metric_calc;
+    input_data -> index_probe;
+
+    subgraph cluster_features {
+        label = "Deterministic Seven-Feature Readiness Decision Gates";
+        style = "dashed";
+        color = black;
+
+        gate_kw [label="keyword_analysis\nCondition: Cov(Keywords) >= 30% OR Cov(Title) >= 50%"];
+        gate_co [label="cooccurrence_analysis\nCondition: Cov(Keywords) >= 40% AND N >= 3 valid records"];
+        gate_country [label="country_analysis\nCondition: Cov(Affiliations) >= 20%"];
+        gate_author [label="author_analysis\nCondition: Cov(Authors) >= 40%"];
+        gate_trend [label="trend_analysis\nCondition: Cov(Year) >= 50% valid years [1800-2100]"];
+        gate_search [label="semantic_search\nCondition: Cov(Abstract) >= 30% AND FAISS Index Present"];
+        gate_rag [label="ai_chat_rag\nCondition: Cov(Abstract) >= 20% AND FAISS Index Present"];
+    }
+
+    metric_calc -> gate_kw;
+    metric_calc -> gate_co;
+    metric_calc -> gate_country;
+    metric_calc -> gate_author;
+    metric_calc -> gate_trend;
+    metric_calc -> gate_search;
+    metric_calc -> gate_rag;
+    index_probe -> gate_search;
+    index_probe -> gate_rag;
+
+    subgraph cluster_states {
+        label = "Tri-State Classification Outputs";
+        style = "dashed";
+        color = black;
+
+        state_ready [label="State: READY (Status Code: 'ready')\nAll data completeness thresholds and prerequisite indices satisfied\nUI: Green checkmark badge; analytical feature fully accessible"];
+        state_partial [label="State: PARTIALLY READY (Status Code: 'partially_ready')\nText data sufficient, but FAISS index missing on disk\nUI: Amber warning badge with actionable 'Generate Embeddings' button"];
+        state_not_ready [label="State: NOT READY (Status Code: 'not_ready')\nMandatory fields missing or below minimum required coverage threshold\nUI: Red cross badge with explicit diagnostic failure explanation"];
+    }
+
+    gate_kw -> state_ready [label="Pass"];
+    gate_kw -> state_not_ready [label="Fail"];
+
+    gate_co -> state_ready [label="Pass"];
+    gate_co -> state_not_ready [label="Fail"];
+
+    gate_country -> state_ready [label="Pass"];
+    gate_country -> state_not_ready [label="Fail"];
+
+    gate_author -> state_ready [label="Pass"];
+    gate_author -> state_not_ready [label="Fail"];
+
+    gate_trend -> state_ready [label="Pass"];
+    gate_trend -> state_not_ready [label="Fail"];
+
+    gate_search -> state_ready [label="Abstract & Index OK"];
+    gate_search -> state_partial [label="Abstract OK, No Index"];
+    gate_search -> state_not_ready [label="Abstract < 30%"];
+
+    gate_rag -> state_ready [label="Abstract & Index OK"];
+    gate_rag -> state_partial [label="Abstract OK, No Index"];
+    gate_rag -> state_not_ready [label="Abstract < 20%"];
+}

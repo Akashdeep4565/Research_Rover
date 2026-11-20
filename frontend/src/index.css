@@ -260,3 +260,29 @@
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
+
+/* KaTeX math display formatting and horizontal scrolling */
+.katex-display {
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  padding: 0.6rem 0 !important;
+  margin: 1rem 0 !important;
+  max-width: 100% !important;
+}
+.katex-display > .katex {
+  max-width: 100%;
+  text-align: center;
+}
+.katex {
+  font-size: 1.08em;
+  line-height: 1.2;
+}
+
+/* Research Rover Markdown Enhancements */
+.research-rover-markdown pre {
+  margin: 0;
+}
+.research-rover-markdown table {
+  border-collapse: separate;
+  border-spacing: 0;
+}

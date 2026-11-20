@@ -1,0 +1,126 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1850 1300" width="1850" height="1300" style="background:#ffffff; font-family:'Segoe UI', Inter, -apple-system, sans-serif;">
+  <defs>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.10"/>
+    </filter>
+    <filter id="shadow-sm" x="-5%" y="-5%" width="110%" height="115%" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#1E293B" />
+    </marker>
+    <marker id="arrow-dash" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#64748b" />
+    </marker>
+    <marker id="arrow-success" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1.5 L 9 5 L 0 8.5 z" fill="#10b981" />
+    </marker>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Header Banner -->
+  <rect x="25" y="20" width="1800" height="80" rx="14" fill="url(#headerGrad)" filter="url(#shadow)"/>
+  <rect x="45" y="36" width="130" height="24" rx="12" fill="#E2E8F0"/>
+  <text x="110" y="52" fill="#1E293B" font-size="11" font-weight="800" text-anchor="middle" letter-spacing="1">SYSTEM OVERVIEW</text>
+  <text x="190" y="54" fill="#ffffff" font-size="21" font-weight="bold">Research Rover: Complete System Architecture Overview</text>
+  <text x="45" y="84" fill="#e2e8f0" font-size="12" font-weight="400">Unified 7-Layer Flowchart Connecting User Interface, API Gateway, Scholarly APIs, Deduplication, NetworkX, FAISS & Visualizers</text>
+  <text x="1805" y="62" fill="#cbd5e1" font-size="11" font-weight="600" text-anchor="end">Research Rover Architecture v2.0 • Verified Implementation</text>
+
+  <!-- 7 Stacked Horizontal Tiers -->
+  <!-- Layer 1 -->
+  <g transform="translate(45, 120)">
+    <rect x="0" y="0" width="1760" height="125" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8" filter="url(#shadow-sm)"/>
+    <rect x="15" y="15" width="220" height="28" rx="6" fill="#2563eb"/>
+    <text x="125" y="34" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">LAYER 1: USER INTERACTION</text>
+    <text x="250" y="34" font-size="11" font-weight="bold" fill="#1e3a8a">Researcher Web Portal Access • Query Input • Parameter Configuration • Workspace Branching</text>
+    <text x="25" y="65" font-size="10" fill="#1e293b"><b>Entry:</b> Desktop/Tablet browser access at / • Live API &amp; Model health verification pill</text>
+    <text x="25" y="85" font-size="10" fill="#1e293b"><b>Workspaces:</b> [A] Search (/search: PubMed/OpenAlex, year bounds, MedCPT sort) • [B] Analytics (/analytics: Keywords &amp; Country tabs)</text>
+    <text x="25" y="105" font-size="10" fill="#1e293b"><b>Conversational AI &amp; Files:</b> [C] RAG Chat (/chat: natural language Q&amp;A, source cards) • [D] Custom CSV upload &amp; architecture guide</text>
+    <text x="1740" y="70" font-size="12" font-weight="bold" fill="#2563eb" text-anchor="end">↓ User Events</text>
+  </g>
+
+  <!-- Layer 2 -->
+  <g transform="translate(45, 265)">
+    <rect x="0" y="0" width="1760" height="125" rx="10" fill="#eef2ff" stroke="#4f46e5" stroke-width="1.8" filter="url(#shadow-sm)"/>
+    <rect x="15" y="15" width="220" height="28" rx="6" fill="#4f46e5"/>
+    <text x="125" y="34" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">LAYER 2: FRONTEND / API CLIENT</text>
+    <text x="250" y="34" font-size="11" font-weight="bold" fill="#312e81">React 19 SPA Architecture • Context Providers Stack • Axios Singleton Client • Error Normalization</text>
+    <text x="25" y="65" font-size="10" fill="#1e293b"><b>Context State Hierarchy:</b> ThemeProvider → SystemStatusProvider → SidebarProvider → SearchProvider → EmbeddingProvider → ChatProvider → AnalyticsProvider</text>
+    <text x="25" y="85" font-size="10" fill="#1e293b"><b>Event Handlers &amp; Polling:</b> handleSearch(), pollProgress() (1000ms recurring timer), handleCancelSearch(), handleFileUpload() (FormData)</text>
+    <text x="25" y="105" font-size="10" fill="#1e293b"><b>Axios Client Core (services/api.ts):</b> Base URL: /api/v1 • Timeout: 120s • Typed modules: searchApi, filesApi, chatApi, embeddingsApi, analysisApi, systemApi</text>
+    <text x="1740" y="70" font-size="12" font-weight="bold" fill="#4f46e5" text-anchor="end">↓ HTTP Requests</text>
+  </g>
+
+  <!-- Layer 3 -->
+  <g transform="translate(45, 410)">
+    <rect x="0" y="0" width="1760" height="125" rx="10" fill="#faf5ff" stroke="#9333ea" stroke-width="1.8" filter="url(#shadow-sm)"/>
+    <rect x="15" y="15" width="220" height="28" rx="6" fill="#9333ea"/>
+    <text x="125" y="34" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">LAYER 3: BACKEND CONTROLLERS</text>
+    <text x="250" y="34" font-size="11" font-weight="bold" fill="#581c87">FastAPI Application Gateway • Pydantic Schema Validation • SSRF Security Check • Async Scheduling</text>
+    <text x="25" y="65" font-size="10" fill="#1e293b"><b>ASGI Core (backend/main.py):</b> Uvicorn (0.0.0.0:8000) • Lifespan background model loader • CORS middleware (allow all)</text>
+    <text x="25" y="85" font-size="10" fill="#1e293b"><b>Mounted Routers:</b> /api/v1/search (asyncio.Task) • /api/v1/files (SSRF safe download) • /api/v1/chat (RAG) • /api/v1/embeddings (BackgroundTasks) • /api/v1/analysis</text>
+    <text x="25" y="105" font-size="10" fill="#1e293b"><b>Validation &amp; Error Mapping:</b> Pydantic schemas (schemas.py) → HTTP 422 • FileNotFoundError → HTTP 404 • CSVLoadError/SSRF → HTTP 400 • Crash → HTTP 500</text>
+    <text x="1740" y="70" font-size="12" font-weight="bold" fill="#9333ea" text-anchor="end">↓ Service Invocations</text>
+  </g>
+
+  <!-- Layer 4 -->
+  <g transform="translate(45, 555)">
+    <rect x="0" y="0" width="1760" height="125" rx="10" fill="#ecfeff" stroke="#0891b2" stroke-width="1.8" filter="url(#shadow-sm)"/>
+    <rect x="15" y="15" width="220" height="28" rx="6" fill="#0891b2"/>
+    <text x="125" y="34" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">LAYER 4: DATA COLLECTION</text>
+    <text x="250" y="34" font-size="11" font-weight="bold" fill="#155e75">External Scholarly APIs • Parallel Dispatch • XML &amp; Inverted Index Parsers • Non-Blocking Resilience</text>
+    <text x="25" y="65" font-size="10" fill="#1e293b"><b>Search Orchestrators:</b> SearchService &amp; UnifiedSearchService launch parallel async queries across PubMed &amp; OpenAlex</text>
+    <text x="25" y="85" font-size="10" fill="#1e293b"><b>NCBI PubMed (E-Utilities):</b> esearch (PMIDs, rate limit 0.10s) → espell (spell correction) → efetch (XML batches of 50) → esummary (exact dates)</text>
+    <text x="25" y="105" font-size="10" fill="#1e293b"><b>OpenAlex API &amp; CORE Stub:</b> reconstruct_abstract() inverts abstract dictionary • extracts authors, affiliations, OA links • CORE planned stub</text>
+    <text x="1740" y="70" font-size="12" font-weight="bold" fill="#0891b2" text-anchor="end">↓ Raw Paper Records</text>
+  </g>
+
+  <!-- Layer 5 -->
+  <g transform="translate(45, 700)">
+    <rect x="0" y="0" width="1760" height="125" rx="10" fill="#ecfdf5" stroke="#059669" stroke-width="1.8" filter="url(#shadow-sm)"/>
+    <rect x="15" y="15" width="220" height="28" rx="6" fill="#059669"/>
+    <text x="125" y="34" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">LAYER 5: CLEANING &amp; STORAGE</text>
+    <text x="250" y="34" font-size="11" font-weight="bold" fill="#065f46">Identifier Normalization • 4-Priority Deduplication • Country Extractor • Centralized CSV Storage</text>
+    <text x="25" y="65" font-size="10" fill="#1e293b"><b>Normalization:</b> normalize_doi (strip prefixes), normalize_pmid, normalize_openalex_id, compute_title_key (title60_year_author20)</text>
+    <text x="25" y="85" font-size="10" fill="#1e293b"><b>4-Priority Deduplication (deduplicate_results):</b> Match P1: DOI → P2: PMID → P3: OpenAlex ID → P4: title_key • Merge sources &amp; longer text</text>
+    <text x="25" y="105" font-size="10" fill="#1e293b"><b>Geographic Recognition &amp; CSV Store:</b> country_extractor.py (700+ aliases, ISO-3 code resolution) • data/*.csv storage via csv_loader.py (UTF-8-SIG)</text>
+    <text x="1740" y="70" font-size="12" font-weight="bold" fill="#059669" text-anchor="end">↓ Structured Datasets</text>
+  </g>
+
+  <!-- Layer 6 -->
+  <g transform="translate(45, 845)">
+    <rect x="0" y="0" width="1760" height="125" rx="10" fill="#fffbeb" stroke="#d97706" stroke-width="1.8" filter="url(#shadow-sm)"/>
+    <rect x="15" y="15" width="220" height="28" rx="6" fill="#d97706"/>
+    <text x="125" y="34" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">LAYER 6: ANALYSIS &amp; COMPUTATION</text>
+    <text x="250" y="34" font-size="11" font-weight="bold" fill="#78350f">8 Parallel Computational Engines • NetworkX Graph Theory • MedCPT Bi-Encoder • FAISS Vector Store • RAG</text>
+    <text x="25" y="65" font-size="10" fill="#1e293b"><b>Keywords &amp; Graphs (analysis_service.py):</b> Keyword frequency % • NetworkX centralities (Degree, Closeness, Betweenness, Eigenvector, Clustering)</text>
+    <text x="25" y="85" font-size="10" fill="#1e293b"><b>Country &amp; Collaborations (country_service.py):</b> Publication volume, coverage %, international papers, co-authorship collaboration network (nodes &amp; links)</text>
+    <text x="25" y="105" font-size="10" fill="#1e293b"><b>AI Neural Models &amp; Vectors:</b> MedCPT bi-encoder reranking (0-100 scores) • HDBSCAN semantic chunking + FAISS IndexFlatL2 • Gemini RAG query decomposition</text>
+    <text x="1740" y="70" font-size="12" font-weight="bold" fill="#d97706" text-anchor="end">↓ Computed Payloads</text>
+  </g>
+
+  <!-- Layer 7 -->
+  <g transform="translate(45, 990)">
+    <rect x="0" y="0" width="1760" height="125" rx="10" fill="#fff1f2" stroke="#e11d48" stroke-width="1.8" filter="url(#shadow-sm)"/>
+    <rect x="15" y="15" width="220" height="28" rx="6" fill="#e11d48"/>
+    <text x="125" y="34" font-size="11" font-weight="bold" fill="#ffffff" text-anchor="middle">LAYER 7: VISUALIZATION &amp; OUTPUT</text>
+    <text x="250" y="34" font-size="11" font-weight="bold" fill="#9f1239">Interactive UI Components • World Map • 2D/3D Force Networks • Word Cloud • RAG Citations • Export Pipelines</text>
+    <text x="25" y="65" font-size="10" fill="#1e293b"><b>Geographic &amp; Network Visualizers:</b> TopoJSON World Map (react-simple-maps) • 2D Force Network (react-force-graph-2d) • 3D Spherical Space (Three.js WebGL)</text>
+    <text x="25" y="85" font-size="10" fill="#1e293b"><b>Bibliometrics &amp; Tables:</b> Interactive SVG Word Cloud • Keyword Co-occurrence Network Graph SVG • Sortable Centrality &amp; Country Ranking Tables</text>
+    <text x="25" y="105" font-size="10" fill="#1e293b"><b>Conversational AI &amp; Exports:</b> RAG Markdown stream with [1], [2] citation pills • Collapsible source cards • CSV (UTF-8 BOM), JSON summary, PNG charts, PDF downloads</text>
+    <text x="1740" y="70" font-size="12" font-weight="bold" fill="#e11d48" text-anchor="end">★ User Value</text>
+  </g>
+
+  <!-- Bottom Final Output -->
+  <g transform="translate(45, 1135)">
+    <rect x="0" y="0" width="1760" height="50" rx="10" fill="#f0fdf4" stroke="#10b981" stroke-width="2"/>
+    <text x="880" y="31" font-size="13" font-weight="bold" fill="#065f46" text-anchor="middle">END-TO-END RESEARCH ROVER WORKFLOW: From Topic Inquiry to Bibliometric Insights, Verified Citations, and M.Tech Presentation Assets</text>
+  </g>
+</svg>

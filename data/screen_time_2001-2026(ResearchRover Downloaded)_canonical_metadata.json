@@ -1,0 +1,286 @@
+{
+  "filename": "screen_time_2001-2026(ResearchRover Downloaded).csv",
+  "total_records": 6945,
+  "valid_records": 6938,
+  "duplicate_records": 7,
+  "overall_quality_score": 88.2,
+  "quality_grade": "Good",
+  "canonical_fields_detected": [
+    "title",
+    "abstract",
+    "publication_year",
+    "journal",
+    "journal",
+    "doi",
+    "download_url",
+    "keywords",
+    "keywords",
+    "authors",
+    "pmid",
+    "citation_count",
+    "pmcid",
+    "authors"
+  ],
+  "column_mappings": {
+    "Title": {
+      "original_column": "Title",
+      "canonical_field": "title",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'title'"
+    },
+    "Abstract": {
+      "original_column": "Abstract",
+      "canonical_field": "abstract",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'abstract'"
+    },
+    "Publication Year": {
+      "original_column": "Publication Year",
+      "canonical_field": "publication_year",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'publication year' to canonical 'publication_year'"
+    },
+    "Source": {
+      "original_column": "Source",
+      "canonical_field": "journal",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'journal' is claimed by multiple columns: ['Source', 'Journal/Book']"
+    },
+    "Journal/Book": {
+      "original_column": "Journal/Book",
+      "canonical_field": "journal",
+      "confidence": 0.98,
+      "matching_method": "normalized_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'journal' is claimed by multiple columns: ['Source', 'Journal/Book']"
+    },
+    "DOI": {
+      "original_column": "DOI",
+      "canonical_field": "doi",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'doi'"
+    },
+    "Download_URL": {
+      "original_column": "Download_URL",
+      "canonical_field": "download_url",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'download_url'"
+    },
+    "Keywords": {
+      "original_column": "Keywords",
+      "canonical_field": "keywords",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'keywords' is claimed by multiple columns: ['Keywords', 'MeSH_Terms']"
+    },
+    "MeSH_Terms": {
+      "original_column": "MeSH_Terms",
+      "canonical_field": "keywords",
+      "confidence": 0.98,
+      "matching_method": "normalized_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'keywords' is claimed by multiple columns: ['Keywords', 'MeSH_Terms']"
+    },
+    "Authors": {
+      "original_column": "Authors",
+      "canonical_field": "authors",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "conflict",
+      "details": "Conflict: target 'authors' is claimed by multiple columns: ['Authors', 'First Author']"
+    },
+    "PMID": {
+      "original_column": "PMID",
+      "canonical_field": "pmid",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'pmid'"
+    },
+    "Citation": {
+      "original_column": "Citation",
+      "canonical_field": "citation_count",
+      "confidence": 0.941,
+      "matching_method": "fuzzy_match",
+      "status": "matched",
+      "details": "High-confidence fuzzy match (0.94) to canonical 'citation_count'"
+    },
+    "Create Date": {
+      "original_column": "Create Date",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "PMCID": {
+      "original_column": "PMCID",
+      "canonical_field": "pmcid",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'pmcid'"
+    },
+    "NIHMS ID": {
+      "original_column": "NIHMS ID",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    },
+    "First Author": {
+      "original_column": "First Author",
+      "canonical_field": "authors",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "conflict",
+      "details": "Conflict: target 'authors' is claimed by multiple columns: ['Authors', 'First Author']"
+    },
+    "Reference": {
+      "original_column": "Reference",
+      "canonical_field": null,
+      "confidence": 0.0,
+      "matching_method": "unmatched",
+      "status": "unmapped",
+      "details": "No canonical alias or verified fuzzy match found"
+    }
+  },
+  "unmapped_columns": [
+    "Create Date",
+    "NIHMS ID",
+    "Reference"
+  ],
+  "conflicts": [
+    "journal: multiple source columns ['Source', 'Journal/Book']. Primary value selected from 'Source'; all original column values preserved.",
+    "keywords: multiple source columns ['Keywords', 'MeSH_Terms']. Primary value selected from 'Keywords'; all original column values preserved.",
+    "authors: multiple source columns ['Authors', 'First Author']. Primary value selected from 'Authors'; all original column values preserved."
+  ],
+  "feature_readiness": {
+    "keyword_analysis": {
+      "feature_name": "Keyword Frequency & Word Clouds",
+      "status": "ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [
+        "keywords"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 97.6,
+      "warnings": [],
+      "explanation": "6781/6945 papers (97.6%) contain keyword metadata with 11493 unique terms. Fully operational."
+    },
+    "cooccurrence_analysis": {
+      "feature_name": "Keyword Co-occurrence & Network Centralities",
+      "status": "ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [
+        "keywords"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 97.6,
+      "warnings": [],
+      "explanation": "6781/6945 papers (97.6%) have 2+ keywords. Co-occurrence graph and centrality algorithms fully operational."
+    },
+    "country_analysis": {
+      "feature_name": "Country Distribution & Collaboration Networks",
+      "status": "not_ready",
+      "required_fields": [
+        "affiliations"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "affiliations"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No author affiliation or country data present."
+      ],
+      "explanation": "Affiliation addresses are missing. World map, 3D globe, and international collaboration networks cannot be rendered."
+    },
+    "author_analysis": {
+      "feature_name": "Author Analytics & Collaboration",
+      "status": "ready",
+      "required_fields": [
+        "authors"
+      ],
+      "available_fields": [
+        "authors"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 99.8,
+      "warnings": [],
+      "explanation": "6932/6945 papers (99.8%) have author metadata. Author analytics fully operational."
+    },
+    "trend_analysis": {
+      "feature_name": "Research Publication Trends",
+      "status": "ready",
+      "required_fields": [
+        "publication_year"
+      ],
+      "available_fields": [
+        "publication_year"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "6945/6945 papers (100.0%) have valid years spanning 2001 - 2027. Timeline charts fully operational."
+    },
+    "semantic_search": {
+      "feature_name": "Semantic Vector Search & Indexing",
+      "status": "ready",
+      "required_fields": [
+        "title",
+        "abstract"
+      ],
+      "available_fields": [
+        "title",
+        "abstract"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 93.1,
+      "warnings": [],
+      "explanation": "6467/6945 papers (93.1%) contain multi-sentence abstracts suitable for HDBSCAN chunking and FAISS indexing."
+    },
+    "ai_chat_rag": {
+      "feature_name": "AI Research Assistant (RAG Chat)",
+      "status": "ready",
+      "required_fields": [
+        "title",
+        "abstract"
+      ],
+      "available_fields": [
+        "title",
+        "abstract",
+        "doi"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 93.1,
+      "warnings": [],
+      "explanation": "Papers have sufficient textual depth for semantic chunking and grounded multi-query RAG generation with citations."
+    }
+  },
+  "recommendations": [
+    "Dataset contains 7 duplicate paper records. Consider deduplicating by DOI/PMID to prevent overcounting in frequency analyses.",
+    "Affiliations coverage is 0.0%. Include institution or country addresses to render 2D/3D country collaboration maps.",
+    "Detected 3 unmapped columns (Create Date, NIHMS ID, Reference). Use custom column mappings to associate them with canonical fields."
+  ],
+  "generated_at": 1795103817.8623,
+  "csv_mtime": 1791129379.6262681
+}

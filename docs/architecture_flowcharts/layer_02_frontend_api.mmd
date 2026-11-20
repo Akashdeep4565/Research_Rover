@@ -1,0 +1,56 @@
+flowchart TD
+    %% =========================================================================
+    %% LAYER 2: FRONTEND API CLIENT LAYER (BLUE)
+    %% Standalone Enlarged Flowchart with Boundary Connectors
+    %% =========================================================================
+
+    classDef blueNode fill:#EFF6FF,stroke:#2563EB,stroke-width:2.5px,color:#1E3A8A,font-size:14px;
+    classDef clientNode fill:#DBEAFE,stroke:#1D4ED8,stroke-width:3px,color:#1E40AF,font-weight:bold,font-size:15px;
+    classDef boundaryIn fill:#FAF5FF,stroke:#9333EA,stroke-width:2px,stroke-dasharray: 5 5,color:#581C87,font-size:13px;
+    classDef boundaryOut fill:#FFF7ED,stroke:#EA580C,stroke-width:2px,stroke-dasharray: 5 5,color:#9A3412,font-size:13px;
+    classDef boundaryErr fill:#FEF2F2,stroke:#DC2626,stroke-width:2px,stroke-dasharray: 5 5,color:#991B1B,font-size:13px;
+
+    subgraph IN_L1["INPUTS FROM LAYER 1 (USER INTERACTION)"]
+        IN_L1_SEARCH[["From Layer 1: Search Page<br/>(Search Query & Parameters)"]]:::boundaryIn
+        IN_L1_ANALYTICS[["From Layer 1: Analytics Page<br/>(Dataset Selection & Filters)"]]:::boundaryIn
+        IN_L1_CHAT[["From Layer 1: Chat Page<br/>(User Prompt & Session Context)"]]:::boundaryIn
+    end
+
+    subgraph L2_CORE["LAYER 2: FRONTEND API CLIENT LAYER"]
+        API_CLIENT["Axios API Client<br/>(services/api.ts - Base URL: /api/v1)"]:::clientNode
+        
+        REQ_SEARCH["POST /api/v1/search/query"]:::blueNode
+        REQ_FILES["GET /api/v1/files/list<br/>POST /api/v1/files/upload"]:::blueNode
+        REQ_KW["POST /api/v1/analysis/generate<br/>GET /api/v1/analysis/{file}/matrix"]:::blueNode
+        REQ_COUNTRY["GET /api/v1/analysis/{file}/countries<br/>GET /api/v1/analysis/{file}/country-collaboration"]:::blueNode
+        REQ_CHAT["POST /api/v1/chat/query<br/>POST /api/v1/embeddings/generate"]:::blueNode
+    end
+
+    IN_L3_ERR[["From Layer 3: Error Validation<br/>(HTTP 400 / 404 / 500 Payload)"]]:::boundaryErr
+
+    subgraph OUT_L3["OUTPUTS TO LAYER 3 (BACKEND CONTROLLERS)"]
+        OUT_L3_SEARCH[["To Layer 3: Search Controller<br/>(api/routes/search.py)"]]:::boundaryOut
+        OUT_L3_FILES[["To Layer 3: Files Controller<br/>(api/routes/files.py)"]]:::boundaryOut
+        OUT_L3_KW[["To Layer 3: Analysis Controller (KW)<br/>(api/routes/analysis.py)"]]:::boundaryOut
+        OUT_L3_COUNTRY[["To Layer 3: Analysis Controller (Country)<br/>(api/routes/analysis.py)"]]:::boundaryOut
+        OUT_L3_CHAT[["To Layer 3: Chat Controller<br/>(api/routes/chat.py & embeddings.py)"]]:::boundaryOut
+    end
+
+    %% Internal Connections
+    IN_L1_SEARCH --> API_CLIENT
+    IN_L1_ANALYTICS --> API_CLIENT
+    IN_L1_CHAT --> API_CLIENT
+
+    API_CLIENT -->|Search| REQ_SEARCH
+    API_CLIENT -->|File Ops| REQ_FILES
+    API_CLIENT -->|Keyword Analysis| REQ_KW
+    API_CLIENT -->|Country Analysis| REQ_COUNTRY
+    API_CLIENT -->|Chat / Embed| REQ_CHAT
+
+    REQ_SEARCH --> OUT_L3_SEARCH
+    REQ_FILES --> OUT_L3_FILES
+    REQ_KW --> OUT_L3_KW
+    REQ_COUNTRY --> OUT_L3_COUNTRY
+    REQ_CHAT --> OUT_L3_CHAT
+
+    IN_L3_ERR -.->|Error Callback & Toast| API_CLIENT

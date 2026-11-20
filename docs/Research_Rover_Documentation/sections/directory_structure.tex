@@ -1,0 +1,95 @@
+\section{Project Directory Structure}
+\label{sec:directory_structure}
+
+\subsection{Repository Layout}
+The Research Rover repository follows a modular software engineering structure designed for maintainability and scalability. Below is an annotated hierarchy of essential directories and files:
+
+\begin{lstlisting}[caption={Annotated Research Rover Project Tree}]
+Research_Rover/
+├── README.md                      # Primary project overview and instructions
+├── .gitignore                     # Git exclusion rules (.venv, data, node_modules)
+│
+├── backend/                       # Python 3.11+ / FastAPI Application
+│   ├── main.py                    # Application entry point, lifespan, CORS, routes
+│   ├── requirements.txt           # Pinned production and research dependencies
+│   ├── .env.example               # Reference environment variable configuration
+│   ├── .env                       # Local secrets (API keys - excluded from Git)
+│   │
+│   ├── app/
+│   │   ├── api/
+│   │   │   └── routes/            # REST API Router Controllers
+│   │   │       ├── analysis.py    # Keyword and country analytics endpoints
+│   │   │       ├── chat.py        # Gemini conversational RAG endpoints
+│   │   │       ├── embeddings.py  # FAISS dense vector indexing endpoints
+│   │   │       ├── files.py       # Dataset upload, quality, download endpoints
+│   │   │       ├── search.py      # PubMed/OpenAlex search & progress endpoints
+│   │   │       └── system.py      # Runtime model status and health endpoints
+│   │   │
+│   │   ├── core/                  # Core Application Infrastructure
+│   │   │   ├── config.py          # Pydantic BaseSettings and env file loader
+│   │   │   ├── dependencies.py    # FastAPI dependency injection providers
+│   │   │   ├── logging.py         # Standardized application logging setup
+│   │   │   └── model_manager.py   # Asynchronous transformer model lifecycle manager
+│   │   │
+│   │   ├── models/
+│   │   │   └── schemas.py         # Pydantic request/response data contracts
+│   │   │
+│   │   ├── services/              # Core Domain Business Logic
+│   │   │   ├── analysis_service.py       # Keyword frequencies & co-occurrence
+│   │   │   ├── canonical_loader.py       # Unified data loader & sidecar caching
+│   │   │   ├── chat_service.py           # Gemini RAG query decomposition
+│   │   │   ├── country_service.py        # International collaboration graphs
+│   │   │   ├── dataset_normalizer.py     # 20-field canonical normalization
+│   │   │   ├── dataset_quality.py        # Quality scoring & 7-feature readiness
+│   │   │   ├── embedding_service.py      # Sentence Transformers & FAISS logic
+│   │   │   ├── openalex_service.py       # OpenAlex scholarly API integration
+│   │   │   ├── pubmed_service.py         # NCBI E-utilities search integration
+│   │   │   ├── reranker_service.py       # MedCPT bi-encoder neural re-ranking
+│   │   │   └── unified_search_service.py # Multi-source search & deduplication
+│   │   │
+│   │   └── utils/
+│   │       ├── country_extractor.py      # Affiliation regex country parser
+│   │       └── csv_loader.py             # Basic CSV reading helpers
+│   │
+│   ├── features/
+│   │   └── embedding_and_indexing.py     # Chunking and vector indexing scripts
+│   │
+│   └── tests/                     # Automated Test Suites (57 Verified Tests)
+│       ├── test_dataset_normalizer.py    # 18 Normalizer unit tests
+│       ├── test_dataset_quality.py       # 10 Quality engine unit tests
+│       └── test_dataset_integration.py   # 29 API integration tests
+│
+├── frontend/                      # React 19 / TypeScript / Vite Application
+│   ├── package.json               # Node.js dependencies and run scripts
+│   ├── vite.config.ts             # Vite dev server port 3000 & API reverse proxy
+│   ├── tsconfig.json              # TypeScript compilation rules
+│   │
+│   └── src/
+│       ├── components/            # Reusable UI & Telemetry Components
+│       │   ├── CountryAnalysisView.tsx            # Country graphs orchestrator
+│       │   ├── CountryCollaboration2D.tsx         # 2D ForceGraph canvas
+│       │   ├── CountryCollaboration3D.tsx         # Three.js 3D ForceGraph sphere
+│       │   ├── DatasetFeatureReadinessBanner.tsx  # Persistent readiness banner
+│       │   ├── DatasetQualityModal.tsx            # Multi-tab quality modal
+│       │   ├── EmbeddingProgressModal.tsx         # FAISS indexing progress modal
+│       │   └── WorldMap.tsx                       # Mercator world map projection
+│       │
+│       ├── pages/                 # Full Application View Pages
+│       │   ├── AnalyticsPage.tsx  # Bibliometric analytics dashboard
+│       │   ├── ChatPage.tsx       # Conversational AI RAG research assistant
+│       │   ├── HomePage.tsx       # Welcome and platform overview page
+│       │   ├── SearchPage.tsx     # Literature discovery and query portal
+│       │   └── UseCasesPage.tsx   # Verified academic workflows demonstration
+│       │
+│       ├── services/
+│       │   └── api.ts             # Axios HTTP client, types, and API calls
+│       │
+│       └── types/
+│           └── index.ts           # Shared TypeScript interfaces and contracts
+│
+└── data/                          # Runtime Storage Layer (Generated at Startup)
+    ├── *.csv                      # Downloaded and uploaded research datasets
+    ├── *_canonical_metadata.json  # Ingestion quality & readiness sidecars
+    ├── *_paper_chunks_hdbscan.index # FAISS dense vector binary indexes
+    └── *_full_text_mapping.json   # Scraped DOI-to-text mapping files
+\end{lstlisting}

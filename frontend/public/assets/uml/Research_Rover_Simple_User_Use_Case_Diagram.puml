@@ -1,0 +1,105 @@
+@startuml Research_Rover_Simple_User_Use_Case_Diagram
+' ==============================================================================
+' Project: Research Rover
+' Diagram: Simple User Use Case Diagram
+' Reference Style: University Management System Use Case Diagram
+' ==============================================================================
+
+skinparam backgroundColor #FFFFFF
+skinparam handwritten false
+skinparam monochrome false
+skinparam shadowing false
+skinparam defaultFontName "Segoe UI", Arial, Helvetica, sans-serif
+skinparam defaultFontSize 13
+skinparam defaultFontColor #0F172A
+
+skinparam actor {
+    BackgroundColor #EFF6FF
+    BorderColor #1D4ED8
+    BorderThickness 2
+    FontColor #0F172A
+    FontSize 14
+    FontStyle bold
+}
+
+skinparam rectangle {
+    BackgroundColor #FFFFFF
+    BorderColor #2563EB
+    BorderThickness 2.5
+    FontColor #1D4ED8
+    FontSize 16
+    FontStyle bold
+}
+
+skinparam usecase {
+    BackgroundColor #F8FAFC
+    BorderColor #2563EB
+    BorderThickness 1.8
+    FontColor #0F172A
+    FontSize 12.5
+    FontStyle bold
+    ArrowColor #3B82F6
+    ArrowThickness 1.5
+}
+
+left to right direction
+
+actor "Researcher / Student" as User
+
+rectangle "Research Rover" {
+    usecase "Search Research Papers" as UC_Search
+    usecase "Explore Research Papers" as UC_ExplorePapers
+    usecase "View Paper Details" as UC_PaperDetails
+    usecase "Download Research Papers" as UC_DownloadPaper
+    
+    usecase "Upload Dataset" as UC_UploadData
+    usecase "View My Datasets" as UC_ViewData
+    usecase "Select Dataset" as UC_SelectData
+    usecase "Download Dataset" as UC_DownloadData
+    
+    usecase "Explore Keywords" as UC_Keywords
+    usecase "View Popular Keywords" as UC_PopularKW
+    usecase "Explore Keyword Connections" as UC_KWConnections
+    usecase "View Keyword Networks" as UC_KWNetworks
+    
+    usecase "Explore Countries" as UC_Countries
+    usecase "View Country Rankings" as UC_CountryRank
+    usecase "Explore World Map" as UC_WorldMap
+    usecase "View International Collaborations" as UC_Collaborations
+    
+    usecase "Ask Questions" as UC_AskAI
+    usecase "Get AI Answers" as UC_AIAnswers
+    usecase "Explore Research Information" as UC_ResearchInfo
+    
+    usecase "Download Charts" as UC_DownloadCharts
+    usecase "Export Reports" as UC_ExportReports
+}
+
+User -- UC_Search
+User -- UC_ExplorePapers
+User -- UC_PaperDetails
+User -- UC_DownloadPaper
+
+User -- UC_UploadData
+User -- UC_ViewData
+User -- UC_SelectData
+User -- UC_DownloadData
+
+User -- UC_Keywords
+User -- UC_PopularKW
+User -- UC_KWConnections
+User -- UC_KWNetworks
+
+User -- UC_Countries
+User -- UC_CountryRank
+User -- UC_WorldMap
+User -- UC_Collaborations
+
+User -- UC_AskAI
+User -- UC_AIAnswers
+User -- UC_ResearchInfo
+
+User -- UC_DownloadCharts
+User -- UC_ExportReports
+
+@enduml

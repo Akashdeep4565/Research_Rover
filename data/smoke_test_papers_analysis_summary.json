@@ -1,0 +1,22 @@
+{
+  "filename": "smoke_test_papers.csv",
+  "source_file": "smoke_test_papers.csv",
+  "total_papers": 5,
+  "papers_with_keywords": 0,
+  "papers_with_country_data": 5,
+  "unique_countries": 7,
+  "unique_keywords": 0,
+  "top_keywords_limit": 100,
+  "minimum_frequency": 1,
+  "normalized_metadata_file": "smoke_test_papers_analysis_normalized_metadata.json",
+  "keyword_frequency_file": "smoke_test_papers_analysis_keyword_frequency.csv",
+  "keyword_presence_matrix_file": "smoke_test_papers_analysis_keyword_presence_matrix.csv",
+  "summary_file": "smoke_test_papers_analysis_summary.json",
+  "generated_at": 1794828284.9257064,
+  "keyword_frequency": [],
+  "matrix_keywords": [],
+  "matrix_rows": 5,
+  "matrix_columns": 0,
+  "cooccurrence_edges": [],
+  "centrality_scores": []
+}

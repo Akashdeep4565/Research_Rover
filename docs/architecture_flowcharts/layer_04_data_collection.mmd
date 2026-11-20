@@ -1,0 +1,45 @@
+flowchart TD
+    %% =========================================================================
+    %% LAYER 4: DATA COLLECTION & EXTERNAL INTEGRATION (CYAN)
+    %% Standalone Enlarged Flowchart with Boundary Connectors
+    %% =========================================================================
+
+    classDef cyanNode fill:#ECFEFF,stroke:#0891B2,stroke-width:2.5px,color:#155E75,font-size:14px;
+    classDef cloudNode fill:#CFFAFE,stroke:#0E7490,stroke-width:3px,color:#164E63,font-weight:bold,font-size:15px;
+    classDef aiNode fill:#E0F2FE,stroke:#0284C7,stroke-width:2.5px,color:#075985,font-weight:bold,font-size:14px;
+    classDef boundaryInL3 fill:#FFF7ED,stroke:#EA580C,stroke-width:2px,stroke-dasharray: 5 5,color:#9A3412,font-size:13px;
+    classDef boundaryOutL5 fill:#ECFDF5,stroke:#059669,stroke-width:2px,stroke-dasharray: 5 5,color:#064E3B,font-size:13px;
+    classDef boundaryInL5 fill:#ECFDF5,stroke:#059669,stroke-width:2px,stroke-dasharray: 5 5,color:#064E3B,font-size:13px;
+
+    IN_L3_SEARCH[["From Layer 3: Request Validation<br/>(Valid Search Request)"]]:::boundaryInL3
+
+    subgraph L4_CORE["LAYER 4: DATA COLLECTION & EXTERNAL INTEGRATION"]
+        SRV_SEARCH["Search Service Orchestrator<br/>(services/search_service.py)"]:::cyanNode
+        SRV_PUBMED["PubMed Service<br/>(services/pubmed_service.py)"]:::cyanNode
+        API_NCBI["NCBI Entrez E-Utilities API<br/>(esearch.fcgi & efetch.fcgi)"]:::cloudNode
+        XML_PARSER["ElementTree XML Parser<br/>(Extract PMID, Title, Abstract, Journal, Year, Authors, Affiliations)"]:::cyanNode
+        ENRICH_AFF["Affiliation Enricher Fallback<br/>(services/pubmed_affiliation_enricher.py)"]:::cyanNode
+        RERANKER["MedCPT Semantic Reranker<br/>(services/reranker_service.py - PyTorch & Transformers)"]:::aiNode
+    end
+
+    subgraph OUT_L5["OUTPUTS TO LAYER 5 (DATA CLEANING)"]
+        OUT_L5_DEDUP_XML[["To Layer 5: Deduplication Engine<br/>(Raw Parsed Papers)"]]:::boundaryOutL5
+        OUT_L5_DEDUP_AFF[["To Layer 5: Deduplication Engine<br/>(Enriched Affiliations)"]]:::boundaryOutL5
+        OUT_L5_EXTRACT[["To Layer 5: Country Extractor Utility<br/>(Semantically Re-ranked Papers)"]]:::boundaryOutL5
+    end
+
+    IN_L5_DEDUP[["From Layer 5: Deduplication Engine<br/>(Deduplicated Records for Re-ranking)"]]:::boundaryInL5
+
+    %% Internal Connections
+    IN_L3_SEARCH --> SRV_SEARCH
+    SRV_SEARCH --> SRV_PUBMED
+    SRV_PUBMED <-->|HTTP GET/POST| API_NCBI
+    SRV_PUBMED --> XML_PARSER
+
+    XML_PARSER -->|Missing Affiliation| ENRICH_AFF
+    XML_PARSER --> OUT_L5_DEDUP_XML
+    ENRICH_AFF --> OUT_L5_DEDUP_AFF
+
+    %% Reranker Flow (Cross-Layer with Layer 5)
+    IN_L5_DEDUP --> RERANKER
+    RERANKER --> OUT_L5_EXTRACT

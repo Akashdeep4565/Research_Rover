@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Card, CardContent } from '@/components/ui/card'
 import {
@@ -19,10 +19,13 @@ import {
   ChartBarIcon,
   SparklesIcon,
   ClockIcon,
+  ArrowDownTrayIcon,
+  DocumentTextIcon,
 } from '@heroicons/react/24/outline'
 import type { Paper } from '@/types'
 import { filesApi, type SearchProgress } from '@/services/api'
 import { useSearch } from '@/context/SearchContext'
+import { ResearchRoverLoader } from '@/components/ResearchRoverLoader'
 import { useEmbedding } from '@/context/EmbeddingContext'
 import { EmbeddingProgressModal } from '@/components/EmbeddingProgressModal'
 
@@ -175,9 +178,13 @@ function SearchProgressPanel({ progress, onCancel }: { progress: SearchProgress;
         <CardContent className="p-6 space-y-5">
           {/* Header */}
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-sm font-semibold text-gray-700 dark:text-gray-200">
-              <Spinner className="w-4 h-4 text-blue-500" />
-              Searching PubMed…
+            <div className="flex items-center gap-2.5 text-sm font-semibold text-gray-700 dark:text-gray-200">
+              <img
+                src="/assets/research-rover-logo.png"
+                alt="Research ROVER"
+                className="w-6 h-auto object-contain animate-pulse"
+              />
+              <span>Searching research papers…</span>
             </div>
             <div className="flex items-center gap-3">
               <span className="text-sm font-bold text-blue-600 dark:text-blue-400">{pct}%</span>
@@ -236,6 +243,50 @@ function SearchProgressPanel({ progress, onCancel }: { progress: SearchProgress;
 // ─── Paper card ───────────────────────────────────────────────────────────────
 function PaperCard({ paper, index }: { paper: Paper; index: number }) {
   const [expanded, setExpanded] = useState(false)
+  const [isDownloading, setIsDownloading] = useState(false)
+  const [notice, setNotice] = useState<string | null>(null)
+
+  const handleDownloadPdf = async () => {
+    if (!paper.pdf_url || isDownloading) return
+    setIsDownloading(true)
+    setNotice(null)
+
+    try {
+      const { blob, filename } = await filesApi.downloadPdf(
+        paper.pdf_url,
+        paper.title,
+        paper.doi,
+        paper.pmid
+      )
+      const blobUrl = window.URL.createObjectURL(blob)
+      const link = document.createElement('a')
+      link.href = blobUrl
+      link.download = filename
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
+      window.URL.revokeObjectURL(blobUrl)
+    } catch (err: any) {
+      // If direct backend proxy stream couldn't complete (e.g., PMC interactive POW verification, or publisher blocking server IP),
+      // seamlessly fall back to opening the direct PDF link in a new browser window
+      const code = err?.code
+      const msg = err?.error || err?.detail || ''
+      if (paper.pdf_url) {
+        window.open(paper.pdf_url, '_blank')
+        if (code === '422' || msg.toLowerCase().includes('pmc')) {
+          setNotice('Opening direct PDF in new tab (verification required)')
+        } else if (code === '403') {
+          setNotice('Opening link in new tab (publisher subscription required)')
+        } else {
+          setNotice('Opening direct link in new tab…')
+        }
+      } else {
+        setNotice(msg || 'Download failed')
+      }
+    } finally {
+      setIsDownloading(false)
+    }
+  }
 
   return (
     <motion.div
@@ -270,10 +321,33 @@ function PaperCard({ paper, index }: { paper: Paper; index: number }) {
                       {Math.round(paper.relevance_score)}% match
                     </span>
                   )}
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium
-                                   bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800">
-                    {paper.source}
-                  </span>
+                  {(() => {
+                    const s = (paper.source || '').toLowerCase()
+                    if (s.includes('pubmed') && s.includes('openalex')) {
+                      return (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-purple-50 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300 border border-purple-100 dark:border-purple-800">
+                          PubMed + OpenAlex
+                        </span>
+                      )
+                    } else if (s.includes('openalex')) {
+                      return (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-teal-50 text-teal-700 dark:bg-teal-900/30 dark:text-teal-300 border border-teal-100 dark:border-teal-800">
+                          OpenAlex
+                        </span>
+                      )
+                    } else if (s.includes('pubmed')) {
+                      return (
+                        <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-indigo-50 text-indigo-700 dark:bg-indigo-900/30 dark:text-indigo-300 border border-indigo-100 dark:border-indigo-800">
+                          PubMed
+                        </span>
+                      )
+                    }
+                    return (
+                      <span className="inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-gray-50 text-gray-700 dark:bg-gray-800 dark:text-gray-300 border border-gray-200 dark:border-gray-700">
+                        {paper.source}
+                      </span>
+                    )
+                  })()}
                 </div>
               </div>
 
@@ -295,7 +369,22 @@ function PaperCard({ paper, index }: { paper: Paper; index: number }) {
                 {paper.doi && (
                   <span className="flex items-center gap-1">
                     <LinkIcon className="w-3.5 h-3.5" />
-                    {paper.doi}
+                    DOI: {paper.doi}
+                  </span>
+                )}
+                {paper.pmid && (
+                  <span className="flex items-center gap-1 font-mono text-[11px]">
+                    PMID: {paper.pmid}
+                  </span>
+                )}
+                {paper.citation_count != null && (
+                  <span className="flex items-center gap-1 font-semibold text-blue-600 dark:text-blue-400">
+                    Citations: {paper.citation_count}
+                  </span>
+                )}
+                {paper.is_oa && (
+                  <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold bg-emerald-100 text-emerald-800 dark:bg-emerald-900/40 dark:text-emerald-300">
+                    Open Access
                   </span>
                 )}
               </div>
@@ -332,16 +421,56 @@ function PaperCard({ paper, index }: { paper: Paper; index: number }) {
               )}
 
               {/* Actions */}
-              <div className="flex items-center gap-2 pt-1">
+              <div className="flex flex-wrap items-center gap-3 pt-2">
+                {paper.pdf_url ? (
+                  <button
+                    onClick={handleDownloadPdf}
+                    disabled={isDownloading}
+                    className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold
+                               bg-blue-600 hover:bg-blue-700 text-white
+                               disabled:opacity-60 disabled:cursor-not-allowed transition-all shadow-sm active:scale-95"
+                    title="Download full-text PDF directly"
+                  >
+                    {isDownloading ? (
+                      <>
+                        <Spinner className="w-3.5 h-3.5 text-white" />
+                        <span>Downloading…</span>
+                      </>
+                    ) : (
+                      <>
+                        <ArrowDownTrayIcon className="w-3.5 h-3.5 text-white stroke-[2.2]" />
+                        <span>Download PDF</span>
+                      </>
+                    )}
+                  </button>
+                ) : (
+                  <span
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium
+                               text-gray-400 dark:text-gray-500 bg-gray-100 dark:bg-gray-800/70 border border-gray-200/80 dark:border-gray-700/60"
+                    title="No open-access or direct PDF download available for this paper"
+                  >
+                    <DocumentTextIcon className="w-3.5 h-3.5 opacity-70" />
+                    <span>PDF not available</span>
+                  </span>
+                )}
+
                 {paper.download_url && (
                   <button
                     onClick={() => window.open(paper.download_url!, '_blank')}
-                    className="inline-flex items-center gap-1.5 text-xs font-medium text-blue-600 dark:text-blue-400
-                               hover:text-blue-800 dark:hover:text-blue-200 transition-colors"
+                    className="inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-xs font-medium
+                               text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400
+                               border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700/50
+                               transition-colors"
                   >
                     <EyeIcon className="w-3.5 h-3.5" />
-                    View paper
+                    <span>View paper</span>
                   </button>
+                )}
+
+                {notice && (
+                  <span className="text-[11px] text-amber-600 dark:text-amber-400 font-medium">
+                    {notice}
+                  </span>
                 )}
               </div>
             </div>
@@ -355,6 +484,9 @@ function PaperCard({ paper, index }: { paper: Paper; index: number }) {
 // ─── Main page ────────────────────────────────────────────────────────────────
 export function SearchPage() {
   const navigate = useNavigate()
+  const location = useLocation()
+  const searchInputRef = useRef<HTMLInputElement>(null)
+
   // Search state lives in SearchProvider (above the router) so it persists
   // across navigation and a running search keeps polling in the background.
   const {
@@ -379,6 +511,28 @@ export function SearchPage() {
 
   // Filter panel open/closed is purely cosmetic — fine to keep page-local.
   const [showFilters, setShowFilters] = useState(false)
+
+  // Handle navigation directives (e.g. from Quick Actions)
+  useEffect(() => {
+    const state = location.state as {
+      focusSearch?: boolean
+      openAdvancedFilters?: boolean
+      showEmbeddings?: boolean
+    } | null
+
+    if (state?.openAdvancedFilters) {
+      setShowFilters(true)
+    }
+    if (state?.focusSearch) {
+      setTimeout(() => {
+        searchInputRef.current?.focus()
+      }, 150)
+    }
+    if (state?.showEmbeddings && csvFilename) {
+      setError('')
+      startEmbeddings(csvFilename)
+    }
+  }, [location.state, csvFilename])
 
   const handleDownload = async () => {
     if (!csvFilename) return
@@ -410,7 +564,7 @@ export function SearchPage() {
       <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="text-center space-y-2">
         <h1 className="text-4xl font-extrabold gradient-text tracking-tight">Research Paper Search</h1>
         <p className="text-base text-gray-500 dark:text-gray-400">
-          Search PubMed's full database and export results instantly.
+          Unified search across PubMed and OpenAlex with instant deduplication and export.
         </p>
       </motion.div>
 
@@ -424,6 +578,7 @@ export function SearchPage() {
               <div className="flex-1 relative">
                 <MagnifyingGlassIcon className="absolute left-3.5 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400 pointer-events-none" />
                 <input
+                  ref={searchInputRef}
                   placeholder="e.g. smart healthcare, machine learning"
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
@@ -543,7 +698,7 @@ export function SearchPage() {
                     {/* Source */}
                     <div className="flex flex-col gap-1.5">
                       <label className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wide">
-                        Source
+                        Research Source
                       </label>
                       <select
                         value={filters.source}
@@ -552,7 +707,9 @@ export function SearchPage() {
                                    bg-white dark:bg-gray-900 text-sm text-gray-800 dark:text-gray-200
                                    focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 cursor-pointer"
                       >
+                        <option value="unified">Unified Search</option>
                         <option value="pubmed">PubMed</option>
+                        <option value="openalex">OpenAlex</option>
                       </select>
                     </div>
 
@@ -613,9 +770,14 @@ export function SearchPage() {
         )}
       </AnimatePresence>
 
-      {/* ── Progress ── */}
+      {/* ── Progress / Loading State ── */}
       {isLoading && searchProgress && (
         <SearchProgressPanel progress={searchProgress} onCancel={handleCancel} />
+      )}
+      {isLoading && !searchProgress && (
+        <div className="py-12 flex justify-center items-center w-full">
+          <ResearchRoverLoader message="Searching research papers..." size="lg" />
+        </div>
       )}
 
       {/* ── Results ── */}

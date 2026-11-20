@@ -1,0 +1,216 @@
+@startuml Research_Rover_Use_Case_Diagram
+' ==============================================================================
+' Project: Research Rover - Intelligent Systematic Literature Review Platform
+' Diagram: UML 2.5 Use Case Diagram
+' Standard: ISO/IEC 19505:2012 / OMG UML 2.5
+' Target: M.Tech Project Defense, Thesis Report, and Technical Documentation
+' ==============================================================================
+
+skinparam backgroundColor #FFFFFF
+skinparam handwritten false
+skinparam monochrome false
+skinparam shadowing false
+skinparam defaultFontName "Segoe UI", Arial, Helvetica, sans-serif
+skinparam defaultFontSize 12
+skinparam defaultFontColor #1E293B
+
+' Styling for Human Actors
+skinparam actor {
+    BackgroundColor #EFF6FF
+    BorderColor #2563EB
+    BorderThickness 1.5
+    FontColor #0F172A
+    FontSize 13
+    FontStyle bold
+}
+
+' Styling for System Boundary
+skinparam rectangle {
+    BackgroundColor #F8FAFC
+    BorderColor #64748B
+    BorderThickness 2
+    FontColor #0F172A
+    FontSize 15
+    FontStyle bold
+}
+
+' Styling for Modules (Packages)
+skinparam package {
+    BackgroundColor #FFFFFF
+    BorderColor #CBD5E1
+    BorderThickness 1.2
+    FontColor #1E40AF
+    FontSize 12
+    FontStyle bold
+}
+
+' Styling for Use Cases (Ovals)
+skinparam usecase {
+    BackgroundColor #F1F5F9
+    BorderColor #3B82F6
+    BorderThickness 1.5
+    FontColor #0F172A
+    FontSize 12
+    FontStyle normal
+    ArrowColor #475569
+    ArrowThickness 1.2
+    ArrowFontColor #475569
+    ArrowFontSize 11
+}
+
+left to right direction
+
+' ==============================================================================
+' PRIMARY ACTOR (LEFT)
+' ==============================================================================
+actor "Researcher / Student\n(Primary User)" as User
+
+' ==============================================================================
+' EXTERNAL SYSTEMS (RIGHT)
+' ==============================================================================
+actor "NCBI Entrez API\n(PubMed Paper Retrieval)" as NCBI
+actor "OpenAlex API\n(Citations & OA Links)" as OpenAlex
+actor "Publishers & PMC\n(Full-Text PDF Hosts)" as Publisher
+actor "Google Gemini AI\n(Generative Synthesis)" as Gemini
+
+' ==============================================================================
+' SYSTEM BOUNDARY: RESEARCH ROVER
+' ==============================================================================
+rectangle "Research Rover" {
+
+    ' --------------------------------------------------------------------------
+    ' A. Research Paper Search Module
+    ' --------------------------------------------------------------------------
+    package "Research Paper Search" {
+        usecase "Search Research Papers\n(Base Search Query)" as UC_Search
+        usecase "Unified Search\n(PubMed + OpenAlex)" as UC_Unified
+        usecase "PubMed Search\n(Biomedical Focus)" as UC_PubMed
+        usecase "OpenAlex Search\n(Multidisciplinary)" as UC_OpenAlex
+        usecase "Optimize & Expand Query\n(MeSH & Acronyms)" as UC_QueryOpt
+        usecase "Browse Search Results\n(Paginated Cards & Citations)" as UC_Browse
+        usecase "Apply Search Filters\n(Year, Sort, Limit)" as UC_Filters
+        usecase "Re-Rank Relevance\n(MedCPT Bi-Encoder)" as UC_Rerank
+        usecase "Download Available PDF\n(SSRF-Protected Stream)" as UC_PDF
+        usecase "View Paper on Publisher Site\n(Direct DOI Link)" as UC_ViewPub
+        usecase "Cancel In-Flight Search\n(Cooperative Abort)" as UC_Cancel
+    }
+
+    ' --------------------------------------------------------------------------
+    ' B. Dataset Management Module
+    ' --------------------------------------------------------------------------
+    package "Dataset Management" {
+        usecase "Upload Custom Dataset\n(CSV Validation & Encoding)" as UC_Upload
+        usecase "List & Switch Datasets\n(Auto-Discovered in data/)" as UC_ListDatasets
+        usecase "Export Clean Dataset CSV\n(Unpolluted Metadata)" as UC_ExportCSV
+        usecase "Delete Dataset & Embeddings\n(Storage Clean-up)" as UC_DeleteDataset
+    }
+
+    ' --------------------------------------------------------------------------
+    ' C. Keyword Bibliometric Analytics Module
+    ' --------------------------------------------------------------------------
+    package "Keyword Bibliometric Analytics" {
+        usecase "Analyse Keywords\n(5-Phase Pipeline)" as UC_AnalyzeKW
+        usecase "Normalize & Alias Map\n(AST Parsing & Deduplication)" as UC_NormKW
+        usecase "View Frequency & Rank\n(Distribution Bar Charts)" as UC_FreqKW
+        usecase "NetworkX Centralities\n(Degree, Betweenness, Eigen)" as UC_Centrality
+        usecase "Binary Presence Matrix\n(Paper-Keyword 0/1 Grid)" as UC_PresenceMatrix
+        usecase "Explore SVG Word Cloud\n(Interactive Zoom & Tooltips)" as UC_WordCloud
+        usecase "Explore Co-Occurrence Graph\n(Weighted Pairwise Links)" as UC_CooccurGraph
+        usecase "Export Analytics Artifacts\n(CSV, JSON & PNG Visuals)" as UC_ExportKW
+    }
+
+    ' --------------------------------------------------------------------------
+    ' D. Country & International Collaboration Module
+    ' --------------------------------------------------------------------------
+    package "Country & International Collaboration" {
+        usecase "Country Analysis\n(Affiliation Mapping)" as UC_AnalyzeCountry
+        usecase "Extract Affiliations\n(Regex & ISO-3166 Lexicon)" as UC_ExtractCountry
+        usecase "Track Unassigned Papers\n(Data Transparency)" as UC_Unassigned
+        usecase "Country Rankings Table\n(Volume & Percentage Share)" as UC_CountryRank
+        usecase "Explore World Map\n(TopoJSON Choropleth)" as UC_WorldMap
+        usecase "Explore 2D/3D Collaboration\n(Force-Directed & Three.js)" as UC_CollabNet
+        usecase "Export Country Data\n(Rankings & Partnerships CSV)" as UC_ExportCountry
+    }
+
+    ' --------------------------------------------------------------------------
+    ' E. AI Research Assistant (Conversational RAG) Module
+    ' --------------------------------------------------------------------------
+    package "AI Research Assistant" {
+        usecase "Ask Research Questions\n(Conversational AI Chat)" as UC_AskAI
+        usecase "Decompose Query\n(Sub-Question Strategy)" as UC_Decompose
+        usecase "Retrieve FAISS Context\n(Top-K Vector Search)" as UC_FAISS
+        usecase "Synthesize Answer\n(Gemini LLM with Citations)" as UC_Synthesize
+        usecase "Generate Vector Embeddings\n(all-mpnet-base-v2, 768-d)" as UC_Embed
+        usecase "Scrape Full Text\n(Polite Scraper with Fallback)" as UC_Scrape
+    }
+}
+
+' ==============================================================================
+' RELATIONSHIPS & ASSOCIATIONS (STEREOTYPE TEXT REMOVED)
+' ==============================================================================
+
+' Primary Actor Associations
+User -- UC_Search
+User -- UC_Cancel
+User -- UC_Browse
+User -- UC_PDF
+User -- UC_ViewPub
+User -- UC_Upload
+User -- UC_ListDatasets
+User -- UC_ExportCSV
+User -- UC_DeleteDataset
+User -- UC_AnalyzeKW
+User -- UC_WordCloud
+User -- UC_CooccurGraph
+User -- UC_ExportKW
+User -- UC_AnalyzeCountry
+User -- UC_WorldMap
+User -- UC_CountryRank
+User -- UC_CollabNet
+User -- UC_ExportCountry
+User -- UC_AskAI
+User -- UC_Embed
+
+' Generalization (Specialized Search Modes inherit Base Search)
+UC_Unified -up-|> UC_Search
+UC_PubMed -up-|> UC_Search
+UC_OpenAlex -up-|> UC_Search
+
+' Research Paper Search: Inclusions & Extensions
+UC_Search ..> UC_QueryOpt
+UC_Search ..> UC_Browse
+UC_Filters ..> UC_Search
+UC_Rerank ..> UC_Search
+UC_PDF ..> UC_Browse
+UC_ViewPub ..> UC_Browse
+
+' Keyword Analytics: Inclusions & Extensions
+UC_AnalyzeKW ..> UC_NormKW
+UC_AnalyzeKW ..> UC_FreqKW
+UC_AnalyzeKW ..> UC_Centrality
+UC_AnalyzeKW ..> UC_PresenceMatrix
+UC_WordCloud ..> UC_AnalyzeKW
+UC_CooccurGraph ..> UC_AnalyzeKW
+UC_ExportKW ..> UC_AnalyzeKW
+
+' Country Analysis: Inclusions & Extensions
+UC_AnalyzeCountry ..> UC_ExtractCountry
+UC_AnalyzeCountry ..> UC_Unassigned
+UC_AnalyzeCountry ..> UC_CountryRank
+UC_WorldMap ..> UC_AnalyzeCountry
+UC_CollabNet ..> UC_AnalyzeCountry
+UC_ExportCountry ..> UC_AnalyzeCountry
+
+' AI Assistant: Inclusions & Extensions
+UC_AskAI ..> UC_Decompose
+UC_AskAI ..> UC_FAISS
+UC_AskAI ..> UC_Synthesize
+UC_Scrape ..> UC_Embed
+
+' External Actor Interactions
+UC_Search -- NCBI
+UC_Search -- OpenAlex
+UC_PDF -- Publisher
+UC_Synthesize -- Gemini
+
+@enduml

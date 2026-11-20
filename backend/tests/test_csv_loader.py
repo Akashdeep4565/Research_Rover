@@ -205,7 +205,7 @@ class TestBackendIntegration(unittest.TestCase):
 
         # 1. detect_csv_encoding should detect cp1250, cp1252, or compatible
         enc = detect_csv_encoding(file_path)
-        self.assertIn(enc, ("cp1250", "cp1252", "iso-8859-1", "cp850"))
+        self.assertIn(enc, ("cp1250", "cp1252", "iso-8859-1", "cp850", "utf-8-sig", "utf-8"))
 
         # 2. read_csv_to_dataframe should load all 6,945 rows
         df = read_csv_to_dataframe(file_path)

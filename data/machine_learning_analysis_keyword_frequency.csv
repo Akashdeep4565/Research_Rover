@@ -1,0 +1,101 @@
+﻿keyword,frequency,percentage
+machine learning,426,42.6
+artificial intelligence,107,10.7
+deep learning,86,8.6
+shap,23,2.3
+biomarkers,17,1.7
+radiomics,17,1.7
+natural language processing,14,1.4
+prediction model,14,1.4
+random forest,13,1.3
+predictive modeling,11,1.1
+explainable ai,11,1.1
+risk prediction,9,0.9
+breast cancer,9,0.9
+bioinformatics,9,0.9
+drug discovery,9,0.9
+molecular docking,9,0.9
+clinical decision support,9,0.9
+feature selection,8,0.8
+risk assessment,8,0.8
+interpretable machine learning,8,0.8
+federated learning,8,0.8
+prognosis,8,0.8
+mri,7,0.7
+diagnosis,7,0.7
+antimicrobial resistance,7,0.7
+depression,7,0.7
+predictive model,7,0.7
+risk stratification,7,0.7
+explainable artificial intelligence,7,0.7
+xgboost,7,0.7
+optimization,7,0.7
+classification,7,0.7
+large language model,7,0.7
+multi-omics,7,0.7
+precision medicine,6,0.6
+sepsis,6,0.6
+magnetic resonance imaging,6,0.6
+ensemble learning,6,0.6
+molecular dynamics,6,0.6
+meta-analysis,6,0.6
+glioblastoma,6,0.6
+large language models,6,0.6
+cardiovascular disease,6,0.6
+biomarker,6,0.6
+external validation,6,0.6
+single-cell rna sequencing,6,0.6
+personalized medicine,5,0.5
+chronic kidney disease,5,0.5
+prediction,5,0.5
+hepatocellular carcinoma,5,0.5
+metabolomics,5,0.5
+graph neural networks,5,0.5
+remote sensing,5,0.5
+computer vision,5,0.5
+prognostic model,5,0.5
+electronic health records,5,0.5
+support vector machine,5,0.5
+mendelian randomization,5,0.5
+parkinson’s disease,5,0.5
+nomogram,5,0.5
+lipid metabolism,5,0.5
+acute kidney injury,5,0.5
+screening,5,0.5
+inflammation,5,0.5
+alzheimer’s disease,5,0.5
+neural networks,5,0.5
+gradient boosting,5,0.5
+transfer learning,5,0.5
+epilepsy,4,0.4
+tumor microenvironment,4,0.4
+reinforcement learning,4,0.4
+hybrid machine learning,4,0.4
+cervical cancer,4,0.4
+health equity,4,0.4
+gastric cancer,4,0.4
+convolutional neural networks,4,0.4
+prostate cancer,4,0.4
+digital health,4,0.4
+computed tomography,4,0.4
+wgcna,4,0.4
+immune microenvironment,4,0.4
+colorectal cancer,4,0.4
+ultrasonography,4,0.4
+mortality,4,0.4
+aging,4,0.4
+shapley additive explanations,4,0.4
+immune infiltration,4,0.4
+systems biology,4,0.4
+transformer,4,0.4
+data science,4,0.4
+intensive care unit,4,0.4
+phytochemicals,4,0.4
+schizophrenia,4,0.4
+electroencephalography,3,0.3
+biomarker discovery,3,0.3
+next-generation sequencing,3,0.3
+electronic medical records,3,0.3
+acute myeloid leukemia,3,0.3
+trustworthy ai,3,0.3
+cognitive science,3,0.3

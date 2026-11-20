@@ -1,4 +1,3 @@
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 export function Footer() {
@@ -9,9 +8,11 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">RR</span>
-              </div>
+              <img
+                src="/assets/research-rover-logo.png"
+                alt="Research ROVER"
+                className="h-8 w-auto object-contain"
+              />
               <span className="text-xl font-bold gradient-text">
                 Research Rover
               </span>
@@ -74,14 +75,6 @@ export function Footer() {
                   href="#" 
                   className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#" 
-                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-                >
                   API Reference
                 </a>
               </li>
@@ -108,7 +101,7 @@ export function Footer() {
         <div className="mt-8 pt-8 border-t border-gray-200 dark:border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-600 dark:text-gray-300 text-sm">
-              © 2025 Research Rover. All rights reserved.
+              © 2026 Research Rover. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a 

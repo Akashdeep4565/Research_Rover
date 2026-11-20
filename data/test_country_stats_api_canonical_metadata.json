@@ -1,0 +1,181 @@
+{
+  "filename": "test_country_stats_api.csv",
+  "total_records": 2,
+  "valid_records": 2,
+  "duplicate_records": 0,
+  "overall_quality_score": 26.0,
+  "quality_grade": "Poor",
+  "canonical_fields_detected": [
+    "title",
+    "abstract",
+    "journal",
+    "publication_year",
+    "affiliations"
+  ],
+  "column_mappings": {
+    "Title": {
+      "original_column": "Title",
+      "canonical_field": "title",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'title'"
+    },
+    "Abstract": {
+      "original_column": "Abstract",
+      "canonical_field": "abstract",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'abstract'"
+    },
+    "Source": {
+      "original_column": "Source",
+      "canonical_field": "journal",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'source' to canonical 'journal'"
+    },
+    "Publication Year": {
+      "original_column": "Publication Year",
+      "canonical_field": "publication_year",
+      "confidence": 1.0,
+      "matching_method": "deterministic_alias",
+      "status": "matched",
+      "details": "Matched alias 'publication year' to canonical 'publication_year'"
+    },
+    "Affiliations": {
+      "original_column": "Affiliations",
+      "canonical_field": "affiliations",
+      "confidence": 1.0,
+      "matching_method": "exact_canonical",
+      "status": "matched",
+      "details": "Exact match to canonical field 'affiliations'"
+    }
+  },
+  "unmapped_columns": [],
+  "conflicts": [],
+  "feature_readiness": {
+    "keyword_analysis": {
+      "feature_name": "Keyword Frequency & Word Clouds",
+      "status": "not_ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "keywords"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No keyword data found in dataset."
+      ],
+      "explanation": "None of the papers contain keywords. Keyword frequency tables and word clouds cannot be generated."
+    },
+    "cooccurrence_analysis": {
+      "feature_name": "Keyword Co-occurrence & Network Centralities",
+      "status": "not_ready",
+      "required_fields": [
+        "keywords"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "keywords"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "Fewer than 2 papers contain multi-keyword combinations."
+      ],
+      "explanation": "Network co-occurrence and centrality scores require papers with at least 2 keywords each to compute graph edges."
+    },
+    "country_analysis": {
+      "feature_name": "Country Distribution & Collaboration Networks",
+      "status": "ready",
+      "required_fields": [
+        "affiliations"
+      ],
+      "available_fields": [
+        "affiliations"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [],
+      "explanation": "2/2 papers (100.0%) contain institutional or country affiliations. Geoparsing and collaboration graphs fully operational."
+    },
+    "author_analysis": {
+      "feature_name": "Author Analytics & Collaboration",
+      "status": "not_ready",
+      "required_fields": [
+        "authors"
+      ],
+      "available_fields": [],
+      "missing_fields": [
+        "authors"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No author names present in dataset."
+      ],
+      "explanation": "Author metadata is absent. Author frequency, co-authorship lists, and researcher rankings cannot be computed."
+    },
+    "trend_analysis": {
+      "feature_name": "Research Publication Trends",
+      "status": "partially_ready",
+      "required_fields": [
+        "publication_year"
+      ],
+      "available_fields": [
+        "publication_year"
+      ],
+      "missing_fields": [],
+      "coverage_percentage": 100.0,
+      "warnings": [
+        "Single publication year ([2024]) or low year coverage (100.0%)."
+      ],
+      "explanation": "Trend charts can display available data, but temporal trajectory analysis requires multiple years of coverage."
+    },
+    "semantic_search": {
+      "feature_name": "Semantic Vector Search & Indexing",
+      "status": "not_ready",
+      "required_fields": [
+        "abstract"
+      ],
+      "available_fields": [
+        "title"
+      ],
+      "missing_fields": [
+        "abstract"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No paper abstracts or downloadable URLs available for text embedding."
+      ],
+      "explanation": "Semantic search requires paper text (abstracts or full-text URLs) to generate sentence embeddings and build FAISS vector indices."
+    },
+    "ai_chat_rag": {
+      "feature_name": "AI Research Assistant (RAG Chat)",
+      "status": "not_ready",
+      "required_fields": [
+        "abstract",
+        "title"
+      ],
+      "available_fields": [
+        "title"
+      ],
+      "missing_fields": [
+        "abstract"
+      ],
+      "coverage_percentage": 0.0,
+      "warnings": [
+        "No text content available to index for document-grounded RAG answers."
+      ],
+      "explanation": "Without abstract or full text embeddings, AI Chat cannot retrieve paper context and would produce ungrounded generic answers."
+    }
+  },
+  "recommendations": [
+    "Keywords coverage is 0.0%. Adding semicolon-delimited keywords unlocks keyword frequency and network co-occurrence graphs."
+  ],
+  "generated_at": 1795159446.260264,
+  "csv_mtime": 1795159446.242703
+}

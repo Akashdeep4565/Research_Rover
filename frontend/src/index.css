@@ -4,58 +4,148 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    --background: 250 100% 99%;
+    --foreground: 224 41% 13%;
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 3.9%;
+    --card-foreground: 224 41% 13%;
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 3.9%;
-    --primary: 0 0% 9%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 0 0% 96.1%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 96.1%;
-    --muted-foreground: 0 0% 45.1%;
-    --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 89.8%;
-    --input: 0 0% 89.8%;
-    --ring: 0 0% 3.9%;
-    --radius: 0.5rem;
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
+    --popover-foreground: 224 41% 13%;
+    --primary: 248 80% 39%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 175 100% 21%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 232 50% 96%;
+    --muted-foreground: 240 10% 31%;
+    --accent: 232 50% 96%;
+    --accent-foreground: 224 41% 13%;
+    --destructive: 343 100% 24%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 247 16% 81%;
+    --input: 247 16% 81%;
+    --ring: 248 80% 39%;
+    --radius: 0.75rem;
+    --chart-1: 248 80% 39%;
+    --chart-2: 175 100% 21%;
+    --chart-3: 343 100% 24%;
+    --chart-4: 262 83% 58%;
     --chart-5: 27 87% 67%;
+
+    /* Radiant Luminary Design Tokens (Light) */
+    --surface: #faf8ff;
+    --surface-dim: #d2d9f4;
+    --surface-bright: #faf8ff;
+    --surface-container-lowest: #ffffff;
+    --surface-container-low: #f2f3ff;
+    --surface-container: #eaedff;
+    --surface-container-high: #e2e7ff;
+    --surface-container-highest: #dae2fd;
+    --surface-variant: #dae2fd;
+    --on-surface: #131b2e;
+    --on-surface-variant: #464554;
+    --inverse-surface: #283044;
+    --inverse-on-surface: #eef0ff;
+    --outline: #777586;
+    --outline-variant: #c7c4d7;
+    --surface-tint: #5148d7;
+
+    --brand-primary: #2a14b4;
+    --brand-primary-container: #4338ca;
+    --brand-primary-fixed: #e3dfff;
+    --brand-primary-fixed-dim: #c3c0ff;
+    --on-brand-primary: #ffffff;
+    --on-brand-primary-container: #c1beff;
+    --on-brand-primary-fixed: #100069;
+    --on-brand-primary-fixed-variant: #372abf;
+
+    --brand-secondary: #006a61;
+    --brand-secondary-container: #86f2e4;
+    --brand-secondary-fixed: #89f5e7;
+    --brand-secondary-fixed-dim: #6bd8cb;
+    --on-brand-secondary: #ffffff;
+    --on-brand-secondary-container: #006f66;
+    --on-brand-secondary-fixed: #00201d;
+    --on-brand-secondary-fixed-variant: #005049;
+
+    --brand-tertiary: #7b0022;
+    --brand-tertiary-container: #a60031;
+    --brand-tertiary-fixed: #ffdadb;
+    --brand-tertiary-fixed-dim: #ffb2b7;
+    --on-brand-tertiary: #ffffff;
+    --on-brand-tertiary-container: #ffb0b5;
+    --on-brand-tertiary-fixed: #40000d;
+    --on-brand-tertiary-fixed-variant: #92002a;
   }
 
   .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
+    --background: 222 47% 7%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 10%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 47% 10%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 239 84% 67%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 173 80% 40%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 17%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 347 77% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 239 84% 67%;
+    --chart-1: 239 84% 67%;
+    --chart-2: 173 80% 40%;
+    --chart-3: 347 77% 50%;
+    --chart-4: 262 83% 58%;
     --chart-5: 340 75% 55%;
+
+    /* Radiant Luminary Design Tokens (Dark) */
+    --surface: #0b0f19;
+    --surface-dim: #0f1422;
+    --surface-bright: #161e2e;
+    --surface-container-lowest: #0d121f;
+    --surface-container-low: #131b2e;
+    --surface-container: #1a233a;
+    --surface-container-high: #222d4a;
+    --surface-container-highest: #2b395b;
+    --surface-variant: #283044;
+    --on-surface: #f8fafc;
+    --on-surface-variant: #94a3b8;
+    --inverse-surface: #e2e8f0;
+    --inverse-on-surface: #0f172a;
+    --outline: #64748b;
+    --outline-variant: rgba(255, 255, 255, 0.12);
+    --surface-tint: #818cf8;
+
+    --brand-primary: #818cf8;
+    --brand-primary-container: #4f46e5;
+    --brand-primary-fixed: #312e81;
+    --brand-primary-fixed-dim: #3730a3;
+    --on-brand-primary: #ffffff;
+    --on-brand-primary-container: #e0e7ff;
+    --on-brand-primary-fixed: #e0e7ff;
+    --on-brand-primary-fixed-variant: #c7d2fe;
+
+    --brand-secondary: #2dd4bf;
+    --brand-secondary-container: #115e59;
+    --brand-secondary-fixed: #134e4a;
+    --brand-secondary-fixed-dim: #042f2e;
+    --on-brand-secondary: #00201d;
+    --on-brand-secondary-container: #ccfbf1;
+    --on-brand-secondary-fixed: #ccfbf1;
+    --on-brand-secondary-fixed-variant: #99f6e4;
+
+    --brand-tertiary: #fb7185;
+    --brand-tertiary-container: #9f1239;
+    --brand-tertiary-fixed: #881337;
+    --brand-tertiary-fixed-dim: #4c0519;
+    --on-brand-tertiary: #ffffff;
+    --on-brand-tertiary-container: #ffe4e6;
+    --on-brand-tertiary-fixed: #ffe4e6;
+    --on-brand-tertiary-fixed-variant: #fecdd3;
   }
 }
 
@@ -80,6 +170,36 @@
 @layer components {
   .glass-effect {
     @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  /* Radiant Luminary Glass & Surface Utilities */
+  .glass-panel {
+    background-color: var(--surface-container-lowest);
+    background-color: color-mix(in srgb, var(--surface-container-lowest) 82%, transparent);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--outline-variant);
+  }
+
+  .glass-panel-elevated {
+    background-color: var(--surface-container-lowest);
+    background-color: color-mix(in srgb, var(--surface-container-lowest) 92%, transparent);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--outline-variant);
+    box-shadow: 0 10px 30px -5px rgba(42, 20, 180, 0.08), 0 4px 6px -2px rgba(15, 23, 42, 0.02);
+  }
+
+  .glow-orb-primary {
+    background: radial-gradient(circle, rgba(67, 56, 202, 0.12) 0%, transparent 70%);
+  }
+
+  .glow-orb-secondary {
+    background: radial-gradient(circle, rgba(0, 106, 97, 0.10) 0%, transparent 70%);
+  }
+
+  .glow-orb-tertiary {
+    background: radial-gradient(circle, rgba(123, 0, 34, 0.08) 0%, transparent 70%);
   }
   
   .gradient-text {

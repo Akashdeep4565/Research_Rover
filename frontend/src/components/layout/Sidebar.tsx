@@ -136,79 +136,80 @@ export function Sidebar() {
   // Full detailed status card (used in expanded desktop mode and mobile drawer)
   const renderDetailedStatusCard = () => (
     <div
-      className="p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-lg border border-blue-200 dark:border-blue-800"
+      className="p-3.5 bg-surface-container-low/80 dark:bg-slate-800/60 rounded-2xl border border-outline-variant/30 shadow-sm transition-all"
       title={statusTooltip}
     >
-      <h4 className="text-sm font-semibold text-blue-900 dark:text-blue-100 mb-2">
-        System Status
-      </h4>
+      <div className="flex items-center justify-between mb-2.5">
+        <h4 className="text-xs font-semibold text-on-surface uppercase tracking-wider font-mono">
+          System Status
+        </h4>
+        <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
+      </div>
       <div className="space-y-2 text-xs">
         {/* API Status Row */}
         <div className="flex items-center justify-between">
-          <span className="text-blue-700 dark:text-blue-300">API</span>
-          <div className="flex items-center">
-            <div
-              className={`w-2 h-2 rounded-full mr-2 ${
+          <span className="text-on-surface-variant font-medium">FastAPI Engine</span>
+          <div className="flex items-center gap-1.5">
+            <span
+              className={`w-2 h-2 rounded-full ${
                 apiStatus === 'online'
-                  ? 'bg-green-500'
+                  ? 'bg-emerald-500'
                   : apiStatus === 'offline'
-                  ? 'bg-red-500'
+                  ? 'bg-rose-500'
                   : 'bg-amber-500 animate-pulse'
               }`}
             />
             <span
-              className={
+              className={`text-xs font-medium ${
                 apiStatus === 'online'
-                  ? 'text-green-600 dark:text-green-400 font-medium'
+                  ? 'text-emerald-600 dark:text-emerald-400'
                   : apiStatus === 'offline'
-                  ? 'text-red-600 dark:text-red-400 font-medium'
-                  : 'text-amber-600 dark:text-amber-400 font-medium'
-              }
+                  ? 'text-rose-600 dark:text-rose-400'
+                  : 'text-amber-600 dark:text-amber-400'
+              }`}
             >
-              {apiStatus === 'online' ? 'Online' : apiStatus === 'offline' ? 'Offline' : 'Checking...'}
+              {apiStatus === 'online' ? 'Online' : apiStatus === 'offline' ? 'Offline' : 'Checking'}
             </span>
           </div>
         </div>
 
         {/* Model Status Row */}
         <div className="flex items-center justify-between">
-          <span className="text-blue-700 dark:text-blue-300">Models</span>
-          <div className="flex items-center">
-            <div
-              className={`w-2 h-2 rounded-full mr-2 ${
+          <span className="text-on-surface-variant font-medium">Model Pipeline</span>
+          <div className="flex items-center gap-1.5">
+            <span
+              className={`w-2 h-2 rounded-full ${
                 modelStatus === 'loaded'
-                  ? 'bg-green-500'
+                  ? 'bg-emerald-500'
                   : modelStatus === 'loading'
                   ? 'bg-amber-500 animate-pulse'
                   : modelStatus === 'partial'
                   ? 'bg-amber-500'
                   : modelStatus === 'not_loaded' || modelStatus === 'error'
-                  ? 'bg-red-500'
+                  ? 'bg-rose-500'
                   : 'bg-amber-500 animate-pulse'
               }`}
             />
             <span
-              className={
+              className={`text-xs font-medium ${
                 modelStatus === 'loaded'
-                  ? 'text-green-600 dark:text-green-400 font-medium'
+                  ? 'text-emerald-600 dark:text-emerald-400'
                   : modelStatus === 'loading' || modelStatus === 'partial'
-                  ? 'text-amber-600 dark:text-amber-400 font-medium'
+                  ? 'text-amber-600 dark:text-amber-400'
                   : modelStatus === 'not_loaded' || modelStatus === 'error'
-                  ? 'text-red-600 dark:text-red-400 font-medium'
-                  : 'text-amber-600 dark:text-amber-400 font-medium'
-              }
+                  ? 'text-rose-600 dark:text-rose-400'
+                  : 'text-amber-600 dark:text-amber-400'
+              }`}
             >
               {modelStatus === 'loaded'
-                ? 'Loaded'
+                ? 'Ready'
                 : modelStatus === 'loading'
-                ? 'Loading...'
+                ? 'Loading'
                 : modelStatus === 'partial'
                 ? 'Partial'
                 : modelStatus === 'not_loaded' || modelStatus === 'error'
-                ? 'Not Loaded'
-                : modelStatus === 'checking'
-                ? 'Checking...'
-                : 'Unknown'}
+                ? 'Offline'
+                : 'Checking'}
             </span>
           </div>
         </div>
@@ -220,7 +221,7 @@ export function Sidebar() {
     <>
       {/* ── Desktop Sidebar (Expanded or Icon-only Rail) ── */}
       <aside
-        className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border-r border-gray-200 dark:border-gray-800 transition-all duration-300 ease-in-out z-30 hidden md:flex md:flex-col ${
+        className={`fixed left-0 top-16 h-[calc(100vh-4rem)] bg-surface-container-lowest/85 dark:bg-slate-900/85 backdrop-blur-xl border-r border-outline-variant/30 shadow-card transition-all duration-300 ease-in-out z-30 hidden md:flex md:flex-col ${
           isCollapsed ? 'w-20' : 'w-64'
         }`}
       >
@@ -231,7 +232,7 @@ export function Sidebar() {
             <button
               type="button"
               onClick={toggleCollapse}
-              className="p-2 mb-4 rounded-xl text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/60 transition-colors focus:outline-none"
+              className="p-2 mb-4 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-colors focus:outline-none focus:ring-2 focus:ring-primary/40"
               title="Expand sidebar"
               aria-label="Expand sidebar"
             >
@@ -247,15 +248,15 @@ export function Sidebar() {
                     key={item.name}
                     to={item.href}
                     title={item.name}
-                    className={`relative flex items-center justify-center w-11 h-11 rounded-xl transition-all duration-200 ${
+                    className={`relative flex items-center justify-center w-11 h-11 rounded-full transition-all duration-200 ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 shadow-sm'
-                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-gray-100'
+                        ? 'bg-primary-fixed text-primary dark:bg-primary-container dark:text-white shadow-sm'
+                        : 'text-on-surface-variant hover:bg-surface-container-high/60 hover:text-on-surface'
                     }`}
                   >
                     <item.icon className="h-5 w-5" />
                     {isActive && (
-                      <div className="absolute right-1 top-2.5 bottom-2.5 w-1 bg-blue-600 dark:bg-blue-400 rounded-full" />
+                      <div className="absolute right-1 top-3 bottom-3 w-1 bg-primary rounded-full" />
                     )}
                   </Link>
                 )
@@ -263,14 +264,14 @@ export function Sidebar() {
             </nav>
 
             {/* Quick Actions Icons */}
-            <div className="mt-6 w-full flex flex-col items-center space-y-2 pt-4 border-t border-gray-200 dark:border-gray-800">
+            <div className="mt-6 w-full flex flex-col items-center space-y-2 pt-4 border-t border-outline-variant/30">
               {quickActions.map((action) => (
                 <button
                   key={action.name}
                   type="button"
                   onClick={action.action}
                   title={action.name}
-                  className="flex items-center justify-center w-11 h-11 rounded-xl text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-200"
+                  className="flex items-center justify-center w-11 h-11 rounded-full text-on-surface-variant hover:bg-surface-container-high/60 hover:text-on-surface transition-all duration-200"
                 >
                   <action.icon className="h-5 w-5" />
                 </button>
@@ -279,27 +280,27 @@ export function Sidebar() {
 
             {/* Compact System Status Indicator */}
             <div
-              className="mt-auto w-full flex flex-col items-center pt-4 border-t border-gray-200 dark:border-gray-800 pb-2"
+              className="mt-auto w-full flex flex-col items-center pt-4 border-t border-outline-variant/30 pb-2"
               title={`System Status\n• API: ${apiStatus}\n• Models: ${modelStatus}\n${statusTooltip}`}
             >
-              <div className="flex flex-col items-center gap-1.5 p-2 rounded-xl bg-blue-50/50 dark:bg-blue-900/20 border border-blue-200/50 dark:border-blue-800/50 cursor-help">
-                <div
+              <div className="flex flex-col items-center gap-1.5 p-2 rounded-full bg-surface-container-low/80 dark:bg-slate-800/60 border border-outline-variant/30 cursor-help">
+                <span
                   className={`w-2.5 h-2.5 rounded-full ${
                     apiStatus === 'online'
-                      ? 'bg-green-500'
+                      ? 'bg-emerald-500'
                       : apiStatus === 'offline'
-                      ? 'bg-red-500'
+                      ? 'bg-rose-500'
                       : 'bg-amber-500 animate-pulse'
                   }`}
                   title={`API: ${apiStatus}`}
                 />
-                <div
+                <span
                   className={`w-2.5 h-2.5 rounded-full ${
                     modelStatus === 'loaded'
-                      ? 'bg-green-500'
+                      ? 'bg-emerald-500'
                       : modelStatus === 'loading' || modelStatus === 'partial'
                       ? 'bg-amber-500 animate-pulse'
-                      : 'bg-red-500'
+                      : 'bg-rose-500'
                   }`}
                   title={`Models: ${modelStatus}`}
                 />
@@ -308,16 +309,16 @@ export function Sidebar() {
           </div>
         ) : (
           /* Expanded Desktop View */
-          <div className="p-6 flex flex-col h-full overflow-y-auto custom-scrollbar">
+          <div className="p-5 flex flex-col h-full overflow-y-auto custom-scrollbar">
             {/* Header / Collapse Bar */}
-            <div className="flex items-center justify-between mb-4">
-              <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
-                Navigation
+            <div className="flex items-center justify-between mb-4 px-1">
+              <h3 className="text-xs font-semibold text-on-surface-variant uppercase tracking-wider font-mono">
+                Workspace
               </h3>
               <button
                 type="button"
                 onClick={toggleCollapse}
-                className="p-1.5 rounded-lg text-gray-400 hover:text-gray-700 dark:hover:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors focus:outline-none"
+                className="p-1.5 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-colors focus:outline-none"
                 title="Collapse sidebar"
                 aria-label="Collapse sidebar"
               >
@@ -326,25 +327,25 @@ export function Sidebar() {
             </div>
 
             {/* Navigation Links */}
-            <nav className="space-y-1.5">
+            <nav className="space-y-1">
               {sidebarItems.map((item) => {
                 const isActive = location.pathname === item.href
                 return (
                   <Link
                     key={item.name}
                     to={item.href}
-                    className={`flex items-center px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                    className={`flex items-center px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 shadow-sm'
-                        : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-gray-100'
+                        ? 'bg-primary-fixed text-primary dark:bg-primary-container dark:text-white font-semibold shadow-sm'
+                        : 'text-on-surface-variant hover:bg-surface-container-high/60 hover:text-on-surface'
                     }`}
                   >
-                    <item.icon className="mr-3 h-5 w-5" />
-                    {item.name}
+                    <item.icon className="mr-3 h-5 w-5 shrink-0" />
+                    <span>{item.name}</span>
                     {isActive && (
                       <motion.div
                         layoutId="sidebar-indicator"
-                        className="ml-auto w-1 h-6 bg-blue-600 dark:bg-blue-400 rounded-full"
+                        className="ml-auto w-1 h-5 bg-primary dark:bg-primary-fixed rounded-full"
                       />
                     )}
                   </Link>
@@ -353,20 +354,20 @@ export function Sidebar() {
             </nav>
 
             {/* Quick Actions */}
-            <div className="mt-8">
-              <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-4">
-                Quick Actions
+            <div className="mt-6 pt-5 border-t border-outline-variant/30">
+              <h3 className="text-xs font-semibold text-on-surface-variant uppercase tracking-wider font-mono mb-3 px-1">
+                Data Tools
               </h3>
-              <div className="space-y-1.5">
+              <div className="space-y-1">
                 {quickActions.map((action) => (
                   <button
                     key={action.name}
                     type="button"
                     onClick={action.action}
-                    className="flex items-center w-full px-3 py-2 rounded-lg text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800/50 hover:text-gray-900 dark:hover:text-gray-100 transition-all duration-200"
+                    className="flex items-center w-full px-3.5 py-2 rounded-xl text-sm font-medium text-on-surface-variant hover:bg-surface-container-high/60 hover:text-on-surface transition-all duration-200 text-left"
                   >
-                    <action.icon className="mr-3 h-5 w-5" />
-                    {action.name}
+                    <action.icon className="mr-3 h-4 w-4 shrink-0 text-outline" />
+                    <span>{action.name}</span>
                   </button>
                 ))}
               </div>
@@ -400,34 +401,34 @@ export function Sidebar() {
               animate={{ x: 0 }}
               exit={{ x: -320 }}
               transition={{ type: 'spring', damping: 25, stiffness: 220 }}
-              className="fixed inset-y-0 left-0 z-50 w-72 bg-white dark:bg-slate-900 border-r border-gray-200 dark:border-gray-800 shadow-2xl flex flex-col md:hidden overflow-y-auto custom-scrollbar"
+              className="fixed inset-y-0 left-0 z-50 w-72 bg-surface dark:bg-slate-900 border-r border-outline-variant/30 shadow-2xl flex flex-col md:hidden overflow-y-auto custom-scrollbar"
             >
               <div className="p-6 flex flex-col h-full">
                 {/* Drawer Header */}
-                <div className="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-gray-800 mb-6">
-                  <div className="flex items-center space-x-3">
+                <div className="flex items-center justify-between pb-4 border-b border-outline-variant/30 mb-6">
+                  <div className="flex items-center gap-2.5">
                     <img
                       src="/assets/research-rover-logo.png"
                       alt="Research ROVER"
                       className="h-7 w-auto object-contain"
                     />
-                    <span className="text-lg font-bold gradient-text">
+                    <span className="font-display font-bold text-lg text-on-surface tracking-tight">
                       Research Rover
                     </span>
                   </div>
                   <button
                     type="button"
                     onClick={closeMobile}
-                    className="p-2 rounded-xl text-gray-500 hover:text-gray-800 dark:text-gray-400 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                    className="p-2 rounded-full text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high/60 transition-colors"
                     aria-label="Close navigation"
                   >
-                    <XMarkIcon className="h-6 w-6" />
+                    <XMarkIcon className="h-5 w-5" />
                   </button>
                 </div>
 
                 {/* Navigation Links */}
-                <nav className="space-y-2 mb-6">
-                  <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
+                <nav className="space-y-1.5 mb-6">
+                  <h3 className="text-xs font-semibold text-on-surface-variant uppercase tracking-wider font-mono mb-2 px-1">
                     Navigation
                   </h3>
                   {sidebarItems.map((item) => {
@@ -439,23 +440,23 @@ export function Sidebar() {
                         onClick={closeMobile}
                         className={`flex items-center px-3.5 py-2.5 rounded-xl text-sm font-medium transition-all ${
                           isActive
-                            ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
-                            : 'text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                            ? 'bg-primary-fixed text-primary dark:bg-primary-container dark:text-white font-semibold shadow-sm'
+                            : 'text-on-surface-variant hover:bg-surface-container-high/60 hover:text-on-surface'
                         }`}
                       >
-                        <item.icon className="mr-3 h-5 w-5" />
-                        {item.name}
+                        <item.icon className="mr-3 h-5 w-5 shrink-0" />
+                        <span>{item.name}</span>
                       </Link>
                     )
                   })}
                 </nav>
 
                 {/* Quick Actions */}
-                <div className="mb-6">
-                  <h3 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-2">
-                    Quick Actions
+                <div className="mb-6 pt-4 border-t border-outline-variant/30">
+                  <h3 className="text-xs font-semibold text-on-surface-variant uppercase tracking-wider font-mono mb-2 px-1">
+                    Data Tools
                   </h3>
-                  <div className="space-y-1.5">
+                  <div className="space-y-1">
                     {quickActions.map((action) => (
                       <button
                         key={action.name}
@@ -464,17 +465,17 @@ export function Sidebar() {
                           closeMobile()
                           action.action()
                         }}
-                        className="flex items-center w-full px-3.5 py-2.5 rounded-xl text-sm font-medium text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 transition-all"
+                        className="flex items-center w-full px-3.5 py-2 rounded-xl text-sm font-medium text-on-surface-variant hover:bg-surface-container-high/60 hover:text-on-surface transition-all text-left"
                       >
-                        <action.icon className="mr-3 h-5 w-5" />
-                        {action.name}
+                        <action.icon className="mr-3 h-4 w-4 shrink-0 text-outline" />
+                        <span>{action.name}</span>
                       </button>
                     ))}
                   </div>
                 </div>
 
                 {/* Status Card in Drawer */}
-                <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-800">
+                <div className="mt-auto pt-4 border-t border-outline-variant/30">
                   {renderDetailedStatusCard()}
                 </div>
               </div>

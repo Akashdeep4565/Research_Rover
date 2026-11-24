@@ -1,28 +1,29 @@
 import React, { useState, useRef, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import {
   PaperAirplaneIcon,
   CpuChipIcon,
   DocumentTextIcon,
-  ArrowUpTrayIcon,
   ChevronDownIcon,
   XMarkIcon,
-  ShieldCheckIcon,
   StopIcon,
   TrashIcon,
   ArrowDownCircleIcon,
   LightBulbIcon,
+  ExclamationTriangleIcon,
+  ChatBubbleLeftRightIcon,
+  ArrowPathIcon,
 } from '@heroicons/react/24/outline'
-import type { ExtendedFileUploadResponse, DatasetQualityReport } from '@/types'
-import { filesApi } from '@/services/api'
 import { useChat } from '@/context/ChatContext'
 import { useEmbedding } from '@/context/EmbeddingContext'
+import { useSearch } from '@/context/SearchContext'
+import { useAnalytics } from '@/context/AnalyticsContext'
 import { useTheme } from '@/components/theme-provider'
 import { EmbeddingProgressModal } from '@/components/EmbeddingProgressModal'
-import { DatasetQualityModal } from '@/components/DatasetQualityModal'
-import { DatasetFeatureReadinessBanner } from '@/components/DatasetFeatureReadinessBanner'
 import { ChatMessageItem } from '@/components/chat/ChatMessageItem'
 import { ChatLoadingIndicator } from '@/components/chat/ChatLoadingIndicator'
+import { ChatHistorySidebar } from '@/components/chat/ChatHistorySidebar'
 
 const QUICK_PROMPTS = [
   'Summarize the core methodologies across these papers',
@@ -38,6 +39,8 @@ export function ChatPage() {
     inputMessage,
     setInputMessage,
     isLoading,
+    streamingStatus,
+    isLoadingMessages,
     selectedFile,
     setSelectedFile,
     availableFiles,
@@ -58,45 +61,84 @@ export function ChatPage() {
     setScrapeFullText,
   } = useEmbedding()
 
-  const scrollContainerRef = useRef<HTMLDivElement>(null)
-  const messagesEndRef = useRef<HTMLDivElement>(null)
-  const fileInputRef = useRef<HTMLInputElement>(null)
-  const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const location = useLocation()
+  const { csvFilename: searchCsv } = useSearch()
+  const { selectedFile: analyticsCsv } = useAnalytics()
 
-  const [uploading, setUploading] = useState(false)
-  const [isQualityModalOpen, setIsQualityModalOpen] = useState(false)
-  const [selectedQualityData, setSelectedQualityData] = useState<
-    ExtendedFileUploadResponse | DatasetQualityReport | null
-  >(null)
-  const [isScrolledUp, setIsScrolledUp] = useState(false)
+  const lastSyncedSearchRef = useRef(searchCsv)
+  const lastSyncedAnalyticsRef = useRef(analyticsCsv)
+  const hasInitialSyncedRef = useRef(false)
 
-  // Upload handler
-  const handleUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    e.target.value = ''
-    if (!file) return
-    if (!file.name.toLowerCase().endsWith('.csv')) {
-      setError('Please upload a .csv file')
+  // Automatically synchronize active research collection from Search, Analytics, or router state
+  useEffect(() => {
+    const navFile = (location.state as any)?.filename
+    if (navFile && navFile !== selectedFile) {
+      addAvailableFile(navFile)
       return
     }
-    setError('')
-    setUploading(true)
-    try {
-      const res = await filesApi.upload(file)
-      addAvailableFile(res.filename)
-      setSelectedQualityData(res)
-      setIsQualityModalOpen(true)
-    } catch (err: any) {
-      setError(err?.error || err?.detail || 'Failed to upload file')
-    } finally {
-      setUploading(false)
+
+    if (!hasInitialSyncedRef.current) {
+      const initialCandidate = searchCsv || analyticsCsv
+      if (initialCandidate && initialCandidate !== selectedFile) {
+        addAvailableFile(initialCandidate)
+      }
+      hasInitialSyncedRef.current = true
+    } else {
+      if (searchCsv && searchCsv !== lastSyncedSearchRef.current && searchCsv !== selectedFile) {
+        addAvailableFile(searchCsv)
+      } else if (analyticsCsv && analyticsCsv !== lastSyncedAnalyticsRef.current && analyticsCsv !== selectedFile) {
+        addAvailableFile(analyticsCsv)
+      }
+    }
+
+    lastSyncedSearchRef.current = searchCsv
+    lastSyncedAnalyticsRef.current = analyticsCsv
+  }, [location.state, searchCsv, analyticsCsv, selectedFile, addAvailableFile])
+
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true)
+  const scrollContainerRef = useRef<HTMLDivElement>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+  const [isScrolledUp, setIsScrolledUp] = useState(false)
+  const [hasNewContentWhileScrolledUp, setHasNewContentWhileScrolledUp] = useState(false)
+  const prevMessagesCountRef = useRef(messages.length)
+
+  // Internal smooth container scrolling (avoids window-level page jumping)
+  const scrollToBottom = (behavior: ScrollBehavior = 'smooth') => {
+    setIsScrolledUp(false)
+    setHasNewContentWhileScrolledUp(false)
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTo({
+        top: scrollContainerRef.current.scrollHeight,
+        behavior,
+      })
     }
   }
 
   // Auto-scroll when new messages arrive, unless user has scrolled up to inspect earlier content
   useEffect(() => {
+    const isNewTurn = messages.length > prevMessagesCountRef.current
+    const lastMsg = messages[messages.length - 1]
+    const isUserSend = isNewTurn && lastMsg?.type === 'user'
+    prevMessagesCountRef.current = messages.length
+
+    if (isUserSend) {
+      // User sent a message: always scroll directly to bottom
+      scrollToBottom('smooth')
+      return
+    }
+
     if (!isScrolledUp) {
-      messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+      // Near bottom: smoothly track response generation
+      if (scrollContainerRef.current) {
+        scrollContainerRef.current.scrollTo({
+          top: scrollContainerRef.current.scrollHeight,
+          behavior: 'smooth',
+        })
+      }
+    } else if (isNewTurn && lastMsg?.type === 'assistant') {
+      // Scrolled up: keep reading position and show badge on floating scroll button
+      setHasNewContentWhileScrolledUp(true)
     }
   }, [messages, isLoading, isScrolledUp])
 
@@ -105,12 +147,11 @@ export function ChatPage() {
     if (!scrollContainerRef.current) return
     const { scrollTop, scrollHeight, clientHeight } = scrollContainerRef.current
     const distanceFromBottom = scrollHeight - scrollTop - clientHeight
-    setIsScrolledUp(distanceFromBottom > 140)
-  }
-
-  const scrollToBottom = () => {
-    setIsScrolledUp(false)
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const scrolledUp = distanceFromBottom > 110
+    setIsScrolledUp(scrolledUp)
+    if (!scrolledUp) {
+      setHasNewContentWhileScrolledUp(false)
+    }
   }
 
   // Auto-resize textarea
@@ -134,15 +175,15 @@ export function ChatPage() {
     }
   }
 
-  const inputDisabled = !selectedFile || isLoading || isCreatingEmbeddings
+  const inputDisabled = isLoading || isCreatingEmbeddings
   const sendDisabled = !inputMessage.trim() || inputDisabled
 
   const inputPlaceholder = isCreatingEmbeddings
     ? 'Building embeddings, please wait…'
     : !selectedFile
-    ? 'Select a collection to begin, or ask a general query…'
+    ? 'Ask a general research query, or select a collection above for cited answers…'
     : !hasEmbeddings
-    ? 'Ask away — create embeddings for paper-grounded answers…'
+    ? 'Ask a question (general knowledge mode until embeddings are generated)…'
     : 'Ask about your research papers (Markdown, LaTeX, & Diagrams supported)…'
 
   // Identify last assistant message index for regenerate button
@@ -201,12 +242,22 @@ export function ChatPage() {
         </div>
       </motion.div>
 
-      {/* ── Collection & Setup Panel ── */}
-      <motion.div
-        initial={{ opacity: 0, y: 16 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.1 }}
-      >
+      {/* ── Main Layout: History Sidebar + Chat Content ── */}
+      <div className="flex flex-col lg:flex-row items-start gap-6">
+        <ChatHistorySidebar
+          isOpen={isSidebarOpen}
+          onToggle={() => setIsSidebarOpen((prev) => !prev)}
+          onNewChat={() => textareaRef.current?.focus()}
+        />
+
+        {/* ── Main Chat Area ── */}
+        <div className="flex-1 min-w-0 w-full space-y-6">
+          {/* ── Collection & Setup Panel ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.1 }}
+          >
         <div className="rounded-2xl border border-gray-200 dark:border-slate-800/60 bg-white dark:bg-slate-900 p-5 shadow-sm">
           <div className="mb-4 flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -237,10 +288,10 @@ export function ChatPage() {
             )}
           </div>
 
-          {/* File Row */}
+          {/* File Selection and Indexing Row */}
           <div className="flex flex-col gap-1.5">
             <div className="flex flex-wrap items-stretch gap-2.5">
-              <div className="group relative min-w-[220px] flex-1">
+              <div className="group relative min-w-[240px] flex-1">
                 <select
                   value={selectedFile || ''}
                   onChange={(e) => setSelectedFile(e.target.value)}
@@ -259,38 +310,6 @@ export function ChatPage() {
                 </span>
               </div>
 
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept=".csv"
-                onChange={handleUpload}
-                className="hidden"
-              />
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                disabled={uploading || isCreatingEmbeddings}
-                title="Upload a CSV"
-                className="flex shrink-0 items-center gap-1.5 rounded-xl border border-gray-300 bg-gradient-to-b from-white to-gray-50/70 px-3.5 py-2.5 text-sm font-medium text-gray-700 shadow-sm transition hover:border-sky-400/70 hover:text-gray-900 hover:shadow-md hover:shadow-sky-500/5 disabled:cursor-not-allowed disabled:opacity-60 dark:border-slate-700/80 dark:from-slate-900 dark:to-slate-900/40 dark:text-slate-300 dark:hover:border-sky-500/50 dark:hover:text-slate-100"
-              >
-                <ArrowUpTrayIcon className={`h-4 w-4 ${uploading ? 'animate-pulse' : ''}`} />
-                <span className="hidden sm:inline">{uploading ? 'Uploading…' : 'Upload'}</span>
-              </button>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setSelectedQualityData(null)
-                  setIsQualityModalOpen(true)
-                }}
-                disabled={!selectedFile}
-                title="View dataset quality, column mappings and feature readiness"
-                className="flex shrink-0 items-center gap-1.5 rounded-xl border border-sky-300 dark:border-sky-700/80 bg-sky-50/70 dark:bg-sky-950/40 px-3.5 py-2.5 text-sm font-semibold text-sky-700 dark:text-sky-300 shadow-sm transition hover:bg-sky-100 hover:border-sky-400 dark:hover:bg-sky-900/50 disabled:cursor-not-allowed disabled:opacity-50"
-              >
-                <ShieldCheckIcon className="h-4 w-4" />
-                <span className="hidden sm:inline">Quality & Schema</span>
-              </button>
-
               {selectedFile && (
                 <button
                   type="button"
@@ -301,10 +320,10 @@ export function ChatPage() {
                       ? 'Rebuild this index with current settings'
                       : 'Build the semantic FAISS index for this collection'
                   }
-                  className="flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-md shadow-sky-500/25 transition hover:from-sky-400 hover:to-indigo-400 hover:shadow-lg hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-500 px-4 py-2.5 text-sm font-semibold text-white shadow-md shadow-sky-500/25 transition hover:from-sky-400 hover:to-indigo-400 hover:shadow-lg hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   <CpuChipIcon className={`h-4 w-4 ${isCreatingEmbeddings ? 'animate-spin' : ''}`} />
-                  <span className="hidden sm:inline">
+                  <span>
                     {isCreatingEmbeddings
                       ? 'Building…'
                       : hasEmbeddings
@@ -316,19 +335,26 @@ export function ChatPage() {
             </div>
           </div>
 
-          {selectedFile && (
-            <DatasetFeatureReadinessBanner
-              filename={selectedFile}
-              onOpenModal={() => {
-                setSelectedQualityData(null)
-                setIsQualityModalOpen(true)
-              }}
-              className="mt-3.5"
-            />
+          {selectedFile && !hasEmbeddings && !isCreatingEmbeddings && (
+            <div className="mt-3.5 flex flex-wrap items-center justify-between gap-2.5 rounded-xl border border-amber-500/30 bg-amber-500/10 px-4 py-2.5 text-xs text-amber-800 dark:text-amber-200">
+              <div className="flex items-center gap-2">
+                <ExclamationTriangleIcon className="h-4 w-4 shrink-0 text-amber-500" />
+                <span>
+                  <strong>Embeddings not indexed:</strong> Questions about <em>{selectedFile}</em> will use general AI knowledge until indexed. Generate embeddings to enable document-grounded answers with citations.
+                </span>
+              </div>
+              <button
+                type="button"
+                onClick={() => startEmbeddings(selectedFile, false)}
+                className="shrink-0 rounded-lg bg-amber-600 px-3 py-1 font-semibold text-white shadow-sm hover:bg-amber-500 transition"
+              >
+                Generate embeddings
+              </button>
+            </div>
           )}
 
           {/* Settings Row */}
-          <div className="mt-3 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between text-xs text-gray-500 dark:text-slate-400">
+          <div className="mt-3.5 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:justify-between text-xs text-gray-500 dark:text-slate-400 border-t border-gray-100 dark:border-slate-800/80 pt-3">
             <label className="flex cursor-pointer items-center gap-2">
               <input
                 type="checkbox"
@@ -384,6 +410,19 @@ export function ChatPage() {
           {/* Header */}
           <div className="flex items-center justify-between border-b border-gray-100 dark:border-slate-800/80 px-6 py-3.5 bg-gray-50/60 dark:bg-slate-950/40">
             <div className="flex items-center gap-2">
+              {/* Sidebar toggle button when collapsed or on narrow screens */}
+              <button
+                type="button"
+                onClick={() => setIsSidebarOpen((prev) => !prev)}
+                title={isSidebarOpen ? 'Hide Chat History' : 'Show Chat History'}
+                className={`flex items-center gap-1.5 rounded-lg border border-gray-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-2.5 py-1 text-xs font-semibold text-gray-700 dark:text-slate-300 hover:bg-gray-100 dark:hover:bg-slate-800 transition shadow-sm ${
+                  isSidebarOpen ? 'lg:hidden' : ''
+                }`}
+              >
+                <ChatBubbleLeftRightIcon className="h-3.5 w-3.5 text-sky-500" />
+                <span>History</span>
+              </button>
+
               <div className="h-1 w-5 rounded-full bg-sky-500" />
               <span className="text-xs font-bold uppercase tracking-[0.2em] text-gray-600 dark:text-slate-400">
                 Conversation
@@ -416,62 +455,76 @@ export function ChatPage() {
           <div
             ref={scrollContainerRef}
             onScroll={handleScroll}
-            className="flex flex-col min-h-[460px] max-h-[640px] overflow-y-auto p-6 space-y-4"
+            className="flex flex-col min-h-[460px] max-h-[640px] overflow-y-auto overscroll-contain p-6 space-y-4"
           >
-            {/* Messages list */}
-            {messages.map((msg, index) => (
-              <ChatMessageItem
-                key={msg.id || index}
-                message={msg}
-                isLastAssistantMessage={index === lastAssistantIndex}
-                onRegenerate={regenerateResponse}
-                disabled={isLoading}
-              />
-            ))}
-
-            {/* Quick prompt suggestions when only the initial greeting is present */}
-            {messages.length <= 1 && (
-              <div className="my-6 rounded-2xl border border-sky-100 dark:border-slate-800/80 bg-sky-50/40 dark:bg-slate-950/40 p-5">
-                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-3">
-                  <LightBulbIcon className="h-4 w-4" />
-                  <span>Suggested Research Inquiries</span>
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                  {QUICK_PROMPTS.map((promptText, i) => (
-                    <button
-                      key={i}
-                      type="button"
-                      onClick={() => sendMessage(promptText)}
-                      disabled={inputDisabled}
-                      className="text-left rounded-xl border border-gray-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 text-xs text-gray-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-600 dark:hover:text-sky-300 hover:shadow-sm transition disabled:opacity-50"
-                    >
-                      {promptText} →
-                    </button>
-                  ))}
-                </div>
+            {isLoadingMessages ? (
+              <div className="flex flex-col items-center justify-center min-h-[340px] py-16 text-center">
+                <ArrowPathIcon className="h-6 w-6 animate-spin text-sky-500 mb-2" />
+                <span className="text-xs text-gray-500 dark:text-slate-400 font-medium">
+                  Loading conversation history…
+                </span>
               </div>
+            ) : (
+              <>
+                {/* Messages list */}
+                {messages
+                  .filter((msg) => msg.content || msg.isError || !msg.isStreaming)
+                  .map((msg, index) => (
+                    <ChatMessageItem
+                      key={msg.id || index}
+                      message={msg}
+                      isLastAssistantMessage={index === lastAssistantIndex}
+                      onRegenerate={regenerateResponse}
+                      disabled={isLoading}
+                    />
+                  ))}
+
+                {/* Quick prompt suggestions when only the initial greeting is present */}
+                {messages.length <= 1 && (
+                  <div className="my-6 rounded-2xl border border-sky-100 dark:border-slate-800/80 bg-sky-50/40 dark:bg-slate-950/40 p-5">
+                    <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 mb-3">
+                      <LightBulbIcon className="h-4 w-4" />
+                      <span>Suggested Research Inquiries</span>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {QUICK_PROMPTS.map((promptText, i) => (
+                        <button
+                          key={i}
+                          type="button"
+                          onClick={() => sendMessage(promptText)}
+                          disabled={inputDisabled}
+                          className="text-left rounded-xl border border-gray-200/80 dark:border-slate-800 bg-white dark:bg-slate-900 p-3 text-xs text-gray-700 dark:text-slate-300 hover:border-sky-400 hover:text-sky-600 dark:hover:text-sky-300 hover:shadow-sm transition disabled:opacity-50"
+                        >
+                          {promptText} →
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </>
             )}
 
             {/* Live Loading Indicator */}
-            {isLoading && (
+            {isLoading && (!messages[messages.length - 1]?.content) && (
               <ChatLoadingIndicator
                 onStop={stopGeneration}
-                statusMessage="Research Rover is searching paper embeddings & generating answer…"
+                statusMessage={streamingStatus || "Research Rover is searching paper embeddings & generating answer…"}
               />
             )}
-
-            <div ref={messagesEndRef} />
           </div>
 
           {/* Floating Scroll To Bottom Button */}
           {isScrolledUp && (
             <button
               type="button"
-              onClick={scrollToBottom}
-              className="absolute bottom-24 right-8 z-20 flex items-center gap-1 rounded-full bg-sky-600 text-white px-3 py-1.5 text-xs font-semibold shadow-lg hover:bg-sky-500 transition animate-bounce"
+              onClick={() => scrollToBottom('smooth')}
+              className="absolute bottom-24 right-8 z-20 flex items-center gap-2 rounded-full bg-sky-600 hover:bg-sky-500 text-white px-3.5 py-2 text-xs font-semibold shadow-lg shadow-sky-600/30 transition transform hover:scale-105"
             >
               <ArrowDownCircleIcon className="h-4 w-4" />
-              <span>Scroll to latest</span>
+              <span>{hasNewContentWhileScrolledUp ? 'New response below' : 'Scroll to latest'}</span>
+              {hasNewContentWhileScrolledUp && (
+                <span className="h-2 w-2 rounded-full bg-amber-300 animate-pulse" />
+              )}
             </button>
           )}
 
@@ -523,15 +576,11 @@ export function ChatPage() {
           </div>
         </div>
       </motion.div>
+        </div>
+      </div>
 
       {/* Modals */}
       <EmbeddingProgressModal />
-      <DatasetQualityModal
-        isOpen={isQualityModalOpen}
-        onClose={() => setIsQualityModalOpen(false)}
-        filename={selectedFile}
-        initialData={selectedQualityData}
-      />
     </div>
   )
 }

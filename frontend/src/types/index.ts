@@ -29,19 +29,73 @@ export interface SearchFilters {
   sortMode?: SortMode
 }
 
+export interface CitationSource {
+  id: number
+  type: string
+  content_preview: string
+  title?: string
+  url?: string
+  doi?: string
+  source?: string
+  year?: number
+}
+
 export interface ChatMessage {
   id: string
   type: 'user' | 'assistant'
   content: string
   timestamp: number
-  sources?: Array<{
-    id: number
-    type: string
-    content_preview: string
-    title?: string
-    url?: string
-    doi?: string
-  }>
+  isError?: boolean
+  sources?: CitationSource[]
+  conversation_id?: string
+  isStreaming?: boolean
+}
+
+// ─── Persistent Conversation Types (Phase 3) ─────────────────────────────────
+export interface ConversationMessage {
+  id: string
+  conversation_id: string
+  role: 'user' | 'assistant'
+  content: string
+  is_error: boolean
+  sources?: CitationSource[]
+  created_at: string
+}
+
+export interface Conversation {
+  id: string
+  title: string
+  dataset_filename: string | null
+  created_at: string
+  updated_at: string
+  messages: ConversationMessage[]
+}
+
+export interface ConversationSummary {
+  id: string
+  title: string
+  dataset_filename: string | null
+  message_count: number
+  created_at: string
+  updated_at: string
+}
+
+export type ConversationListItem = ConversationSummary
+
+export interface ConversationCreate {
+  title?: string
+  dataset_filename?: string | null
+}
+
+export interface ConversationUpdate {
+  title: string
+}
+
+export interface ConversationListResponse {
+  conversations: ConversationSummary[]
+  total: number
+  limit: number
+  offset: number
 }
 
 export type Theme = 'dark' | 'light' | 'system'

@@ -17,6 +17,13 @@ class Settings(BaseSettings):
     
     # Directories
     DATA_FOLDER: str = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', 'data'))
+    DATABASE_NAME: str = "research_rover_chat.db"
+
+    @property
+    def DATABASE_URL(self) -> str:
+        """Construct the SQLite connection string using the configured DATA_FOLDER."""
+        db_path = os.path.join(self.DATA_FOLDER, self.DATABASE_NAME).replace("\\", "/")
+        return f"sqlite+aiosqlite:///{db_path}"
     
     # Model Configuration
     EMBEDDING_MODEL: str = 'all-mpnet-base-v2'

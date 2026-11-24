@@ -1,4 +1,5 @@
-import axios, { AxiosResponse } from 'axios'
+import axios, { type AxiosResponse } from 'axios'
+import { createSSEParser, type ParsedSSEEvent } from './sseParser.ts'
 import type {
   Paper,
   AnalysisRequest,
@@ -10,6 +11,13 @@ import type {
   SystemStatusResponse,
   ExtendedFileUploadResponse,
   DatasetQualityReport,
+  Conversation,
+  ConversationSummary,
+  ConversationListItem,
+  ConversationCreate,
+  ConversationUpdate,
+  ConversationListResponse,
+  CitationSource,
 } from '@/types'
 
 // API Request/Response types
@@ -46,18 +54,49 @@ export interface SearchProgress {
   results_count?: number
 }
 
+export interface ChatHistoryMessage {
+  role: 'user' | 'assistant'
+  content: string
+}
+
 export interface ChatRequest {
   message: string
-  filename?: string
+  filename?: string | null
+  history?: ChatHistoryMessage[]
+  conversation_id?: string | null
 }
 
 export interface ChatResponse {
   response: string
-  sources?: Array<{
-    id: number
-    type: string
-    content_preview: string
-  }>
+  sources?: CitationSource[]
+  query?: string
+  conversation_id?: string | null
+  message_id?: string | null
+}
+
+export interface StreamStatusPayload {
+  stage: 'retrieving' | 'generating' | string
+  message: string
+}
+
+export interface StreamDonePayload {
+  message_id: string | null
+  conversation_id: string | null
+  status: 'completed' | string
+}
+
+export interface StreamErrorPayload {
+  error: string
+  code?: string
+}
+
+export interface StreamChatOptions {
+  onStatus?: (status: StreamStatusPayload) => void
+  onCitations?: (sources: CitationSource[]) => void
+  onDelta?: (text: string) => void
+  onDone?: (done: StreamDonePayload) => void
+  onError?: (error: StreamErrorPayload) => void
+  signal?: AbortSignal
 }
 
 export interface FileInfo {
@@ -82,7 +121,7 @@ export interface ApiError {
 
 // Get base URL from environment variables
 const getBaseURL = () => {
-  return import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api/v1'
+  return (typeof import.meta !== 'undefined' && import.meta.env?.VITE_API_BASE_URL) || 'http://localhost:8000/api/v1'
 }
 
 // Create axios instance
@@ -246,6 +285,57 @@ export const filesApi = {
   },
 }
 
+// Re-export conversation types for convenience
+export type {
+  Conversation,
+  ConversationSummary,
+  ConversationListItem,
+  ConversationCreate,
+  ConversationUpdate,
+  ConversationListResponse,
+  CitationSource,
+}
+
+// Conversations API (Phase 3 Backend Persistence)
+export const conversationsApi = {
+  list: async (
+    dataset_filename?: string | null,
+    limit: number = 50,
+    offset: number = 0
+  ): Promise<ConversationListResponse> => {
+    const params: Record<string, any> = { limit, offset }
+    if (dataset_filename !== undefined && dataset_filename !== null) {
+      params.dataset_filename = dataset_filename
+    }
+    const response: AxiosResponse<ConversationListResponse> = await api.get('/chat/conversations', { params })
+    return response.data
+  },
+
+  get: async (conversationId: string): Promise<Conversation> => {
+    const response: AxiosResponse<Conversation> = await api.get(`/chat/conversations/${conversationId}`)
+    return response.data
+  },
+
+  create: async (data: ConversationCreate): Promise<Conversation> => {
+    const response: AxiosResponse<Conversation> = await api.post('/chat/conversations', data)
+    return response.data
+  },
+
+  rename: async (conversationId: string, title: string): Promise<ConversationSummary> => {
+    const payload: ConversationUpdate = { title }
+    const response: AxiosResponse<ConversationSummary> = await api.patch(
+      `/chat/conversations/${conversationId}`,
+      payload
+    )
+    return response.data
+  },
+
+  delete: async (conversationId: string): Promise<{ message: string; data?: { conversation_id: string } }> => {
+    const response = await api.delete(`/chat/conversations/${conversationId}`)
+    return response.data
+  },
+}
+
 // Chat API
 export const chatApi = {
   sendMessage: async (
@@ -267,6 +357,105 @@ export const chatApi = {
       signal,
     })
     return response.data
+  },
+
+  streamMessage: async (
+    request: ChatRequest,
+    options: StreamChatOptions
+  ): Promise<void> => {
+    const url = `${getBaseURL()}/chat/stream`
+
+    let response: Response
+    try {
+      response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'text/event-stream',
+        },
+        body: JSON.stringify(request),
+        signal: options.signal,
+      })
+    } catch (err: any) {
+      if (options.signal?.aborted || err?.name === 'AbortError') {
+        throw err
+      }
+      throw new Error(err?.message || 'Failed to establish connection to streaming endpoint')
+    }
+
+    if (!response.ok) {
+      let errorDetail = `HTTP ${response.status}`
+      try {
+        const errorJson = await response.json()
+        errorDetail = errorJson.detail || errorJson.error || errorDetail
+      } catch {
+        const errorText = await response.text()
+        if (errorText) errorDetail = errorText
+      }
+
+      const statusError = new Error(errorDetail) as any
+      statusError.status = response.status
+      statusError.code = String(response.status)
+      throw statusError
+    }
+
+    if (!response.body) {
+      throw new Error('Streaming response body is missing')
+    }
+
+    const reader = response.body.getReader()
+    const decoder = new TextDecoder('utf-8')
+
+    const parser = createSSEParser({
+      onEvent: (event: ParsedSSEEvent) => {
+        switch (event.event) {
+          case 'status':
+            options.onStatus?.(event.data)
+            break
+          case 'citations':
+            options.onCitations?.(event.data?.sources || [])
+            break
+          case 'delta':
+            if (event.data?.text !== undefined) {
+              options.onDelta?.(event.data.text)
+            }
+            break
+          case 'done':
+            options.onDone?.(event.data)
+            break
+          case 'error':
+            options.onError?.(event.data)
+            break
+          default:
+            break
+        }
+      },
+      onError: (err) => {
+        console.warn('SSE parse error:', err)
+      },
+    })
+
+    try {
+      while (true) {
+        if (options.signal?.aborted) {
+          await reader.cancel()
+          break
+        }
+
+        const { done, value } = await reader.read()
+        if (done) {
+          parser.flush()
+          break
+        }
+
+        if (value) {
+          const textChunk = decoder.decode(value, { stream: true })
+          parser.feed(textChunk)
+        }
+      }
+    } finally {
+      reader.releaseLock()
+    }
   },
 }
 

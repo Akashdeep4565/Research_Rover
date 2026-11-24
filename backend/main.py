@@ -36,6 +36,14 @@ async def lifespan(app: FastAPI):
     # Create data directory
     os.makedirs(settings.DATA_FOLDER, exist_ok=True)
     
+    # Initialize database tables
+    try:
+        from app.db.session import init_db
+        await init_db()
+        logger.info("Database initialized successfully")
+    except Exception as e:
+        logger.error(f"Database initialization failed: {e}")
+    
     logger.info("Research Rover API started successfully")
     yield
     

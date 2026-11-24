@@ -10,6 +10,7 @@ import {
   ChevronDownIcon,
   ChevronUpIcon,
   ArrowTopRightOnSquareIcon,
+  ExclamationTriangleIcon,
 } from '@heroicons/react/24/outline'
 import type { ChatMessage } from '@/types'
 import { MarkdownRenderer } from './MarkdownRenderer'
@@ -77,15 +78,34 @@ export function ChatMessageItem({
       className="flex items-start gap-3.5 my-3"
     >
       {/* AI Avatar */}
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-sky-400/40 bg-sky-500/10 text-sky-600 shadow-sm dark:border-sky-500/30 dark:bg-sky-950/40 dark:text-sky-400">
-        <CpuChipIcon className="h-5 w-5" />
+      <div
+        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border shadow-sm ${
+          message.isError
+            ? 'border-rose-400/40 bg-rose-500/10 text-rose-600 dark:border-rose-500/30 dark:bg-rose-950/40 dark:text-rose-400'
+            : 'border-sky-400/40 bg-sky-500/10 text-sky-600 dark:border-sky-500/30 dark:bg-sky-950/40 dark:text-sky-400'
+        }`}
+      >
+        {message.isError ? (
+          <ExclamationTriangleIcon className="h-5 w-5" />
+        ) : (
+          <CpuChipIcon className="h-5 w-5" />
+        )}
       </div>
 
       {/* Main Response Container */}
       <div className="flex flex-1 min-w-0 max-w-full flex-col gap-2">
-        <div className="rounded-2xl rounded-tl-sm border border-gray-200/90 dark:border-slate-800/80 bg-white dark:bg-slate-900/90 p-5 shadow-sm transition-shadow hover:shadow-md">
+        <div
+          className={`rounded-2xl rounded-tl-sm border p-5 shadow-sm transition-shadow hover:shadow-md ${
+            message.isError
+              ? 'border-rose-200 dark:border-rose-900/60 bg-rose-50/50 dark:bg-rose-950/20'
+              : 'border-gray-200/90 dark:border-slate-800/80 bg-white dark:bg-slate-900/90'
+          }`}
+        >
           {/* Markdown & LaTeX Rendered Body */}
           <MarkdownRenderer content={message.content} />
+          {message.isStreaming && (
+            <span className="inline-block w-2 h-4 ml-1 bg-sky-500 animate-pulse rounded-sm align-middle" />
+          )}
 
           {/* Sources Section */}
           {message.sources && message.sources.length > 0 && (
@@ -129,7 +149,7 @@ export function ChatMessageItem({
                                 {index + 1}
                               </span>
                               <span className="font-semibold text-gray-500 dark:text-slate-400 text-[10px] uppercase tracking-wider">
-                                Source Reference
+                                {source.source ? `${source.source}${source.year ? ` • ${source.year}` : ''}` : 'Source Reference'}
                               </span>
                             </div>
 
@@ -172,38 +192,51 @@ export function ChatMessageItem({
         {/* Action Controls Bar */}
         <div className="flex items-center justify-between px-2 text-xs text-gray-400 dark:text-slate-500">
           <div className="flex items-center gap-2">
-            {/* Copy Response Button */}
-            <button
-              type="button"
-              onClick={handleCopy}
-              className="flex items-center gap-1 rounded-md px-2 py-1 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-gray-700 dark:hover:text-slate-300 transition"
-              title="Copy entire answer"
-            >
-              {copied ? (
-                <>
-                  <ClipboardDocumentCheckIcon className="h-3.5 w-3.5 text-emerald-500" />
-                  <span className="text-emerald-500 font-medium">Copied</span>
-                </>
-              ) : (
-                <>
-                  <ClipboardDocumentIcon className="h-3.5 w-3.5" />
-                  <span>Copy</span>
-                </>
-              )}
-            </button>
+            {!message.isStreaming && (
+              <>
+                {/* Copy Response Button */}
+                <button
+                  type="button"
+                  onClick={handleCopy}
+                  className="flex items-center gap-1 rounded-md px-2 py-1 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-gray-700 dark:hover:text-slate-300 transition"
+                  title="Copy entire answer"
+                >
+                  {copied ? (
+                    <>
+                      <ClipboardDocumentCheckIcon className="h-3.5 w-3.5 text-emerald-500" />
+                      <span className="text-emerald-500 font-medium">Copied</span>
+                    </>
+                  ) : (
+                    <>
+                      <ClipboardDocumentIcon className="h-3.5 w-3.5" />
+                      <span>Copy</span>
+                    </>
+                  )}
+                </button>
 
-            {/* Regenerate Response Button */}
-            {isLastAssistantMessage && onRegenerate && (
-              <button
-                type="button"
-                onClick={onRegenerate}
-                disabled={disabled}
-                className="flex items-center gap-1 rounded-md px-2 py-1 hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-gray-700 dark:hover:text-slate-300 disabled:opacity-40 transition"
-                title="Regenerate this response"
-              >
-                <ArrowPathIcon className="h-3.5 w-3.5" />
-                <span>Regenerate</span>
-              </button>
+                {/* Regenerate or Retry Response Button */}
+                {isLastAssistantMessage && onRegenerate && (
+                  <button
+                    type="button"
+                    onClick={onRegenerate}
+                    disabled={disabled}
+                    className={`flex items-center gap-1 rounded-md px-2 py-1 transition disabled:opacity-40 ${
+                      message.isError
+                        ? 'bg-rose-600 hover:bg-rose-500 text-white font-medium shadow-sm'
+                        : 'hover:bg-gray-100 dark:hover:bg-slate-800 hover:text-gray-700 dark:hover:text-slate-300'
+                    }`}
+                    title={message.isError ? 'Retry sending your question' : 'Regenerate this response'}
+                  >
+                    <ArrowPathIcon className="h-3.5 w-3.5" />
+                    <span>{message.isError ? 'Retry question' : 'Regenerate'}</span>
+                  </button>
+                )}
+              </>
+            )}
+            {message.isStreaming && (
+              <span className="text-[11px] text-sky-500 animate-pulse font-medium">
+                Generating…
+              </span>
             )}
           </div>
 

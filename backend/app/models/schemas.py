@@ -2,7 +2,7 @@
 Pydantic models for request/response schemas
 """
 
-from datetime import date
+from datetime import date, datetime
 from pydantic import BaseModel, Field, validator
 from typing import List, Optional, Dict, Any, Union
 from enum import Enum
@@ -93,16 +93,78 @@ class EmbeddingOptions(BaseModel):
     max_scrape: Optional[int] = Field(None, ge=0, description="Cap the number of URLs to scrape (0 = no cap).")
     force: Optional[bool] = Field(None, description="Rebuild even if embeddings already exist (overwrites them).")
 
+class ChatHistoryMessage(BaseModel):
+    """Conversation history message model"""
+    role: str = Field(..., description="Role: 'user' or 'assistant'")
+    content: str = Field(..., description="Message text content")
+
 class ChatRequest(BaseModel):
     """Chat request model"""
     message: str = Field(..., min_length=1, max_length=1000, description="Chat message")
     filename: Optional[str] = Field(None, description="CSV filename for context")
+    history: Optional[List[ChatHistoryMessage]] = Field(default_factory=list, description="Recent conversation history")
+    conversation_id: Optional[str] = Field(None, description="Optional conversation session ID for persistence")
 
 class ChatResponse(BaseModel):
     """Chat response model"""
     response: str = Field(..., description="AI response")
     sources: List[Dict[str, Any]] = Field(default_factory=list, description="Source citations")
     query: str = Field(..., description="Original query")
+    conversation_id: Optional[str] = Field(None, description="Associated persistent conversation ID")
+    message_id: Optional[str] = Field(None, description="Persisted assistant message ID")
+
+class MessageResponse(BaseModel):
+    """Message schema for conversation history"""
+    id: str
+    conversation_id: str
+    role: str
+    content: str
+    is_error: bool = False
+    sources: List[Dict[str, Any]] = Field(default_factory=list)
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+class ConversationCreate(BaseModel):
+    """Schema for creating a new conversation"""
+    title: Optional[str] = Field(None, max_length=255, description="Initial conversation title")
+    dataset_filename: Optional[str] = Field(None, description="Associated CSV dataset filename (or null for general chat)")
+
+class ConversationUpdate(BaseModel):
+    """Schema for renaming/updating a conversation"""
+    title: str = Field(..., min_length=1, max_length=255, description="Updated conversation title")
+
+class ConversationListItem(BaseModel):
+    """Conversation summary item for listing"""
+    id: str
+    title: str
+    dataset_filename: Optional[str] = None
+    message_count: int = 0
+    created_at: datetime
+    updated_at: datetime
+
+    class Config:
+        from_attributes = True
+
+class ConversationResponse(BaseModel):
+    """Full conversation with messages"""
+    id: str
+    title: str
+    dataset_filename: Optional[str] = None
+    created_at: datetime
+    updated_at: datetime
+    messages: List[MessageResponse] = Field(default_factory=list)
+
+    class Config:
+        from_attributes = True
+
+class ConversationListResponse(BaseModel):
+    """Paginated conversation list response"""
+    conversations: List[ConversationListItem]
+    total: int
+    limit: int
+    offset: int
 
 class FileInfo(BaseModel):
     """File information model"""

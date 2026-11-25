@@ -3,6 +3,7 @@ Pydantic models for request/response schemas
 """
 
 from datetime import date, datetime
+import time
 from pydantic import BaseModel, Field, validator
 from typing import List, Optional, Dict, Any, Union
 from enum import Enum
@@ -70,6 +71,8 @@ class SearchResponse(BaseModel):
     total_pages: int
     per_page: int
     search_source: str
+    warning: Optional[str] = None
+    total_esearch_count: Optional[int] = None
 
 class SearchProgress(BaseModel):
     """Search progress model"""
@@ -79,6 +82,7 @@ class SearchProgress(BaseModel):
     timestamp: float = Field(..., description="Timestamp")
     status: str = Field("idle", description="Status: idle, searching, completed, error, cancelled")
     progress: int = Field(0, description="Progress percentage (0-100)")
+    warning: Optional[str] = None
 
 class EmbeddingProgress(BaseModel):
     """Embedding progress model"""
@@ -411,7 +415,42 @@ class ExtendedFileUploadResponse(BaseModel):
     index_status: str = Field("not_indexed", description="Vector index status (indexed, not_indexed)")
 
 
+class PDFUploadResponse(BaseModel):
+    """Response returned upon initiating PDF upload and background indexing."""
+    doc_id: str = Field(..., description="Unique document identifier (pdf_{uuid8}_{clean_basename})")
+    filename: str = Field(..., description="Original PDF filename")
+    title: str = Field("Unknown Title", description="Document title extracted from metadata or filename")
+    file_size: int = Field(0, description="Size of the uploaded PDF file in bytes")
+    status: str = Field("indexing", description="Document processing status (indexing, ready, failed)")
+    message: str = Field("PDF uploaded successfully. Indexing started in background.", description="Status message")
+
+
+class PDFStatusResponse(BaseModel):
+    """Detailed status of a registered PDF document."""
+    doc_id: str = Field(..., description="Unique document identifier")
+    filename: str = Field(..., description="Original PDF filename")
+    title: str = Field("Unknown Title", description="Document title")
+    status: str = Field("indexing", description="Processing status (indexing, ready, failed)")
+    total_pages: Optional[int] = Field(None, description="Total number of pages in document")
+    total_chunks: Optional[int] = Field(None, description="Total vector chunks created")
+    created_at: float = Field(default_factory=time.time, description="Creation timestamp")
+    error: Optional[str] = Field(None, description="Error message if indexing failed")
+
+
+class DocumentItem(BaseModel):
+    """Unified document representation for both CSV datasets and registered PDF documents."""
+    id: str = Field(..., description="Document identifier: doc_id for PDF, filename for CSV")
+    display_name: str = Field(..., description="Human-readable title or filename")
+    type: str = Field(..., description="Document type ('csv' or 'pdf')")
+    has_embeddings: bool = Field(False, description="Whether queryable embeddings exist")
+    status: str = Field("ready", description="Status ('ready', 'indexing', 'failed')")
+    total_pages: Optional[int] = Field(None, description="Total pages if PDF")
+    file_size: int = Field(0, description="File size in bytes")
+    created_at: float = Field(default_factory=time.time, description="Timestamp")
+
+
 __all__ = [name for name in dir() if not name.startswith("_")]
+
 
 
 

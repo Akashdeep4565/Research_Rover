@@ -37,6 +37,8 @@ search_progress_state = {
 _last_results: List[Paper] = []
 _last_csv_filename: str = ""
 _last_search_source: str = "unified"
+_last_warning: Optional[str] = None
+_last_total_esearch_count: Optional[int] = None
 
 # Handle to the running search task and a cooperative cancel flag, so a
 # POST /search/cancel can both interrupt the asyncio task and stop the
@@ -61,7 +63,7 @@ async def cancel_search():
     blocking thread-pool call immediately). Safe to call when nothing is
     running — it's a no-op.
     """
-    global search_progress_state, _current_search_task, _cancel_event, _last_results, _last_csv_filename
+    global search_progress_state, _current_search_task, _cancel_event, _last_results, _last_csv_filename, _last_warning, _last_total_esearch_count
 
     running = (
         search_progress_state.get("status") == "searching"
@@ -76,6 +78,8 @@ async def cancel_search():
     if running:
         _last_results = []
         _last_csv_filename = ""
+        _last_warning = None
+        _last_total_esearch_count = None
         search_progress_state = {
             "stage": 0,
             "sub_stage": 0,
@@ -83,6 +87,7 @@ async def cancel_search():
             "timestamp": time.time(),
             "status": "cancelled",
             "progress": 0,
+            "warning": None,
         }
         logger.info("Search cancelled by user request")
 
@@ -95,7 +100,7 @@ async def get_search_results(
     per_page: int = Query(10, ge=1, description="Results per page"),
 ):
     """Return paginated results from the most recently completed search."""
-    global _last_results, _last_csv_filename, _last_search_source
+    global _last_results, _last_csv_filename, _last_search_source, _last_warning, _last_total_esearch_count
     total = len(_last_results)
     total_pages = (total + per_page - 1) // per_page if total > 0 else 0
     start = (page - 1) * per_page
@@ -108,6 +113,8 @@ async def get_search_results(
         total_pages=total_pages,
         per_page=per_page,
         search_source=_last_search_source,
+        warning=_last_warning,
+        total_esearch_count=_last_total_esearch_count,
     )
 
 
@@ -151,6 +158,41 @@ async def _perform_search_with_progress(
 
         search_service = SearchService(settings)
 
+        def on_search_progress(event: Dict[str, Any]):
+            phase = event.get("phase")
+            msg = event.get("message", "")
+            if phase == "esearch":
+                retrieved = event.get("retrieved", 0)
+                target = max(1, event.get("target", 1))
+                pct = 15 + int((retrieved / target) * 10)  # 15% to 25%
+                search_progress_state["stage"] = 1
+                search_progress_state["progress"] = min(pct, 25)
+                search_progress_state["message"] = msg
+                search_progress_state["timestamp"] = time.time()
+            elif phase in ("efetch", "efetch_start"):
+                fetched = event.get("records_fetched", 0)
+                target = max(1, event.get("target", 1))
+                pct = 25 + int((fetched / target) * 35)  # 25% to 60%
+                search_progress_state["stage"] = 1
+                search_progress_state["progress"] = min(pct, 60)
+                search_progress_state["message"] = msg
+                search_progress_state["timestamp"] = time.time()
+            elif phase == "pmc_enrichment":
+                search_progress_state["stage"] = 1
+                search_progress_state["progress"] = 58
+                search_progress_state["message"] = msg
+                search_progress_state["timestamp"] = time.time()
+            elif phase == "rerank":
+                search_progress_state["stage"] = 2
+                search_progress_state["progress"] = 65
+                search_progress_state["message"] = msg
+                search_progress_state["timestamp"] = time.time()
+            elif phase == "save":
+                search_progress_state["stage"] = 3
+                search_progress_state["progress"] = 80
+                search_progress_state["message"] = msg
+                search_progress_state["timestamp"] = time.time()
+
         source_name = "PubMed" if request.search_source == SearchSource.PUBMED else ("OpenAlex" if request.search_source == SearchSource.OPENALEX else "Unified Search (PubMed + OpenAlex)")
         search_progress_state = {
             "stage": 1,
@@ -172,6 +214,7 @@ async def _perform_search_with_progress(
             use_raw_query=request.use_raw_query,
             cancel_event=cancel_event,
             sort_mode=request.sort_mode,
+            progress_callback=on_search_progress,
         )
 
         # The fetch loop honours the cancel flag between PubMed pages, so it
@@ -228,7 +271,9 @@ async def _perform_search_with_progress(
 
         await asyncio.sleep(0.5)
 
-        processed_results = await search_service.save_results_to_csv(results, csv_path)
+        processed_results = await search_service.save_results_to_csv(
+            results, csv_path, progress_callback=on_search_progress
+        )
 
         if not os.path.exists(csv_path):
             search_progress_state = {
@@ -245,8 +290,12 @@ async def _perform_search_with_progress(
         _last_results = processed_results
         _last_csv_filename = csv_filename
         _last_search_source = request.search_source.value
+        _last_warning = getattr(search_service, "last_warning", None)
+        _last_total_esearch_count = getattr(search_service, "last_total_esearch_count", None)
 
         complete_message = f"Search complete — {len(processed_results)} papers saved"
+        if _last_warning:
+            complete_message += f" ({_last_warning})"
         if corrected:
             complete_message = (
                 f"Showing results for \"{corrected}\" "
@@ -260,7 +309,8 @@ async def _perform_search_with_progress(
             "message": complete_message,
             "timestamp": time.time(),
             "status": "completed",
-            "progress": 100
+            "progress": 100,
+            "warning": _last_warning,
         }
 
     except asyncio.CancelledError:
@@ -303,6 +353,8 @@ async def search_papers(
     # Reset state immediately so the frontend sees "searching" from the first poll
     _last_results = []
     _last_csv_filename = ""
+    _last_warning = None
+    _last_total_esearch_count = None
     search_progress_state = {
         "stage": 0,
         "sub_stage": 0,

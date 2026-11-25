@@ -10,7 +10,7 @@ import sys
 import re
 from datetime import date
 from concurrent.futures import ThreadPoolExecutor
-from typing import List, Optional, Dict, Any
+from typing import List, Optional, Dict, Any, Callable
 import logging
 import pandas as pd
 
@@ -38,6 +38,9 @@ class SearchService:
         # Set after a PubMed search if ESpell corrected the query and the
         # corrected spelling produced the results. None otherwise.
         self.last_corrected_query: Optional[str] = None
+        self.last_warning: Optional[str] = None
+        self.last_total_esearch_count: Optional[int] = None
+        self.last_retrieval_report: Optional[Dict[str, Any]] = None
 
     def _improve_pubmed_query(self, query: str) -> str:
         """
@@ -77,15 +80,16 @@ class SearchService:
         use_raw_query: bool = False,
         cancel_event: Optional[Any] = None,
         sort_mode: str = "relevance",
+        progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
     ) -> List[Dict[str, Any]]:
         """Search for papers using Unified Search (default), PubMed, or OpenAlex."""
         try:
             async def _fetch_pubmed(q, max_res, start_d, end_d, raw_q, cancel_ev):
                 return await self._search_pubmed(
-                    q, max_res, start_d, end_d, raw_q, cancel_ev, sort_mode
+                    q, max_res, start_d, end_d, raw_q, cancel_ev, sort_mode, progress_callback=progress_callback
                 )
 
-            return await self.unified_service.execute_search(
+            results = await self.unified_service.execute_search(
                 query=query,
                 max_results=max_results,
                 start_date=start_date,
@@ -95,6 +99,9 @@ class SearchService:
                 cancel_event=cancel_event,
                 pubmed_fetch_fn=_fetch_pubmed,
             )
+            if self.unified_service.last_warning:
+                self.last_warning = self.unified_service.last_warning
+            return results
         except Exception as e:
             logger.error(f"Error in search_papers: {e}")
             raise
@@ -118,6 +125,7 @@ class SearchService:
         use_raw_query: bool = False,
         cancel_event: Optional[Any] = None,
         sort_mode: str = "relevance",
+        progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
     ) -> List[Dict[str, Any]]:
         """Search using PubMed API"""
         try:
@@ -151,14 +159,19 @@ class SearchService:
                     max_results=max_results,
                     use_raw_query=use_raw_query,
                     cancel_event=cancel_event,
+                    progress_callback=progress_callback,
                 )
-                return df.to_dict('records'), searcher.last_corrected_query
+                report = getattr(searcher, 'last_retrieval_report', {}) or {}
+                return df.to_dict('records'), searcher.last_corrected_query, report
 
             # Use dedicated executor to avoid blocking the default pool
-            results, corrected = await loop.run_in_executor(
+            results, corrected, report = await loop.run_in_executor(
                 _pubmed_executor, run_pubmed_search
             )
             self.last_corrected_query = corrected
+            self.last_retrieval_report = report
+            self.last_warning = report.get('warning')
+            self.last_total_esearch_count = report.get('total_esearch_count')
             results = results or []
 
             # ── Second-stage ordering ───────────────────────────────────
@@ -171,7 +184,7 @@ class SearchService:
                 # to the spelling-corrected query if that's what produced hits.
                 rank_query = corrected or query
                 results = await loop.run_in_executor(
-                    _pubmed_executor, self._order_results, results, rank_query, sort_mode
+                    _pubmed_executor, self._order_results, results, rank_query, sort_mode, progress_callback
                 )
 
             return results
@@ -186,7 +199,11 @@ class SearchService:
         return cancel_event is not None and cancel_event.is_set()
 
     def _order_results(
-        self, results: List[Dict[str, Any]], query: str, sort_mode: str
+        self,
+        results: List[Dict[str, Any]],
+        query: str,
+        sort_mode: str,
+        progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
     ) -> List[Dict[str, Any]]:
         """
         Apply second-stage ordering to PubMed's candidate set.
@@ -203,7 +220,7 @@ class SearchService:
             reranker = get_reranker()
             if reranker is None:
                 return results
-            return reranker.rerank(query, results)
+            return reranker.rerank(query, results, progress_callback=progress_callback)
         except Exception as e:
             logger.warning(f"Result ordering failed ({e}); using PubMed order.")
             return results
@@ -211,12 +228,19 @@ class SearchService:
     async def save_results_to_csv(
         self,
         results: List[Dict[str, Any]],
-        csv_path: str
+        csv_path: str,
+        progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
     ) -> List[Paper]:
         """Save search results to CSV and return processed papers"""
         try:
             if not results:
                 return []
+
+            if progress_callback:
+                progress_callback({
+                    "phase": "save",
+                    "message": f"Saving {len(results)} papers to CSV: {os.path.basename(csv_path)}",
+                })
 
             logger.info(f"Converting {len(results)} results to DataFrame")
             df = pd.DataFrame(results)

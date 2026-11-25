@@ -5,10 +5,11 @@ Fixed version: uses proper MeSH[MH] field tagging, removes broken score filter
 
 from datetime import date
 import requests
+from requests.adapters import HTTPAdapter
 import pandas as pd
 import time
 import logging
-from typing import Optional, List, Dict, Any
+from typing import Optional, List, Dict, Any, Tuple, Set, Callable
 from xml.etree import ElementTree as ET
 import re
 
@@ -86,9 +87,38 @@ class PubMedService:
         if not api_key:
             self.rate_limit = 0.34  # 3 requests/sec without API key
 
+        # Connection pool with HTTP keep-alive
+        self.session = requests.Session()
+        adapter = HTTPAdapter(pool_connections=10, pool_maxsize=20, max_retries=0)
+        self.session.mount("https://", adapter)
+        self.session.mount("http://", adapter)
+        self.session.headers.update({"User-Agent": f"ResearchRover/2.0 ({self.email})"})
+
         # Set when a zero-result search succeeds after ESpell correction,
         # so callers can tell the user "showing results for <corrected>".
         self.last_corrected_query: Optional[str] = None
+
+        # Tracking for retrieval completeness and partial failures
+        self._failed_pmids: List[str] = []
+        self._failed_batches_count: int = 0
+        self.last_retrieval_report: Dict[str, Any] = {}
+
+        # PMC enrichment tracking & circuit breaker
+        self._pmc_attempted_pmids: Set[str] = set()
+        self._pmc_circuit_broken: bool = False
+        self._pmc_consecutive_failures: int = 0
+        self.MAX_PMC_CONSECUTIVE_FAILURES: int = 2
+        self.last_enrichment_warning: Optional[str] = None
+
+    def close(self) -> None:
+        """Close the underlying requests Session."""
+        try:
+            self.session.close()
+        except Exception:
+            pass
+
+    def __del__(self) -> None:
+        self.close()
 
     # ------------------------------------------------------------------
     # HTTP helper — POST with retry/backoff
@@ -102,16 +132,21 @@ class PubMedService:
         if self.api_key:
             data['api_key'] = self.api_key
 
+        # efetch.fcgi and esummary.fcgi retries are managed by the batch handler to eliminate nested retry multiplication.
+        # esearch.fcgi and espell.fcgi use MAX_RETRIES.
+        retries = 1 if endpoint in ('efetch.fcgi', 'esummary.fcgi') else MAX_RETRIES
+        timeout = 15 if endpoint == 'esummary.fcgi' else 30
+
         last_exc: Optional[Exception] = None
-        for attempt in range(MAX_RETRIES):
+        for attempt in range(retries):
             try:
                 time.sleep(self.rate_limit)
-                response = requests.post(url, data=data, timeout=30)
+                response = self.session.post(url, data=data, timeout=timeout)
                 if response.status_code in (429, 500, 502, 503, 504):
-                    wait = RETRY_BACKOFF[attempt]
+                    wait = RETRY_BACKOFF[min(attempt, len(RETRY_BACKOFF) - 1)]
                     logger.warning(
                         f"PubMed {endpoint} returned {response.status_code} "
-                        f"(attempt {attempt+1}/{MAX_RETRIES}), retrying in {wait}s"
+                        f"(attempt {attempt+1}/{retries}), retrying in {wait}s"
                     )
                     time.sleep(wait)
                     continue
@@ -119,15 +154,15 @@ class PubMedService:
                 return response
             except requests.RequestException as e:
                 last_exc = e
-                wait = RETRY_BACKOFF[attempt]
+                wait = RETRY_BACKOFF[min(attempt, len(RETRY_BACKOFF) - 1)]
                 logger.warning(
-                    f"PubMed {endpoint} request error (attempt {attempt+1}/{MAX_RETRIES}): "
+                    f"PubMed {endpoint} request error (attempt {attempt+1}/{retries}): "
                     f"{e}, retrying in {wait}s"
                 )
                 time.sleep(wait)
 
         raise RuntimeError(
-            f"PubMed {endpoint} failed after {MAX_RETRIES} attempts. Last error: {last_exc}"
+            f"PubMed {endpoint} failed after {retries} attempts. Last error: {last_exc}"
         )
 
     # ------------------------------------------------------------------
@@ -238,6 +273,7 @@ class PubMedService:
         max_results: int = 1000,
         use_raw_query: bool = False,
         cancel_event: Optional[Any] = None,
+        progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
     ) -> pd.DataFrame:
         """
         Search PubMed and retrieve paper details.
@@ -265,7 +301,9 @@ class PubMedService:
             )
             logger.info(f"Final PubMed query: {search_query}")
 
-            df = self._fetch_papers(search_query, max_results, cancel_event)
+            df = self._fetch_papers(
+                search_query, max_results, cancel_event, progress_callback=progress_callback
+            )
 
             # ── Zero-result spell-check fallback ────────────────────────
             # PubMed's E-utilities (unlike the website) do not auto-correct
@@ -280,7 +318,9 @@ class PubMedService:
                         corrected, start_date, end_date, use_raw_query
                     )
                     logger.info(f"Final PubMed query (corrected): {retry_query}")
-                    df = self._fetch_papers(retry_query, max_results, cancel_event)
+                    df = self._fetch_papers(
+                        retry_query, max_results, cancel_event, progress_callback=progress_callback
+                    )
                     if not df.empty:
                         self.last_corrected_query = corrected
 
@@ -362,56 +402,143 @@ class PubMedService:
         search_query: str,
         max_results: int,
         cancel_event: Optional[Any] = None,
+        progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
     ) -> pd.DataFrame:
         """Page through esearch/efetch for a built query and collect papers."""
-        fetch_limit = min(max_results * 2, 1000)
-        max_attempts = 3
+        self._failed_pmids = []
+        self._failed_batches_count = 0
+        self.last_retrieval_report = {}
 
-        df = pd.DataFrame()
-        current_offset = 0
-        attempts = 0
+        # Page size for ESearch: up to 5000 per request
+        esearch_page_size = min(max_results, 5000)
 
-        while attempts < max_attempts:
-            # Cooperative cancellation — bail out between PubMed pages so a
-            # cancelled search stops hitting the API instead of running to
-            # completion in the background thread.
+        # 1. First ESearch page
+        first_pmids, total_count = self._esearch_pmids_and_count(
+            search_query, esearch_page_size, 0
+        )
+
+        if not first_pmids or total_count == 0:
+            logger.warning(f"No PMIDs found for query: {search_query}")
+            self.last_retrieval_report = {
+                "total_esearch_count": total_count,
+                "pmids_retrieved": 0,
+                "records_fetched": 0,
+                "failed_pmids": [],
+                "failed_batches_count": 0,
+                "is_complete": True,
+                "warning": None,
+                "enrichment_warning": None,
+            }
+            return pd.DataFrame()
+
+        target_count = min(max_results, total_count)
+        logger.info(f"PubMed total count: {total_count}, requested target: {target_count}")
+
+        all_pmids: List[str] = []
+        seen_pmids: Set[str] = set()
+
+        for p in first_pmids:
+            if p not in seen_pmids:
+                seen_pmids.add(p)
+                all_pmids.append(p)
+
+        if progress_callback:
+            progress_callback({
+                "phase": "esearch",
+                "retrieved": len(all_pmids),
+                "target": target_count,
+                "total": total_count,
+                "message": f"ESearch: collected {len(all_pmids)} of {target_count} PMIDs (total available: {total_count})",
+            })
+
+        # 2. Paginate ESearch if more PMIDs are needed
+        current_offset = len(first_pmids)
+        while len(all_pmids) < target_count and current_offset < total_count:
             if self._is_cancelled(cancel_event):
-                logger.info("Search cancelled — stopping fetch loop")
+                logger.info("Search cancelled during PMID pagination — stopping fetch loop")
                 break
 
-            attempts += 1
-            logger.info(
-                f"Attempt {attempts}: fetching up to {fetch_limit} "
-                f"PMIDs at offset {current_offset}"
+            page_limit = min(target_count - len(all_pmids), 5000)
+            logger.info(f"Paginating ESearch: fetching up to {page_limit} PMIDs at offset {current_offset}")
+
+            next_pmids, _ = self._esearch_pmids_and_count(
+                search_query, page_limit, current_offset
             )
 
-            pmids = self._search_pmids_with_offset(
-                search_query, fetch_limit, current_offset
+            if not next_pmids:
+                logger.info(f"No more PMIDs returned at offset {current_offset}")
+                break
+
+            new_count = 0
+            for p in next_pmids:
+                if p not in seen_pmids:
+                    seen_pmids.add(p)
+                    all_pmids.append(p)
+                    new_count += 1
+                    if len(all_pmids) >= target_count:
+                        break
+
+            current_offset += len(next_pmids)
+
+            if progress_callback:
+                progress_callback({
+                    "phase": "esearch",
+                    "retrieved": len(all_pmids),
+                    "target": target_count,
+                    "total": total_count,
+                    "message": f"ESearch: collected {len(all_pmids)} of {target_count} PMIDs",
+                })
+
+            if new_count == 0 or len(next_pmids) < page_limit:
+                break
+
+        # Ensure exact slice up to target_count
+        all_pmids = all_pmids[:target_count]
+        logger.info(f"Total PMIDs collected for retrieval: {len(all_pmids)}")
+
+        if self._is_cancelled(cancel_event):
+            logger.info("Search cancelled before detail retrieval")
+            return pd.DataFrame()
+
+        if progress_callback:
+            progress_callback({
+                "phase": "efetch_start",
+                "total_pmids": len(all_pmids),
+                "message": f"Retrieved {len(all_pmids)} PMIDs; starting batch detail retrieval...",
+            })
+
+        # 3. Retrieve paper details in batches with retry and subdivision
+        if progress_callback is not None:
+            papers = self._retrieve_paper_details(
+                all_pmids, cancel_event=cancel_event, progress_callback=progress_callback
             )
-            if not pmids:
-                logger.warning(f"No more PMIDs at offset {current_offset}")
-                break
+        else:
+            papers = self._retrieve_paper_details(all_pmids, cancel_event=cancel_event)
+        df = pd.DataFrame(papers) if papers else pd.DataFrame()
 
-            logger.info(f"Found {len(pmids)} PMIDs, retrieving details...")
-            papers = self._retrieve_paper_details(pmids)
+        # 4. Generate structured retrieval report
+        warning_msg: Optional[str] = None
+        if self._failed_pmids:
+            num_failed = len(self._failed_pmids)
+            pmid_sample = ", ".join(self._failed_pmids[:5])
+            suffix = "..." if num_failed > 5 else ""
+            warning_msg = (
+                f"Retrieved {len(df)} of {target_count} records. "
+                f"{num_failed} record(s) could not be retrieved from PubMed (PMID: {pmid_sample}{suffix})."
+            )
+        elif self.last_enrichment_warning:
+            warning_msg = self.last_enrichment_warning
 
-            if not papers:
-                logger.warning("No papers retrieved from PMIDs")
-                break
-
-            batch_df = pd.DataFrame(papers)
-            if not batch_df.empty:
-                df = pd.concat([df, batch_df], ignore_index=True)
-                logger.info(f"Total raw papers so far: {len(df)}")
-
-            current_offset += len(pmids)
-            if len(pmids) < fetch_limit:
-                logger.info("Reached end of available PubMed results")
-                break
-
-            # Stop if we already have enough
-            if len(df) >= max_results:
-                break
+        self.last_retrieval_report = {
+            "total_esearch_count": total_count,
+            "pmids_retrieved": len(all_pmids),
+            "records_fetched": len(df),
+            "failed_pmids": list(self._failed_pmids),
+            "failed_batches_count": self._failed_batches_count,
+            "is_complete": (len(self._failed_pmids) == 0 and len(df) >= target_count),
+            "warning": warning_msg,
+            "enrichment_warning": self.last_enrichment_warning,
+        }
 
         return df
 
@@ -427,18 +554,15 @@ class PubMedService:
             return f"1900/01/01:{end_date.strftime('%Y/%m/%d')}[pdat]"
         return ""
 
-    def _search_pmids(self, query: str, max_results: int) -> List[str]:
-        return self._search_pmids_with_offset(query, max_results, 0)
-
-    def _search_pmids_with_offset(
-        self, query: str, max_results: int, offset: int = 0
-    ) -> List[str]:
-        """Search for PMIDs using esearch (POST)."""
+    def _esearch_pmids_and_count(
+        self, query: str, retmax: int, offset: int = 0
+    ) -> Tuple[List[str], int]:
+        """Search for PMIDs using esearch (POST) and return both PMIDs and total count."""
         try:
             data = {
                 'db': 'pubmed',
                 'term': query,
-                'retmax': min(max_results, 10000),
+                'retmax': min(max(retmax, 0), 10000),
                 'retstart': offset,
                 'retmode': 'xml',
             }
@@ -446,26 +570,99 @@ class PubMedService:
             response = self._post_with_retry('esearch.fcgi', data)
 
             root = ET.fromstring(response.content)
-            pmids = [id_elem.text for id_elem in root.findall('.//Id')]
 
-            logger.info(f"esearch found {len(pmids)} PMIDs")
-            if not pmids:
-                logger.warning(f"No PMIDs for query: {query}")
-                logger.warning(response.content.decode('utf-8')[:500])
+            # Extract total count
+            count_elem = root.find('.//Count')
+            total_count = int(count_elem.text.strip()) if count_elem is not None and count_elem.text else 0
 
-            return pmids
+            # Extract PMIDs in order
+            pmids: List[str] = []
+            id_list_elem = root.find('.//IdList')
+            if id_list_elem is not None:
+                for id_elem in id_list_elem.findall('Id'):
+                    if id_elem.text and id_elem.text.strip():
+                        pmids.append(id_elem.text.strip())
+            else:
+                for id_elem in root.findall('.//Id'):
+                    if id_elem.text and id_elem.text.strip():
+                        pmids.append(id_elem.text.strip())
+
+            logger.info(f"esearch found {len(pmids)} PMIDs (total available: {total_count})")
+            return pmids, total_count
 
         except Exception as e:
-            logger.error(f"Error searching PMIDs: {e}")
-            return []
+            logger.error(f"Error in _esearch_pmids_and_count: {e}")
+            return [], 0
 
-    def _retrieve_paper_details(self, pmids: List[str]) -> List[Dict[str, Any]]:
-        """Retrieve paper details using efetch + esummary (POST), batch size 50."""
+    def _search_pmids(self, query: str, max_results: int) -> List[str]:
+        return self._search_pmids_with_offset(query, max_results, 0)
+
+    def _search_pmids_with_offset(
+        self, query: str, max_results: int, offset: int = 0
+    ) -> List[str]:
+        """Search for PMIDs using esearch (POST). Maintained for backward compatibility."""
+        pmids, _ = self._esearch_pmids_and_count(query, max_results, offset)
+        return pmids
+
+    def _retrieve_paper_details(
+        self,
+        pmids: List[str],
+        cancel_event: Optional[Any] = None,
+        progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
+    ) -> List[Dict[str, Any]]:
+        """Retrieve paper details using efetch + esummary (POST), batch size 50 with retry/subdivision."""
         papers = []
         batch_size = 50
+        total_batches = (len(pmids) + batch_size - 1) // batch_size
 
         for i in range(0, len(pmids), batch_size):
+            if self._is_cancelled(cancel_event):
+                logger.info("Detail retrieval cancelled")
+                break
+
             batch_pmids = pmids[i:i + batch_size]
+            batch_papers = self._fetch_batch_with_retry(batch_pmids, cancel_event=cancel_event)
+            papers.extend(batch_papers)
+            batch_num = i // batch_size + 1
+            logger.info(
+                f"Batch {batch_num}/{total_batches}: "
+                f"{len(batch_papers)} papers (total {len(papers)})"
+            )
+
+            if progress_callback:
+                progress_callback({
+                    "phase": "efetch",
+                    "batch": batch_num,
+                    "total_batches": total_batches,
+                    "records_fetched": len(papers),
+                    "target": len(pmids),
+                    "message": f"EFetch: batch {batch_num}/{total_batches} ({len(papers)} records fetched)",
+                })
+
+        return papers
+
+    def _fetch_batch_with_retry(
+        self,
+        batch_pmids: List[str],
+        cancel_event: Optional[Any] = None,
+        max_batch_retries: int = 3,
+        depth: int = 0,
+        max_depth: int = 2,
+    ) -> List[Dict[str, Any]]:
+        """
+        Fetch details for a batch of PMIDs with unified retry and bounded subdivision.
+        Eliminates nested retry multiplication while preserving split-and-retry recovery.
+        """
+        if not batch_pmids or self._is_cancelled(cancel_event):
+            return []
+
+        last_err: Optional[Exception] = None
+        # At depth 0, attempt max_batch_retries. At depth > 0 (subdivided sub-batch), attempt 1 retry.
+        effective_retries = max_batch_retries if depth == 0 else 1
+
+        for attempt in range(effective_retries):
+            if self._is_cancelled(cancel_event):
+                return []
             try:
                 efetch_data = {
                     'db': 'pubmed',
@@ -473,23 +670,60 @@ class PubMedService:
                     'retmode': 'xml',
                 }
                 response = self._post_with_retry('efetch.fcgi', efetch_data)
-                summary_details = self._fetch_summary_details(batch_pmids)
-                batch_papers = self._parse_pubmed_xml(response.content, summary_details)
-                papers.extend(batch_papers)
-                logger.info(
-                    f"Batch {i//batch_size + 1}: "
-                    f"{len(batch_papers)} papers (total {len(papers)})"
-                )
-            except Exception as e:
-                logger.error(f"Error in batch {i//batch_size + 1}: {e}")
-                continue
 
-        return papers
+                summary_details = {}
+                try:
+                    summary_details = self._fetch_summary_details(batch_pmids)
+                except Exception as sum_err:
+                    logger.warning(f"Error fetching summary for batch: {sum_err}; continuing with XML data")
+
+                batch_papers = self._parse_pubmed_xml(response.content, summary_details)
+                return batch_papers
+
+            except Exception as e:
+                last_err = e
+                wait = RETRY_BACKOFF[min(attempt, len(RETRY_BACKOFF) - 1)]
+                logger.warning(
+                    f"EFetch batch ({len(batch_pmids)} PMIDs, depth {depth}) attempt {attempt+1}/{effective_retries} failed: {e}. "
+                    f"Retrying in {wait}s..."
+                )
+                time.sleep(wait)
+
+        # Batch failed all retry attempts. Subdivide (split-and-retry) up to max_depth
+        if len(batch_pmids) > 1 and depth < max_depth:
+            mid = len(batch_pmids) // 2
+            left_pmids = batch_pmids[:mid]
+            right_pmids = batch_pmids[mid:]
+            logger.warning(
+                f"Batch of {len(batch_pmids)} failed after {effective_retries} attempts ({last_err}). "
+                f"Subdividing into {len(left_pmids)} and {len(right_pmids)} PMIDs at depth {depth + 1}."
+            )
+            rescued_papers = []
+            rescued_papers.extend(
+                self._fetch_batch_with_retry(
+                    left_pmids, cancel_event=cancel_event, max_batch_retries=1, depth=depth + 1, max_depth=max_depth
+                )
+            )
+            rescued_papers.extend(
+                self._fetch_batch_with_retry(
+                    right_pmids, cancel_event=cancel_event, max_batch_retries=1, depth=depth + 1, max_depth=max_depth
+                )
+            )
+            return rescued_papers
+        else:
+            for failed_id in batch_pmids:
+                if failed_id not in self._failed_pmids:
+                    self._failed_pmids.append(failed_id)
+            self._failed_batches_count += 1
+            logger.error(
+                f"Permanently failed to fetch details for {len(batch_pmids)} PMID(s) ({batch_pmids}) at depth {depth}: {last_err}"
+            )
+            return []
 
     def _fetch_summary_details(
         self, pmids: List[str]
     ) -> Dict[str, Dict[str, str]]:
-        """Fetch PubMed summary metadata via POST."""
+        """Fetch PubMed summary metadata via POST with bounded retry."""
         try:
             data = {
                 'db': 'pubmed',
@@ -523,14 +757,25 @@ class PubMedService:
         summary_details = summary_details or {}
         try:
             root = ET.fromstring(xml_content)
-            for article in root.findall('.//PubmedArticle'):
-                try:
-                    paper = self._extract_paper_info(article, summary_details)
-                    if paper:
-                        papers.append(paper)
-                except Exception as e:
-                    logger.warning(f"Error parsing article: {e}")
-                    continue
+            article_elems = [
+                elem for elem in root.iter()
+                if elem.tag in ('PubmedArticle', 'PubmedBookArticle')
+            ]
+            for elem in article_elems:
+                if elem.tag == 'PubmedArticle':
+                    try:
+                        paper = self._extract_paper_info(elem, summary_details)
+                        if paper:
+                            papers.append(paper)
+                    except Exception as e:
+                        logger.warning(f"Error parsing article: {e}")
+                elif elem.tag == 'PubmedBookArticle':
+                    try:
+                        paper = self._extract_book_info(elem, summary_details)
+                        if paper:
+                            papers.append(paper)
+                    except Exception as e:
+                        logger.warning(f"Error parsing book article: {e}")
 
             # Batch enrich PMC IDs for any papers missing PMCID in XML
             if papers:
@@ -540,41 +785,77 @@ class PubMedService:
         return papers
 
     def _enrich_pmc_ids(self, papers: List[Dict[str, Any]]) -> None:
-        """Enrich papers missing PMCID using official NCBI PMC ID Converter API."""
+        """
+        Enrich papers missing PMCID using official NCBI PMC ID Converter API.
+        Non-blocking: deduplicates queried PMIDs, uses a bounded timeout (4s),
+        trips a circuit breaker on consecutive timeouts, preserves PubMed records,
+        and reports enrichment warnings.
+        """
+        if self._pmc_circuit_broken or not papers:
+            return
+
         missing_pmids = [
             str(p['PMID']).strip() for p in papers
-            if p.get('PMID') and not p.get('PMCID')
+            if p.get('PMID') and not p.get('PMCID') and str(p['PMID']).strip() not in self._pmc_attempted_pmids
         ]
         if not missing_pmids:
             return
+
+        # Mark as attempted immediately so we never re-request the same PMIDs
+        for pmid in missing_pmids:
+            self._pmc_attempted_pmids.add(pmid)
+
         try:
             for i in range(0, len(missing_pmids), 100):
+                if self._pmc_circuit_broken:
+                    break
                 chunk = missing_pmids[i:i + 100]
                 url = (
                     f"https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/"
                     f"?ids={','.join(chunk)}&format=json&tool=ResearchRover&email={self.email}"
                 )
-                resp = requests.get(url, timeout=10)
-                if resp.status_code == 200:
-                    data = resp.json()
-                    for rec in data.get('records', []):
-                        pmid = str(rec.get('pmid') or '').strip()
-                        pmcid = rec.get('pmcid')
-                        if pmid and pmcid:
-                            clean_pmc = str(pmcid).strip()
-                            if not clean_pmc.upper().startswith("PMC"):
-                                clean_pmc = f"PMC{clean_pmc}"
-                            for p in papers:
-                                if str(p.get('PMID', '')).strip() == pmid:
-                                    p['PMCID'] = clean_pmc
-                                    p['pmcid'] = clean_pmc
-                                    p['PDF_URL'] = f"https://pmc.ncbi.nlm.nih.gov/articles/{clean_pmc}/pdf/"
-                                    p['pdf_url'] = p['PDF_URL']
-                                    p['Is_OA'] = True
-                                    p['is_oa'] = True
-                                    break
+                try:
+                    time.sleep(self.rate_limit)
+                    resp = self.session.get(url, timeout=4)
+                    if resp.status_code == 200:
+                        self._pmc_consecutive_failures = 0
+                        data = resp.json()
+                        for rec in data.get('records', []):
+                            pmid = str(rec.get('pmid') or '').strip()
+                            pmcid = rec.get('pmcid')
+                            if pmid and pmcid:
+                                clean_pmc = str(pmcid).strip()
+                                if not clean_pmc.upper().startswith("PMC"):
+                                    clean_pmc = f"PMC{clean_pmc}"
+                                for p in papers:
+                                    if str(p.get('PMID', '')).strip() == pmid:
+                                        p['PMCID'] = clean_pmc
+                                        p['pmcid'] = clean_pmc
+                                        p['PDF_URL'] = f"https://pmc.ncbi.nlm.nih.gov/articles/{clean_pmc}/pdf/"
+                                        p['pdf_url'] = p['PDF_URL']
+                                        p['Is_OA'] = True
+                                        p['is_oa'] = True
+                                        break
+                    else:
+                        self._pmc_consecutive_failures += 1
+                        logger.warning(f"PMC idconv returned HTTP {resp.status_code}")
+                except Exception as req_err:
+                    self._pmc_consecutive_failures += 1
+                    logger.warning(f"Failed to batch-enrich PMC IDs via NCBI idconv: {req_err}")
+
+                if self._pmc_consecutive_failures >= self.MAX_PMC_CONSECUTIVE_FAILURES:
+                    self._pmc_circuit_broken = True
+                    self.last_enrichment_warning = (
+                        "PMC ID enrichment service temporarily unavailable (idconv timeout); "
+                        "proceeding with standard PubMed metadata."
+                    )
+                    logger.warning(
+                        f"PMC ID enrichment circuit breaker tripped after {self._pmc_consecutive_failures} consecutive failures. "
+                        "Disabling further idconv calls for this search run."
+                    )
+                    break
         except Exception as e:
-            logger.warning(f"Failed to batch-enrich PMC IDs via NCBI idconv: {e}")
+            logger.warning(f"Unexpected error in PMC enrichment: {e}")
 
     def _extract_paper_info(
         self,
@@ -725,6 +1006,8 @@ class PubMedService:
     def _extract_create_date(self, article) -> str:
         pubmed_data = article.find('.//PubmedData/History')
         if pubmed_data is None:
+            pubmed_data = article.find('.//PubmedBookData/History')
+        if pubmed_data is None:
             return ""
         for pubmed_date in pubmed_data.findall(
             "PubMedPubDate[@PubStatus='pubmed']"
@@ -734,6 +1017,210 @@ class PubMedService:
                 return date_str
         first_date = pubmed_data.find('PubMedPubDate')
         return self._format_pubmed_date(first_date) if first_date is not None else ""
+
+    def _extract_book_info(
+        self,
+        book_article,
+        summary_details: Optional[Dict[str, Dict[str, str]]] = None
+    ) -> Optional[Dict[str, Any]]:
+        """Extract canonical paper dictionary from a PubmedBookArticle XML element."""
+        try:
+            summary_details = summary_details or {}
+
+            # 1. Title: Chapter title first (ArticleTitle), fallback to BookTitle
+            title_elem = book_article.find('.//ArticleTitle')
+            if title_elem is None or not title_elem.text:
+                title_elem = book_article.find('.//Book/BookTitle')
+            if title_elem is None or not title_elem.text:
+                title_elem = book_article.find('.//BookTitle')
+            title = title_elem.text if title_elem is not None else "Unknown"
+            if title:
+                title = re.sub(r'<[^>]+>', '', str(title)).strip()
+
+            # 2. Abstract: Can have multiple AbstractText elements
+            abstract_parts = []
+            for ab_elem in book_article.findall('.//AbstractText'):
+                label = ab_elem.get('Label')
+                ab_text = "".join(ab_elem.itertext()).strip()
+                if ab_text:
+                    if label:
+                        abstract_parts.append(f"{label}: {ab_text}")
+                    else:
+                        abstract_parts.append(ab_text)
+            abstract = "\n\n".join(abstract_parts) if abstract_parts else ""
+            if abstract:
+                abstract = re.sub(r'<[^>]+>', '', abstract).strip()
+
+            # 3. Identifiers
+            doi = pmcid = nihms_id = book_accession = ""
+            for article_id in book_article.findall('.//ArticleId'):
+                id_type = article_id.get('IdType')
+                if id_type == 'doi' and not doi:
+                    doi = article_id.text or ""
+                elif id_type == 'pmc' and not pmcid:
+                    pmcid = article_id.text or ""
+                elif id_type == 'mid' and not nihms_id:
+                    nihms_id = article_id.text or ""
+                elif id_type == 'bookaccession' and not book_accession:
+                    book_accession = article_id.text or ""
+
+            pmid_elem = book_article.find('.//PMID')
+            pmid = pmid_elem.text if pmid_elem is not None else ""
+            if not pmid:
+                for article_id in book_article.findall('.//ArticleId'):
+                    if article_id.get('IdType') == 'pubmed' and article_id.text:
+                        pmid = article_id.text
+                        break
+
+            summary = summary_details.get(pmid, {})
+
+            # 4. Book Title and Publisher
+            book_title_elem = book_article.find('.//Book/BookTitle')
+            if book_title_elem is None:
+                book_title_elem = book_article.find('.//BookTitle')
+            book_title = "".join(book_title_elem.itertext()).strip() if book_title_elem is not None else ""
+            if not book_title:
+                book_title = summary.get('journal') or "NCBI Bookshelf"
+
+            pub_name_elem = book_article.find('.//Book/Publisher/PublisherName')
+            if pub_name_elem is None:
+                pub_name_elem = book_article.find('.//Publisher/PublisherName')
+            publisher = pub_name_elem.text.strip() if pub_name_elem is not None and pub_name_elem.text else ""
+
+            journal = book_title
+
+            # 5. Publication Year
+            publication_year = summary.get('publication_year') or ""
+            if not publication_year:
+                contrib_date = book_article.find('.//ContributionDate')
+                publication_year = self._extract_year_from_pubdate(contrib_date) or ""
+            if not publication_year:
+                book_date = book_article.find('.//Book/PubDate')
+                publication_year = self._extract_year_from_pubdate(book_date) or ""
+            if not publication_year:
+                create_dt = self._extract_create_date(book_article)
+                publication_year = self._extract_year_from_text(create_dt) or "Unknown"
+
+            create_date = self._extract_create_date(book_article)
+
+            # 6. Authors
+            authors = []
+            author_lists = book_article.findall(".//BookDocument/AuthorList[@Type='authors']")
+            if not author_lists:
+                author_lists = book_article.findall(".//AuthorList[@Type='authors']")
+            if not author_lists:
+                author_lists = book_article.findall(".//BookDocument/AuthorList")
+            if not author_lists:
+                author_lists = book_article.findall(".//Book/AuthorList")
+
+            for al in author_lists:
+                for author in al.findall('Author'):
+                    ln = author.find('LastName')
+                    fn = author.find('ForeName')
+                    initials = author.find('Initials')
+                    collective = author.find('CollectiveName')
+                    if collective is not None and collective.text:
+                        authors.append(collective.text.strip())
+                    elif ln is not None and ln.text:
+                        lastname = ln.text.strip()
+                        if fn is not None and fn.text:
+                            firstname = fn.text.strip()
+                        elif initials is not None and initials.text:
+                            firstname = initials.text.strip()
+                        else:
+                            firstname = ""
+                        full = f"{firstname} {lastname}".strip() if firstname else lastname
+                        if full and full not in authors:
+                            authors.append(full)
+                if authors:
+                    break
+
+            first_author = authors[0] if authors else ""
+
+            # 7. Affiliations
+            affiliations = []
+            for aff_elem in book_article.findall('.//AffiliationInfo/Affiliation'):
+                if aff_elem is not None:
+                    aff_text = "".join(aff_elem.itertext()).strip()
+                    if aff_text and aff_text not in affiliations:
+                        affiliations.append(aff_text)
+
+            # 8. Keywords
+            keywords = [
+                kw.text.strip()
+                for kw in book_article.findall('.//Keyword')
+                if kw.text
+            ]
+
+            # 9. MeSH / Sections
+            mesh_terms = [
+                mh.find('DescriptorName').text.strip()
+                for mh in book_article.findall('.//MeshHeading')
+                if mh.find('DescriptorName') is not None and mh.find('DescriptorName').text
+            ]
+
+            # 10. Citation
+            citation = self._build_book_citation(
+                book_article, book_title, publisher, publication_year, doi
+            )
+            reference = citation or f"{title}. In: {book_title}. {publication_year}."
+
+            clean_pmc = pmcid.strip() if pmcid else ""
+            if clean_pmc and not clean_pmc.upper().startswith("PMC"):
+                clean_pmc = f"PMC{clean_pmc}"
+
+            pdf_url = f"https://pmc.ncbi.nlm.nih.gov/articles/{clean_pmc}/pdf/" if clean_pmc else None
+            is_oa = True if clean_pmc else False
+            download_url = f"https://pubmed.ncbi.nlm.nih.gov/{pmid}/" if pmid else ""
+
+            return {
+                'Title':            title,
+                'Abstract':         abstract,
+                'Publication Year': publication_year,
+                'Source':           journal,
+                'Journal/Book':     journal,
+                'DOI':              doi,
+                'Download_URL':     download_url,
+                'Keywords':         keywords,
+                'MeSH_Terms':       mesh_terms,
+                'Authors':          authors,
+                'Affiliations':     affiliations,
+                'PMID':             pmid,
+                'Citation':         citation,
+                'Create Date':      create_date,
+                'PMCID':            clean_pmc or None,
+                'pmcid':            clean_pmc or None,
+                'PDF_URL':          pdf_url,
+                'pdf_url':          pdf_url,
+                'Is_OA':            is_oa,
+                'is_oa':            is_oa,
+                'NIHMS ID':         nihms_id,
+                'First Author':     first_author,
+                'Reference':        reference,
+            }
+        except Exception as e:
+            logger.error(f"Error extracting book info: {e}")
+            return None
+
+    def _build_book_citation(
+        self, book_article, book_title: str, publisher: str, publication_year: str, doi: str
+    ) -> str:
+        parts = []
+        if book_title:
+            parts.append(f"In: {book_title}")
+        if publisher:
+            parts.append(publisher)
+        if publication_year and publication_year != "Unknown":
+            parts.append(publication_year)
+
+        citation = ". ".join(p for p in parts if p).strip()
+        if citation and not citation.endswith('.'):
+            citation += '.'
+        if doi:
+            citation = f"{citation} doi: {doi}".strip()
+            if not citation.endswith('.'):
+                citation += '.'
+        return citation
 
     def _build_citation(
         self, article, journal: str, publication_year: str, doi: str

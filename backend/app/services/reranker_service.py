@@ -26,7 +26,8 @@ Design notes:
 
 import logging
 import threading
-from typing import Any, Dict, List, Optional
+import time
+from typing import Any, Callable, Dict, List, Optional
 
 logger = logging.getLogger("research_rover")
 
@@ -51,6 +52,10 @@ class MedCPTReRanker:
         self._q_tok = self._q_model = None
         self._a_tok = self._a_model = None
 
+        # Telemetry: separate load and inference duration tracking
+        self.model_load_time_seconds: Optional[float] = None
+        self.last_inference_time_seconds: Optional[float] = None
+
     # ------------------------------------------------------------------
     # Model loading (lazy, thread-safe, fail-open)
     # ------------------------------------------------------------------
@@ -67,6 +72,7 @@ class MedCPTReRanker:
             if self._unavailable:
                 return False
             try:
+                t0 = time.time()
                 import torch
                 from transformers import AutoModel, AutoTokenizer
 
@@ -80,7 +86,10 @@ class MedCPTReRanker:
 
                 self._torch = torch
                 self._loaded = True
-                logger.info("MedCPT re-ranker ready (CPU).")
+                self.model_load_time_seconds = time.time() - t0
+                logger.info(
+                    f"MedCPT re-ranker ready (CPU) in {self.model_load_time_seconds:.2f}s."
+                )
                 return True
             except Exception as e:
                 self._unavailable = True
@@ -118,7 +127,12 @@ class MedCPTReRanker:
     # ------------------------------------------------------------------
     # Public API
     # ------------------------------------------------------------------
-    def rerank(self, query: str, records: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    def rerank(
+        self,
+        query: str,
+        records: List[Dict[str, Any]],
+        progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
+    ) -> List[Dict[str, Any]]:
         """
         Re-order `records` by MedCPT relevance to `query` and attach a
         'Relevance_Score' (0-100, relative within this result set) to each.
@@ -135,6 +149,15 @@ class MedCPTReRanker:
             head = records[: self.max_candidates]
             tail = records[self.max_candidates :]
 
+            if progress_callback:
+                progress_callback({
+                    "phase": "rerank",
+                    "message": f"MedCPT: semantic re-ranking top {len(head)} of {len(records)} candidates",
+                    "candidates": len(head),
+                    "total": len(records),
+                })
+
+            t_infer = time.time()
             articles = []
             for r in head:
                 title = str(r.get("Title", "") or "")
@@ -163,8 +186,9 @@ class MedCPTReRanker:
                 rec["Relevance_Rank"] = rank_pos + 1
                 ranked.append(rec)
 
+            self.last_inference_time_seconds = time.time() - t_infer
             logger.info(
-                f"MedCPT re-ranked {len(ranked)} candidates for query '{query}' "
+                f"MedCPT re-ranked {len(ranked)} candidates in {self.last_inference_time_seconds:.2f}s for query '{query}' "
                 f"(top score raw={max(scores_list):.2f})"
             )
             return ranked + tail

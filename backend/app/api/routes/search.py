@@ -4,7 +4,7 @@ Search API routes
 
 from datetime import date
 from fastapi import APIRouter, BackgroundTasks, Depends, Query
-from typing import Optional, List
+from typing import Any, Callable, Dict, List, Optional
 import asyncio
 import threading
 import time

@@ -8,7 +8,7 @@ to produce country frequency distributions and international collaboration co-au
 from collections import Counter
 from itertools import combinations
 import logging
-from typing import Any, Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Set, Tuple
 
 from app.utils.country_extractor import extract_countries_from_affiliations, get_country_iso3
 

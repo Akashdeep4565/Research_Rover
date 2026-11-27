@@ -11,6 +11,7 @@ from utils.csv_loader import (
     can_decode_file,
     check_bom,
     normalize_encoding_name,
+    resolve_unique_csv_filename,
 )
 
 __all__ = [
@@ -22,4 +23,5 @@ __all__ = [
     "can_decode_file",
     "check_bom",
     "normalize_encoding_name",
+    "resolve_unique_csv_filename",
 ]

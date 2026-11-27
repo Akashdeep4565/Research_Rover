@@ -211,6 +211,9 @@ function StyledSelect({
   children,
   label,
   icon,
+  title,
+  wrapperClassName = 'w-full',
+  className = '',
 }: {
   value: string | number
   onChange: (v: string) => void
@@ -218,9 +221,12 @@ function StyledSelect({
   children: ReactNode
   label?: string
   icon?: ReactNode
+  title?: string
+  wrapperClassName?: string
+  className?: string
 }) {
   return (
-    <div className="relative w-full">
+    <div className={`relative ${wrapperClassName}`}>
       {label && (
         <label className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-slate-500">
           {icon && <span className="text-sky-500/80 dark:text-sky-400/80">{icon}</span>}
@@ -232,15 +238,16 @@ function StyledSelect({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           disabled={disabled}
-          className="relative w-full appearance-none rounded-xl border border-gray-300 dark:border-slate-700/80
+          title={title}
+          className={`relative w-full truncate appearance-none rounded-xl border border-gray-300 dark:border-slate-700/80
                      bg-gradient-to-b from-white to-gray-50/70 dark:from-slate-900 dark:to-slate-900/40
-                     px-4 py-3 pr-12 text-sm font-medium
+                     px-4 py-3 pr-10 text-sm font-medium
                      text-gray-800 dark:text-slate-100 outline-none ring-0 shadow-sm transition-all duration-200
                      hover:border-sky-400/70 hover:shadow-md hover:shadow-sky-500/5
                      dark:hover:border-sky-500/50 dark:hover:shadow-sky-500/10
                      focus:border-sky-500 dark:focus:border-sky-500/80
                      focus:shadow-[0_0_0_3px_rgba(56,189,248,0.18)]
-                     disabled:cursor-not-allowed disabled:opacity-50"
+                     disabled:cursor-not-allowed disabled:opacity-50 ${className}`}
         >
           {children}
         </select>
@@ -277,11 +284,11 @@ function TopKeywordControl({
 
   return (
     <div className="w-full">
-      <label className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-slate-500">
+      <label className="mb-1.5 flex items-center gap-1.5 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-slate-500">
         <SparklesIcon className="h-3.5 w-3.5 text-sky-500/80 dark:text-sky-400/80" />
         Top keywords
       </label>
-      <div className="flex items-stretch gap-1 rounded-xl border border-gray-300 bg-gradient-to-b from-white to-gray-50/70 p-1 shadow-sm dark:border-slate-700/80 dark:from-slate-900 dark:to-slate-900/40">
+      <div className="flex h-[46px] items-stretch gap-1 rounded-xl border border-gray-300 bg-gradient-to-b from-white to-gray-50/70 p-1 shadow-sm dark:border-slate-700/80 dark:from-slate-900 dark:to-slate-900/40">
         {presets.map((p) => {
           const active = value === p
           return (
@@ -338,6 +345,8 @@ function StyledInput({
   onChange,
   label,
   icon,
+  min = 1,
+  max = 100,
   ...props
 }: {
   value: number | string
@@ -347,24 +356,57 @@ function StyledInput({
   min?: number
   max?: number
 }) {
+  const [draft, setDraft] = useState(String(value))
+
+  useEffect(() => {
+    setDraft(String(value))
+  }, [value])
+
+  const commitDraft = () => {
+    const parsed = parseInt(draft, 10)
+    const fallback = Number.isFinite(Number(value)) ? Number(value) : min
+    const next = Number.isFinite(parsed)
+      ? Math.max(min, Math.min(max, parsed))
+      : Math.max(min, Math.min(max, fallback))
+    onChange(next)
+    setDraft(String(next))
+  }
+
   return (
     <div className="relative w-full">
       {label && (
-        <label className="mb-1.5 flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-slate-500">
+        <label className="mb-1.5 flex items-center gap-1.5 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-slate-500">
           {icon && <span className="text-sky-500/80 dark:text-sky-400/80">{icon}</span>}
           {label}
         </label>
       )}
       <Input
         type="number"
-        value={value}
-        onChange={(e) =>
-          onChange(Math.max(props.min ?? 1, Math.min(props.max ?? 100, Number(e.target.value) || 1)))
-        }
+        inputMode="numeric"
+        min={min}
+        max={max}
+        value={draft}
+        onChange={(e) => {
+          const cleaned = e.target.value.replace(/\D/g, '')
+          setDraft(cleaned)
+          if (cleaned !== '') {
+            const parsed = parseInt(cleaned, 10)
+            if (Number.isFinite(parsed)) {
+              onChange(Math.max(min, Math.min(max, parsed)))
+            }
+          }
+        }}
+        onBlur={commitDraft}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            commitDraft()
+            e.currentTarget.blur()
+          }
+        }}
         {...props}
-        className="rounded-xl border-gray-300 dark:border-slate-700/80
+        className="h-[46px] rounded-xl border-gray-300 dark:border-slate-700/80
                    bg-gradient-to-b from-white to-gray-50/70 dark:from-slate-900 dark:to-slate-900/40
-                   py-3 text-sm font-medium shadow-sm
+                   py-2.5 text-sm font-medium shadow-sm
                    text-gray-800 dark:text-slate-100 placeholder:text-gray-400 dark:placeholder:text-slate-600
                    transition-all duration-200
                    hover:border-sky-400/70 hover:shadow-md hover:shadow-sky-500/5
@@ -374,6 +416,29 @@ function StyledInput({
       />
     </div>
   )
+}
+
+// ── Helper functions for corpus CSV filtering and sorting ───────────────────
+function isCorpusCsv(filename: string): boolean {
+  const lower = filename.toLowerCase()
+  if (!lower.endsWith('.csv')) return false
+  if (lower.includes('_analysis_')) return false
+  if (lower.endsWith('_keyword_frequency.csv') || lower.endsWith('_keyword_presence_matrix.csv')) return false
+  if (lower.startsWith('temp_')) return false
+  return true
+}
+
+function getFileTimestamp(file: FileInfo): number {
+  if (typeof file.created_at === 'number') {
+    return file.created_at
+  }
+  if (typeof file.created_at === 'string') {
+    const num = Number(file.created_at)
+    if (!isNaN(num) && num > 0) return num
+    const parsed = new Date(file.created_at).getTime()
+    return isNaN(parsed) ? 0 : parsed
+  }
+  return 0
 }
 
 // ─── Main Page ────────────────────────────────────────────────────────────────
@@ -455,24 +520,67 @@ export function AnalyticsPage() {
     }
   }, [])
 
-  // Load the file list once; skip if already loaded (e.g. returning to the page).
-  useEffect(() => { if (sources.length === 0) void loadSources() }, [])
+  // ── Load list of CSV files from the files API ──
+  const loadSources = async (targetFile?: string) => {
+    setLoadingSources(true); setError('')
+    try {
+      const files: FileInfo[] = await filesApi.list()
+      const csvFiles = files.filter((f) => isCorpusCsv(f.filename))
+      csvFiles.sort((a, b) => getFileTimestamp(b) - getFileTimestamp(a))
+
+      const sourceInfos: AnalysisSourceInfo[] = csvFiles.map((f) => ({
+        filename: f.filename,
+        paper_count: 0,       // will be filled after loading papers
+        has_keywords: false,  // will be filled after loading papers
+      }))
+      setSources(sourceInfos)
+
+      // Preferred selection order:
+      // 1. Explicit targetFile (e.g. from upload or requested navigation file) if valid
+      // 2. requestedFile from router navigation state (if valid)
+      // 3. Current selectedFile if still valid in the refreshed corpus list
+      // 4. Default to the most recent corpus CSV (index 0)
+      const explicit = targetFile || requestedFile
+      if (explicit && sourceInfos.some((s) => s.filename === explicit)) {
+        setSelectedFile(explicit)
+      } else if (selectedFile && sourceInfos.some((s) => s.filename === selectedFile)) {
+        // Keep currently selected file if it is still present in the corpus list
+      } else if (sourceInfos.length > 0) {
+        setSelectedFile(sourceInfos[0].filename)
+      } else {
+        setSelectedFile('')
+      }
+    } catch (err: any) {
+      setError(err.error || err.message || 'Failed to load CSV files')
+    } finally {
+      setLoadingSources(false)
+    }
+  }
+
+  // Always reload the file list on mount and navigation so newly searched or uploaded datasets immediately appear
+  useEffect(() => {
+    void loadSources(requestedFile)
+  }, [location.key, requestedFile])
+
   // Honor a file passed from the Search page's "Open in Analytics", even on return.
   useEffect(() => {
     if (requestedFile && sources.some((s) => s.filename === requestedFile)) {
       setSelectedFile(requestedFile)
     }
   }, [requestedFile, sources])
+
   useEffect(() => {
     if (!selectedFile) return
     void loadCountryAnalysis(selectedFile)
   }, [selectedFile, loadCountryAnalysis])
+
   useEffect(() => {
     if (!selectedFile || !generateOnSelect) return
     // Already computed for this file (persisted in context) — don't refetch.
     if (summary?.filename === selectedFile && matrix) return
     void loadAnalysis(selectedFile)
   }, [selectedFile, generateOnSelect])
+
   // Re-fetch just the matrix preview from the backend when the row count changes.
   useEffect(() => {
     if (!selectedFile || !summary) return
@@ -482,29 +590,6 @@ export function AnalyticsPage() {
       .catch(() => {})
     return () => { cancelled = true }
   }, [previewRows])
-
-  // ── Load list of CSV files from the files API ──
-  const loadSources = async () => {
-    setLoadingSources(true); setError('')
-    try {
-      const files: FileInfo[] = await filesApi.list()
-      const csvFiles = files.filter((f) => f.filename.endsWith('.csv'))
-      const sourceInfos: AnalysisSourceInfo[] = csvFiles.map((f) => ({
-        filename: f.filename,
-        paper_count: 0,       // will be filled after loading papers
-        has_keywords: false,  // will be filled after loading papers
-      }))
-      setSources(sourceInfos)
-      // Prefer the file passed from the Search page, if it exists in the list;
-      // otherwise fall back to the first available file.
-      if (requestedFile && sourceInfos.some((s) => s.filename === requestedFile)) {
-        setSelectedFile(requestedFile)
-      } else if (!selectedFile && sourceInfos.length > 0) {
-        setSelectedFile(sourceInfos[0].filename)
-      }
-    } catch (err: any) { setError(err.error || err.message || 'Failed to load CSV files') }
-    finally { setLoadingSources(false) }
-  }
 
   // ── Upload a user-provided CSV, then refresh sources and select it ──
   const handleUploadFile = async (file: File | undefined | null) => {
@@ -521,15 +606,8 @@ export function AnalyticsPage() {
       )
       setSelectedQualityData(res)
       setIsQualityModalOpen(true)
-      // Refresh source list and select the newly uploaded file. The list
-      // refresh is in-line (rather than calling loadSources()) so we can read
-      // the fresh list synchronously to decide what to select.
-      const files: FileInfo[] = await filesApi.list()
-      const csvFiles = files.filter((f) => f.filename.endsWith('.csv'))
-      setSources(csvFiles.map((f) => ({
-        filename: f.filename, paper_count: 0, has_keywords: false,
-      })))
-      setSelectedFile(res.filename)
+      // Refresh source list and select the newly uploaded file.
+      await loadSources(res.filename)
     } catch (err: any) {
       const detail = err?.response?.data?.detail || err?.error || err?.message || 'Upload failed'
       setError(detail)
@@ -755,18 +833,20 @@ export function AnalyticsPage() {
             <span className="text-xs font-bold uppercase tracking-[0.22em] text-gray-500 dark:text-slate-500">Configuration</span>
           </div>
 
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-[2fr_1.4fr_1fr]">
+          <div className="grid grid-cols-1 gap-4 lg:grid-cols-12 lg:items-start">
             {/* File selector */}
-            <div className="flex flex-col gap-1.5">
-              <label className="flex items-center gap-1.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-slate-500">
+            <div className="lg:col-span-5">
+              <label className="mb-1.5 flex items-center gap-1.5 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.18em] text-gray-500 dark:text-slate-500">
                 <DocumentTextIcon className="h-3.5 w-3.5 text-sky-500/80 dark:text-sky-400/80" />
                 Rover CSV file
               </label>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap items-center gap-2.5">
                 <StyledSelect
                   value={selectedFile}
                   onChange={setSelectedFile}
                   disabled={loadingSources || sources.length === 0}
+                  title={selectedFile}
+                  wrapperClassName="min-w-[240px] flex-1"
                 >
                   {sources.map((s) => (
                     <option key={s.filename} value={s.filename}>
@@ -774,39 +854,41 @@ export function AnalyticsPage() {
                     </option>
                   ))}
                 </StyledSelect>
-                <button
-                  type="button"
-                  onClick={loadSources}
-                  disabled={loadingSources}
-                  title="Refresh CSV list"
-                  className="flex shrink-0 items-center gap-1.5 rounded-xl border border-gray-300 dark:border-slate-700/80 bg-gradient-to-b from-white to-gray-50/70 dark:from-slate-900 dark:to-slate-900/40 px-3.5 py-3 text-sm font-medium text-gray-700 dark:text-slate-300 shadow-sm transition hover:border-sky-400/70 hover:shadow-md hover:shadow-sky-500/5 hover:text-gray-900 dark:hover:border-sky-500/50 dark:hover:text-slate-100 disabled:opacity-50"
-                >
-                  <ArrowPathIcon className={`h-4 w-4 ${loadingSources ? 'animate-spin' : ''}`} />
-                  <span className="hidden sm:inline">{loadingSources ? 'Loading…' : 'Refresh'}</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => uploadInputRef.current?.click()}
-                  disabled={uploading}
-                  title="Upload your own CSV"
-                  className="flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-500 px-3.5 py-3 text-sm font-semibold text-white shadow-md shadow-sky-500/25 transition hover:from-sky-400 hover:to-indigo-400 hover:shadow-lg hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  <ArrowUpTrayIcon className={`h-4 w-4 ${uploading ? 'animate-pulse' : ''}`} />
-                  <span className="hidden sm:inline">{uploading ? 'Uploading…' : 'Upload CSV'}</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSelectedQualityData(null)
-                    setIsQualityModalOpen(true)
-                  }}
-                  disabled={!selectedFile}
-                  title="View dataset quality, column mappings and feature readiness"
-                  className="flex shrink-0 items-center gap-1.5 rounded-xl border border-sky-300 dark:border-sky-700/80 bg-sky-50/70 dark:bg-sky-950/40 px-3.5 py-3 text-sm font-semibold text-sky-700 dark:text-sky-300 shadow-sm transition hover:bg-sky-100 hover:border-sky-400 dark:hover:bg-sky-900/50 disabled:cursor-not-allowed disabled:opacity-50"
-                >
-                  <ShieldCheckIcon className="h-4 w-4" />
-                  <span className="hidden sm:inline">Quality & Schema</span>
-                </button>
+                <div className="flex shrink-0 flex-wrap items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => void loadSources()}
+                    disabled={loadingSources}
+                    title="Refresh CSV list"
+                    className="flex shrink-0 items-center gap-1.5 rounded-xl border border-gray-300 dark:border-slate-700/80 bg-gradient-to-b from-white to-gray-50/70 dark:from-slate-900 dark:to-slate-900/40 px-3.5 py-3 text-sm font-medium text-gray-700 dark:text-slate-300 shadow-sm transition hover:border-sky-400/70 hover:shadow-md hover:shadow-sky-500/5 hover:text-gray-900 dark:hover:border-sky-500/50 dark:hover:text-slate-100 disabled:opacity-50"
+                  >
+                    <ArrowPathIcon className={`h-4 w-4 ${loadingSources ? 'animate-spin' : ''}`} />
+                    <span className="hidden sm:inline">{loadingSources ? 'Loading…' : 'Refresh'}</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => uploadInputRef.current?.click()}
+                    disabled={uploading}
+                    title="Upload your own CSV"
+                    className="flex shrink-0 items-center gap-1.5 rounded-xl bg-gradient-to-br from-sky-500 to-indigo-500 px-3.5 py-3 text-sm font-semibold text-white shadow-md shadow-sky-500/25 transition hover:from-sky-400 hover:to-indigo-400 hover:shadow-lg hover:shadow-sky-500/30 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    <ArrowUpTrayIcon className={`h-4 w-4 ${uploading ? 'animate-pulse' : ''}`} />
+                    <span className="hidden sm:inline">{uploading ? 'Uploading…' : 'Upload CSV'}</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedQualityData(null)
+                      setIsQualityModalOpen(true)
+                    }}
+                    disabled={!selectedFile}
+                    title="View dataset quality, column mappings and feature readiness"
+                    className="flex shrink-0 items-center gap-1.5 rounded-xl border border-sky-300 dark:border-sky-700/80 bg-sky-50/70 dark:bg-sky-950/40 px-3.5 py-3 text-sm font-semibold text-sky-700 dark:text-sky-300 shadow-sm transition hover:bg-sky-100 hover:border-sky-400 dark:hover:bg-sky-900/50 disabled:cursor-not-allowed disabled:opacity-50"
+                  >
+                    <ShieldCheckIcon className="h-4 w-4" />
+                    <span className="hidden sm:inline">Quality & Schema</span>
+                  </button>
+                </div>
                 <input
                   ref={uploadInputRef}
                   type="file"
@@ -818,21 +900,25 @@ export function AnalyticsPage() {
             </div>
 
             {/* Top keywords — presets + custom */}
-            <TopKeywordControl
-              value={topKeywordLimit}
-              onChange={setTopKeywordLimit}
-              presets={TOP_LIMIT_OPTIONS}
-            />
+            <div className="lg:col-span-4">
+              <TopKeywordControl
+                value={topKeywordLimit}
+                onChange={setTopKeywordLimit}
+                presets={TOP_LIMIT_OPTIONS}
+              />
+            </div>
 
             {/* Matrix rows */}
-            <StyledInput
-              label="Matrix preview rows"
-              icon={<TableCellsIcon className="h-3.5 w-3.5" />}
-              value={previewRows}
-              onChange={setPreviewRows}
-              min={1}
-              max={100}
-            />
+            <div className="lg:col-span-3">
+              <StyledInput
+                label="Matrix preview rows"
+                icon={<TableCellsIcon className="h-3.5 w-3.5" />}
+                value={previewRows}
+                onChange={setPreviewRows}
+                min={1}
+                max={100}
+              />
+            </div>
           </div>
 
           {selectedFile && (

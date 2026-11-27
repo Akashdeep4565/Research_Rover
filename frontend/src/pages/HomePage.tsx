@@ -34,18 +34,20 @@ function formatFileSize(bytes?: number): string {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
 }
 
-function formatDate(dateStr?: string): string {
-  if (!dateStr) return 'Recently'
+function formatDate(dateVal?: string | number): string {
+  if (!dateVal) return 'Recently'
   try {
-    const d = new Date(dateStr)
-    if (isNaN(d.getTime())) return dateStr
+    const d = typeof dateVal === 'number'
+      ? (dateVal < 1e12 ? new Date(dateVal * 1000) : new Date(dateVal))
+      : new Date(dateVal)
+    if (isNaN(d.getTime())) return String(dateVal)
     return d.toLocaleDateString(undefined, {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
     })
   } catch {
-    return dateStr
+    return String(dateVal)
   }
 }
 

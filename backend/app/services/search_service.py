@@ -10,13 +10,13 @@ import sys
 import re
 from datetime import date
 from concurrent.futures import ThreadPoolExecutor
-from typing import List, Optional, Dict, Any, Callable
+from typing import List, Optional, Dict, Any, Callable, Tuple
 import logging
 import pandas as pd
 
 from app.models.schemas import Paper, SearchSource
 from app.core.config import Settings
-from app.utils.csv_loader import read_csv_to_records, CSVLoadError
+from app.utils.csv_loader import read_csv_to_records, CSVLoadError, resolve_unique_csv_filename
 
 from app.services.pubmed_service import PubMedService
 from app.services.unified_search_service import UnifiedSearchService
@@ -230,16 +230,24 @@ class SearchService:
         results: List[Dict[str, Any]],
         csv_path: str,
         progress_callback: Optional[Callable[[Dict[str, Any]], None]] = None,
-    ) -> List[Paper]:
-        """Save search results to CSV and return processed papers"""
+    ) -> Tuple[List[Paper], str]:
+        """Save search results to CSV avoiding collisions and return processed papers with actual saved path"""
         try:
             if not results:
-                return []
+                return [], csv_path
+
+            directory = os.path.dirname(os.path.abspath(csv_path)) if csv_path else (
+                self.settings.DATA_FOLDER if hasattr(self, 'settings') and self.settings else 'data'
+            )
+            os.makedirs(directory, exist_ok=True)
+            desired_filename = os.path.basename(csv_path) if csv_path else "search_results.csv"
+            unique_filename = resolve_unique_csv_filename(directory, desired_filename)
+            target_path = os.path.join(directory, unique_filename)
 
             if progress_callback:
                 progress_callback({
                     "phase": "save",
-                    "message": f"Saving {len(results)} papers to CSV: {os.path.basename(csv_path)}",
+                    "message": f"Saving {len(results)} papers to CSV: {unique_filename}",
                 })
 
             logger.info(f"Converting {len(results)} results to DataFrame")
@@ -273,8 +281,11 @@ class SearchService:
                 df['Affiliations'] = df['Affiliations'].apply(format_affiliations)
 
             logger.info(f"DataFrame shape: {df.shape}")
-            df.to_csv(csv_path, index=False, encoding='utf-8-sig')
-            logger.info(f"CSV saved to {csv_path}")
+            df.to_csv(target_path, index=False, encoding='utf-8-sig')
+            logger.info(f"CSV saved to {target_path}")
+
+            self.last_saved_csv_path = target_path
+            self.last_saved_csv_filename = unique_filename
 
             papers = []
             for result in results:
@@ -384,7 +395,7 @@ class SearchService:
                         continue
 
             logger.info(f"Paper processing: {len(results)} -> {len(papers)} papers")
-            return papers
+            return papers, target_path
 
         except Exception as e:
             logger.error(f"Error saving results to CSV: {e}")

@@ -12,6 +12,7 @@ import codecs
 import csv
 import logging
 import os
+import re
 from contextlib import contextmanager
 from typing import Any, Dict, Iterator, List, Optional, Tuple, Union
 
@@ -409,3 +410,46 @@ def open_csv_text(
         yield f
     finally:
         f.close()
+
+
+def resolve_unique_csv_filename(directory: str, desired_filename: str) -> str:
+    """
+    Resolve a collision-safe CSV filename within a directory.
+    If desired_filename (or its canonical metadata) does not exist, returns it unchanged.
+    If it exists, increments a numeric suffix (_1, _2, ...) until an unused filename
+    is found where neither <candidate>.csv nor <candidate>_canonical_metadata.json exists.
+    """
+    raw_name = os.path.basename(desired_filename).strip()
+    if not raw_name:
+        raw_name = "dataset.csv"
+
+    # Ensure .csv extension
+    if raw_name.lower().endswith(".csv"):
+        stem = raw_name[:-4]
+    else:
+        stem = raw_name
+
+    # Sanitize base stem of illegal filename characters
+    clean_stem = re.sub(r'[<>:"/\\|?*]', '_', stem).strip()
+    if not clean_stem:
+        clean_stem = "dataset"
+
+    clean_filename = f"{clean_stem}.csv"
+    target_dir = directory or "."
+
+    candidate_csv = os.path.join(target_dir, clean_filename)
+    candidate_meta = os.path.join(target_dir, f"{clean_stem}_canonical_metadata.json")
+
+    if not os.path.exists(candidate_csv) and not os.path.exists(candidate_meta):
+        return clean_filename
+
+    counter = 1
+    while True:
+        candidate_stem = f"{clean_stem}_{counter}"
+        candidate_csv = os.path.join(target_dir, f"{candidate_stem}.csv")
+        candidate_meta = os.path.join(target_dir, f"{candidate_stem}_canonical_metadata.json")
+
+        if not os.path.exists(candidate_csv) and not os.path.exists(candidate_meta):
+            return f"{candidate_stem}.csv"
+        counter += 1
+

@@ -35,7 +35,7 @@ from app.services.canonical_loader import CanonicalDataLoader
 from app.services.analysis_service import AnalysisService
 from app.services.search_service import SearchService
 from app.services.country_service import CountryService
-from app.utils.csv_loader import detect_csv_encoding, CSVLoadError
+from app.utils.csv_loader import detect_csv_encoding, CSVLoadError, resolve_unique_csv_filename
 from features.embedding_and_indexing import load_data
 
 
@@ -93,7 +93,8 @@ class BaseDatasetTest(unittest.TestCase):
         if len(content) > self.settings.MAX_FILE_SIZE:
             raise ValueError(f"File exceeds maximum allowed size of {self.settings.MAX_FILE_SIZE} bytes")
 
-        safe_name = os.path.basename(filename)
+        raw_name = os.path.basename(filename)
+        safe_name = resolve_unique_csv_filename(self.settings.DATA_FOLDER, raw_name)
         file_path = os.path.join(self.settings.DATA_FOLDER, safe_name)
 
         with open(file_path, "wb") as f:
@@ -786,6 +787,134 @@ class TestHttpClientEnvironment(BaseDatasetTest):
         """
         # Verifies that direct route handler provides full functional coverage
         self.assertTrue(callable(upload_file))
+
+
+# ===========================================================================
+# Category F: CSV Collision Prevention & Non-Overwriting Tests
+# ===========================================================================
+
+class TestCsvCollisionPrevention(BaseDatasetTest):
+    """Regression tests verifying CSV files and canonical metadata are never overwritten."""
+
+    def test_first_upload_creates_standard_name(self):
+        """1. First save/upload of dataset.csv creates dataset.csv when no conflict exists."""
+        content = b"Title,Abstract,PMID\nPaper 1,Abstract 1,101\n"
+        mock_uf = MockUploadFile("dataset.csv", content)
+        res = run_coroutine(upload_file(file=mock_uf, settings=self.settings))
+        self.assertEqual(res.filename, "dataset.csv")
+        self.assertTrue(os.path.exists(os.path.join(self.data_folder, "dataset.csv")))
+        self.assertTrue(os.path.exists(os.path.join(self.data_folder, "dataset_canonical_metadata.json")))
+
+    def test_repeated_upload_preserves_original_and_suffixes(self):
+        """2. Second save/upload with the same name dataset.csv preserves original content/timestamp and creates dataset_1.csv (and dataset_2.csv on a third conflict)."""
+        import time
+        # Upload 1
+        content1 = b"Title,Abstract,PMID\nOriginal Paper,Original Abstract,101\n"
+        mock_uf1 = MockUploadFile("dataset.csv", content1)
+        res1 = run_coroutine(upload_file(file=mock_uf1, settings=self.settings))
+        self.assertEqual(res1.filename, "dataset.csv")
+
+        csv1_path = os.path.join(self.data_folder, "dataset.csv")
+        stat1_before = os.stat(csv1_path)
+        with open(csv1_path, "rb") as f:
+            data1_before = f.read()
+
+        time.sleep(0.05)
+
+        # Upload 2 (same filename, different content)
+        content2 = b"Title,Abstract,PMID\nSecond Paper,Second Abstract,102\n"
+        mock_uf2 = MockUploadFile("dataset.csv", content2)
+        res2 = run_coroutine(upload_file(file=mock_uf2, settings=self.settings))
+        self.assertEqual(res2.filename, "dataset_1.csv")
+
+        # Verify original dataset.csv was untouched
+        stat1_after = os.stat(csv1_path)
+        with open(csv1_path, "rb") as f:
+            data1_after = f.read()
+        self.assertEqual(data1_before, data1_after)
+        self.assertEqual(stat1_before.st_mtime, stat1_after.st_mtime)
+
+        # Verify dataset_1.csv exists with content2
+        csv2_path = os.path.join(self.data_folder, "dataset_1.csv")
+        self.assertTrue(os.path.exists(csv2_path))
+        with open(csv2_path, "rb") as f:
+            self.assertEqual(f.read(), content2)
+
+        time.sleep(0.05)
+
+        # Upload 3 (third collision) -> dataset_2.csv
+        content3 = b"Title,Abstract,PMID\nThird Paper,Third Abstract,103\n"
+        mock_uf3 = MockUploadFile("dataset.csv", content3)
+        res3 = run_coroutine(upload_file(file=mock_uf3, settings=self.settings))
+        self.assertEqual(res3.filename, "dataset_2.csv")
+        self.assertTrue(os.path.exists(os.path.join(self.data_folder, "dataset_2.csv")))
+
+    def test_canonical_metadata_saved_with_matching_unique_stem(self):
+        """3. Canonical metadata generated for dataset_1.csv is saved under dataset_1_canonical_metadata.json without overwriting dataset_canonical_metadata.json."""
+        content1 = b"Title,Abstract,PMID\nFirst Alpha,First Abstract,101\n"
+        res1 = run_coroutine(upload_file(file=MockUploadFile("dataset.csv", content1), settings=self.settings))
+        meta1_path = os.path.join(self.data_folder, "dataset_canonical_metadata.json")
+        self.assertTrue(os.path.exists(meta1_path))
+        with open(meta1_path, "r", encoding="utf-8") as f:
+            meta1_data = json.load(f)
+        self.assertEqual(meta1_data["filename"], "dataset.csv")
+
+        content2 = b"Title,Abstract,PMID\nSecond Beta,Second Abstract,102\n"
+        res2 = run_coroutine(upload_file(file=MockUploadFile("dataset.csv", content2), settings=self.settings))
+        self.assertEqual(res2.filename, "dataset_1.csv")
+
+        meta2_path = os.path.join(self.data_folder, "dataset_1_canonical_metadata.json")
+        self.assertTrue(os.path.exists(meta2_path))
+        with open(meta2_path, "r", encoding="utf-8") as f:
+            meta2_data = json.load(f)
+        self.assertEqual(meta2_data["filename"], "dataset_1.csv")
+
+        # Verify original metadata is unchanged
+        with open(meta1_path, "r", encoding="utf-8") as f:
+            meta1_after = json.load(f)
+        self.assertEqual(meta1_data, meta1_after)
+
+    def test_search_csv_save_with_colliding_query_name(self):
+        """4. Search CSV save with a colliding query name preserves the existing CSV and returns the new unique csv_filename."""
+        search_svc = SearchService(self.settings)
+        initial_csv = os.path.join(self.data_folder, "Screen_time.csv")
+        with open(initial_csv, "w", encoding="utf-8") as f:
+            f.write("Title,Abstract\nExisting Screen Time Paper,Existing Abstract\n")
+        orig_stat = os.stat(initial_csv)
+
+        new_results = [
+            {"Title": "New Screen Time Paper", "Abstract": "New Abstract", "PMID": "99901"}
+        ]
+        papers, saved_path = run_coroutine(
+            search_svc.save_results_to_csv(new_results, initial_csv)
+        )
+        saved_filename = os.path.basename(saved_path)
+        self.assertEqual(saved_filename, "Screen_time_1.csv")
+        self.assertTrue(os.path.exists(saved_path))
+        self.assertEqual(len(papers), 1)
+
+        # Verify original CSV was untouched
+        cur_stat = os.stat(initial_csv)
+        self.assertEqual(orig_stat.st_mtime, cur_stat.st_mtime)
+        with open(initial_csv, "r", encoding="utf-8") as f:
+            content = f.read()
+        self.assertIn("Existing Screen Time Paper", content)
+
+    def test_resolve_unique_csv_filename_helper(self):
+        """Direct verification of resolve_unique_csv_filename helper edge cases."""
+        # Non-existing file returns as-is
+        self.assertEqual(resolve_unique_csv_filename(self.data_folder, "alpha.csv"), "alpha.csv")
+
+        # If canonical metadata already exists, increments to _1
+        meta_path = os.path.join(self.data_folder, "beta_canonical_metadata.json")
+        with open(meta_path, "w") as f:
+            f.write("{}")
+        self.assertEqual(resolve_unique_csv_filename(self.data_folder, "beta.csv"), "beta_1.csv")
+
+        # If beta_1.csv also exists, increments to _2
+        with open(os.path.join(self.data_folder, "beta_1.csv"), "w") as f:
+            f.write("test")
+        self.assertEqual(resolve_unique_csv_filename(self.data_folder, "beta.csv"), "beta_2.csv")
 
 
 if __name__ == "__main__":

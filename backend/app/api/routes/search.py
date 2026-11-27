@@ -18,6 +18,7 @@ from app.models.schemas import (
 )
 from app.core.config import get_settings
 from app.services.search_service import SearchService
+from app.utils.csv_loader import resolve_unique_csv_filename
 
 router = APIRouter()
 logger = logging.getLogger("research_rover")
@@ -257,7 +258,8 @@ async def _perform_search_with_progress(
 
         await asyncio.sleep(0.5)
 
-        csv_filename = f'{re.sub(r"[^a-zA-Z0-9]", "_", request.query)}.csv'
+        desired_csv_filename = f'{re.sub(r"[^a-zA-Z0-9]", "_", request.query)}.csv'
+        csv_filename = resolve_unique_csv_filename(settings.DATA_FOLDER, desired_csv_filename)
         csv_path = os.path.join(settings.DATA_FOLDER, csv_filename)
 
         search_progress_state = {
@@ -271,11 +273,12 @@ async def _perform_search_with_progress(
 
         await asyncio.sleep(0.5)
 
-        processed_results = await search_service.save_results_to_csv(
+        processed_results, actual_csv_path = await search_service.save_results_to_csv(
             results, csv_path, progress_callback=on_search_progress
         )
+        csv_filename = os.path.basename(actual_csv_path)
 
-        if not os.path.exists(csv_path):
+        if not os.path.exists(actual_csv_path):
             search_progress_state = {
                 "stage": -1,
                 "sub_stage": 0,
